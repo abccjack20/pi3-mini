@@ -1,0 +1,65 @@
+2023-08-29 15:06:31,605 - diamond.<module> - INFO - Starting logger.
+2023-08-29 15:06:33,203 - emod.start - INFO - Starting Job Manager.
+2023-08-29 15:06:33,206 - cron.run - INFO - Starting Cron Daemon.
+2023-08-29 15:06:52,490 - diamond.<module> - INFO - Starting logger.
+2023-08-29 15:06:53,922 - emod.start - INFO - Starting Job Manager.
+2023-08-29 15:06:53,925 - cron.run - INFO - Starting Cron Daemon.
+2023-08-29 15:07:36,374 - diamond.<module> - INFO - Starting logger.
+2023-08-29 15:07:37,801 - emod.start - INFO - Starting Job Manager.
+2023-08-29 15:07:37,804 - cron.run - INFO - Starting Cron Daemon.
+2023-08-29 15:07:57,327 - diamond.<module> - INFO - Starting logger.
+2023-08-29 15:07:58,760 - emod.start - INFO - Starting Job Manager.
+2023-08-29 15:07:58,764 - cron.run - INFO - Starting Cron Daemon.
+2023-08-29 15:10:38,048 - diamond.<module> - INFO - Starting logger.
+2023-08-29 15:10:39,604 - emod.start - INFO - Starting Job Manager.
+2023-08-29 15:10:39,606 - cron.run - INFO - Starting Cron Daemon.
+2023-08-29 15:21:48,790 - diamond.<module> - INFO - Starting logger.
+2023-08-29 15:21:50,323 - emod.start - INFO - Starting Job Manager.
+2023-08-29 15:21:50,326 - cron.run - INFO - Starting Cron Daemon.
+2023-08-29 15:22:19,650 - diamond.<module> - INFO - Starting logger.
+2023-08-29 15:22:21,317 - emod.start - INFO - Starting Job Manager.
+2023-08-29 15:22:21,320 - cron.run - INFO - Starting Cron Daemon.
+2023-08-29 15:23:04,548 - diamond.<module> - INFO - Starting logger.
+2023-08-29 15:23:06,113 - emod.start - INFO - Starting Job Manager.
+2023-08-29 15:23:06,116 - cron.run - INFO - Starting Cron Daemon.
+2023-08-29 15:23:51,144 - diamond.<module> - INFO - Starting logger.
+2023-08-29 15:23:52,603 - emod.start - INFO - Starting Job Manager.
+2023-08-29 15:23:52,606 - cron.run - INFO - Starting Cron Daemon.
+2023-08-29 15:24:12,683 - diamond.<module> - INFO - Starting logger.
+2023-08-29 15:24:14,118 - emod.start - INFO - Starting Job Manager.
+2023-08-29 15:24:14,121 - cron.run - INFO - Starting Cron Daemon.
+2023-08-29 15:26:03,458 - diamond.<module> - INFO - Starting logger.
+2023-08-29 15:26:04,982 - emod.start - INFO - Starting Job Manager.
+2023-08-29 15:26:04,986 - cron.run - INFO - Starting Cron Daemon.
+2023-08-29 15:28:40,155 - diamond.<module> - INFO - Starting logger.
+2023-08-29 15:28:41,686 - emod.start - INFO - Starting Job Manager.
+2023-08-29 15:28:41,689 - cron.run - INFO - Starting Cron Daemon.
+2023-08-29 15:29:57,083 - diamond.<module> - INFO - Starting logger.
+2023-08-29 15:29:58,583 - emod.start - INFO - Starting Job Manager.
+2023-08-29 15:29:58,586 - cron.run - INFO - Starting Cron Daemon.
+2023-08-29 15:31:04,662 - diamond.<module> - INFO - Starting logger.
+2023-08-29 15:31:06,330 - emod.start - INFO - Starting Job Manager.
+2023-08-29 15:31:06,333 - cron.run - INFO - Starting Cron Daemon.
+2023-08-29 15:34:20,709 - diamond.<module> - INFO - Starting logger.
+2023-08-29 15:34:22,162 - emod.start - INFO - Starting Job Manager.
+2023-08-29 15:34:22,167 - cron.run - INFO - Starting Cron Daemon.
+2023-08-29 15:38:28,925 - diamond.<module> - INFO - Starting logger.
+2023-08-29 15:38:30,483 - emod.start - INFO - Starting Job Manager.
+2023-08-29 15:38:30,486 - cron.run - INFO - Starting Cron Daemon.
+2023-08-29 15:43:13,957 - diamond.<module> - INFO - Starting logger.
+2023-08-29 15:43:15,458 - emod.start - INFO - Starting Job Manager.
+2023-08-29 15:43:15,461 - cron.run - INFO - Starting Cron Daemon.
+2023-08-29 15:43:41,082 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.PulsedAnalyzer object at 0x000002360F55C950>, trait: fit, old value: <analysis.pulsed.PulsedFit object at 0x000002360FE012B0>, new value: <analysis.pulsed.PulsedFit object at 0x000002367DFD5710>
+Traceback (most recent call last):
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 342, in __call__
+    self.handler(*args)
+  File "C:\Users\Qubit\src\d3\python3\analysis\pulsed.py", line 2476, in _fit_changed
+    for key in plot.plots.keys():
+RuntimeError: dictionary changed size during iteration
+2023-08-30 14:21:04,724 - pulsed._run - ERROR - Something went wrong in pulsed loop.
+Traceback (most recent call last):
+  File "C:\Users\Qubit\src\d3\python3\measurements\pulsed.py", line 213, in _run
+    self.count_data = self.old_count_data + tagger_0.getData()  + tagger_1.getData()
+  File "C:\Users\Qubit\src\d3\python3\hardware\time_tagger_api.py", line 156, in getData
+    self.socket.sendall(json.dumps(command).encode())
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host

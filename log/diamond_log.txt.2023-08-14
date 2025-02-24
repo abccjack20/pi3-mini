@@ -1,0 +1,681 @@
+2023-08-14 15:08:47,450 - diamond.<module> - INFO - Starting logger.
+2023-08-14 15:08:49,148 - emod.start - INFO - Starting Job Manager.
+2023-08-14 15:08:49,151 - cron.run - INFO - Starting Cron Daemon.
+2023-08-14 15:14:05,264 - diamond.<module> - INFO - Starting logger.
+2023-08-14 15:14:06,830 - emod.start - INFO - Starting Job Manager.
+2023-08-14 15:14:06,834 - cron.run - INFO - Starting Cron Daemon.
+2023-08-14 15:18:14,833 - diamond.<module> - INFO - Starting logger.
+2023-08-14 15:18:16,330 - emod.start - INFO - Starting Job Manager.
+2023-08-14 15:18:16,333 - cron.run - INFO - Starting Cron Daemon.
+2023-08-14 15:19:00,115 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.PulsedFit object at 0x0000024CF0502340>, trait: measurement, old value: <measurements.pulsed.Pulsed object at 0x0000024CEF0BABB0>, new value: <measurements.rabi.Rabi object at 0x0000024CF0139850>
+Traceback (most recent call last):
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 524, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 486, in dispatch
+    handler(*args)
+  File "C:\Users\Qubit\src\d3\python3\analysis\pulsed.py", line 767, in update_spin_state
+    y, profile, flank = spin_state(c=self.measurement.count_data,
+  File "C:\Users\Qubit\src\d3\python3\analysis\pulsed.py", line 37, in spin_state
+    edge = find_edge(profile)
+  File "C:\Users\Qubit\src\d3\python3\analysis\fitting.py", line 41, in find_edge
+    i  = h[i0:].argmax()+i0
+TypeError: slice indices must be integers or None or have an __index__ method
+2023-08-14 15:19:00,127 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.PulsedAnalyzer object at 0x0000024CEF15C090>, trait: fit, old value: <analysis.pulsed.PulsedFit object at 0x0000024CEF93BC40>, new value: <analysis.pulsed.PulsedFit object at 0x0000024CF0502340>
+Traceback (most recent call last):
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 342, in __call__
+    self.handler(*args)
+  File "C:\Users\Qubit\src\d3\python3\analysis\pulsed.py", line 2476, in _fit_changed
+    for key in plot.plots.keys():
+RuntimeError: dictionary changed size during iteration
+2023-08-14 15:19:00,366 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.RabiFit object at 0x0000024CF0501CB0>, trait: measurement, old value: <measurements.pulsed.Rabi object at 0x0000024CF01A9120>, new value: <measurements.rabi.Rabi object at 0x0000024CF0139850>
+Traceback (most recent call last):
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 524, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 486, in dispatch
+    handler(*args)
+  File "C:\Users\Qubit\src\d3\python3\analysis\pulsed.py", line 767, in update_spin_state
+    y, profile, flank = spin_state(c=self.measurement.count_data,
+  File "C:\Users\Qubit\src\d3\python3\analysis\pulsed.py", line 37, in spin_state
+    edge = find_edge(profile)
+  File "C:\Users\Qubit\src\d3\python3\analysis\fitting.py", line 41, in find_edge
+    i  = h[i0:].argmax()+i0
+TypeError: slice indices must be integers or None or have an __index__ method
+2023-08-14 15:20:17,615 - pulsed._run - ERROR - Something went wrong in pulsed loop.
+Traceback (most recent call last):
+  File "C:\Users\Qubit\src\d3\python3\measurements\pulsed.py", line 213, in _run
+    self.count_data = self.old_count_data + tagger_0.getData()  + tagger_1.getData()
+  File "C:\Users\Qubit\src\d3\python3\hardware\time_tagger_api.py", line 100, in getData
+    result_object = json.loads(data_received)
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2023-08-14 15:24:14,894 - diamond.<module> - INFO - Starting logger.
+2023-08-14 15:24:16,517 - emod.start - INFO - Starting Job Manager.
+2023-08-14 15:24:16,521 - cron.run - INFO - Starting Cron Daemon.
+2023-08-14 15:24:55,612 - diamond.<module> - INFO - Starting logger.
+2023-08-14 15:24:57,095 - emod.start - INFO - Starting Job Manager.
+2023-08-14 15:24:57,098 - cron.run - INFO - Starting Cron Daemon.
+2023-08-14 15:25:23,101 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.PulsedFit object at 0x000001F45B454D60>, trait: measurement, old value: <measurements.pulsed.Pulsed object at 0x000001F45B41AC00>, new value: <measurements.rabi.Rabi object at 0x000001F45B454A90>
+Traceback (most recent call last):
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 524, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 486, in dispatch
+    handler(*args)
+  File "C:\Users\Qubit\src\d3\python3\analysis\pulsed.py", line 767, in update_spin_state
+    y, profile, flank = spin_state(c=self.measurement.count_data,
+  File "C:\Users\Qubit\src\d3\python3\analysis\pulsed.py", line 37, in spin_state
+    edge = find_edge(profile)
+  File "C:\Users\Qubit\src\d3\python3\analysis\fitting.py", line 41, in find_edge
+    i  = h[i0:].argmax()+i0
+TypeError: slice indices must be integers or None or have an __index__ method
+2023-08-14 15:25:23,111 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.PulsedAnalyzer object at 0x000001F45A9306D0>, trait: fit, old value: <analysis.pulsed.PulsedFit object at 0x000001F45AC16660>, new value: <analysis.pulsed.PulsedFit object at 0x000001F45B454D60>
+Traceback (most recent call last):
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 342, in __call__
+    self.handler(*args)
+  File "C:\Users\Qubit\src\d3\python3\analysis\pulsed.py", line 2476, in _fit_changed
+    for key in plot.plots.keys():
+RuntimeError: dictionary changed size during iteration
+2023-08-14 15:25:23,197 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.RabiFit object at 0x000001F45B44CB80>, trait: measurement, old value: <measurements.pulsed.Rabi object at 0x000001F45B8BD9E0>, new value: <measurements.rabi.Rabi object at 0x000001F45B454A90>
+Traceback (most recent call last):
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 524, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 486, in dispatch
+    handler(*args)
+  File "C:\Users\Qubit\src\d3\python3\analysis\pulsed.py", line 767, in update_spin_state
+    y, profile, flank = spin_state(c=self.measurement.count_data,
+  File "C:\Users\Qubit\src\d3\python3\analysis\pulsed.py", line 37, in spin_state
+    edge = find_edge(profile)
+  File "C:\Users\Qubit\src\d3\python3\analysis\fitting.py", line 41, in find_edge
+    i  = h[i0:].argmax()+i0
+TypeError: slice indices must be integers or None or have an __index__ method
+2023-08-14 15:26:33,229 - pulsed._run - ERROR - Something went wrong in pulsed loop.
+Traceback (most recent call last):
+  File "C:\Users\Qubit\src\d3\python3\measurements\pulsed.py", line 213, in _run
+    self.count_data = self.old_count_data + tagger_0.getData()  + tagger_1.getData()
+  File "C:\Users\Qubit\src\d3\python3\hardware\time_tagger_api.py", line 100, in getData
+    result_object = json.loads(data_received)
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2023-08-14 16:23:21,871 - diamond.<module> - INFO - Starting logger.
+2023-08-14 16:23:23,628 - emod.start - INFO - Starting Job Manager.
+2023-08-14 16:23:23,632 - cron.run - INFO - Starting Cron Daemon.
+2023-08-14 16:25:20,417 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.PulsedFit object at 0x0000023AC145EED0>, trait: measurement, old value: <measurements.pulsed.Pulsed object at 0x0000023AC145C9A0>, new value: <measurements.rabi.Rabi object at 0x0000023AB67223E0>
+Traceback (most recent call last):
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 524, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 486, in dispatch
+    handler(*args)
+  File "C:\Users\Qubit\src\d3\python3\analysis\pulsed.py", line 767, in update_spin_state
+    y, profile, flank = spin_state(c=self.measurement.count_data,
+  File "C:\Users\Qubit\src\d3\python3\analysis\pulsed.py", line 37, in spin_state
+    edge = find_edge(profile)
+  File "C:\Users\Qubit\src\d3\python3\analysis\fitting.py", line 41, in find_edge
+    i  = h[i0:].argmax()+i0
+TypeError: slice indices must be integers or None or have an __index__ method
+2023-08-14 16:25:20,429 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.PulsedAnalyzer object at 0x0000023AC0F72660>, trait: fit, old value: <analysis.pulsed.PulsedFit object at 0x0000023AC142F290>, new value: <analysis.pulsed.PulsedFit object at 0x0000023AC145EED0>
+Traceback (most recent call last):
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 342, in __call__
+    self.handler(*args)
+  File "C:\Users\Qubit\src\d3\python3\analysis\pulsed.py", line 2476, in _fit_changed
+    for key in plot.plots.keys():
+RuntimeError: dictionary changed size during iteration
+2023-08-14 16:25:20,537 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.RabiFit object at 0x0000023AB6B927A0>, trait: measurement, old value: <measurements.pulsed.Rabi object at 0x0000023AC15E2340>, new value: <measurements.rabi.Rabi object at 0x0000023AB67223E0>
+Traceback (most recent call last):
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 524, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 486, in dispatch
+    handler(*args)
+  File "C:\Users\Qubit\src\d3\python3\analysis\pulsed.py", line 767, in update_spin_state
+    y, profile, flank = spin_state(c=self.measurement.count_data,
+  File "C:\Users\Qubit\src\d3\python3\analysis\pulsed.py", line 37, in spin_state
+    edge = find_edge(profile)
+  File "C:\Users\Qubit\src\d3\python3\analysis\fitting.py", line 41, in find_edge
+    i  = h[i0:].argmax()+i0
+TypeError: slice indices must be integers or None or have an __index__ method
+2023-08-14 16:26:15,000 - pulsed._run - ERROR - Something went wrong in pulsed loop.
+Traceback (most recent call last):
+  File "C:\Users\Qubit\src\d3\python3\measurements\pulsed.py", line 213, in _run
+    self.count_data = self.old_count_data + tagger_0.getData()  + tagger_1.getData()
+  File "C:\Users\Qubit\src\d3\python3\hardware\time_tagger_api.py", line 100, in getData
+    result_object = json.loads(data_received)
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2023-08-14 16:29:54,603 - diamond.<module> - INFO - Starting logger.
+2023-08-14 16:29:56,338 - emod.start - INFO - Starting Job Manager.
+2023-08-14 16:29:56,341 - cron.run - INFO - Starting Cron Daemon.
+2023-08-14 16:30:18,053 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.PulsedFit object at 0x0000021B01467330>, trait: measurement, old value: <measurements.pulsed.Pulsed object at 0x0000021B7FA580E0>, new value: <measurements.rabi.Rabi object at 0x0000021B01464810>
+Traceback (most recent call last):
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 524, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 486, in dispatch
+    handler(*args)
+  File "C:\Users\Qubit\src\d3\python3\analysis\pulsed.py", line 767, in update_spin_state
+    y, profile, flank = spin_state(c=self.measurement.count_data,
+  File "C:\Users\Qubit\src\d3\python3\analysis\pulsed.py", line 37, in spin_state
+    edge = find_edge(profile)
+  File "C:\Users\Qubit\src\d3\python3\analysis\fitting.py", line 41, in find_edge
+    i  = h[i0:].argmax()+i0
+TypeError: slice indices must be integers or None or have an __index__ method
+2023-08-14 16:30:18,059 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.PulsedAnalyzer object at 0x0000021B7FB41210>, trait: fit, old value: <analysis.pulsed.PulsedFit object at 0x0000021B7EE314E0>, new value: <analysis.pulsed.PulsedFit object at 0x0000021B01467330>
+Traceback (most recent call last):
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 342, in __call__
+    self.handler(*args)
+  File "C:\Users\Qubit\src\d3\python3\analysis\pulsed.py", line 2476, in _fit_changed
+    for key in plot.plots.keys():
+RuntimeError: dictionary changed size during iteration
+2023-08-14 16:30:18,142 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.RabiFit object at 0x0000021B01464C70>, trait: measurement, old value: <measurements.pulsed.Rabi object at 0x0000021B017B5A30>, new value: <measurements.rabi.Rabi object at 0x0000021B01464810>
+Traceback (most recent call last):
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 524, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 486, in dispatch
+    handler(*args)
+  File "C:\Users\Qubit\src\d3\python3\analysis\pulsed.py", line 767, in update_spin_state
+    y, profile, flank = spin_state(c=self.measurement.count_data,
+  File "C:\Users\Qubit\src\d3\python3\analysis\pulsed.py", line 37, in spin_state
+    edge = find_edge(profile)
+  File "C:\Users\Qubit\src\d3\python3\analysis\fitting.py", line 41, in find_edge
+    i  = h[i0:].argmax()+i0
+TypeError: slice indices must be integers or None or have an __index__ method
+2023-08-14 16:30:28,009 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.RabiFit object at 0x0000021B01464C70>, trait: measurement, old value: <measurements.rabi.Rabi object at 0x0000021B01464810>, new value: None
+Traceback (most recent call last):
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 524, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 619, in dispatch
+    handler(*args)
+  File "C:\Users\Qubit\src\d3\python3\analysis\pulsed.py", line 1360, in update_plot_tau
+    self.line_data.set_data('tau', self.measurement.tau)
+AttributeError: 'NoneType' object has no attribute 'tau'
+2023-08-14 16:30:28,011 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.PulsedFit object at 0x0000021B0152F100>, trait: measurement, old value: <measurements.pulsed.Pulsed object at 0x0000021B0146ABB0>, new value: <measurements.rabi.Rabi object at 0x0000021B014F78D0>
+Traceback (most recent call last):
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 524, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 486, in dispatch
+    handler(*args)
+  File "C:\Users\Qubit\src\d3\python3\analysis\pulsed.py", line 767, in update_spin_state
+    y, profile, flank = spin_state(c=self.measurement.count_data,
+  File "C:\Users\Qubit\src\d3\python3\analysis\pulsed.py", line 37, in spin_state
+    edge = find_edge(profile)
+  File "C:\Users\Qubit\src\d3\python3\analysis\fitting.py", line 41, in find_edge
+    i  = h[i0:].argmax()+i0
+TypeError: slice indices must be integers or None or have an __index__ method
+2023-08-14 16:30:28,014 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.PulsedAnalyzer object at 0x0000021B7FB41210>, trait: fit, old value: <analysis.pulsed.RabiFit object at 0x0000021B01464C70>, new value: <analysis.pulsed.PulsedFit object at 0x0000021B0152F100>
+Traceback (most recent call last):
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 342, in __call__
+    self.handler(*args)
+  File "C:\Users\Qubit\src\d3\python3\analysis\pulsed.py", line 2476, in _fit_changed
+    for key in plot.plots.keys():
+RuntimeError: dictionary changed size during iteration
+2023-08-14 16:30:28,091 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.RabiFit object at 0x0000021B0152F560>, trait: measurement, old value: <measurements.pulsed.Rabi object at 0x0000021B01AFA700>, new value: <measurements.rabi.Rabi object at 0x0000021B014F78D0>
+Traceback (most recent call last):
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 524, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 486, in dispatch
+    handler(*args)
+  File "C:\Users\Qubit\src\d3\python3\analysis\pulsed.py", line 767, in update_spin_state
+    y, profile, flank = spin_state(c=self.measurement.count_data,
+  File "C:\Users\Qubit\src\d3\python3\analysis\pulsed.py", line 37, in spin_state
+    edge = find_edge(profile)
+  File "C:\Users\Qubit\src\d3\python3\analysis\fitting.py", line 41, in find_edge
+    i  = h[i0:].argmax()+i0
+TypeError: slice indices must be integers or None or have an __index__ method
+2023-08-14 16:30:28,093 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.PulsedAnalyzer object at 0x0000021B7FB41210>, trait: fit, old value: <analysis.pulsed.PulsedFit object at 0x0000021B0152F100>, new value: <analysis.pulsed.RabiFit object at 0x0000021B0152F560>
+Traceback (most recent call last):
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 342, in __call__
+    self.handler(*args)
+  File "C:\Users\Qubit\src\d3\python3\analysis\pulsed.py", line 2476, in _fit_changed
+    for key in plot.plots.keys():
+RuntimeError: dictionary changed size during iteration
+2023-08-14 16:31:17,855 - pulsed._run - ERROR - Something went wrong in pulsed loop.
+Traceback (most recent call last):
+  File "C:\Users\Qubit\src\d3\python3\measurements\pulsed.py", line 213, in _run
+    self.count_data = self.old_count_data + tagger_0.getData()  + tagger_1.getData()
+  File "C:\Users\Qubit\src\d3\python3\hardware\time_tagger_api.py", line 100, in getData
+    result_object = json.loads(data_received)
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2023-08-14 16:40:13,693 - diamond.<module> - INFO - Starting logger.
+2023-08-14 16:40:15,198 - emod.start - INFO - Starting Job Manager.
+2023-08-14 16:40:15,201 - cron.run - INFO - Starting Cron Daemon.
+2023-08-14 16:41:45,808 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.PulsedFit object at 0x000001BE43FB7740>, trait: measurement, old value: <measurements.pulsed.Pulsed object at 0x000001BE43FB5990>, new value: <measurements.rabi.Rabi object at 0x000001BE43DBB060>
+Traceback (most recent call last):
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 524, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 486, in dispatch
+    handler(*args)
+  File "C:\Users\Qubit\src\d3\python3\analysis\pulsed.py", line 767, in update_spin_state
+    y, profile, flank = spin_state(c=self.measurement.count_data,
+  File "C:\Users\Qubit\src\d3\python3\analysis\pulsed.py", line 37, in spin_state
+    edge = find_edge(profile)
+  File "C:\Users\Qubit\src\d3\python3\analysis\fitting.py", line 41, in find_edge
+    i  = h[i0:].argmax()+i0
+TypeError: slice indices must be integers or None or have an __index__ method
+2023-08-14 16:42:29,227 - diamond.<module> - INFO - Starting logger.
+2023-08-14 16:42:30,725 - emod.start - INFO - Starting Job Manager.
+2023-08-14 16:42:30,727 - cron.run - INFO - Starting Cron Daemon.
+2023-08-14 16:42:46,355 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.PulsedFit object at 0x000001A24D61A8E0>, trait: measurement, old value: <measurements.pulsed.Pulsed object at 0x000001A24D61B0B0>, new value: <measurements.rabi.Rabi object at 0x000001A24D61A610>
+Traceback (most recent call last):
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 524, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 486, in dispatch
+    handler(*args)
+  File "C:\Users\Qubit\src\d3\python3\analysis\pulsed.py", line 767, in update_spin_state
+    y, profile, flank = spin_state(c=self.measurement.count_data,
+  File "C:\Users\Qubit\src\d3\python3\analysis\pulsed.py", line 37, in spin_state
+    edge = find_edge(profile)
+  File "C:\Users\Qubit\src\d3\python3\analysis\fitting.py", line 41, in find_edge
+    i  = h[i0:].argmax()+i0
+TypeError: slice indices must be integers or None or have an __index__ method
+2023-08-14 16:42:46,363 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.PulsedAnalyzer object at 0x000001A24CEFA660>, trait: fit, old value: <analysis.pulsed.PulsedFit object at 0x000001A24D0A6CF0>, new value: <analysis.pulsed.PulsedFit object at 0x000001A24D61A8E0>
+Traceback (most recent call last):
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 342, in __call__
+    self.handler(*args)
+  File "C:\Users\Qubit\src\d3\python3\analysis\pulsed.py", line 2476, in _fit_changed
+    for key in plot.plots.keys():
+RuntimeError: dictionary changed size during iteration
+2023-08-14 16:42:46,445 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.RabiFit object at 0x000001A24D607470>, trait: measurement, old value: <measurements.pulsed.Rabi object at 0x000001A24DA4C6D0>, new value: <measurements.rabi.Rabi object at 0x000001A24D61A610>
+Traceback (most recent call last):
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 524, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 486, in dispatch
+    handler(*args)
+  File "C:\Users\Qubit\src\d3\python3\analysis\pulsed.py", line 767, in update_spin_state
+    y, profile, flank = spin_state(c=self.measurement.count_data,
+  File "C:\Users\Qubit\src\d3\python3\analysis\pulsed.py", line 37, in spin_state
+    edge = find_edge(profile)
+  File "C:\Users\Qubit\src\d3\python3\analysis\fitting.py", line 41, in find_edge
+    i  = h[i0:].argmax()+i0
+TypeError: slice indices must be integers or None or have an __index__ method
+2023-08-14 16:43:41,440 - pulsed._run - ERROR - Something went wrong in pulsed loop.
+Traceback (most recent call last):
+  File "C:\Users\Qubit\src\d3\python3\measurements\pulsed.py", line 213, in _run
+    self.count_data = self.old_count_data + tagger_0.getData()  + tagger_1.getData()
+  File "C:\Users\Qubit\src\d3\python3\hardware\time_tagger_api.py", line 100, in getData
+    result_object = json.loads(data_received)
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2023-08-14 16:45:06,687 - diamond.<module> - INFO - Starting logger.
+2023-08-14 16:45:08,190 - emod.start - INFO - Starting Job Manager.
+2023-08-14 16:45:08,193 - cron.run - INFO - Starting Cron Daemon.
+2023-08-14 16:45:32,534 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.PulsedAnalyzer object at 0x000002C025C7BD30>, trait: fit, old value: <analysis.pulsed.PulsedFit object at 0x000002C0243293A0>, new value: <analysis.pulsed.PulsedFit object at 0x000002C026904400>
+Traceback (most recent call last):
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 342, in __call__
+    self.handler(*args)
+  File "C:\Users\Qubit\src\d3\python3\analysis\pulsed.py", line 2476, in _fit_changed
+    for key in plot.plots.keys():
+RuntimeError: dictionary changed size during iteration
+2023-08-14 16:46:55,701 - diamond.<module> - INFO - Starting logger.
+2023-08-14 16:46:57,220 - emod.start - INFO - Starting Job Manager.
+2023-08-14 16:46:57,224 - cron.run - INFO - Starting Cron Daemon.
+2023-08-14 16:47:20,412 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.PulsedAnalyzer object at 0x0000020774701F80>, trait: fit, old value: <analysis.pulsed.PulsedFit object at 0x00000207747BA890>, new value: <analysis.pulsed.PulsedFit object at 0x0000020774C744A0>
+Traceback (most recent call last):
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 342, in __call__
+    self.handler(*args)
+  File "C:\Users\Qubit\src\d3\python3\analysis\pulsed.py", line 2476, in _fit_changed
+    for key in plot.plots.keys():
+RuntimeError: dictionary changed size during iteration
+2023-08-14 16:47:24,163 - pulsed._run - ERROR - Something went wrong in pulsed loop.
+Traceback (most recent call last):
+  File "C:\Users\Qubit\src\d3\python3\measurements\pulsed.py", line 213, in _run
+    self.count_data = self.old_count_data + tagger_0.getData()  + tagger_1.getData()
+  File "C:\Users\Qubit\src\d3\python3\hardware\time_tagger_api.py", line 100, in getData
+    result_object = json.loads(data_received)
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2023-08-14 17:04:37,331 - diamond.<module> - INFO - Starting logger.
+2023-08-14 17:04:38,829 - emod.start - INFO - Starting Job Manager.
+2023-08-14 17:04:38,832 - cron.run - INFO - Starting Cron Daemon.
+2023-08-14 17:16:00,030 - diamond.<module> - INFO - Starting logger.
+2023-08-14 17:16:01,657 - emod.start - INFO - Starting Job Manager.
+2023-08-14 17:16:01,659 - cron.run - INFO - Starting Cron Daemon.
+2023-08-14 17:16:26,046 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.PulsedAnalyzer object at 0x000001FED4ADADE0>, trait: fit, old value: <analysis.pulsed.PulsedFit object at 0x000001FED2657CE0>, new value: <analysis.pulsed.PulsedFit object at 0x000001FED71384A0>
+Traceback (most recent call last):
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 342, in __call__
+    self.handler(*args)
+  File "C:\Users\Qubit\src\d3\python3\analysis\pulsed.py", line 2476, in _fit_changed
+    for key in plot.plots.keys():
+RuntimeError: dictionary changed size during iteration
+2023-08-14 17:16:30,613 - pulsed._run - ERROR - Something went wrong in pulsed loop.
+Traceback (most recent call last):
+  File "C:\Users\Qubit\src\d3\python3\measurements\pulsed.py", line 213, in _run
+    self.count_data = self.old_count_data + tagger_0.getData()  + tagger_1.getData()
+  File "C:\Users\Qubit\src\d3\python3\hardware\time_tagger_api.py", line 100, in getData
+    result_object = json.loads(data_received)
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\json\decoder.py", line 340, in decode
+    raise JSONDecodeError("Extra data", s, end)
+json.decoder.JSONDecodeError: Extra data: line 1 column 2 (char 1)
+2023-08-14 17:24:25,301 - diamond.<module> - INFO - Starting logger.
+2023-08-14 17:24:26,942 - emod.start - INFO - Starting Job Manager.
+2023-08-14 17:24:26,944 - cron.run - INFO - Starting Cron Daemon.
+2023-08-14 17:24:40,573 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.PulsedAnalyzer object at 0x000002467281E660>, trait: fit, old value: <analysis.pulsed.PulsedFit object at 0x000002467225CB30>, new value: <analysis.pulsed.PulsedFit object at 0x0000024674CE43B0>
+Traceback (most recent call last):
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 342, in __call__
+    self.handler(*args)
+  File "C:\Users\Qubit\src\d3\python3\analysis\pulsed.py", line 2476, in _fit_changed
+    for key in plot.plots.keys():
+RuntimeError: dictionary changed size during iteration
+2023-08-14 17:24:47,658 - pulsed._run - ERROR - Something went wrong in pulsed loop.
+Traceback (most recent call last):
+  File "C:\Users\Qubit\src\d3\python3\measurements\pulsed.py", line 213, in _run
+    self.count_data = self.old_count_data + tagger_0.getData()  + tagger_1.getData()
+  File "C:\Users\Qubit\src\d3\python3\hardware\time_tagger_api.py", line 100, in getData
+    result_object = json.loads(data_received)
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\json\decoder.py", line 340, in decode
+    raise JSONDecodeError("Extra data", s, end)
+json.decoder.JSONDecodeError: Extra data: line 1 column 2 (char 1)
+2023-08-15 14:10:50,923 - diamond.<module> - INFO - Starting logger.
+2023-08-15 14:10:52,482 - emod.start - INFO - Starting Job Manager.
+2023-08-15 14:10:52,485 - cron.run - INFO - Starting Cron Daemon.
+2023-08-15 14:11:26,759 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.PulsedAnalyzer object at 0x00000281DCD428E0>, trait: fit, old value: <analysis.pulsed.PulsedFit object at 0x00000281DC860360>, new value: <analysis.pulsed.PulsedFit object at 0x00000281DF242200>
+Traceback (most recent call last):
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 342, in __call__
+    self.handler(*args)
+  File "C:\Users\Qubit\src\d3\python3\analysis\pulsed.py", line 2476, in _fit_changed
+    for key in plot.plots.keys():
+RuntimeError: dictionary changed size during iteration
+2023-08-15 14:11:31,558 - pulsed._run - ERROR - Something went wrong in pulsed loop.
+Traceback (most recent call last):
+  File "C:\Users\Qubit\src\d3\python3\measurements\pulsed.py", line 213, in _run
+    self.count_data = self.old_count_data + tagger_0.getData()  + tagger_1.getData()
+  File "C:\Users\Qubit\src\d3\python3\hardware\time_tagger_api.py", line 100, in getData
+    result_object = json.loads(data_received)
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\json\decoder.py", line 340, in decode
+    raise JSONDecodeError("Extra data", s, end)
+json.decoder.JSONDecodeError: Extra data: line 1 column 2 (char 1)
+2023-08-15 14:15:36,070 - diamond.<module> - INFO - Starting logger.
+2023-08-15 14:15:37,582 - emod.start - INFO - Starting Job Manager.
+2023-08-15 14:15:37,585 - cron.run - INFO - Starting Cron Daemon.
+2023-08-15 14:15:51,402 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.PulsedAnalyzer object at 0x0000022BE6227BA0>, trait: fit, old value: <analysis.pulsed.PulsedFit object at 0x0000022BE612E6B0>, new value: <analysis.pulsed.PulsedFit object at 0x0000022BE87E9850>
+Traceback (most recent call last):
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 342, in __call__
+    self.handler(*args)
+  File "C:\Users\Qubit\src\d3\python3\analysis\pulsed.py", line 2476, in _fit_changed
+    for key in plot.plots.keys():
+RuntimeError: dictionary changed size during iteration
+2023-08-15 14:23:48,860 - diamond.<module> - INFO - Starting logger.
+2023-08-15 14:23:50,458 - emod.start - INFO - Starting Job Manager.
+2023-08-15 14:23:50,462 - cron.run - INFO - Starting Cron Daemon.
+2023-08-15 14:24:04,371 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.PulsedAnalyzer object at 0x000001D02501E340>, trait: fit, old value: <analysis.pulsed.PulsedFit object at 0x000001D022B425C0>, new value: <analysis.pulsed.PulsedFit object at 0x000001D02762BBF0>
+Traceback (most recent call last):
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 342, in __call__
+    self.handler(*args)
+  File "C:\Users\Qubit\src\d3\python3\analysis\pulsed.py", line 2476, in _fit_changed
+    for key in plot.plots.keys():
+RuntimeError: dictionary changed size during iteration
+2023-08-15 14:28:23,482 - pulsed._run - ERROR - Something went wrong in pulsed loop.
+Traceback (most recent call last):
+  File "C:\Users\Qubit\src\d3\python3\measurements\pulsed.py", line 213, in _run
+    self.count_data = self.old_count_data + tagger_0.getData()  + tagger_1.getData()
+  File "C:\Users\Qubit\src\d3\python3\hardware\time_tagger_api.py", line 98, in getData
+    self.socket.sendall(json.dumps(command).encode())
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+2023-08-15 14:28:37,383 - diamond.<module> - INFO - Starting logger.
+2023-08-15 14:28:39,103 - emod.start - INFO - Starting Job Manager.
+2023-08-15 14:28:39,107 - cron.run - INFO - Starting Cron Daemon.
+2023-08-15 14:28:52,093 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.PulsedAnalyzer object at 0x000001FAF5136020>, trait: fit, old value: <analysis.pulsed.PulsedFit object at 0x000001FAF5655940>, new value: <analysis.pulsed.PulsedFit object at 0x000001FAF7A39120>
+Traceback (most recent call last):
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 342, in __call__
+    self.handler(*args)
+  File "C:\Users\Qubit\src\d3\python3\analysis\pulsed.py", line 2476, in _fit_changed
+    for key in plot.plots.keys():
+RuntimeError: dictionary changed size during iteration
+2023-08-15 14:37:49,441 - diamond.<module> - INFO - Starting logger.
+2023-08-15 14:37:50,937 - emod.start - INFO - Starting Job Manager.
+2023-08-15 14:37:50,940 - cron.run - INFO - Starting Cron Daemon.
+2023-08-15 14:38:02,755 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.PulsedAnalyzer object at 0x00000287A59B3B50>, trait: fit, old value: <analysis.pulsed.PulsedFit object at 0x00000287A5BFB7E0>, new value: <analysis.pulsed.PulsedFit object at 0x00000287A811DB70>
+Traceback (most recent call last):
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 342, in __call__
+    self.handler(*args)
+  File "C:\Users\Qubit\src\d3\python3\analysis\pulsed.py", line 2476, in _fit_changed
+    for key in plot.plots.keys():
+RuntimeError: dictionary changed size during iteration
+2023-08-15 14:39:07,675 - emod.submit - INFO - The job <measurements.rabi.Rabi object at 0x000002879D526C00> is already running or in the queue.
+2023-08-15 14:41:41,491 - diamond.<module> - INFO - Starting logger.
+2023-08-15 14:41:43,059 - emod.start - INFO - Starting Job Manager.
+2023-08-15 14:41:43,061 - cron.run - INFO - Starting Cron Daemon.
+2023-08-15 14:41:54,996 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.PulsedAnalyzer object at 0x0000021BE1A0BA10>, trait: fit, old value: <analysis.pulsed.PulsedFit object at 0x0000021BDF3A9C10>, new value: <analysis.pulsed.PulsedFit object at 0x0000021BE3E7B9C0>
+Traceback (most recent call last):
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 342, in __call__
+    self.handler(*args)
+  File "C:\Users\Qubit\src\d3\python3\analysis\pulsed.py", line 2476, in _fit_changed
+    for key in plot.plots.keys():
+RuntimeError: dictionary changed size during iteration
+2023-08-15 14:47:49,199 - diamond.<module> - INFO - Starting logger.
+2023-08-15 14:47:50,686 - emod.start - INFO - Starting Job Manager.
+2023-08-15 14:47:50,690 - cron.run - INFO - Starting Cron Daemon.
+2023-08-15 14:48:14,976 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.PulsedAnalyzer object at 0x000001E57390E020>, trait: fit, old value: <analysis.pulsed.PulsedFit object at 0x000001E5716A3C90>, new value: <analysis.pulsed.PulsedFit object at 0x000001E5761376F0>
+Traceback (most recent call last):
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 342, in __call__
+    self.handler(*args)
+  File "C:\Users\Qubit\src\d3\python3\analysis\pulsed.py", line 2476, in _fit_changed
+    for key in plot.plots.keys():
+RuntimeError: dictionary changed size during iteration
+2023-08-15 16:32:31,387 - diamond.<module> - INFO - Starting logger.
+2023-08-15 16:32:32,923 - emod.start - INFO - Starting Job Manager.
+2023-08-15 16:32:32,926 - cron.run - INFO - Starting Cron Daemon.
+2023-08-15 16:33:48,361 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.PulsedAnalyzer object at 0x000002150B3B5A30>, trait: fit, old value: <analysis.pulsed.PulsedFit object at 0x000002150938E520>, new value: <analysis.pulsed.PulsedFit object at 0x000002150DF09580>
+Traceback (most recent call last):
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 342, in __call__
+    self.handler(*args)
+  File "C:\Users\Qubit\src\d3\python3\analysis\pulsed.py", line 2476, in _fit_changed
+    for key in plot.plots.keys():
+RuntimeError: dictionary changed size during iteration
+2023-08-15 16:38:08,339 - diamond.<module> - INFO - Starting logger.
+2023-08-15 16:38:09,804 - emod.start - INFO - Starting Job Manager.
+2023-08-15 16:38:09,807 - cron.run - INFO - Starting Cron Daemon.
+2023-08-15 16:40:36,015 - diamond.<module> - INFO - Starting logger.
+2023-08-15 16:40:37,531 - emod.start - INFO - Starting Job Manager.
+2023-08-15 16:40:37,534 - cron.run - INFO - Starting Cron Daemon.
+2023-08-15 16:42:44,426 - diamond.<module> - INFO - Starting logger.
+2023-08-15 16:42:46,012 - emod.start - INFO - Starting Job Manager.
+2023-08-15 16:42:46,015 - cron.run - INFO - Starting Cron Daemon.
+2023-08-15 16:42:58,341 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.PulsedAnalyzer object at 0x000002653B14EB60>, trait: fit, old value: <analysis.pulsed.PulsedFit object at 0x000002653BA1C7C0>, new value: <analysis.pulsed.PulsedFit object at 0x000002653E169940>
+Traceback (most recent call last):
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 342, in __call__
+    self.handler(*args)
+  File "C:\Users\Qubit\src\d3\python3\analysis\pulsed.py", line 2476, in _fit_changed
+    for key in plot.plots.keys():
+RuntimeError: dictionary changed size during iteration
+2023-08-15 16:43:04,465 - pulsed._run - ERROR - Something went wrong in pulsed loop.
+Traceback (most recent call last):
+  File "C:\Users\Qubit\src\d3\python3\measurements\pulsed.py", line 213, in _run
+    self.count_data = self.old_count_data + tagger_0.getData()  + tagger_1.getData()
+  File "C:\Users\Qubit\src\d3\python3\hardware\time_tagger_api.py", line 117, in getData
+    result_object = json.loads(data_received)
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2023-08-15 16:43:50,671 - diamond.<module> - INFO - Starting logger.
+2023-08-15 16:43:52,271 - emod.start - INFO - Starting Job Manager.
+2023-08-15 16:43:52,274 - cron.run - INFO - Starting Cron Daemon.
+2023-08-15 16:44:03,621 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.PulsedAnalyzer object at 0x000002332BAB6A20>, trait: fit, old value: <analysis.pulsed.PulsedFit object at 0x000002332BB895D0>, new value: <analysis.pulsed.PulsedFit object at 0x000002332E2C2BB0>
+Traceback (most recent call last):
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 342, in __call__
+    self.handler(*args)
+  File "C:\Users\Qubit\src\d3\python3\analysis\pulsed.py", line 2476, in _fit_changed
+    for key in plot.plots.keys():
+RuntimeError: dictionary changed size during iteration
+2023-08-15 16:45:25,801 - diamond.<module> - INFO - Starting logger.
+2023-08-15 16:45:27,321 - emod.start - INFO - Starting Job Manager.
+2023-08-15 16:45:27,324 - cron.run - INFO - Starting Cron Daemon.
+2023-08-15 16:45:44,311 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.PulsedAnalyzer object at 0x0000026CA03E9E90>, trait: fit, old value: <analysis.pulsed.PulsedFit object at 0x0000026CA0D4D8F0>, new value: <analysis.pulsed.PulsedFit object at 0x0000026CA34C1710>
+Traceback (most recent call last):
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 342, in __call__
+    self.handler(*args)
+  File "C:\Users\Qubit\src\d3\python3\analysis\pulsed.py", line 2476, in _fit_changed
+    for key in plot.plots.keys():
+RuntimeError: dictionary changed size during iteration
+2023-08-17 15:44:29,722 - diamond.<module> - INFO - Starting logger.
+2023-08-17 15:44:32,673 - emod.start - INFO - Starting Job Manager.
+2023-08-17 15:44:32,676 - cron.run - INFO - Starting Cron Daemon.
+2023-08-17 15:44:59,682 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.PulsedAnalyzer object at 0x000001910E172980>, trait: fit, old value: <analysis.pulsed.PulsedFit object at 0x000001910EA57CE0>, new value: <analysis.pulsed.PulsedFit object at 0x00000191111BF5B0>
+Traceback (most recent call last):
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 342, in __call__
+    self.handler(*args)
+  File "C:\Users\Qubit\src\d3\python3\analysis\pulsed.py", line 2476, in _fit_changed
+    for key in plot.plots.keys():
+RuntimeError: dictionary changed size during iteration
+2023-08-17 15:45:04,319 - pulsed._run - ERROR - Something went wrong in pulsed loop.
+Traceback (most recent call last):
+  File "C:\Users\Qubit\src\d3\python3\measurements\pulsed.py", line 213, in _run
+    self.count_data = self.old_count_data + tagger_0.getData()  + tagger_1.getData()
+ValueError: operands could not be broadcast together with shapes (134,3000) (100,) 
+2023-08-17 15:45:26,254 - pulsed._run - ERROR - Something went wrong in pulsed loop.
+Traceback (most recent call last):
+  File "C:\Users\Qubit\src\d3\python3\measurements\pulsed.py", line 213, in _run
+    self.count_data = self.old_count_data + tagger_0.getData()  + tagger_1.getData()
+  File "C:\Users\Qubit\src\d3\python3\hardware\time_tagger_api.py", line 117, in getData
+    result_object = json.loads(data_received)
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2023-08-17 15:47:41,231 - diamond.<module> - INFO - Starting logger.
+2023-08-17 15:47:42,672 - emod.start - INFO - Starting Job Manager.
+2023-08-17 15:47:42,675 - cron.run - INFO - Starting Cron Daemon.
+2023-08-17 15:48:03,080 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.PulsedAnalyzer object at 0x000001E5E7139E90>, trait: fit, old value: <analysis.pulsed.PulsedFit object at 0x000001E5E75384A0>, new value: <analysis.pulsed.PulsedFit object at 0x000001E5E95B3D80>
+Traceback (most recent call last):
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 342, in __call__
+    self.handler(*args)
+  File "C:\Users\Qubit\src\d3\python3\analysis\pulsed.py", line 2476, in _fit_changed
+    for key in plot.plots.keys():
+RuntimeError: dictionary changed size during iteration
+2023-08-17 15:48:09,041 - pulsed._run - ERROR - Something went wrong in pulsed loop.
+Traceback (most recent call last):
+  File "C:\Users\Qubit\src\d3\python3\measurements\pulsed.py", line 213, in _run
+    self.count_data = self.old_count_data + tagger_0.getData()  + tagger_1.getData()
+  File "C:\Users\Qubit\src\d3\python3\hardware\time_tagger_api.py", line 117, in getData
+    result_object = json.loads(data_received)
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2023-08-17 16:01:07,381 - diamond.<module> - INFO - Starting logger.
+2023-08-17 16:01:08,892 - emod.start - INFO - Starting Job Manager.
+2023-08-17 16:01:08,896 - cron.run - INFO - Starting Cron Daemon.
+2023-08-17 16:01:26,061 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.PulsedAnalyzer object at 0x000001EAB14FCAE0>, trait: fit, old value: <analysis.pulsed.PulsedFit object at 0x000001EAB20A8130>, new value: <analysis.pulsed.PulsedFit object at 0x000001EAB480EED0>
+Traceback (most recent call last):
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 342, in __call__
+    self.handler(*args)
+  File "C:\Users\Qubit\src\d3\python3\analysis\pulsed.py", line 2476, in _fit_changed
+    for key in plot.plots.keys():
+RuntimeError: dictionary changed size during iteration
+2023-08-17 16:01:35,467 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.RabiFit object at 0x000001EAB489E6B0>, trait: measurement, old value: <measurements.rabi.Rabi object at 0x000001EAB47F7C40>, new value: None
+Traceback (most recent call last):
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 524, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 619, in dispatch
+    handler(*args)
+  File "C:\Users\Qubit\src\d3\python3\analysis\pulsed.py", line 1360, in update_plot_tau
+    self.line_data.set_data('tau', self.measurement.tau)
+AttributeError: 'NoneType' object has no attribute 'tau'
+2023-08-17 16:01:35,469 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.PulsedAnalyzer object at 0x000001EAB14FCAE0>, trait: fit, old value: <analysis.pulsed.RabiFit object at 0x000001EAB489E6B0>, new value: <analysis.pulsed.PulsedFit object at 0x000001EAB2D949F0>
+Traceback (most recent call last):
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 342, in __call__
+    self.handler(*args)
+  File "C:\Users\Qubit\src\d3\python3\analysis\pulsed.py", line 2476, in _fit_changed
+    for key in plot.plots.keys():
+RuntimeError: dictionary changed size during iteration
+2023-08-17 16:01:35,550 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.PulsedAnalyzer object at 0x000001EAB14FCAE0>, trait: fit, old value: <analysis.pulsed.PulsedFit object at 0x000001EAB2D949F0>, new value: <analysis.pulsed.RabiFit object at 0x000001EAB195A610>
+Traceback (most recent call last):
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 342, in __call__
+    self.handler(*args)
+  File "C:\Users\Qubit\src\d3\python3\analysis\pulsed.py", line 2476, in _fit_changed
+    for key in plot.plots.keys():
+RuntimeError: dictionary changed size during iteration
+2023-08-17 16:03:41,423 - diamond.<module> - INFO - Starting logger.
+2023-08-17 16:03:42,981 - emod.start - INFO - Starting Job Manager.
+2023-08-17 16:03:42,984 - cron.run - INFO - Starting Cron Daemon.
+2023-08-17 16:04:04,671 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.PulsedAnalyzer object at 0x00000268EFB36520>, trait: fit, old value: <analysis.pulsed.PulsedFit object at 0x00000268F0717C40>, new value: <analysis.pulsed.PulsedFit object at 0x00000268F2E72700>
+Traceback (most recent call last):
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 342, in __call__
+    self.handler(*args)
+  File "C:\Users\Qubit\src\d3\python3\analysis\pulsed.py", line 2476, in _fit_changed
+    for key in plot.plots.keys():
+RuntimeError: dictionary changed size during iteration
+2023-08-17 16:09:48,737 - diamond.<module> - INFO - Starting logger.
+2023-08-17 16:09:50,365 - emod.start - INFO - Starting Job Manager.
+2023-08-17 16:09:50,368 - cron.run - INFO - Starting Cron Daemon.
+2023-08-17 16:37:41,839 - diamond.<module> - INFO - Starting logger.
+2023-08-17 16:37:43,340 - emod.start - INFO - Starting Job Manager.
+2023-08-17 16:37:43,343 - cron.run - INFO - Starting Cron Daemon.
+2023-08-17 16:39:24,091 - diamond.<module> - INFO - Starting logger.
+2023-08-17 16:39:25,532 - emod.start - INFO - Starting Job Manager.
+2023-08-17 16:39:25,535 - cron.run - INFO - Starting Cron Daemon.
+2023-08-17 16:41:52,704 - diamond.<module> - INFO - Starting logger.
+2023-08-17 16:41:54,138 - emod.start - INFO - Starting Job Manager.
+2023-08-17 16:41:54,140 - cron.run - INFO - Starting Cron Daemon.
+2023-08-17 16:43:31,655 - diamond.<module> - INFO - Starting logger.
+2023-08-17 16:43:33,104 - emod.start - INFO - Starting Job Manager.
+2023-08-17 16:43:33,107 - cron.run - INFO - Starting Cron Daemon.
+2023-08-17 16:44:31,610 - diamond.<module> - INFO - Starting logger.
+2023-08-17 16:44:33,098 - emod.start - INFO - Starting Job Manager.
+2023-08-17 16:44:33,101 - cron.run - INFO - Starting Cron Daemon.
+2023-08-17 16:48:17,329 - diamond.<module> - INFO - Starting logger.
+2023-08-17 16:48:18,832 - emod.start - INFO - Starting Job Manager.
+2023-08-17 16:48:18,835 - cron.run - INFO - Starting Cron Daemon.
+2023-08-17 16:52:16,832 - diamond.<module> - INFO - Starting logger.
+2023-08-17 16:52:18,275 - emod.start - INFO - Starting Job Manager.
+2023-08-17 16:52:18,278 - cron.run - INFO - Starting Cron Daemon.
+2023-08-17 16:53:58,539 - diamond.<module> - INFO - Starting logger.
+2023-08-17 16:54:00,088 - emod.start - INFO - Starting Job Manager.
+2023-08-17 16:54:00,091 - cron.run - INFO - Starting Cron Daemon.
+2023-08-17 16:55:15,743 - diamond.<module> - INFO - Starting logger.
+2023-08-17 16:55:17,224 - emod.start - INFO - Starting Job Manager.
+2023-08-17 16:55:17,227 - cron.run - INFO - Starting Cron Daemon.
+2023-08-17 16:57:18,369 - diamond.<module> - INFO - Starting logger.
+2023-08-17 16:57:19,820 - emod.start - INFO - Starting Job Manager.
+2023-08-17 16:57:19,823 - cron.run - INFO - Starting Cron Daemon.
+2023-08-17 16:57:51,645 - diamond.<module> - INFO - Starting logger.
+2023-08-17 16:57:53,216 - emod.start - INFO - Starting Job Manager.
+2023-08-17 16:57:53,219 - cron.run - INFO - Starting Cron Daemon.
+2023-08-17 16:58:51,546 - diamond.<module> - INFO - Starting logger.
+2023-08-17 16:58:52,969 - emod.start - INFO - Starting Job Manager.
+2023-08-17 16:58:52,972 - cron.run - INFO - Starting Cron Daemon.
+2023-08-17 17:17:18,246 - diamond.<module> - INFO - Starting logger.
+2023-08-17 17:17:19,777 - emod.start - INFO - Starting Job Manager.
+2023-08-17 17:17:19,780 - cron.run - INFO - Starting Cron Daemon.

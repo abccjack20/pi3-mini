@@ -1,0 +1,248 @@
+2023-08-03 15:41:04,892 - diamond.<module> - INFO - Starting logger.
+2023-08-03 15:41:06,359 - emod.start - INFO - Starting Job Manager.
+2023-08-03 15:41:06,361 - cron.run - INFO - Starting Cron Daemon.
+2023-08-03 15:44:25,407 - diamond.<module> - INFO - Starting logger.
+2023-08-03 15:44:26,848 - emod.start - INFO - Starting Job Manager.
+2023-08-03 15:44:26,850 - cron.run - INFO - Starting Cron Daemon.
+2023-08-03 15:46:17,868 - diamond.<module> - INFO - Starting logger.
+2023-08-03 15:46:19,315 - emod.start - INFO - Starting Job Manager.
+2023-08-03 15:46:19,319 - cron.run - INFO - Starting Cron Daemon.
+2023-08-03 15:46:20,196 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <measurements.confocal.Confocal object at 0x000002210ABAF380>, trait: x, old value: 172.0, new value: 170.2970297029703
+Traceback (most recent call last):
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 524, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 486, in dispatch
+    handler(*args)
+  File "C:\Users\Qubit\src\d3\python3\measurements\confocal.py", line 122, in _set_scanner_position
+    scanner.setPosition(self.x, self.y, self.z)
+  File "C:\Users\Qubit\src\d3\python3\hardware\nidaq.py", line 432, in setPosition
+    self.WriteAO(self.PosToVolt((x, y, z)), start=True)
+  File "C:\Users\Qubit\src\d3\python3\hardware\nidaq.py", line 269, in WriteAO
+    CHK( dll.DAQmxWriteAnalogF64( self.AOTask,
+  File "<string>", line 2, in function
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\PyDAQmx\DAQmxFunctions.py", line 57, in mafunction
+    error = f(*arg)
+ctypes.ArgumentError: argument 5: TypeError: wrong type
+2023-08-03 15:46:20,200 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <measurements.confocal.Confocal object at 0x000002210ABAF380>, trait: y, old value: 172.0, new value: 170.2970297029703
+Traceback (most recent call last):
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 524, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 486, in dispatch
+    handler(*args)
+  File "C:\Users\Qubit\src\d3\python3\measurements\confocal.py", line 122, in _set_scanner_position
+    scanner.setPosition(self.x, self.y, self.z)
+  File "C:\Users\Qubit\src\d3\python3\hardware\nidaq.py", line 432, in setPosition
+    self.WriteAO(self.PosToVolt((x, y, z)), start=True)
+  File "C:\Users\Qubit\src\d3\python3\hardware\nidaq.py", line 269, in WriteAO
+    CHK( dll.DAQmxWriteAnalogF64( self.AOTask,
+  File "<string>", line 2, in function
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\PyDAQmx\DAQmxFunctions.py", line 57, in mafunction
+    error = f(*arg)
+ctypes.ArgumentError: argument 5: TypeError: wrong type
+2023-08-03 15:56:22,019 - diamond.<module> - INFO - Starting logger.
+2023-08-03 15:56:23,382 - emod.start - INFO - Starting Job Manager.
+2023-08-03 15:56:23,384 - cron.run - INFO - Starting Cron Daemon.
+2023-08-03 15:56:24,089 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <measurements.confocal.Confocal object at 0x0000026308497380>, trait: x, old value: 172.0, new value: 170.2970297029703
+Traceback (most recent call last):
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 524, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 486, in dispatch
+    handler(*args)
+  File "C:\Users\Qubit\src\d3\python3\measurements\confocal.py", line 122, in _set_scanner_position
+    scanner.setPosition(self.x, self.y, self.z)
+  File "C:\Users\Qubit\src\d3\python3\hardware\nidaq.py", line 432, in setPosition
+    self.WriteAO(self.PosToVolt((x, y, z)), start=True)
+  File "C:\Users\Qubit\src\d3\python3\hardware\nidaq.py", line 269, in WriteAO
+    CHK( dll.DAQmxWriteAnalogF64( self.AOTask,
+  File "<string>", line 2, in function
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\PyDAQmx\DAQmxFunctions.py", line 57, in mafunction
+    error = f(*arg)
+ctypes.ArgumentError: argument 5: TypeError: wrong type
+2023-08-03 15:56:24,094 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <measurements.confocal.Confocal object at 0x0000026308497380>, trait: y, old value: 172.0, new value: 170.2970297029703
+Traceback (most recent call last):
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 524, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 486, in dispatch
+    handler(*args)
+  File "C:\Users\Qubit\src\d3\python3\measurements\confocal.py", line 122, in _set_scanner_position
+    scanner.setPosition(self.x, self.y, self.z)
+  File "C:\Users\Qubit\src\d3\python3\hardware\nidaq.py", line 432, in setPosition
+    self.WriteAO(self.PosToVolt((x, y, z)), start=True)
+  File "C:\Users\Qubit\src\d3\python3\hardware\nidaq.py", line 269, in WriteAO
+    CHK( dll.DAQmxWriteAnalogF64( self.AOTask,
+  File "<string>", line 2, in function
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\PyDAQmx\DAQmxFunctions.py", line 57, in mafunction
+    error = f(*arg)
+ctypes.ArgumentError: argument 5: TypeError: wrong type
+2023-08-03 15:59:39,413 - diamond.<module> - INFO - Starting logger.
+2023-08-03 15:59:40,798 - emod.start - INFO - Starting Job Manager.
+2023-08-03 15:59:40,800 - cron.run - INFO - Starting Cron Daemon.
+2023-08-03 15:59:41,502 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <measurements.confocal.Confocal object at 0x0000020F1F008810>, trait: x, old value: 172.0, new value: 170.2970297029703
+Traceback (most recent call last):
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 524, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 486, in dispatch
+    handler(*args)
+  File "C:\Users\Qubit\src\d3\python3\measurements\confocal.py", line 122, in _set_scanner_position
+    scanner.setPosition(self.x, self.y, self.z)
+  File "C:\Users\Qubit\src\d3\python3\hardware\nidaq.py", line 432, in setPosition
+    self.WriteAO(self.PosToVolt((x, y, z)), start=True)
+  File "C:\Users\Qubit\src\d3\python3\hardware\nidaq.py", line 269, in WriteAO
+    CHK( dll.DAQmxWriteAnalogF64( self.AOTask,
+  File "<string>", line 2, in function
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\PyDAQmx\DAQmxFunctions.py", line 57, in mafunction
+    error = f(*arg)
+ctypes.ArgumentError: argument 5: TypeError: wrong type
+2023-08-03 15:59:41,507 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <measurements.confocal.Confocal object at 0x0000020F1F008810>, trait: y, old value: 172.0, new value: 170.2970297029703
+Traceback (most recent call last):
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 524, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 486, in dispatch
+    handler(*args)
+  File "C:\Users\Qubit\src\d3\python3\measurements\confocal.py", line 122, in _set_scanner_position
+    scanner.setPosition(self.x, self.y, self.z)
+  File "C:\Users\Qubit\src\d3\python3\hardware\nidaq.py", line 432, in setPosition
+    self.WriteAO(self.PosToVolt((x, y, z)), start=True)
+  File "C:\Users\Qubit\src\d3\python3\hardware\nidaq.py", line 269, in WriteAO
+    CHK( dll.DAQmxWriteAnalogF64( self.AOTask,
+  File "<string>", line 2, in function
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\PyDAQmx\DAQmxFunctions.py", line 57, in mafunction
+    error = f(*arg)
+ctypes.ArgumentError: argument 5: TypeError: wrong type
+2023-08-03 16:02:03,450 - diamond.<module> - INFO - Starting logger.
+2023-08-03 16:02:04,817 - emod.start - INFO - Starting Job Manager.
+2023-08-03 16:02:04,820 - cron.run - INFO - Starting Cron Daemon.
+2023-08-03 16:02:05,507 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <measurements.confocal.Confocal object at 0x0000021C721CF060>, trait: x, old value: 172.0, new value: 170.2970297029703
+Traceback (most recent call last):
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 524, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 486, in dispatch
+    handler(*args)
+  File "C:\Users\Qubit\src\d3\python3\measurements\confocal.py", line 122, in _set_scanner_position
+    scanner.setPosition(self.x, self.y, self.z)
+  File "C:\Users\Qubit\src\d3\python3\hardware\nidaq.py", line 432, in setPosition
+    self.WriteAO(self.PosToVolt((x, y, z)), start=True)
+  File "C:\Users\Qubit\src\d3\python3\hardware\nidaq.py", line 269, in WriteAO
+    CHK( dll.DAQmxWriteAnalogF64( self.AOTask,
+  File "<string>", line 2, in function
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\PyDAQmx\DAQmxFunctions.py", line 57, in mafunction
+    error = f(*arg)
+ctypes.ArgumentError: argument 5: TypeError: wrong type
+2023-08-03 16:02:05,511 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <measurements.confocal.Confocal object at 0x0000021C721CF060>, trait: y, old value: 172.0, new value: 170.2970297029703
+Traceback (most recent call last):
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 524, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 486, in dispatch
+    handler(*args)
+  File "C:\Users\Qubit\src\d3\python3\measurements\confocal.py", line 122, in _set_scanner_position
+    scanner.setPosition(self.x, self.y, self.z)
+  File "C:\Users\Qubit\src\d3\python3\hardware\nidaq.py", line 432, in setPosition
+    self.WriteAO(self.PosToVolt((x, y, z)), start=True)
+  File "C:\Users\Qubit\src\d3\python3\hardware\nidaq.py", line 269, in WriteAO
+    CHK( dll.DAQmxWriteAnalogF64( self.AOTask,
+  File "<string>", line 2, in function
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\PyDAQmx\DAQmxFunctions.py", line 57, in mafunction
+    error = f(*arg)
+ctypes.ArgumentError: argument 5: TypeError: wrong type
+2023-08-03 16:05:43,126 - diamond.<module> - INFO - Starting logger.
+2023-08-03 16:05:44,681 - emod.start - INFO - Starting Job Manager.
+2023-08-03 16:05:44,685 - cron.run - INFO - Starting Cron Daemon.
+2023-08-03 16:05:45,370 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <measurements.confocal.Confocal object at 0x00000290F4B39F80>, trait: x, old value: 172.0, new value: 170.2970297029703
+Traceback (most recent call last):
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 524, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 486, in dispatch
+    handler(*args)
+  File "C:\Users\Qubit\src\d3\python3\measurements\confocal.py", line 122, in _set_scanner_position
+    scanner.setPosition(self.x, self.y, self.z)
+  File "C:\Users\Qubit\src\d3\python3\hardware\nidaq.py", line 432, in setPosition
+    self.WriteAO(self.PosToVolt((x, y, z)), start=True)
+  File "C:\Users\Qubit\src\d3\python3\hardware\nidaq.py", line 269, in WriteAO
+    CHK( dll.DAQmxWriteAnalogF64( self.AOTask,
+  File "<string>", line 2, in function
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\PyDAQmx\DAQmxFunctions.py", line 57, in mafunction
+    error = f(*arg)
+ctypes.ArgumentError: argument 5: TypeError: wrong type
+2023-08-03 16:05:45,374 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <measurements.confocal.Confocal object at 0x00000290F4B39F80>, trait: y, old value: 172.0, new value: 170.2970297029703
+Traceback (most recent call last):
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 524, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 486, in dispatch
+    handler(*args)
+  File "C:\Users\Qubit\src\d3\python3\measurements\confocal.py", line 122, in _set_scanner_position
+    scanner.setPosition(self.x, self.y, self.z)
+  File "C:\Users\Qubit\src\d3\python3\hardware\nidaq.py", line 432, in setPosition
+    self.WriteAO(self.PosToVolt((x, y, z)), start=True)
+  File "C:\Users\Qubit\src\d3\python3\hardware\nidaq.py", line 269, in WriteAO
+    CHK( dll.DAQmxWriteAnalogF64( self.AOTask,
+  File "<string>", line 2, in function
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\PyDAQmx\DAQmxFunctions.py", line 57, in mafunction
+    error = f(*arg)
+ctypes.ArgumentError: argument 5: TypeError: wrong type
+2023-08-03 16:07:57,467 - diamond.<module> - INFO - Starting logger.
+2023-08-03 16:07:58,844 - emod.start - INFO - Starting Job Manager.
+2023-08-03 16:07:58,847 - cron.run - INFO - Starting Cron Daemon.
+2023-08-03 16:07:59,538 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <measurements.confocal.Confocal object at 0x000001BBCCC0ECF0>, trait: x, old value: 172.0, new value: 170.2970297029703
+Traceback (most recent call last):
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 524, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 486, in dispatch
+    handler(*args)
+  File "C:\Users\Qubit\src\d3\python3\measurements\confocal.py", line 122, in _set_scanner_position
+    scanner.setPosition(self.x, self.y, self.z)
+  File "C:\Users\Qubit\src\d3\python3\hardware\nidaq.py", line 432, in setPosition
+    self.WriteAO(self.PosToVolt((x, y, z)), start=True)
+  File "C:\Users\Qubit\src\d3\python3\hardware\nidaq.py", line 269, in WriteAO
+    CHK( dll.DAQmxWriteAnalogF64( self.AOTask,
+  File "<string>", line 2, in function
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\PyDAQmx\DAQmxFunctions.py", line 57, in mafunction
+    error = f(*arg)
+ctypes.ArgumentError: argument 5: TypeError: wrong type
+2023-08-03 16:07:59,542 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <measurements.confocal.Confocal object at 0x000001BBCCC0ECF0>, trait: y, old value: 172.0, new value: 170.2970297029703
+Traceback (most recent call last):
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 524, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 486, in dispatch
+    handler(*args)
+  File "C:\Users\Qubit\src\d3\python3\measurements\confocal.py", line 122, in _set_scanner_position
+    scanner.setPosition(self.x, self.y, self.z)
+  File "C:\Users\Qubit\src\d3\python3\hardware\nidaq.py", line 432, in setPosition
+    self.WriteAO(self.PosToVolt((x, y, z)), start=True)
+  File "C:\Users\Qubit\src\d3\python3\hardware\nidaq.py", line 269, in WriteAO
+    CHK( dll.DAQmxWriteAnalogF64( self.AOTask,
+  File "<string>", line 2, in function
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\PyDAQmx\DAQmxFunctions.py", line 57, in mafunction
+    error = f(*arg)
+ctypes.ArgumentError: argument 5: TypeError: wrong type
+2023-08-03 16:10:01,466 - diamond.<module> - INFO - Starting logger.
+2023-08-03 16:10:02,919 - emod.start - INFO - Starting Job Manager.
+2023-08-03 16:10:02,922 - cron.run - INFO - Starting Cron Daemon.
+2023-08-03 16:14:57,082 - diamond.<module> - INFO - Starting logger.
+2023-08-03 16:14:58,543 - emod.start - INFO - Starting Job Manager.
+2023-08-03 16:14:58,546 - cron.run - INFO - Starting Cron Daemon.
+2023-08-03 16:21:00,517 - diamond.<module> - INFO - Starting logger.
+2023-08-03 16:21:01,936 - emod.start - INFO - Starting Job Manager.
+2023-08-03 16:21:01,938 - cron.run - INFO - Starting Cron Daemon.
+2023-08-03 16:26:27,546 - diamond.<module> - INFO - Starting logger.
+2023-08-03 16:26:28,932 - emod.start - INFO - Starting Job Manager.
+2023-08-03 16:26:28,935 - cron.run - INFO - Starting Cron Daemon.
+2023-08-03 16:30:08,749 - diamond.<module> - INFO - Starting logger.
+2023-08-03 16:30:10,175 - emod.start - INFO - Starting Job Manager.
+2023-08-03 16:30:10,177 - cron.run - INFO - Starting Cron Daemon.
+2023-08-03 16:41:55,250 - diamond.<module> - INFO - Starting logger.
+2023-08-03 16:41:56,684 - emod.start - INFO - Starting Job Manager.
+2023-08-03 16:41:56,687 - cron.run - INFO - Starting Cron Daemon.
+2023-08-03 16:43:54,297 - diamond.<module> - INFO - Starting logger.
+2023-08-03 16:43:55,637 - emod.start - INFO - Starting Job Manager.
+2023-08-03 16:43:55,640 - cron.run - INFO - Starting Cron Daemon.
+2023-08-03 16:45:40,052 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <measurements.confocal.Confocal object at 0x0000027AD556F9C0>, trait: submit_button, old value: <undefined>, new value: 0
+Traceback (most recent call last):
+  File "C:\Users\Qubit\Anaconda3\envs\d3\lib\site-packages\traits\trait_notifiers.py", line 342, in __call__
+    self.handler(*args)
+  File "C:\Users\Qubit\src\d3\python3\tools\emod.py", line 266, in _submit_button_fired
+    self.submit()
+  File "C:\Users\Qubit\src\d3\python3\tools\emod.py", line 258, in submit
+    JobManager().submit(self) # we just submit again and again. The JobManager takes care that duplicate submissions are ignored
+  File "C:\Users\Qubit\src\d3\python3\tools\emod.py", line 124, in submit
+    queue.sort(cmp=lambda x,y: cmp(x.priority,y.priority), reverse=True) # ToDo: Job sorting not thoroughly tested
+TypeError: 'cmp' is an invalid keyword argument for sort()
