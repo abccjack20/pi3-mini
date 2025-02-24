@@ -92,7 +92,7 @@ class CounterBoard:
 		self._CODevice = CounterOut
 		self._CIDevice = CounterIn
 
-		self._PulseTrain = self._CODevice+'InternalOutput' # counter bins are triggered by CTR1
+		self._PulseTrain = self._CODevice+'InternalOutput' # counter bins are triggered by CounterOut
 		self._TickSource = TickSource #the signal: ticks coming from the APDs
 
 		# nidaq Tasks
