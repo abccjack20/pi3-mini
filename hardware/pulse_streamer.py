@@ -19,7 +19,7 @@ class PulseStreamer:
     def Continuous(self, channels):
         # Turn on the specified channels indefinitely
         ch_list = [self.channel_map[ch] for ch in channels]
-        self.pulse_streamer.constant(ch_list)
+        self.pulse_streamer.constant((ch_list, 0, 0))
     
     def Sequence(self, sequence, start=True):
         # Convert sequence to pulsestreamer format
@@ -53,5 +53,8 @@ class PulseStreamer:
 
     def Light(self):
         # Turn on aom channel only
-        self.pulse_streamer.constant([self.channel_map['aom']])
+        self.pulse_streamer.constant(([self.channel_map['aom']], 0, 0))
 
+    def checkUnderflow(self):
+        # PulseStream do not underflow anymore
+        return 0

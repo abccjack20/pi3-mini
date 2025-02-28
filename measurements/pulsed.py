@@ -6,7 +6,9 @@ from traitsui.api import View, Item, Tabbed, HGroup, VGroup, VSplit, EnumEditor,
 import logging
 import time
 
-from hardware.api import PulseGenerator, TimeTagger, Microwave, RFSource
+from hardware.api import PulseGenerator, Microwave, RFSource
+from hardware.api import time_tagger as TimeTagger
+
 
 from tools.emod import ManagedJob
 
@@ -47,11 +49,11 @@ con: two buttons that user may not understand
 """
 
 # utility functions
-def find_laser_pulses(sequence):
+def find_detect_pulses(sequence):
     n = 0
     prev = []
     for channels, t in sequence:
-        if 'laser' in channels and not 'laser' in prev:
+        if 'detect' in channels and not 'detect' in prev:
             n += 1
         prev = channels
         if ('sequence' in channels) and (n>0):
@@ -152,7 +154,7 @@ class Pulsed(ManagedJob, GetSetItemsMixin):
         n_bins = int(self.record_length / self.bin_width)
         time_bins = self.bin_width * np.arange(n_bins)
         sequence = self.generate_sequence()
-        n_laser = find_laser_pulses(sequence)
+        n_laser = find_detect_pulses(sequence)
 
         if self.keep_data and sequence == self.sequence and np.all(time_bins == self.time_bins): # if the sequence and time_bins are the same as previous, keep existing data
             self.old_count_data = self.count_data.copy()

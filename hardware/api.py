@@ -71,7 +71,7 @@ def PulseGenerator():
 		channel_map = {
 			'aom':0,
 			'detect':1,
-			'sync':2,
-			'mw':3
+			'mw':2,
+			'sync':7,
 		}
 	)

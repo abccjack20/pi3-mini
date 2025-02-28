@@ -14,9 +14,9 @@ if __name__ == '__main__':
     photon_time_trace.edit_traits()
 
     # Start confocal including auto_focus tool
-    from measurements.confocal import Confocal
-    confocal = Confocal()
-    confocal.edit_traits()
+    # from measurements.confocal import Confocal
+    # confocal = Confocal()
+    #confocal.edit_traits()
 
     # Start autofocus tool
     # from measurements.auto_focus import AutoFocus
@@ -29,6 +29,6 @@ if __name__ == '__main__':
     # odmr.edit_traits()
 
     # Start Rabi / PulsedAnalyser
-    # from measurements.rabi import Rabi
-    # rabi = Rabi()
-    # rabi.edit_traits()
+    from measurements.rabi import Rabi
+    rabi = Rabi()
+    rabi.edit_traits()

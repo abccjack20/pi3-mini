@@ -14,7 +14,7 @@ class Rabi( Pulsed ):
     
     """Defines a Rabi measurement."""
 
-    switch      = Enum( 'mw_x','mw_b','mw_c',   desc='switch to use for different microwave source',     label='switch' )
+    switch      = Enum( 'mw','mw_b','mw_c',   desc='switch to use for different microwave source',     label='switch' )
     frequency   = Range(low=1,      high=20e9,  value=2867493000.0, desc='microwave frequency', label='frequency [Hz]', mode='text', auto_set=False, enter_set=True)
     power       = Range(low=-100.,  high=25.,   value=-27,      desc='microwave power',     label='power [dBm]',    mode='text', auto_set=False, enter_set=True)
 
@@ -59,14 +59,20 @@ class Rabi( Pulsed ):
     def generate_sequence(self):
         MW = self.switch
         tau = self.tau
-        laser = self.laser
+        laser_time = self.laser
         wait = self.wait
+        sync_time   = 100.
         sequence = []
-        sequence += [ ([  ], 200),(['sequence'], 100  )  ]
+        sequence += [ (['sync'], 100  )]
         sequence += [ ([  ], 1000 )  ]
+        sequence = [(['sync'], sync_time)]
         for t in tau:
-            #sequence += [  ([MW, 'mw'],t),  (['laser','aom'],laser),  ([],wait)  ]
-            sequence += [  ([MW],t),  (['laser','aom'],laser),  ([],wait)  ]
+            sequence += [
+                ([],wait),
+                ([MW],t), ([],tau[-1] - t),
+                (['aom','detect'], laser_time)
+            ]
+
         return sequence
 
     get_set_items = Pulsed.get_set_items + ['frequency','power','switch','tau_begin','tau_end','tau_delta','laser','wait','tau']
