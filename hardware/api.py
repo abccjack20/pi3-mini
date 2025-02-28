@@ -61,20 +61,17 @@ def RFSource():
     from .microwave_dummy import MicrowaveDummy
     return MicrowaveDummy(visa_address='GPIB0::01')
 
-from .pulse_generator_dummy import PulseGeneratorDummy
 
 @singleton
 def PulseGenerator():
-    return PulseGeneratorDummy(
-		'serial123',
-        channel_map={
-			'green':8,'aom':8, 
-            'mw_x': 2, 'mw': 2, 'mw_A': 2, #2/2
-            'laser': 7,
-            'sequence':4, 
-            'awg_dis': 5,
-            'rf':5, 'rf1':5, 
-            'mw_b':6, 'mw_y': 6, 'SmiqRf': 2,
-            'awg':1,'awgA':3, 'rf_y': 3
+	#from .pulse_generator_dummy import PulseGeneratorDummy
+	from .pulse_streamer import PulseStreamer
+	return PulseStreamer(
+		'169.254.8.2',
+		channel_map = {
+			'aom':0,
+			'detect':1,
+			'sync':2,
+			'mw':3
 		}
-    )
+	)
