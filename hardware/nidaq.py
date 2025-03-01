@@ -85,22 +85,64 @@ class ni_tasks_manager:
         return id(task) in [id(t) for t in ni_tasks_manager.values()]
 
 
-class sample_clock:
+class task_constructor:
+
+    '''
+    This class provides a framework on how you should design a class to handle tasks.
+
+    Behavior:
+        - If an instance of isn't being used, always clear the task and keep self.task = None
+        - Initiating a task always involve three steps
+            1. Acquire task handle by calling ni_tasks_manager.create_task()
+                Avoid directly calling ni.Task() unless you are confident to keep track on all task handle.
+                If a task reserved NIDAQ resources and you lose track of its task handle to clear it, it
+                will result in crashing of the program.
+            2. Create the desired output type
+                It could be a list of analog output voltages, a list of analog/digital input bins for
+                readout. It can also be a constant analog/digital output.
+            3. Configure the timing
+                NIDAQ needs to know when to output the values that you set at #2.
+                It can be:
+                - on_demand: 
+    '''
+
+    def __init__(self, device_name, counter_name):
+        self.device_name = device_name
+        self.counter_name = counter_name
+        self.source = f'/{self.device_name}/{self.counter_name}'
+        self.task = None
+
+    # Overwrite it to create actual task
+    def init_task(self):
+        # 1. Acquire task handle
+        self.task = ni_tasks_manager.create_task(f'task_{id(self)}')
+        # 2. Configure output
+        # 3. Configure Timing
+        pass
+
+    def clear_task(self):
+        if self.task:
+            # Clear task via ni_tasks_manager.remove_task() w/o calling task.close() directly.
+            ni_tasks_manager.remove_task(task=self.task)
+            del self.task
+            self.task = None
+        else:
+            print('No task has been created.')
+
+
+class sample_clock(task_constructor):
 
     '''
     Task constructor for creating a sample clock signal from NIDAQ internal clock.
     Almost all scanning task (confocal or ODMR) needs this to sync triggers and readout.
     '''
 
-    def __init__(self, device_name, counter_name, period=0.01, duty_cycle=0.9, frame_size=None):
-        self.device_name = device_name
-        self.counter_name = counter_name
-        self.source = f'/{self.device_name}/{self.counter_name}'
+    def __init__(self, *args, period=0.01, duty_cycle=0.9, frame_size=None):
+        super().__init__(*args)
         self.period = period
         self.duty_cycle = duty_cycle
         self.frame_size = frame_size
         self.mode = ni.constants.AcquisitionType.FINITE if self.frame_size else ni.constants.AcquisitionType.CONTINUOUS
-        self.task = None
 
     @property
     def sample_rate(self):
@@ -111,19 +153,23 @@ class sample_clock:
         self.period = 1/rate
 
     def init_task(self):
-        self.task = ni_tasks_manager.create_task(f'clock{id(self)}')
+        # 1. Acquire task handle
+        self.task = ni_tasks_manager.create_task(f'clock_{id(self)}')
+
+        # 2. Configure output
         self.task.co_channels.add_co_pulse_chan_freq(
             self.source,
             idle_state=ni.constants.Level.LOW,
             freq=self.sample_rate,
             duty_cycle=self.duty_cycle,
         )
+
+        # 3. Configure Timing
         self.task.timing.cfg_implicit_timing(
             sample_mode=self.mode, samps_per_chan=self.frame_size,
         )
 
-    def clear_task(self):
-        if self.task:
-            ni_tasks_manager.remove_task(task=self.task)
-            del self.task
-            self.task = None
+    
+
+
+# class 
