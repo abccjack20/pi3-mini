@@ -106,16 +106,16 @@ class task_constructor:
                 - on_demand: 
     '''
 
-    def __init__(self, device_name, counter_name):
+    def __init__(self, device_name):
         self.device_name = device_name
-        self.counter_name = counter_name
-        self.source = f'/{self.device_name}/{self.counter_name}'
         self.task = None
+        self.task_name = ''
 
     # Overwrite it to create actual task
     def init_task(self):
         # 1. Acquire task handle
-        self.task = ni_tasks_manager.create_task(f'task_{id(self)}')
+        self.task_name = f'task_{id(self)}'
+        self.task = ni_tasks_manager.create_task(self.task_name)
         # 2. Configure output
         # 3. Configure Timing
         pass
@@ -126,8 +126,30 @@ class task_constructor:
             ni_tasks_manager.remove_task(task=self.task)
             del self.task
             self.task = None
+            self.task_name = ''
         else:
             print('No task has been created.')
+
+    def start(self):
+        if not self.task:
+            print('No task is created.')
+            return
+        if not self.task.is_task_done():
+            print(f'{self.task_name}: The task has already started!')
+            return
+        try:
+            self.task.start()
+        except ni.DaqError:
+            raise Exception(f'{self.task_name}: Failed to start task')
+
+    def stop(self):
+        if not self.task:
+            print('No task is created.')
+            return
+        try:
+            self.task.stop()
+        except ni.DaqError:
+            raise Exception(f'{self.task_name}: Failed to stop task')
 
 
 class sample_clock(task_constructor):
@@ -137,8 +159,9 @@ class sample_clock(task_constructor):
     Almost all scanning task (confocal or ODMR) needs this to sync triggers and readout.
     '''
 
-    def __init__(self, *args, period=0.01, duty_cycle=0.9, frame_size=None):
-        super().__init__(*args)
+    def __init__(self, device_name, counter_name, period=0.01, duty_cycle=0.9, frame_size=None):
+        super().__init__(device_name)
+        self.counter_name = counter_name
         self.period = period
         self.duty_cycle = duty_cycle
         self.frame_size = frame_size
@@ -152,9 +175,14 @@ class sample_clock(task_constructor):
     def sample_rate(self, rate):
         self.period = 1/rate
 
+    @property
+    def source(self):
+        return f'/{self.device_name}/{self.counter_name}'
+
     def init_task(self):
         # 1. Acquire task handle
-        self.task = ni_tasks_manager.create_task(f'clock_{id(self)}')
+        self.task_name = f'clock_{id(self)}'
+        self.task = ni_tasks_manager.create_task(self.task_name)
 
         # 2. Configure output
         self.task.co_channels.add_co_pulse_chan_freq(
@@ -169,7 +197,78 @@ class sample_clock(task_constructor):
             sample_mode=self.mode, samps_per_chan=self.frame_size,
         )
 
+
+class analog_output_constant(task_constructor):
+
+    def __init__(self, device_name, ao_channels, voltage_range):
+        super().__init__(device_name)
+        self._ao_channels = ao_channels
+        self.vrange = np.array(voltage_range)
+
+    @property
+    def ao_channels(self):
+        return [f'/{self.device_name}/{ch}' for ch in self._ao_channels]
+
+    def init_task(self):
+        # 1. Acquire task handle
+        self.task_name = f'ao_{id(self)}'
+        self.task = ni_tasks_manager.create_task(self.task_name)
+
+        # 2. Configure output
+        for i, ch in enumerate(self.ao_channels):
+            self.task.ao_channels.add_ao_voltage_chan(
+                physical_channel=ch,
+                min_val=self.vrange[i,0],
+                max_val=self.vrange[i,1]
+            )
+
+        # 3. Configure timing
+        # Default timing is on-demand
     
+    def write(self, values):
+        '''
+        - Scalar:
+            Single sample for 1 channel.
+        - List/1D numpy.ndarray:
+            Multiple samples for 1 channel or 1 sample for multiple channels.
+        - List of lists/2D numpy.ndarray:
+            Multiple samples for multiple channels.
+        '''
+        if not self.task:
+            print('No task is created.')
+            return
+        try:
+            self.task.write(values)
+        except ni.DaqError:
+            raise Exception(f'Failed to write values to {self.task}')
 
 
-# class 
+class analog_output_sweeper(analog_output_constant):
+
+    def __init__(self, *args, clk_source, sampling_rate, samps_per_chan, use_falling=False):
+        super().__init__(*args)
+        self.clk_source = clk_source
+        self.sampling_rate = sampling_rate
+        self.use_falling = use_falling
+        self.samps_per_chan = samps_per_chan
+
+    @property
+    def active_edge(self):
+        if self.use_falling:
+            return ni.constants.Edge.FALLING
+        else:
+            return ni.constants.Edge.RISING
+
+    def init_task(self):
+
+        # 1. Acquire task handle
+        # 2. Configure output
+        super().init_task()
+
+        # 3. Configure timing
+        self.task.timing.cfg_samp_clk_timing(
+            self.sampling_rate,
+            source=self.clk_source,
+            active_edge=self.active_edge,
+            samps_per_chan=self.samps_per_chan
+        )
