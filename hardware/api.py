@@ -29,7 +29,7 @@ from tools.utility import singleton
 @singleton
 def Scanner():
 	# from .nidaq_dummy import Scanner
-	from .nidaq import Scanner
+	from .nidaq_dll import Scanner
 	
 	return Scanner( CounterIn='/Dev2/Ctr1',
 					CounterOut='/Dev2/Ctr0',

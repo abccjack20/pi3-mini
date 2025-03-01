@@ -31,4 +31,4 @@ if __name__ == '__main__':
     # Start Rabi / PulsedAnalyser
     from measurements.rabi import Rabi
     rabi = Rabi()
-    rabi.edit_traits()
+    # rabi.edit_traits()
