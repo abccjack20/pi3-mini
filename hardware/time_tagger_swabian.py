@@ -5,7 +5,7 @@ from TimeTagger import CHANNEL_UNUSED, createTimeTagger, Dump, Correlation, Hist
 
 class time_tagger_control:
 
-    def __init__(self, serial, ch_ticks, ch_detect, ch_sync):
+    def __init__(self, serial, ch_ticks, ch_detect, ch_sync, ch_marker=None):
         self._serial = serial
         self._tagger = createTimeTagger(serial)
         self._channels = dict(
@@ -13,6 +13,7 @@ class time_tagger_control:
             detect = ch_detect,
             sync = ch_sync
         )
+        if ch_marker: self._channels['marker'] = ch_marker
 
     def Counter(self, ch_list, binwidth, TraceLength):
         return Counter(
@@ -20,6 +21,20 @@ class time_tagger_control:
             ch_list,
             binwidth,
             TraceLength
+        )
+    
+    def Count_Between_Markers(self, n_bins):
+        if not 'marker' in self._channels.keys():
+            print("Marker channel is not specified!")
+            return
+        ch_click    = self._channels['ticks']
+        ch_marker   = self._channels['marker']
+        return CountBetweenMarkers(
+            self._tagger,
+            ch_click,
+            ch_marker,
+            end_channel=ch_marker,
+            n_values=n_bins,
         )
     
     def Pulsed(self, n_bins, binwidth, n_lasers, *args):

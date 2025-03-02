@@ -92,7 +92,7 @@ class task_constructor:
 
     Behavior:
         - If an instance of isn't being used, always clear the task and keep self.task = None
-        - Initiating a task always involve three steps
+        - Preparing a task always involve three steps
             1. Acquire task handle by calling ni_tasks_manager.create_task()
                 Avoid directly calling ni.Task() unless you are confident to keep track on all task handle.
                 If a task reserved NIDAQ resources and you lose track of its task handle to clear it, it
@@ -112,8 +112,10 @@ class task_constructor:
         self.task_name = ''
 
     # Overwrite it to create actual task
-    def init_task(self):
+    def prepare_task(self):
         # 1. Acquire task handle
+        if self.task:
+            self.clear_task()
         self.task_name = f'task_{id(self)}'
         self.task = ni_tasks_manager.create_task(self.task_name)
         # 2. Configure output
@@ -159,13 +161,13 @@ class sample_clock(task_constructor):
     Almost all scanning task (confocal or ODMR) needs this to sync triggers and readout.
     '''
 
-    def __init__(self, device_name, counter_name, period=0.01, duty_cycle=0.9, frame_size=None):
+    def __init__(self, device_name, counter_name, period=0.01, duty_cycle=0.9, samps_per_chan=None):
         super().__init__(device_name)
         self.counter_name = counter_name
         self.period = period
         self.duty_cycle = duty_cycle
-        self.frame_size = frame_size
-        self.mode = ni.constants.AcquisitionType.FINITE if self.frame_size else ni.constants.AcquisitionType.CONTINUOUS
+        self.samps_per_chan = samps_per_chan
+        
 
     @property
     def sample_rate(self):
@@ -179,13 +181,15 @@ class sample_clock(task_constructor):
     def source(self):
         return f'/{self.device_name}/{self.counter_name}'
 
-    def init_task(self):
+    def prepare_task(self):
         # 1. Acquire task handle
+        if self.task:
+            self.clear_task()
         self.task_name = f'clock_{id(self)}'
         self.task = ni_tasks_manager.create_task(self.task_name)
 
         # 2. Configure output
-        self.task.co_channels.add_co_pulse_chan_freq(
+        self.output = self.task.co_channels.add_co_pulse_chan_freq(
             self.source,
             idle_state=ni.constants.Level.LOW,
             freq=self.sample_rate,
@@ -193,9 +197,18 @@ class sample_clock(task_constructor):
         )
 
         # 3. Configure Timing
+        self.config_timing()
+
+    def config_timing(self):
+        samps_per_chan = self.samps_per_chan if self.samps_per_chan else 1000
+        mode = ni.constants.AcquisitionType.FINITE if self.samps_per_chan else ni.constants.AcquisitionType.CONTINUOUS
         self.task.timing.cfg_implicit_timing(
-            sample_mode=self.mode, samps_per_chan=self.frame_size,
+            sample_mode=mode, samps_per_chan=samps_per_chan,
         )
+
+    def update_task(self):
+        self.output.co_pulse_freq = self.sample_rate
+        self.config_timing()
 
 
 class analog_output_constant(task_constructor):
@@ -204,28 +217,33 @@ class analog_output_constant(task_constructor):
         super().__init__(device_name)
         self._ao_channels = ao_channels
         self.vrange = np.array(voltage_range)
+        self.ao_list = []
 
     @property
     def ao_channels(self):
         return [f'/{self.device_name}/{ch}' for ch in self._ao_channels]
 
-    def init_task(self):
+    def prepare_task(self):
         # 1. Acquire task handle
+        if self.task:
+            self.clear_task()
         self.task_name = f'ao_{id(self)}'
         self.task = ni_tasks_manager.create_task(self.task_name)
 
         # 2. Configure output
+        self.ao_list = []
         for i, ch in enumerate(self.ao_channels):
-            self.task.ao_channels.add_ao_voltage_chan(
+            ao = self.task.ao_channels.add_ao_voltage_chan(
                 physical_channel=ch,
                 min_val=self.vrange[i,0],
                 max_val=self.vrange[i,1]
             )
+            self.ao_list.append(ao)
 
         # 3. Configure timing
         # Default timing is on-demand
     
-    def write(self, values):
+    def write(self, values, auto_start=False):
         '''
         - Scalar:
             Single sample for 1 channel.
@@ -238,19 +256,27 @@ class analog_output_constant(task_constructor):
             print('No task is created.')
             return
         try:
-            self.task.write(values)
+            self.task.write(values, auto_start=auto_start)
         except ni.DaqError:
             raise Exception(f'Failed to write values to {self.task}')
+
+    def update_task(self):
+        for i, ao in enumerate(self.ao_list):
+            ao.ao_min = self.vrange[i,0]
+            ao.ao_max = self.vrange[i,1]
 
 
 class analog_output_sweeper(analog_output_constant):
 
-    def __init__(self, *args, clk_source, sampling_rate, samps_per_chan, use_falling=False):
-        super().__init__(*args)
-        self.clk_source = clk_source
-        self.sampling_rate = sampling_rate
+    def __init__(self,
+        device_name, ao_channels, voltage_range,
+        samp_clk, use_falling=False
+    ):
+        super().__init__(device_name, ao_channels, voltage_range)
+        self.samp_clk = samp_clk
         self.use_falling = use_falling
-        self.samps_per_chan = samps_per_chan
+        self.on_demand = False
+        self.samps_per_chan = 10
 
     @property
     def active_edge(self):
@@ -259,16 +285,35 @@ class analog_output_sweeper(analog_output_constant):
         else:
             return ni.constants.Edge.RISING
 
-    def init_task(self):
+    def prepare_task(self):
 
         # 1. Acquire task handle
         # 2. Configure output
-        super().init_task()
+        super().prepare_task()
 
         # 3. Configure timing
+        self.config_timing()
+
+    def config_timing(self):
+        # Restore to on-demand mode
+        if self.on_demand:
+            self.task.timing.samp_timing_type = ni.constants.SampleTimingType.ON_DEMAND
+            return
+        
+        if not self.samp_clk.samps_per_chan:
+            print('Specify frame size of the sampling clock to use FINITE mode')
+            return
+
+        src = self.samp_clk.source + 'InternalOutput'
+        rate = self.samp_clk.sample_rate
         self.task.timing.cfg_samp_clk_timing(
-            self.sampling_rate,
-            source=self.clk_source,
+            rate,
+            source=src,
             active_edge=self.active_edge,
             samps_per_chan=self.samps_per_chan
         )
+    
+    def update_task(self):
+        super().update_task()
+        self.config_timing()
+
