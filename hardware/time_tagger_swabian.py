@@ -28,12 +28,13 @@ class time_tagger_control:
             print("Marker channel is not specified!")
             return
         ch_click    = self._channels['ticks']
-        ch_marker   = self._channels['marker']
+        ch_start    = self._channels['marker']
+        ch_end      = -ch_start     # Use falling edge of the same channel
         return CountBetweenMarkers(
             self._tagger,
             ch_click,
-            ch_marker,
-            end_channel=ch_marker,
+            ch_start,
+            end_channel=ch_end,
             n_values=n_bins,
         )
     
