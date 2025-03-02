@@ -168,7 +168,6 @@ class sample_clock(task_constructor):
         self.duty_cycle = duty_cycle
         self.samps_per_chan = samps_per_chan
         
-
     @property
     def sample_rate(self):
         return 1/self.period
