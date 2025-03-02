@@ -23,6 +23,7 @@ def Stage_control(
     y_range=(-100.0,100.0),
     z_range=(0,100.0),
     aom_range=(-10,10),
+    home_pos=None,
     invert_x=False,
     invert_y=False,
     invert_z=False,
@@ -47,6 +48,7 @@ def Stage_control(
         y_range=y_range,
         z_range=z_range,
         aom_range=aom_range,
+        home_pos=home_pos,
         invert_x=invert_x,
         invert_y=invert_y,
         invert_z=invert_z,
@@ -74,7 +76,7 @@ class piezostage_controller_aom:
         self.zRange = z_range
         self.aomRange = aom_range
         if home_pos:
-            self.home_pos = home_pos
+            self.home_pos = np.array(home_pos)
         else:
             self.home_pos = np.array([
                 np.mean(self.xRange),
@@ -108,10 +110,10 @@ class piezostage_controller_aom:
         posHigh = posRange[:,[1]]
         posDiff = posHigh - posLow
         
-        print(vDiff.shape, posDiff.shape,pos.shape)
+        # print(vDiff.shape, posDiff.shape,pos.shape)
 
         vOutput = vLow + vDiff*(pos - posLow)/posDiff
-        print(vOutput)
+        # print(vOutput)
 
         mask = [self.invert_x, self.invert_y, self.invert_z, False]
         vOutput[mask] = vLow[mask] + vDiff[mask]*(posHigh[mask] - pos[mask])/posDiff[mask]
@@ -156,9 +158,9 @@ class piezostage_controller_aom:
             Line_aom = Line
 
         self.sample_clk.period = SecondsPerPoint
-        self.sample_clk.frame_size = frame_size + 1
+        self.sample_clk.samps_per_chan = frame_size + 1
         self.sample_clk.update_task()
-        
+
         self.ao_task.samps_per_chan = frame_size
         self.ao_task.sample_rate = self.sample_clk.sample_rate
         self.ao_task.on_demand = False
@@ -169,6 +171,7 @@ class piezostage_controller_aom:
 
         cbm_task.start()
         self.ao_task.start()
+        time.sleep(.1)
         self.sample_clk.start()
 
         t = 0

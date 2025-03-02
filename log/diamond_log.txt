@@ -152,3 +152,142 @@ IndexError: list index out of range
 2025-02-28 17:40:24,543 - diamond.<module> - INFO - Starting logger.
 2025-02-28 17:40:25,204 - emod.start - INFO - Starting Job Manager.
 2025-02-28 17:40:25,205 - cron.run - INFO - Starting Cron Daemon.
+2025-03-02 15:24:44,961 - diamond.<module> - INFO - Starting logger.
+2025-03-02 15:24:45,648 - emod.start - INFO - Starting Job Manager.
+2025-03-02 15:24:45,649 - cron.run - INFO - Starting Cron Daemon.
+2025-03-02 15:25:12,415 - diamond.<module> - INFO - Starting logger.
+2025-03-02 15:25:13,076 - emod.start - INFO - Starting Job Manager.
+2025-03-02 15:25:13,078 - cron.run - INFO - Starting Cron Daemon.
+2025-03-02 15:25:44,389 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <measurements.confocal.Confocal object at 0x00000199ACAD6250>, trait: x, old value: 0.0, new value: -0.9900990099009874
+Traceback (most recent call last):
+  File "D:\Anaconda\install\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "D:\Anaconda\install\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 487, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 122, in _set_scanner_position
+    scanner.setPosition(self.x, self.y, self.z)
+TypeError: piezostage_controller_aom.setPosition() missing 1 required positional argument: 'aom'
+2025-03-02 15:25:44,404 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <measurements.confocal.Confocal object at 0x00000199ACAD6250>, trait: y, old value: 0.0, new value: -0.9900990099009874
+Traceback (most recent call last):
+  File "D:\Anaconda\install\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "D:\Anaconda\install\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 487, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 122, in _set_scanner_position
+    scanner.setPosition(self.x, self.y, self.z)
+TypeError: piezostage_controller_aom.setPosition() missing 1 required positional argument: 'aom'
+2025-03-02 15:40:50,263 - diamond.<module> - INFO - Starting logger.
+2025-03-02 15:40:50,940 - emod.start - INFO - Starting Job Manager.
+2025-03-02 15:40:50,942 - cron.run - INFO - Starting Cron Daemon.
+2025-03-02 15:41:46,651 - diamond.<module> - INFO - Starting logger.
+2025-03-02 15:41:47,310 - emod.start - INFO - Starting Job Manager.
+2025-03-02 15:41:47,311 - cron.run - INFO - Starting Cron Daemon.
+2025-03-02 15:46:19,766 - diamond.<module> - INFO - Starting logger.
+2025-03-02 15:46:20,433 - emod.start - INFO - Starting Job Manager.
+2025-03-02 15:46:20,435 - cron.run - INFO - Starting Cron Daemon.
+2025-03-02 15:49:09,059 - diamond.<module> - INFO - Starting logger.
+2025-03-02 15:49:09,748 - emod.start - INFO - Starting Job Manager.
+2025-03-02 15:49:09,750 - cron.run - INFO - Starting Cron Daemon.
+2025-03-02 15:51:50,419 - diamond.<module> - INFO - Starting logger.
+2025-03-02 15:51:51,089 - emod.start - INFO - Starting Job Manager.
+2025-03-02 15:51:51,090 - cron.run - INFO - Starting Cron Daemon.
+2025-03-02 15:58:17,657 - diamond.<module> - INFO - Starting logger.
+2025-03-02 15:58:18,342 - emod.start - INFO - Starting Job Manager.
+2025-03-02 15:58:18,344 - cron.run - INFO - Starting Cron Daemon.
+2025-03-02 16:01:16,985 - diamond.<module> - INFO - Starting logger.
+2025-03-02 16:01:17,653 - emod.start - INFO - Starting Job Manager.
+2025-03-02 16:01:17,655 - cron.run - INFO - Starting Cron Daemon.
+2025-03-02 16:02:49,332 - diamond.<module> - INFO - Starting logger.
+2025-03-02 16:02:50,019 - emod.start - INFO - Starting Job Manager.
+2025-03-02 16:02:50,020 - cron.run - INFO - Starting Cron Daemon.
+2025-03-02 16:04:56,235 - diamond.<module> - INFO - Starting logger.
+2025-03-02 16:04:56,910 - emod.start - INFO - Starting Job Manager.
+2025-03-02 16:04:56,911 - cron.run - INFO - Starting Cron Daemon.
+2025-03-02 16:07:06,508 - diamond.<module> - INFO - Starting logger.
+2025-03-02 16:07:07,185 - emod.start - INFO - Starting Job Manager.
+2025-03-02 16:07:07,186 - cron.run - INFO - Starting Cron Daemon.
+2025-03-02 16:08:39,225 - diamond.<module> - INFO - Starting logger.
+2025-03-02 16:08:39,893 - emod.start - INFO - Starting Job Manager.
+2025-03-02 16:08:39,894 - cron.run - INFO - Starting Cron Daemon.
+2025-03-02 16:10:54,650 - diamond.<module> - INFO - Starting logger.
+2025-03-02 16:10:55,317 - emod.start - INFO - Starting Job Manager.
+2025-03-02 16:10:55,319 - cron.run - INFO - Starting Cron Daemon.
+2025-03-02 16:13:07,276 - diamond.<module> - INFO - Starting logger.
+2025-03-02 16:13:07,967 - emod.start - INFO - Starting Job Manager.
+2025-03-02 16:13:07,968 - cron.run - INFO - Starting Cron Daemon.
+2025-03-02 16:14:05,186 - diamond.<module> - INFO - Starting logger.
+2025-03-02 16:14:05,877 - emod.start - INFO - Starting Job Manager.
+2025-03-02 16:14:05,878 - cron.run - INFO - Starting Cron Daemon.
+2025-03-02 16:14:59,001 - diamond.<module> - INFO - Starting logger.
+2025-03-02 16:14:59,679 - emod.start - INFO - Starting Job Manager.
+2025-03-02 16:14:59,680 - cron.run - INFO - Starting Cron Daemon.
+2025-03-02 16:28:26,808 - diamond.<module> - INFO - Starting logger.
+2025-03-02 16:28:27,483 - emod.start - INFO - Starting Job Manager.
+2025-03-02 16:28:27,484 - cron.run - INFO - Starting Cron Daemon.
+2025-03-02 16:31:45,601 - diamond.<module> - INFO - Starting logger.
+2025-03-02 16:31:46,261 - emod.start - INFO - Starting Job Manager.
+2025-03-02 16:31:46,262 - cron.run - INFO - Starting Cron Daemon.
+2025-03-02 16:34:45,323 - diamond.<module> - INFO - Starting logger.
+2025-03-02 16:34:45,998 - emod.start - INFO - Starting Job Manager.
+2025-03-02 16:34:45,999 - cron.run - INFO - Starting Cron Daemon.
+2025-03-02 16:36:14,951 - diamond.<module> - INFO - Starting logger.
+2025-03-02 16:36:15,610 - emod.start - INFO - Starting Job Manager.
+2025-03-02 16:36:15,611 - cron.run - INFO - Starting Cron Daemon.
+2025-03-02 16:37:18,762 - diamond.<module> - INFO - Starting logger.
+2025-03-02 16:37:19,440 - emod.start - INFO - Starting Job Manager.
+2025-03-02 16:37:19,441 - cron.run - INFO - Starting Cron Daemon.
+2025-03-02 16:37:55,839 - diamond.<module> - INFO - Starting logger.
+2025-03-02 16:37:56,515 - emod.start - INFO - Starting Job Manager.
+2025-03-02 16:37:56,516 - cron.run - INFO - Starting Cron Daemon.
+2025-03-02 16:39:16,041 - diamond.<module> - INFO - Starting logger.
+2025-03-02 16:39:16,721 - emod.start - INFO - Starting Job Manager.
+2025-03-02 16:39:16,722 - cron.run - INFO - Starting Cron Daemon.
+2025-03-02 16:40:48,744 - auto_focus.focus - INFO - Focus: -1.64, -0.54, 0.00
+2025-03-02 16:41:37,757 - diamond.<module> - INFO - Starting logger.
+2025-03-02 16:41:38,422 - emod.start - INFO - Starting Job Manager.
+2025-03-02 16:41:38,424 - cron.run - INFO - Starting Cron Daemon.
+2025-03-02 16:42:19,188 - auto_focus.focus - INFO - Focus: 10.36, -11.26, 0.00
+2025-03-02 16:45:09,672 - diamond.<module> - INFO - Starting logger.
+2025-03-02 16:45:10,340 - emod.start - INFO - Starting Job Manager.
+2025-03-02 16:45:10,341 - cron.run - INFO - Starting Cron Daemon.
+2025-03-02 16:45:47,131 - diamond.<module> - INFO - Starting logger.
+2025-03-02 16:45:47,852 - emod.start - INFO - Starting Job Manager.
+2025-03-02 16:45:47,854 - cron.run - INFO - Starting Cron Daemon.
+2025-03-02 16:46:13,398 - exception_handling._log_exception - ERROR - Exception occurred in traits notification handler for event object: TraitChangeEvent(object=<chaco.tools.cursor_tool.CursorTool2D object at 0x000001E6FC072570>, name='current_index', old=(67, 45), new=(67, 5))
+Traceback (most recent call last):
+  File "D:\Anaconda\install\envs\pi3\Lib\site-packages\traits\observation\_trait_event_notifier.py", line 122, in __call__
+    self.dispatcher(handler, event)
+  File "D:\Anaconda\install\envs\pi3\Lib\site-packages\traits\observation\observe.py", line 43, in dispatch_same
+    handler(event)
+  File "D:\Anaconda\install\envs\pi3\Lib\site-packages\traits\has_traits.py", line 327, in handler
+    instance.trait_property_changed(property_name, old)
+  File "D:\Anaconda\install\envs\pi3\Lib\site-packages\traits\has_traits.py", line 905, in decorator
+    self.__dict__[name] = result = function(self)
+                                   ^^^^^^^^^^^^^^
+  File "D:\Anaconda\install\envs\pi3\Lib\site-packages\chaco\tools\cursor_tool.py", line 255, in _get_current_position
+    x = xdata.get_data()[ndx]
+        ~~~~~~~~~~~~~~~~^^^^^
+IndexError: index 67 is out of bounds for axis 0 with size 13
+2025-03-02 16:46:13,487 - exception_handling._log_exception - ERROR - Exception occurred in traits notification handler for event object: TraitChangeEvent(object=<chaco.tools.cursor_tool.CursorTool2D object at 0x000001E6FC072570>, name='current_index', old=(67, 5), new=(67, 4))
+Traceback (most recent call last):
+  File "D:\Anaconda\install\envs\pi3\Lib\site-packages\traits\observation\_trait_event_notifier.py", line 122, in __call__
+    self.dispatcher(handler, event)
+  File "D:\Anaconda\install\envs\pi3\Lib\site-packages\traits\observation\observe.py", line 43, in dispatch_same
+    handler(event)
+  File "D:\Anaconda\install\envs\pi3\Lib\site-packages\traits\has_traits.py", line 327, in handler
+    instance.trait_property_changed(property_name, old)
+  File "D:\Anaconda\install\envs\pi3\Lib\site-packages\traits\has_traits.py", line 905, in decorator
+    self.__dict__[name] = result = function(self)
+                                   ^^^^^^^^^^^^^^
+  File "D:\Anaconda\install\envs\pi3\Lib\site-packages\chaco\tools\cursor_tool.py", line 255, in _get_current_position
+    x = xdata.get_data()[ndx]
+        ~~~~~~~~~~~~~~~~^^^^^
+IndexError: index 67 is out of bounds for axis 0 with size 13
+2025-03-02 16:46:39,358 - diamond.<module> - INFO - Starting logger.
+2025-03-02 16:46:40,022 - emod.start - INFO - Starting Job Manager.
+2025-03-02 16:46:40,023 - cron.run - INFO - Starting Cron Daemon.
+2025-03-02 16:47:27,920 - diamond.<module> - INFO - Starting logger.
+2025-03-02 16:47:28,600 - emod.start - INFO - Starting Job Manager.
+2025-03-02 16:47:28,601 - cron.run - INFO - Starting Cron Daemon.
+2025-03-02 16:48:45,530 - auto_focus.focus - INFO - Focus: -0.99, -0.69, 0.00
+2025-03-02 16:49:32,253 - auto_focus.focus - INFO - Focus: -1.49, -0.59, 0.50
