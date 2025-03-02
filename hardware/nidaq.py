@@ -256,8 +256,8 @@ class analog_output_constant(task_constructor):
             return
         try:
             self.task.write(values, auto_start=auto_start)
-        except ni.DaqError:
-            raise Exception(f'Failed to write values to {self.task}')
+        except ni.DaqError as e:
+            raise Exception(f'Failed to write values to {self.task}.\n{e}')
 
     def update_task(self):
         for i, ao in enumerate(self.ao_list):

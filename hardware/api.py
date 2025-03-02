@@ -19,26 +19,46 @@ See 'custom_api_example.py' for examples.
 import numpy as np
 import logging
 import time
+from tools.utility import singleton
 
 # Dummy TimeTagger
 from .time_tagger_swabian import time_tagger_control
-time_tagger = time_tagger_control("1740000JEJ", 1, 5, 8)
+time_tagger = time_tagger_control(
+	"1740000JEJ",	# serial
+	1,				# ch_ticks
+	5,				# ch_detect
+	8,				# ch_sync
+	ch_marker=2,
+)
 
-from tools.utility import singleton
+
+scanner_params = dict(
+	device_name = 'dev2',
+    counter_name = 'ctr0',
+    ao_channels = ['ao0', 'ao1', 'ao2', 'ao3'],
+    voltage_range = [
+        [0., 1.],       # ao0
+        [0., 1.],       # ao1
+        [0., 1.],       # ao2
+        [0., 1.],       # ao3
+    ],
+    period = .01,
+    duty_cycle = 0.9,
+    x_range = (-100.0,100.0),
+    y_range = (-100.0,100.0),
+    z_range = (0,100.0),
+    aom_range =(-10,10),
+    invert_x = False,
+    invert_y = False,
+    invert_z = False,
+    swap_xy = False,
+)
 
 @singleton
 def Scanner():
-	# from .nidaq_dummy import Scanner
-	from .nidaq_dll import Scanner
-	
-	return Scanner( CounterIn='/Dev2/Ctr1',
-					CounterOut='/Dev2/Ctr0',
-					TickSource='/Dev2/PFI3',
-					AOChannels='/Dev2/ao0:2',
-					x_range=(0.0,344.0),
-					y_range=(0.0,344.0),
-					z_range=(0,100.0),
-					v_range=(-1.00,10.00))
+    from .nidaq_finite_scanner import Stage_control
+    return Stage_control(time_tagger, **scanner_params)
+    
 
 # Counter Initialization Used In ODMR
 @singleton
@@ -75,3 +95,17 @@ def PulseGenerator():
 			'sync':7,
 		}
 	)
+
+
+# @singleton
+# def Scanner():
+# 	from .nidaq_dummy import Scanner
+# 	from .nidaq_dll import Scanner
+# 	return Scanner( CounterIn='/Dev2/Ctr1',
+# 					CounterOut='/Dev2/Ctr0',
+# 					TickSource='/Dev2/PFI3',
+# 					AOChannels='/Dev2/ao0:2',
+# 					x_range=(0.0,344.0),
+# 					y_range=(0.0,344.0),
+# 					z_range=(0,100.0),
+# 					v_range=(-1.00,10.00))
