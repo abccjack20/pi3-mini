@@ -19,12 +19,12 @@ logging.getLogger().info('Starting logger.')
 
 
 # start the JobManager
-from tools import emod
-emod.JobManager().start()
+from tools.emod import JobManager
+JobManager().start()
 
 # start the CronDaemon
-from tools import cron
-cron.CronDaemon().start()
+from tools.cron import CronDaemon
+CronDaemon().start()
 
 # define a shutdown function
 from tools.utility import StoppableThread
@@ -37,10 +37,20 @@ def startExperiment:
     ha.AWG().set_sampling(1.e9)
 """
 
-import sys,os
-sys.path.append('C:\\Program Files (x86)\\Swabian Instruments\\Time Tagger\\driver\\Python3.6\\x64\\')
-sys.path.append('C:\\Program Files (x86)\\Swabian Instruments\\Time Tagger\\driver\\x64')
-sys.path.append('C:\\Program Files (x86)\\Swabian Instruments\\Time Tagger\\driver\\firmware')
+# import sys,os
+# sys.path.append('C:\\Program Files (x86)\\Swabian Instruments\\Time Tagger\\driver\\Python3.6\\x64\\')
+# sys.path.append('C:\\Program Files (x86)\\Swabian Instruments\\Time Tagger\\driver\\x64')
+# sys.path.append('C:\\Program Files (x86)\\Swabian Instruments\\Time Tagger\\driver\\firmware')
+
+from hardware.nidaq import ni_tasks_manager
+def shutdown():
+    """Terminate all threads."""
+    JobManager().stop()
+    for t in threading.enumerate():
+        if isinstance(t, StoppableThread):
+            t.stop()
+    ni_tasks_manager.clear_all_tasks()
+    exit()
 
 # That's it for now! We pass over control to custom startup script if present. 
 if os.access(path+'/diamond_custom.py', os.F_OK):

@@ -81,18 +81,13 @@ class Job( HasTraits ):
         finally:
             logging.getLogger().debug('Turning off all instruments.')            
 
-class JobManager( ): # ToDo: In principle this need not be a singleton. Then there could be different job managers handling different sets of resources. However currently we need singleton since the JobManager is called explicitly on ManagedJob class.
+class JobManager(metaclass=Singleton):
     # __metaclass__ = Singleton
     
     # SINGLETON ENFORCING
-    _instance = None
+    # _instance = None
 
-    def __new__(cls, *args, **kwargs):
-        if not cls._instance:
-            cls._instance = super(JobManager, cls).__new__(cls, *args, **kwargs)
-        return cls._instance
-    """Provides a queue for starting and stopping jobs according to their priority."""
-        
+   
     def __init__(self):
         if not hasattr(self, '_initialized'):
             self.thread = StoppableThread() # the thread the manager loop is running in
@@ -102,8 +97,6 @@ class JobManager( ): # ToDo: In principle this need not be a singleton. Then the
             self.refresh_interval = 0.1 # seconds
             # SINGLETON ENFORCING
             self._initialized = True
-    
-
     
     def submit(self, job):
         # USED TO FIX OUTDATED CMP USAGE

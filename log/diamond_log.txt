@@ -5470,3 +5470,81 @@ Traceback (most recent call last):
   File "C:\Users\yy3\pi3-mini\tools\cron.py", line 85, in remove
     self.events.remove(event)
 ValueError: list.remove(x): x not in list
+2025-03-03 18:06:06,671 - diamond.<module> - INFO - Starting logger.
+2025-03-03 18:06:07,479 - emod.start - INFO - Starting Job Manager.
+2025-03-03 18:06:07,497 - cron.run - INFO - Starting Cron Daemon.
+2025-03-03 18:08:00,009 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002849747DFD0>> at time 2025-03-03 18:08:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002849747DFD0>>.
+2025-03-03 18:08:23,082 - auto_focus.focus - INFO - Focus: -0.34, -1.74, 0.00
+2025-03-03 18:09:00,013 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002849747DFD0>> at time 2025-03-03 18:09:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002849747DFD0>>.
+2025-03-03 18:09:03,774 - auto_focus.focus - INFO - Focus: -0.44, -2.04, 0.00
+2025-03-03 18:10:00,008 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002849747DFD0>> at time 2025-03-03 18:10:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002849747DFD0>>.
+2025-03-03 18:10:03,774 - auto_focus.focus - INFO - Focus: -0.54, -2.34, 0.00
+2025-03-03 18:11:00,002 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002849747DFD0>> at time 2025-03-03 18:11:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002849747DFD0>>.
+2025-03-03 18:11:03,990 - auto_focus.focus - INFO - Focus: -0.24, -2.04, 0.50
+2025-03-03 18:12:00,008 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002849747DFD0>> at time 2025-03-03 18:12:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002849747DFD0>>.
+2025-03-03 18:12:03,959 - auto_focus.focus - INFO - Focus: -0.74, -1.74, 0.80
+2025-03-03 18:13:00,011 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002849747DFD0>> at time 2025-03-03 18:13:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002849747DFD0>>.
+2025-03-03 18:13:03,760 - auto_focus.focus - INFO - Focus: -1.24, -2.24, 0.70
+2025-03-03 18:14:00,009 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002849747DFD0>> at time 2025-03-03 18:14:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002849747DFD0>>.
+2025-03-03 18:14:03,806 - auto_focus.focus - INFO - Focus: -1.54, -2.74, 0.40
+2025-03-03 18:15:00,003 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002849747DFD0>> at time 2025-03-03 18:15:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002849747DFD0>>.
+2025-03-03 18:15:04,026 - auto_focus.focus - INFO - Focus: -1.24, -2.64, 0.50
+2025-03-03 18:16:00,002 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002849747DFD0>> at time 2025-03-03 18:16:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002849747DFD0>>.
+2025-03-03 18:16:03,707 - auto_focus.focus - INFO - Focus: -1.74, -3.14, 0.40
+2025-03-03 18:16:24,941 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <traitsui.file_dialog.OpenFileDialog object at 0x000002849EB13C40>, trait: create, old value: <undefined>, new value: 0
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traitsui\ui.py", line 898, in dispatch
+    self.method(self.info)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traitsui\file_dialog.py", line 515, in object_create_changed
+    CreateDirHandler().edit_traits(
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traitsui\handler.py", line 427, in edit_traits
+    return self.trait_view(view).ui(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traitsui\view.py", line 457, in ui
+    ui.ui(parent, kind)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traitsui\ui.py", line 234, in ui
+    self.rebuild(self, parent)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traitsui\toolkit.py", line 169, in ui_popup
+    raise NotImplementedError(
+NotImplementedError: the 'qt' toolkit does not implement this method
+2025-03-03 18:17:00,014 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002849747DFD0>> at time 2025-03-03 18:17:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002849747DFD0>>.
+2025-03-03 18:17:03,768 - auto_focus.focus - INFO - Focus: -2.04, -3.24, 0.50
+2025-03-03 18:17:31,473 - utility.set_items - WARNING - failed to set item 'aom'
+2025-03-03 18:18:00,009 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002849747DFD0>> at time 2025-03-03 18:18:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002849747DFD0>>.
+2025-03-03 18:18:03,714 - auto_focus.focus - INFO - Focus: -1.84, -2.84, 0.50
+2025-03-03 18:24:37,207 - utility.set_items - WARNING - failed to set item 'aom'
+2025-03-03 18:30:38,998 - diamond.<module> - INFO - Starting logger.
+2025-03-03 18:31:19,903 - diamond.<module> - INFO - Starting logger.
+2025-03-03 18:31:20,688 - emod.start - INFO - Starting Job Manager.
+2025-03-03 18:31:20,688 - cron.run - INFO - Starting Cron Daemon.
+2025-03-03 18:31:30,842 - diamond.<module> - INFO - Starting logger.
+2025-03-03 18:31:31,586 - emod.start - INFO - Starting Job Manager.
+2025-03-03 18:31:31,586 - cron.run - INFO - Starting Cron Daemon.
+2025-03-03 18:45:10,112 - diamond.<module> - INFO - Starting logger.
+2025-03-03 18:45:10,878 - emod.start - INFO - Starting Job Manager.
+2025-03-03 18:45:10,880 - cron.run - INFO - Starting Cron Daemon.
+2025-03-03 18:45:26,021 - utility.stop - WARNING - Thread <StoppableThread(JobManager25-03-03_18h45m10, started 18028)> failed to join after 1.0 s. Continuing anyway...
+2025-03-03 18:47:41,899 - diamond.<module> - INFO - Starting logger.
+2025-03-03 18:47:42,654 - emod.start - INFO - Starting Job Manager.
+2025-03-03 18:47:42,654 - cron.run - INFO - Starting Cron Daemon.
+2025-03-03 18:52:29,696 - utility.stop - WARNING - Thread <StoppableThread(JobManager25-03-03_18h47m42, started 22604)> failed to join after 10.0 s. Continuing anyway...
+2025-03-03 18:52:47,677 - utility.stop - WARNING - Thread <StoppableThread(JobManager25-03-03_18h47m42, started 22604)> failed to join after 10.0 s. Continuing anyway...
+2025-03-03 18:59:03,901 - diamond.<module> - INFO - Starting logger.
+2025-03-03 18:59:04,640 - emod.start - INFO - Starting Job Manager.
+2025-03-03 18:59:04,640 - cron.run - INFO - Starting Cron Daemon.
+2025-03-03 19:01:16,894 - diamond.<module> - INFO - Starting logger.
+2025-03-03 19:01:17,687 - emod.start - INFO - Starting Job Manager.
+2025-03-03 19:01:17,687 - cron.run - INFO - Starting Cron Daemon.
+2025-03-03 19:02:10,689 - diamond.<module> - INFO - Starting logger.
+2025-03-03 19:02:11,431 - emod.start - INFO - Starting Job Manager.
+2025-03-03 19:02:11,431 - cron.run - INFO - Starting Cron Daemon.
+2025-03-03 19:02:38,246 - diamond.<module> - INFO - Starting logger.
+2025-03-03 19:02:38,994 - emod.start - INFO - Starting Job Manager.
+2025-03-03 19:02:38,996 - cron.run - INFO - Starting Cron Daemon.
+2025-03-03 19:03:02,847 - diamond.<module> - INFO - Starting logger.
+2025-03-03 19:03:03,582 - emod.start - INFO - Starting Job Manager.
+2025-03-03 19:03:03,582 - cron.run - INFO - Starting Cron Daemon.

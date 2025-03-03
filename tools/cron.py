@@ -64,8 +64,10 @@ class CronEvent(object):
     def __repr__(self):
         return 'Cron Event on callable '+str(self.action)
 
-class CronDaemon( ):
-    __metaclass__ = Singleton
+
+
+class CronDaemon(metaclass=Singleton):
+    #__metaclass__ = Singleton
     
     def __init__(self, *events):
         self.events = list(events)

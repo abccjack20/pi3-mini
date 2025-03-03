@@ -84,6 +84,11 @@ class ni_tasks_manager:
     def is_task_exist(task):
         return id(task) in [id(t) for t in ni_tasks_manager.values()]
 
+    def clear_all_tasks():
+        tasks_list = list(ni_tasks_manager.tasks_dict.keys())
+        for task_name in tasks_list:
+            ni_tasks_manager.remove_task(name=task_name)
+
 
 class task_constructor:
 

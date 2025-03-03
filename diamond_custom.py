@@ -1,8 +1,10 @@
 
-from tools.utility import edit_singleton
+from tools.utility import StoppableThread
 from datetime import date
-import os
-import time
+import os, time, threading
+
+
+
 
 # start confocal including auto_focus tool and Toolbox
 if __name__ == '__main__':
