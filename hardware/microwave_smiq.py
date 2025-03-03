@@ -27,7 +27,15 @@ class SMIQ():
     
     def __init__(self, visa_address='GPIB0::28'):
         self.visa_address = visa_address
-        
+        self.rm = visa.ResourceManager()
+        self.open()
+    
+    def open(self):
+        self.instr = self.rm.open_resource(self.visa_address)
+
+    def close(self):
+        self.instr.close()
+
     def _write(self, string):
         try: # if the connection is already open, this will work
             self.instr.write(string)
@@ -36,10 +44,6 @@ class SMIQ():
                 del self.instr
             except Exception:
                 pass
-            # Python3 pyvisa replacement for 
-            # self.instr = visa.instrument(self.visa_address)
-            rm = visa.ResourceManager()
-            self.instr = rm.open_resource(self.visa_address)
             self.instr.write(string)
         
     def _ask(self, str):
@@ -122,6 +126,7 @@ class SMIQ():
     def resetListPos(self):
         self._write(':ABOR:LIST')
         self._write('*WAI')
+
 
 class SMR20():
     """Provides control of SMR20 microwave source from Rhode und Schwarz with GPIB via visa."""

@@ -90,14 +90,17 @@ def Counter():
 # Microvave Source Initialization
 @singleton
 def Microwave():
-    from .microwave_dummy import MicrowaveDummy
-    return MicrowaveDummy(visa_address='GPIB0::00')
+    # from .microwave_dummy import MicrowaveDummy
+    # return MicrowaveDummy(visa_address='GPIB0::00')
+    from .microwave_smiq import SMIQ
+    return SMIQ(visa_address='GPIB0::28::INSTR')
 
 MicrowaveA = Microwave
 
 @singleton
 def RFSource():
     from .microwave_dummy import MicrowaveDummy
+
     return MicrowaveDummy(visa_address='GPIB0::01')
 
 

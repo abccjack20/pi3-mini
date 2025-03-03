@@ -99,7 +99,7 @@ class PulsedFit(HasTraits, GetSetItemsMixin):
     position_normalize = Range(low=0., high=10000., value=2200., desc='position of normalization window relative to edge [ns]', label='pos. norm. [ns]', mode='text', auto_set=False, enter_set=True)
     
     def __init__(self):
-        super(PulsedFit, self).__init__()
+        super().__init__()
         self.on_trait_change(self.update_plot_spin_state, 'spin_state', dispatch='ui')
     
     @on_trait_change('measurement.count_data,integration_width,position_signal,position_normalize')
@@ -163,7 +163,7 @@ class FrequencyFit(PulsedFit):
     position_normalize = Range(low=0., high=10000., value=2200., desc='position of normalization window relative to edge [ns]', label='pos. norm. [ns]', mode='text', auto_set=False, enter_set=True)
     
     def __init__(self):
-        super(FrequencyFit, self).__init__()
+        super().__init__()
         self.on_trait_change(self.update_plot_spin_state, 'spin_state', dispatch='ui')
     
     @on_trait_change('measurement.count_data,integration_width,position_signal,position_normalize')
@@ -227,7 +227,7 @@ class Frequency3pi2Fit(PulsedFit):
     position_normalize = Range(low=0., high=10000., value=2200., desc='position of normalization window relative to edge [ns]', label='pos. norm. [ns]', mode='text', auto_set=False, enter_set=True)
     
     def __init__(self):
-        super(Frequency3pi2Fit, self).__init__()
+        super().__init__()
         self.on_trait_change(self.update_plot_spin_state, 'spin_state', dispatch='ui')
     
     @on_trait_change('measurement.count_data,integration_width,position_signal,position_normalize')
@@ -301,7 +301,7 @@ class PulsedFitErrorBars(PulsedFit):
              {'data':('pulse_number', 'spin_state_high'), 'type':'scatter', 'marker':'dot', 'marker_size':1.0, 'marker_color':'black', 'name':'low'} ]
         
     def __init__(self):
-        super(PulsedFitErrorBars, self).__init__()
+        super().__init__()
         self.on_trait_change(self.update_plot_error_bars, 'spin_state_error', dispatch='ui')
 
     def update_plot_error_bars(self):
@@ -327,7 +327,7 @@ class PulsedFitTau(PulsedFit):
                                                                     'spin_state':np.array((0, 0))})
 
     def __init__(self):
-        super(PulsedFitTau, self).__init__()
+        super().__init__()
         self.on_trait_change(self.update_plot_tau, 'measurement.tau', dispatch='ui')
 
     def update_plot_spin_state(self):
@@ -393,7 +393,7 @@ class DoubleFitTauRef(PulsedFit):
                                                                     'bright':np.array((1, 1)),
                                                                     'dark':np.array((0, 0))})
     def __init__(self):
-        super(DoubleFitTauRef, self).__init__()
+        super().__init__()
         self.on_trait_change(self.update_plot_tau, 'measurement.tau', dispatch='ui')
 
     def update_plot_tau(self):
@@ -438,7 +438,7 @@ class RabiFit(PulsedFit):
     t_3pi2 = Tuple((0., 0.)) #Property( depends_on='fit_result', label='3pi/2' )
 
     def __init__(self):
-        super(RabiFit, self).__init__()
+        super().__init__()
         self.on_trait_change(self.update_fit, 'spin_state', dispatch='ui')
         self.on_trait_change(self.update_plot_tau, 'measurement.tau', dispatch='ui')
         self.on_trait_change(self.update_plot_fit, 'fit_result', dispatch='ui')
@@ -540,7 +540,7 @@ class DecayRabiFit(PulsedFit):
     t_3pi2 = Tuple((0., 0.)) #Property( depends_on='fit_result', label='3pi/2' )
 
     def __init__(self):
-        super(RabiFit, self).__init__()
+        super().__init__()
         self.on_trait_change(self.update_fit, 'spin_state', dispatch='ui')
         self.on_trait_change(self.update_plot_tau, 'measurement.tau', dispatch='ui')
         self.on_trait_change(self.update_plot_fit, 'fit_result', dispatch='ui')
