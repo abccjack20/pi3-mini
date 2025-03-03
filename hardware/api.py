@@ -19,29 +19,50 @@ See 'custom_api_example.py' for examples.
 import numpy as np
 import logging
 import time
+from tools.utility import singleton
 
 # Dummy TimeTagger
 # from .time_tagger_dummy import TimeTaggerDummy
 # time_tagger = TimeTaggerDummy()
 
 from .time_tagger_swabian import time_tagger_control
-time_tagger = time_tagger_control("1740000JEC", 1, 3, 5)
+time_tagger = time_tagger_control(
+	"1740000JEJ",	# serial
+	1,				# ch_ticks
+	5,				# ch_detect
+	8,				# ch_sync
+	ch_marker=2,
+)
 
-from tools.utility import singleton
+
+scanner_params = dict(
+	device_name = 'dev2',
+    counter_name = 'ctr0',
+    ao_channels = ['ao0', 'ao1', 'ao2', 'ao3'],
+    voltage_range = [
+        [0., 1.],       # ao0
+        [0., 1.],       # ao1
+        [0., 1.],       # ao2
+        [0., 1.],       # ao3
+    ],
+    period = .01,
+    duty_cycle = 0.9,
+    x_range = (-100.0,100.0),
+    y_range = (-100.0,100.0),
+    z_range = (0,100.0),
+    aom_range = (-10,10),
+    home_pos = [0., 0., 0., 0.],
+    invert_x = False,
+    invert_y = False,
+    invert_z = False,
+    swap_xy = False,
+)
 
 @singleton
 def Scanner():
-	# from .nidaq_dummy import Scanner
-	from .nidaq import Scanner
-	
-	return Scanner( CounterIn='/Dev1/Ctr3',
-					CounterOut='/Dev1/Ctr2',
-					TickSource='/Dev1/PFI0',
-					AOChannels='/Dev1/ao0:2',
-					x_range=(0.0,100.0),
-					y_range=(0.0,100.0),
-					z_range=(0.0,100.0),
-					v_range=(0.0,10.00))
+    from .nidaq_finite_scanner import Stage_control
+    return Stage_control(time_tagger, **scanner_params)
+    
 
 # Counter Initialization Used In ODMR
 @singleton
@@ -66,20 +87,31 @@ def RFSource():
     from .microwave_dummy import MicrowaveDummy
     return MicrowaveDummy(visa_address='GPIB0::01')
 
-from .pulse_generator_dummy import PulseGeneratorDummy
 
 @singleton
 def PulseGenerator():
-    return PulseGeneratorDummy(
-		'serial123',
-        channel_map={
-			'green':8,'aom':8, 
-            'mw_x': 2, 'mw': 2, 'mw_A': 2, #2/2
-            'laser': 7,
-            'sequence':4, 
-            'awg_dis': 5,
-            'rf':5, 'rf1':5, 
-            'mw_b':6, 'mw_y': 6, 'SmiqRf': 2,
-            'awg':1,'awgA':3, 'rf_y': 3
+	#from .pulse_generator_dummy import PulseGeneratorDummy
+	from .pulse_streamer import PulseStreamer
+	return PulseStreamer(
+		'169.254.8.2',
+		channel_map = {
+			'aom':0,
+			'detect':1,
+			'mw':2,
+			'sync':7,
 		}
-    )
+	)
+
+
+# @singleton
+# def Scanner():
+# 	from .nidaq_dummy import Scanner
+# 	from .nidaq_dll import Scanner
+# 	return Scanner( CounterIn='/Dev2/Ctr1',
+# 					CounterOut='/Dev2/Ctr0',
+# 					TickSource='/Dev2/PFI3',
+# 					AOChannels='/Dev2/ao0:2',
+# 					x_range=(0.0,344.0),
+# 					y_range=(0.0,344.0),
+# 					z_range=(0,100.0),
+# 					v_range=(-1.00,10.00))

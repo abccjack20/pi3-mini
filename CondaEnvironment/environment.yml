@@ -16,3 +16,4 @@ dependencies:
       - chaco
       - nidaqmx
       - pyvisa
+      - pulsestreamer

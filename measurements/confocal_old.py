@@ -33,10 +33,9 @@ scanner = Scanner()
 class Confocal( ManagedJob, GetSetItemsMixin ):
 
     # scanner position
-    x = Range(low=scanner.getXRange()[0], high=scanner.getXRange()[1], value=scanner.x, desc='x [micron]', label='x [micron]', mode='slider')
-    y = Range(low=scanner.getYRange()[0], high=scanner.getYRange()[1], value=scanner.y, desc='y [micron]', label='y [micron]', mode='slider')
-    z = Range(low=scanner.getZRange()[0], high=scanner.getZRange()[1], value=scanner.z, desc='z [micron]', label='z [micron]', mode='slider')
-    aom = Range(low=scanner.getZRange()[0], high=scanner.getZRange()[1], value=scanner.aom, desc='AOM Power [V]', label='AOM Power [V]', mode='slider')
+    x = Range(low=scanner.getXRange()[0], high=scanner.getXRange()[1], value=0.5*(scanner.getXRange()[0]+scanner.getXRange()[1]), desc='x [micron]', label='x [micron]', mode='slider', editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_str='%.2f'))
+    y = Range(low=scanner.getYRange()[0], high=scanner.getYRange()[1], value=0.5*(scanner.getYRange()[0]+scanner.getYRange()[1]), desc='y [micron]', label='y [micron]', mode='slider', editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_str='%.2f'))
+    z = Range(low=scanner.getZRange()[0], high=scanner.getZRange()[1], value=0.5*(scanner.getZRange()[0]+scanner.getZRange()[1]), desc='z [micron]', label='z [micron]', mode='slider', editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_str='%.2f'))
     
     # imagging parameters
     x1 = Range(low=scanner.getXRange()[0], high=scanner.getXRange()[1], value=scanner.getXRange()[0], desc='x1 [micron]', label='x1', editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_str='%.2f'))
@@ -89,7 +88,7 @@ class Confocal( ManagedJob, GetSetItemsMixin ):
     
     get_set_items=['constant_axis', 'X', 'Y', 'thresh_high', 'thresh_low', 'seconds_per_point',
                    'return_speed', 'bidirectional', 'history', 'image', 'z_label_text',
-                   'resolution', 'x', 'x1', 'x2', 'y', 'y1', 'y2', 'z', 'z1', 'z2', 'aom']
+                   'resolution', 'x', 'x1', 'x2', 'y', 'y1', 'y2', 'z', 'z1', 'z2']
 
     def __init__(self):
         super(Confocal, self).__init__()
@@ -120,7 +119,7 @@ class Confocal( ManagedJob, GetSetItemsMixin ):
     @on_trait_change('x,y,z')
     def _set_scanner_position(self):
         if self.state != 'run':
-            scanner.setPosition(self.x, self.y, self.z, self.aom)
+            scanner.setPosition(self.x, self.y, self.z)
     
     @cached_property
     def _get_cursor_position(self):
@@ -143,77 +142,140 @@ class Confocal( ManagedJob, GetSetItemsMixin ):
     
     def _run(self):
         """Acquire a scan"""
-
         try:
-            self.state='run'
-
-            self.update_mesh()
-            X = self.X
-            Y = self.Y
+            if (self.scanz == False) or (self.constant_axis != 'z'):
+                self.state='run'
+                self.update_mesh()
+                X = self.X
+                Y = self.Y
             
-            XP = X[::-1]
+                XP = X[::-1]
     
-            self.image=numpy.zeros((len(Y),len(X)))
-            
-            """
-            if not self.bidirectional:
-                self.imager.initImageScan(len(X), len(Y), self.seconds_per_point, return_speed=self.return_speed)
-            else:
-                self.imager.initImageScan(len(X), len(Y), self.seconds_per_point, return_speed=None)
-            """
-            for i,y in enumerate(Y):
-                if threading.current_thread().stop_request.isSet():
-                    break
-                if i%2 != 0 and self.bidirectional:
-                    XL = XP
+                self.image=numpy.zeros((len(Y),len(X)))
+                time.sleep(0.5)
+                
+                """
+                if not self.bidirectional:
+                    scanner.initImageScan(len(X), len(Y), self.seconds_per_point, return_speed=self.return_speed)
                 else:
-                    XL = X
-                YL = y * numpy.ones(X.shape)
+                    scanner.initImageScan(len(X), len(Y), self.seconds_per_point, return_speed=None)
+                """
                 
                 if self.constant_axis == 'x':
-                      const = self.x * numpy.ones(X.shape)
-                      Line = numpy.vstack( (const, YL, XL) )
+                    const = self.x * numpy.ones(X.shape)
+                    scanner.setPosition(self.x, Y[0], X[0])
                 elif self.constant_axis == 'y':
-                      const = self.y * numpy.ones(X.shape)
-                      Line = numpy.vstack( (XL, const, YL) )
+                    const = self.y * numpy.ones(X.shape)
+                    scanner.setPosition(X[0], self.y, Y[0])
                 elif self.constant_axis == 'z':
-                      const = self.z * numpy.ones(X.shape)
-                      Line = numpy.vstack( (XL, YL, const) )
+                    const = self.z * numpy.ones(X.shape)
+                    scanner.setPosition(X[0], Y[0],self.z)
+                time.sleep(0.5)
+                                        
+                for i,y in enumerate(Y):
+                    if threading.current_thread().stop_request.isSet():
+                        break
+                    if i%2 != 0 and self.bidirectional:
+                        XL = XP
+                    else:
+                        XL = X
+                        YL = y * numpy.ones(X.shape)
                 
-                if self.bidirectional:
-                    c = scanner.scanLine(Line, self.seconds_per_point)
-                else:
-                    #start_time = time.time()
-                    c = scanner.scanLine(Line, self.seconds_per_point)
-                    #print 'nominal time: '+str(self.seconds_per_point*Line.shape[1])
-                    #print 'actual time: '+str(time.time() - start_time)
-                    scanner.scanLine(Line[:,::-1], self.seconds_per_point/self.return_speed)
-                if i%2 != 0 and self.bidirectional:
-                    self.image[i,:] = c[-1::-1]
-                else:
-                    self.image[i,:] = c[:]
+                    if self.constant_axis == 'x':
+                        Line = numpy.vstack( (const, YL, XL) )
+                    elif self.constant_axis == 'y':
+                        Line = numpy.vstack( (XL, const, YL) )
+                    elif self.constant_axis == 'z':
+                        Line = numpy.vstack( (XL, YL, const) )
                 
-                self.trait_property_changed('image', self.image)
+                    if self.bidirectional:
+                        c = scanner.scanLine(Line, self.seconds_per_point)/1.0e3
+                    else:
+                        c = scanner.scanLine(Line, self.seconds_per_point, return_speed=self.return_speed)/1.0e3
+                    if i%2 != 0 and self.bidirectional:
+                        self.image[i,:] = c[-1::-1]
+                    else:
+                        self.image[i,:] = c[:]
+                
+                    """
+                    scanner.doImageLine(Line)
+                    self.image = scanner.getImage()
+                    """
+                    self.trait_property_changed('image', self.image)
           
-                if self.constant_axis == 'x':
-                    self.z_label_text='x:%.2f'%self.x
-                elif self.constant_axis == 'y':
-                    self.z_label_text='y:%.2f'%self.y
-                elif self.constant_axis == 'z':
-                    self.z_label_text='z:%.2f'%self.z
+                    if self.constant_axis == 'x':
+                        self.z_label_text='x:%.2f'%self.x
+                    elif self.constant_axis == 'y':
+                        self.z_label_text='y:%.2f'%self.y
+                    elif self.constant_axis == 'z':
+                        self.z_label_text='z:%.2f'%self.z
 
-            """
-            # block at the end until the image is ready 
-            if not threading.current_thread().stop_request.isSet(): 
-                self.image = self.imager.getImage(1)
-                self._image_changed()
-            """
+                """
+                # block at the end until the image is ready 
+                if not threading.current_thread().stop_request.isSet(): 
+                    self.image = scanner.getImage(1)
+                    self._image_changed()
+                """
                 
-            scanner.setPosition(self.x, self.y, self.z, self.aom)
+                scanner.setPosition(self.x, self.y, self.z)
 
-            #save scan data to history
-            self.history.put( self.copy_items(['constant_axis', 'X', 'Y', 'image', 'z_label_text', 'resolution'] ) )
+                #save scan data to history
+                self.history.put( self.copy_items(['constant_axis', 'X', 'Y', 'image', 'z_label_text', 'resolution'] ) )
 
+                  
+            else:
+                zz=numpy.arange(self.z, self.z + self.z_range + self.z_step , self.z_step)
+                self.state='run'
+                for zscan in zz:
+                    self.update_mesh()
+                    X = self.X
+                    Y = self.Y
+                    self.z = zscan
+                    XP = X[::-1]
+    
+                    self.image=numpy.zeros((len(Y),len(X)))
+                    scanner.setPosition(X[0],Y[0],zscan)
+                    time.sleep(0.5)
+                    
+                    for i,y in enumerate(Y):
+                        if threading.current_thread().stop_request.isSet():
+                            break
+                        if i%2 != 0 and self.bidirectional:
+                            XL = XP
+                        else:
+                            XL = X
+                            YL = y * numpy.ones(X.shape)
+                        const = zscan * numpy.ones(X.shape)
+                        Line = numpy.vstack( (XL, YL, const) )
+                
+                        if self.bidirectional:
+                            c = scanner.scanLine(Line, self.seconds_per_point)/1.0e3
+                        else:
+                            c = scanner.scanLine(Line, self.seconds_per_point, return_speed=self.return_speed)/1.0e3
+                        if i%2 != 0 and self.bidirectional:
+                            self.image[i,:] = c[-1::-1]
+                        else:
+                            self.image[i,:] = c[:]
+                
+                        """
+                        scanner.doImageLine(Line)
+                        self.image = scanner.getImage()
+                        """
+                        self.trait_property_changed('image', self.image)
+          
+                        self.z_label_text='z:%.2f'%zscan
+
+                    """
+                    # block at the end until the image is ready 
+                    if not threading.current_thread().stop_request.isSet(): 
+                    self.image = scanner.getImage(1)
+                    self._image_changed()
+                    """
+                
+                    #save scan data to history
+                    self.history.put( self.copy_items(['constant_axis', 'X', 'Y', 'image', 'z_label_text', 'resolution'] ) )
+                 
+                scanner.setPosition(self.x, self.y, self.z)                          
         finally:
             self.state = 'idle'
         
@@ -521,10 +583,9 @@ class Confocal( ManagedJob, GetSetItemsMixin ):
                 Item('seconds_per_point', width=-80),
                 Item('return_speed', width=-80),
             ),
-            Item('x', format_str='%.2f', enabled_when='state != "run" or (state == "run" and constant_axis == "x")'),
-            Item('y', format_str='%.2f', enabled_when='state != "run" or (state == "run" and constant_axis == "y")'),
-            Item('z', format_str='%.2f', enabled_when='state != "run" or (state == "run" and constant_axis == "z")'),
-            Item('aom', format_str='%.2f', enabled_when='state != "run" or (state == "run" and constant_axis == "z")'),
+            Item('x', enabled_when='state != "run" or (state == "run" and constant_axis == "x")'),
+            Item('y', enabled_when='state != "run" or (state == "run" and constant_axis == "y")'),
+            Item('z', enabled_when='state != "run" or (state == "run" and constant_axis == "z")'),
         ),
         menubar = MenuBar(
             Menu(
