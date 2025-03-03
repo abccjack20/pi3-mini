@@ -166,6 +166,7 @@ class CounterBoard:
 		return self._CountLength
 
 	def setTiming(self, SettlingTime, CountTime):
+		print(self._CODevice)
 		if SettlingTime != self._SettlingTime or CountTime != self._CountTime: 
 			f = 1. / ( CountTime + SettlingTime )
 			DutyCycle = CountTime * f
@@ -451,31 +452,31 @@ class Scanner( MultiBoard ):
 		dv = v[1]-v[0]
 		if self.invert_x:
 			# vx = v0+(x[1]-r[0])/(x[1]-x[0])*2.5
-			# vx = v0+(x[1]-r[0])/(x[1]-x[0])*dv
-			vx = v0+(x[1]-r[0])/(x[1]-x[0])*2.0         
+			vx = v0+(x[1]-r[0])/(x[1]-x[0])*dv
+			# vx = v0+(x[1]-r[0])/(x[1]-x[0])*2.0         
 
 		else:
 			# vx = v0+(r[0]-x[0])/(x[1]-x[0])*2.5
-			# vx = v0+(r[0]-x[0])/(x[1]-x[0])*dv
-			vx = v0+(r[0]-x[0])/(x[1]-x[0])*2.0      
+			vx = v0+(r[0]-x[0])/(x[1]-x[0])*dv
+			# vx = v0+(r[0]-x[0])/(x[1]-x[0])*2.0      
 
 		if self.invert_y:
 			# vy = v0+(y[1]-r[1])/(y[1]-y[0])*2.5
-			# vy = v0+(y[1]-r[1])/(y[1]-y[0])*dv
-			vy = v0+(y[1]-r[1])/(y[1]-y[0])*2.0       
+			vy = v0+(y[1]-r[1])/(y[1]-y[0])*dv
+			# vy = v0+(y[1]-r[1])/(y[1]-y[0])*2.0       
 
 		else:
 			# vy = v0+(r[1]-y[0])/(y[1]-y[0])*2.5            
-			# vy = v0+(r[1]-y[0])/(y[1]-y[0])*dv
-			vy = v0+(r[1]-y[0])/(y[1]-y[0])*2.0       
+			vy = v0+(r[1]-y[0])/(y[1]-y[0])*dv
+			# vy = v0+(r[1]-y[0])/(y[1]-y[0])*2.0       
 
 		if self.invert_z:
-			# vz = v0+(z[1]-r[2])/(z[1]-z[0])*dv            
-			vz = 0.0+(z[1]-r[2])/(z[1]-z[0])*10.0            
+			vz = v0+(z[1]-r[2])/(z[1]-z[0])*dv            
+			# vz = 0.0+(z[1]-r[2])/(z[1]-z[0])*10.0            
 		else:
 			# vz = v0+(r[2]-z[0])/(z[1]-z[0])*dv
-			# vz = v0+(r[2]-z[0])/(z[1]-z[0])*dv
-			vz = 0.0+(r[2]-z[0])/(z[1]-z[0])*10.0
+			vz = v0+(r[2]-z[0])/(z[1]-z[0])*dv
+			# vz = 0.0+(r[2]-z[0])/(z[1]-z[0])*10.0
 
 		if self.swap_xy:
 			vt = vx
@@ -619,9 +620,9 @@ class PIScanner( MultiBoard ):
 		else:
 			vy = v0+(r[1]-y[0])/(y[1]-y[0])*dv            
 		if self.invert_z:
-			vz = v0+(z[1]-r[2])/(z[1]-z[0])*dv*0.2            
+			vz = v0+(z[1]-r[2])/(z[1]-z[0])*dv
 		else:
-			vz = v0+(r[2]-z[0])/(z[1]-z[0])*dv*0.2
+			vz = v0+(r[2]-z[0])/(z[1]-z[0])*dv
 		if self.swap_xy:
 			vt = vx
 			vx = vy
@@ -726,8 +727,9 @@ class AnalogOutSyncCount():
 											 DAQmx_Val_CountUp
 											 ))
 		"""
-
+		
 		CHK( dll.DAQmxSetCIPulseWidthTerm(ci_task, ci_dev, co_dev+'InternalOutput') )
+		#CHK(  dll.DAQmxConnectTerms(self._CounterOut+'InternalOutput', '/Dev1/PFI12', dll.DAQmx_Val_DoNotInvertPolarity) )
 		CHK( dll.DAQmxSetCICtrTimebaseSrc(ci_task, ci_dev, ci_port) )
 
 		# read samples from beginning of acquisition, do not overwrite
@@ -1104,7 +1106,10 @@ class PulseTrainCounter:
 											   ctypes.c_double(MaxCounts*DutyCycle/f),
 											   DAQmx_Val_Ticks, DAQmx_Val_Rising, '')   )
 
+		# dll.DAQmxSetCISemiPeriodTerm(self._CITask, self._CounterIn, self._CounterOut+'InternalOutput')
+
 		CHK(  dll.DAQmxSetCIPulseWidthTerm( self._CITask, self._CounterIn, self._CounterOut+'InternalOutput' )  )
+		CHK(  dll.DAQmxConnectTerms(self._CounterOut+'InternalOutput', '/Dev1/PFI12', dll.DAQmx_Val_DoNotInvertPolarity) )
 		CHK(  dll.DAQmxSetCICtrTimebaseSrc( self._CITask, self._CounterIn, self._TickSource )  )
 
 		CHK(  dll.DAQmxCfgImplicitTiming( self._COTask, DAQmx_Val_ContSamps, ctypes.c_ulonglong(SampleLength))  )

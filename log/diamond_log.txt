@@ -28397,3 +28397,771 @@ Traceback (most recent call last):
     _TimeTagger.Counter_swiginit(self, _TimeTagger.new_Counter(tagger, channels, binwidth, n_values))
                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 ValueError: No channel was provided.
+2025-02-24 15:47:34,696 - diamond.<module> - INFO - Starting logger.
+2025-02-24 15:48:58,145 - diamond.<module> - INFO - Starting logger.
+2025-02-24 15:51:17,169 - diamond.<module> - INFO - Starting logger.
+2025-02-24 15:51:36,594 - diamond.<module> - INFO - Starting logger.
+2025-02-24 15:51:37,478 - emod.start - INFO - Starting Job Manager.
+2025-02-24 15:51:37,488 - cron.run - INFO - Starting Cron Daemon.
+2025-02-24 15:52:28,085 - diamond.<module> - INFO - Starting logger.
+2025-02-24 15:52:28,850 - emod.start - INFO - Starting Job Manager.
+2025-02-24 15:52:28,850 - cron.run - INFO - Starting Cron Daemon.
+2025-02-24 15:54:04,851 - diamond.<module> - INFO - Starting logger.
+2025-02-24 15:54:05,621 - emod.start - INFO - Starting Job Manager.
+2025-02-24 15:54:05,622 - cron.run - INFO - Starting Cron Daemon.
+2025-02-24 15:55:23,404 - diamond.<module> - INFO - Starting logger.
+2025-02-24 15:55:24,160 - emod.start - INFO - Starting Job Manager.
+2025-02-24 15:55:24,160 - cron.run - INFO - Starting Cron Daemon.
+2025-02-24 15:57:15,171 - diamond.<module> - INFO - Starting logger.
+2025-02-24 15:57:15,900 - emod.start - INFO - Starting Job Manager.
+2025-02-24 15:57:15,900 - cron.run - INFO - Starting Cron Daemon.
+2025-02-24 15:59:47,935 - diamond.<module> - INFO - Starting logger.
+2025-02-24 15:59:48,684 - emod.start - INFO - Starting Job Manager.
+2025-02-24 15:59:48,684 - cron.run - INFO - Starting Cron Daemon.
+2025-02-24 16:00:34,177 - diamond.<module> - INFO - Starting logger.
+2025-02-24 16:00:34,939 - emod.start - INFO - Starting Job Manager.
+2025-02-24 16:00:34,949 - cron.run - INFO - Starting Cron Daemon.
+2025-02-24 16:03:51,461 - diamond.<module> - INFO - Starting logger.
+2025-02-24 16:03:52,205 - emod.start - INFO - Starting Job Manager.
+2025-02-24 16:03:52,205 - cron.run - INFO - Starting Cron Daemon.
+2025-02-24 16:27:29,991 - diamond.<module> - INFO - Starting logger.
+2025-02-24 16:27:30,730 - emod.start - INFO - Starting Job Manager.
+2025-02-24 16:27:30,730 - cron.run - INFO - Starting Cron Daemon.
+2025-02-24 17:26:49,090 - diamond.<module> - INFO - Starting logger.
+2025-02-24 17:26:49,837 - emod.start - INFO - Starting Job Manager.
+2025-02-24 17:26:49,837 - cron.run - INFO - Starting Cron Daemon.
+2025-02-24 17:29:11,976 - diamond.<module> - INFO - Starting logger.
+2025-02-24 17:29:12,718 - emod.start - INFO - Starting Job Manager.
+2025-02-24 17:29:12,719 - cron.run - INFO - Starting Cron Daemon.
+2025-02-24 17:43:25,279 - diamond.<module> - INFO - Starting logger.
+2025-02-24 17:43:26,051 - emod.start - INFO - Starting Job Manager.
+2025-02-24 17:43:26,051 - cron.run - INFO - Starting Cron Daemon.
+2025-02-24 17:51:25,240 - diamond.<module> - INFO - Starting logger.
+2025-02-24 17:51:26,034 - emod.start - INFO - Starting Job Manager.
+2025-02-24 17:51:26,034 - cron.run - INFO - Starting Cron Daemon.
+2025-02-25 14:52:44,114 - diamond.<module> - INFO - Starting logger.
+2025-02-25 14:52:44,962 - emod.start - INFO - Starting Job Manager.
+2025-02-25 14:52:44,963 - cron.run - INFO - Starting Cron Daemon.
+2025-02-25 14:53:32,139 - diamond.<module> - INFO - Starting logger.
+2025-02-25 14:53:32,886 - emod.start - INFO - Starting Job Manager.
+2025-02-25 14:53:32,886 - cron.run - INFO - Starting Cron Daemon.
+2025-02-25 14:54:28,651 - diamond.<module> - INFO - Starting logger.
+2025-02-25 14:54:29,408 - emod.start - INFO - Starting Job Manager.
+2025-02-25 14:54:29,409 - cron.run - INFO - Starting Cron Daemon.
+2025-02-25 14:55:44,943 - diamond.<module> - INFO - Starting logger.
+2025-02-25 14:55:45,692 - emod.start - INFO - Starting Job Manager.
+2025-02-25 14:55:45,692 - cron.run - INFO - Starting Cron Daemon.
+2025-02-25 14:57:49,618 - diamond.<module> - INFO - Starting logger.
+2025-02-25 14:57:50,358 - emod.start - INFO - Starting Job Manager.
+2025-02-25 14:57:50,358 - cron.run - INFO - Starting Cron Daemon.
+2025-02-25 15:00:37,737 - diamond.<module> - INFO - Starting logger.
+2025-02-25 15:00:38,481 - emod.start - INFO - Starting Job Manager.
+2025-02-25 15:00:38,481 - cron.run - INFO - Starting Cron Daemon.
+2025-02-25 15:01:35,403 - diamond.<module> - INFO - Starting logger.
+2025-02-25 15:01:36,163 - emod.start - INFO - Starting Job Manager.
+2025-02-25 15:01:36,173 - cron.run - INFO - Starting Cron Daemon.
+2025-02-25 15:07:08,746 - diamond.<module> - INFO - Starting logger.
+2025-02-25 15:07:09,494 - emod.start - INFO - Starting Job Manager.
+2025-02-25 15:07:09,494 - cron.run - INFO - Starting Cron Daemon.
+2025-02-25 15:07:29,002 - diamond.<module> - INFO - Starting logger.
+2025-02-25 15:07:29,733 - emod.start - INFO - Starting Job Manager.
+2025-02-25 15:07:29,743 - cron.run - INFO - Starting Cron Daemon.
+2025-02-25 15:10:53,429 - diamond.<module> - INFO - Starting logger.
+2025-02-25 15:10:54,189 - emod.start - INFO - Starting Job Manager.
+2025-02-25 15:10:54,199 - cron.run - INFO - Starting Cron Daemon.
+2025-02-25 17:20:44,751 - diamond.<module> - INFO - Starting logger.
+2025-02-25 17:20:45,519 - emod.start - INFO - Starting Job Manager.
+2025-02-25 17:20:45,519 - cron.run - INFO - Starting Cron Daemon.
+2025-02-25 17:21:38,382 - diamond.<module> - INFO - Starting logger.
+2025-02-25 17:21:39,114 - emod.start - INFO - Starting Job Manager.
+2025-02-25 17:21:39,124 - cron.run - INFO - Starting Cron Daemon.
+2025-02-25 17:22:58,129 - diamond.<module> - INFO - Starting logger.
+2025-02-25 17:22:58,888 - emod.start - INFO - Starting Job Manager.
+2025-02-25 17:22:58,888 - cron.run - INFO - Starting Cron Daemon.
+2025-02-25 17:25:10,472 - diamond.<module> - INFO - Starting logger.
+2025-02-25 17:25:11,218 - emod.start - INFO - Starting Job Manager.
+2025-02-25 17:25:11,219 - cron.run - INFO - Starting Cron Daemon.
+2025-02-25 17:26:22,233 - diamond.<module> - INFO - Starting logger.
+2025-02-25 17:26:22,970 - emod.start - INFO - Starting Job Manager.
+2025-02-25 17:26:22,970 - cron.run - INFO - Starting Cron Daemon.
+2025-02-25 17:27:00,791 - diamond.<module> - INFO - Starting logger.
+2025-02-25 17:27:01,535 - emod.start - INFO - Starting Job Manager.
+2025-02-25 17:27:01,535 - cron.run - INFO - Starting Cron Daemon.
+2025-02-25 17:30:47,892 - diamond.<module> - INFO - Starting logger.
+2025-02-25 17:30:48,650 - emod.start - INFO - Starting Job Manager.
+2025-02-25 17:30:48,650 - cron.run - INFO - Starting Cron Daemon.
+2025-02-25 17:45:32,416 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <measurements.confocal.Confocal object at 0x000002C80C825E40>, trait: x, old value: 49.504950495049506, new value: 49.63
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 487, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 122, in _set_scanner_position
+    scanner.setPosition(self.x, self.y, self.z)
+  File "C:\Users\yy3\pi3-mini\hardware\nidaq.py", line 441, in setPosition
+    self.setAOLength(1)
+  File "C:\Users\yy3\pi3-mini\hardware\nidaq.py", line 248, in setAOLength
+    CHK( dll.DAQmxSetSampTimingType( self.AOTask, DAQmx_Val_OnDemand)  )
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in function
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\PyDAQmx\DAQmxFunctions.py", line 62, in mafunction
+    raise exception_class(errBuff.value.decode("utf-8"), f.__name__)
+PyDAQmx.DAQmxFunctions.CannotSetPropertyWhenTaskRunningError: Specified property cannot be set while the task is running.
+Set the property prior to starting the task, or stop the task prior to setting the property.
+Property: DAQmx_SampTimingType
+
+Task Name: _unnamedTask<2>
+
+Status Code: -200557
+ in function DAQmxSetSampTimingType
+2025-02-25 17:45:32,478 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <measurements.confocal.Confocal object at 0x000002C80C825E40>, trait: x, old value: 49.63, new value: 50.51
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 487, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 122, in _set_scanner_position
+    scanner.setPosition(self.x, self.y, self.z)
+  File "C:\Users\yy3\pi3-mini\hardware\nidaq.py", line 441, in setPosition
+    self.setAOLength(1)
+  File "C:\Users\yy3\pi3-mini\hardware\nidaq.py", line 248, in setAOLength
+    CHK( dll.DAQmxSetSampTimingType( self.AOTask, DAQmx_Val_OnDemand)  )
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in function
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\PyDAQmx\DAQmxFunctions.py", line 62, in mafunction
+    raise exception_class(errBuff.value.decode("utf-8"), f.__name__)
+PyDAQmx.DAQmxFunctions.CannotSetPropertyWhenTaskRunningError: Specified property cannot be set while the task is running.
+Set the property prior to starting the task, or stop the task prior to setting the property.
+Property: DAQmx_SampTimingType
+
+Task Name: _unnamedTask<2>
+
+Status Code: -200557
+ in function DAQmxSetSampTimingType
+2025-02-25 17:45:32,503 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <measurements.confocal.Confocal object at 0x000002C80C825E40>, trait: x, old value: 50.51, new value: 52.86
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 487, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 122, in _set_scanner_position
+    scanner.setPosition(self.x, self.y, self.z)
+  File "C:\Users\yy3\pi3-mini\hardware\nidaq.py", line 441, in setPosition
+    self.setAOLength(1)
+  File "C:\Users\yy3\pi3-mini\hardware\nidaq.py", line 248, in setAOLength
+    CHK( dll.DAQmxSetSampTimingType( self.AOTask, DAQmx_Val_OnDemand)  )
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in function
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\PyDAQmx\DAQmxFunctions.py", line 62, in mafunction
+    raise exception_class(errBuff.value.decode("utf-8"), f.__name__)
+PyDAQmx.DAQmxFunctions.CannotSetPropertyWhenTaskRunningError: Specified property cannot be set while the task is running.
+Set the property prior to starting the task, or stop the task prior to setting the property.
+Property: DAQmx_SampTimingType
+
+Task Name: _unnamedTask<2>
+
+Status Code: -200557
+ in function DAQmxSetSampTimingType
+2025-02-25 17:45:32,514 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <measurements.confocal.Confocal object at 0x000002C80C825E40>, trait: x, old value: 52.86, new value: 53.290000000000006
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 487, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 122, in _set_scanner_position
+    scanner.setPosition(self.x, self.y, self.z)
+  File "C:\Users\yy3\pi3-mini\hardware\nidaq.py", line 441, in setPosition
+    self.setAOLength(1)
+  File "C:\Users\yy3\pi3-mini\hardware\nidaq.py", line 248, in setAOLength
+    CHK( dll.DAQmxSetSampTimingType( self.AOTask, DAQmx_Val_OnDemand)  )
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in function
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\PyDAQmx\DAQmxFunctions.py", line 62, in mafunction
+    raise exception_class(errBuff.value.decode("utf-8"), f.__name__)
+PyDAQmx.DAQmxFunctions.CannotSetPropertyWhenTaskRunningError: Specified property cannot be set while the task is running.
+Set the property prior to starting the task, or stop the task prior to setting the property.
+Property: DAQmx_SampTimingType
+
+Task Name: _unnamedTask<2>
+
+Status Code: -200557
+ in function DAQmxSetSampTimingType
+2025-02-25 17:45:32,524 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <measurements.confocal.Confocal object at 0x000002C80C825E40>, trait: x, old value: 53.290000000000006, new value: 53.44
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 487, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 122, in _set_scanner_position
+    scanner.setPosition(self.x, self.y, self.z)
+  File "C:\Users\yy3\pi3-mini\hardware\nidaq.py", line 441, in setPosition
+    self.setAOLength(1)
+  File "C:\Users\yy3\pi3-mini\hardware\nidaq.py", line 248, in setAOLength
+    CHK( dll.DAQmxSetSampTimingType( self.AOTask, DAQmx_Val_OnDemand)  )
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in function
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\PyDAQmx\DAQmxFunctions.py", line 62, in mafunction
+    raise exception_class(errBuff.value.decode("utf-8"), f.__name__)
+PyDAQmx.DAQmxFunctions.CannotSetPropertyWhenTaskRunningError: Specified property cannot be set while the task is running.
+Set the property prior to starting the task, or stop the task prior to setting the property.
+Property: DAQmx_SampTimingType
+
+Task Name: _unnamedTask<2>
+
+Status Code: -200557
+ in function DAQmxSetSampTimingType
+2025-02-25 17:50:14,159 - diamond.<module> - INFO - Starting logger.
+2025-02-25 17:50:14,895 - emod.start - INFO - Starting Job Manager.
+2025-02-25 17:50:14,895 - cron.run - INFO - Starting Cron Daemon.
+2025-02-25 17:52:38,929 - diamond.<module> - INFO - Starting logger.
+2025-02-25 17:52:39,666 - emod.start - INFO - Starting Job Manager.
+2025-02-25 17:52:39,666 - cron.run - INFO - Starting Cron Daemon.
+2025-02-25 17:56:54,275 - diamond.<module> - INFO - Starting logger.
+2025-02-25 17:56:55,050 - emod.start - INFO - Starting Job Manager.
+2025-02-25 17:56:55,051 - cron.run - INFO - Starting Cron Daemon.
+2025-02-25 17:57:12,027 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <measurements.confocal.Confocal object at 0x000001780D693BF0>, trait: z, old value: 50.0, new value: 51.1
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 487, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 122, in _set_scanner_position
+    scanner.setPosition(self.x, self.y, self.z)
+  File "C:\Users\yy3\pi3-mini\hardware\nidaq.py", line 441, in setPosition
+    self.setAOLength(1)
+  File "C:\Users\yy3\pi3-mini\hardware\nidaq.py", line 248, in setAOLength
+    CHK( dll.DAQmxSetSampTimingType( self.AOTask, DAQmx_Val_OnDemand)  )
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in function
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\PyDAQmx\DAQmxFunctions.py", line 62, in mafunction
+    raise exception_class(errBuff.value.decode("utf-8"), f.__name__)
+PyDAQmx.DAQmxFunctions.CannotSetPropertyWhenTaskRunningError: Specified property cannot be set while the task is running.
+Set the property prior to starting the task, or stop the task prior to setting the property.
+Property: DAQmx_SampTimingType
+
+Task Name: _unnamedTask<2>
+
+Status Code: -200557
+ in function DAQmxSetSampTimingType
+2025-02-25 17:57:12,058 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <measurements.confocal.Confocal object at 0x000001780D693BF0>, trait: z, old value: 51.1, new value: 52.12
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 487, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 122, in _set_scanner_position
+    scanner.setPosition(self.x, self.y, self.z)
+  File "C:\Users\yy3\pi3-mini\hardware\nidaq.py", line 441, in setPosition
+    self.setAOLength(1)
+  File "C:\Users\yy3\pi3-mini\hardware\nidaq.py", line 248, in setAOLength
+    CHK( dll.DAQmxSetSampTimingType( self.AOTask, DAQmx_Val_OnDemand)  )
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in function
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\PyDAQmx\DAQmxFunctions.py", line 62, in mafunction
+    raise exception_class(errBuff.value.decode("utf-8"), f.__name__)
+PyDAQmx.DAQmxFunctions.CannotSetPropertyWhenTaskRunningError: Specified property cannot be set while the task is running.
+Set the property prior to starting the task, or stop the task prior to setting the property.
+Property: DAQmx_SampTimingType
+
+Task Name: _unnamedTask<2>
+
+Status Code: -200557
+ in function DAQmxSetSampTimingType
+2025-02-25 17:57:12,063 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <measurements.confocal.Confocal object at 0x000001780D693BF0>, trait: z, old value: 52.12, new value: 53.44
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 487, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 122, in _set_scanner_position
+    scanner.setPosition(self.x, self.y, self.z)
+  File "C:\Users\yy3\pi3-mini\hardware\nidaq.py", line 441, in setPosition
+    self.setAOLength(1)
+  File "C:\Users\yy3\pi3-mini\hardware\nidaq.py", line 248, in setAOLength
+    CHK( dll.DAQmxSetSampTimingType( self.AOTask, DAQmx_Val_OnDemand)  )
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in function
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\PyDAQmx\DAQmxFunctions.py", line 62, in mafunction
+    raise exception_class(errBuff.value.decode("utf-8"), f.__name__)
+PyDAQmx.DAQmxFunctions.CannotSetPropertyWhenTaskRunningError: Specified property cannot be set while the task is running.
+Set the property prior to starting the task, or stop the task prior to setting the property.
+Property: DAQmx_SampTimingType
+
+Task Name: _unnamedTask<2>
+
+Status Code: -200557
+ in function DAQmxSetSampTimingType
+2025-02-25 17:57:12,067 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <measurements.confocal.Confocal object at 0x000001780D693BF0>, trait: z, old value: 53.44, new value: 53.879999999999995
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 487, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 122, in _set_scanner_position
+    scanner.setPosition(self.x, self.y, self.z)
+  File "C:\Users\yy3\pi3-mini\hardware\nidaq.py", line 441, in setPosition
+    self.setAOLength(1)
+  File "C:\Users\yy3\pi3-mini\hardware\nidaq.py", line 248, in setAOLength
+    CHK( dll.DAQmxSetSampTimingType( self.AOTask, DAQmx_Val_OnDemand)  )
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in function
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\PyDAQmx\DAQmxFunctions.py", line 62, in mafunction
+    raise exception_class(errBuff.value.decode("utf-8"), f.__name__)
+PyDAQmx.DAQmxFunctions.CannotSetPropertyWhenTaskRunningError: Specified property cannot be set while the task is running.
+Set the property prior to starting the task, or stop the task prior to setting the property.
+Property: DAQmx_SampTimingType
+
+Task Name: _unnamedTask<2>
+
+Status Code: -200557
+ in function DAQmxSetSampTimingType
+2025-02-25 17:57:12,075 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <measurements.confocal.Confocal object at 0x000001780D693BF0>, trait: z, old value: 53.879999999999995, new value: 54.03
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 487, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 122, in _set_scanner_position
+    scanner.setPosition(self.x, self.y, self.z)
+  File "C:\Users\yy3\pi3-mini\hardware\nidaq.py", line 441, in setPosition
+    self.setAOLength(1)
+  File "C:\Users\yy3\pi3-mini\hardware\nidaq.py", line 248, in setAOLength
+    CHK( dll.DAQmxSetSampTimingType( self.AOTask, DAQmx_Val_OnDemand)  )
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in function
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\PyDAQmx\DAQmxFunctions.py", line 62, in mafunction
+    raise exception_class(errBuff.value.decode("utf-8"), f.__name__)
+PyDAQmx.DAQmxFunctions.CannotSetPropertyWhenTaskRunningError: Specified property cannot be set while the task is running.
+Set the property prior to starting the task, or stop the task prior to setting the property.
+Property: DAQmx_SampTimingType
+
+Task Name: _unnamedTask<2>
+
+Status Code: -200557
+ in function DAQmxSetSampTimingType
+2025-02-25 17:57:12,083 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <measurements.confocal.Confocal object at 0x000001780D693BF0>, trait: z, old value: 54.03, new value: 54.169999999999995
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 487, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 122, in _set_scanner_position
+    scanner.setPosition(self.x, self.y, self.z)
+  File "C:\Users\yy3\pi3-mini\hardware\nidaq.py", line 441, in setPosition
+    self.setAOLength(1)
+  File "C:\Users\yy3\pi3-mini\hardware\nidaq.py", line 248, in setAOLength
+    CHK( dll.DAQmxSetSampTimingType( self.AOTask, DAQmx_Val_OnDemand)  )
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in function
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\PyDAQmx\DAQmxFunctions.py", line 62, in mafunction
+    raise exception_class(errBuff.value.decode("utf-8"), f.__name__)
+PyDAQmx.DAQmxFunctions.CannotSetPropertyWhenTaskRunningError: Specified property cannot be set while the task is running.
+Set the property prior to starting the task, or stop the task prior to setting the property.
+Property: DAQmx_SampTimingType
+
+Task Name: _unnamedTask<2>
+
+Status Code: -200557
+ in function DAQmxSetSampTimingType
+2025-02-25 17:57:12,092 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <measurements.confocal.Confocal object at 0x000001780D693BF0>, trait: z, old value: 54.169999999999995, new value: 54.32
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 487, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 122, in _set_scanner_position
+    scanner.setPosition(self.x, self.y, self.z)
+  File "C:\Users\yy3\pi3-mini\hardware\nidaq.py", line 441, in setPosition
+    self.setAOLength(1)
+  File "C:\Users\yy3\pi3-mini\hardware\nidaq.py", line 248, in setAOLength
+    CHK( dll.DAQmxSetSampTimingType( self.AOTask, DAQmx_Val_OnDemand)  )
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in function
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\PyDAQmx\DAQmxFunctions.py", line 62, in mafunction
+    raise exception_class(errBuff.value.decode("utf-8"), f.__name__)
+PyDAQmx.DAQmxFunctions.CannotSetPropertyWhenTaskRunningError: Specified property cannot be set while the task is running.
+Set the property prior to starting the task, or stop the task prior to setting the property.
+Property: DAQmx_SampTimingType
+
+Task Name: _unnamedTask<2>
+
+Status Code: -200557
+ in function DAQmxSetSampTimingType
+2025-02-25 17:58:38,422 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <measurements.confocal.Confocal object at 0x000001780D693BF0>, trait: y, old value: 49.504950495049506, new value: 49.63
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 487, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 122, in _set_scanner_position
+    scanner.setPosition(self.x, self.y, self.z)
+  File "C:\Users\yy3\pi3-mini\hardware\nidaq.py", line 441, in setPosition
+    self.setAOLength(1)
+  File "C:\Users\yy3\pi3-mini\hardware\nidaq.py", line 248, in setAOLength
+    CHK( dll.DAQmxSetSampTimingType( self.AOTask, DAQmx_Val_OnDemand)  )
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in function
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\PyDAQmx\DAQmxFunctions.py", line 62, in mafunction
+    raise exception_class(errBuff.value.decode("utf-8"), f.__name__)
+PyDAQmx.DAQmxFunctions.CannotSetPropertyWhenTaskRunningError: Specified property cannot be set while the task is running.
+Set the property prior to starting the task, or stop the task prior to setting the property.
+Property: DAQmx_SampTimingType
+
+Task Name: _unnamedTask<2>
+
+Status Code: -200557
+ in function DAQmxSetSampTimingType
+2025-02-25 17:58:38,444 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <measurements.confocal.Confocal object at 0x000001780D693BF0>, trait: y, old value: 49.63, new value: 49.93
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 487, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 122, in _set_scanner_position
+    scanner.setPosition(self.x, self.y, self.z)
+  File "C:\Users\yy3\pi3-mini\hardware\nidaq.py", line 441, in setPosition
+    self.setAOLength(1)
+  File "C:\Users\yy3\pi3-mini\hardware\nidaq.py", line 248, in setAOLength
+    CHK( dll.DAQmxSetSampTimingType( self.AOTask, DAQmx_Val_OnDemand)  )
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in function
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\PyDAQmx\DAQmxFunctions.py", line 62, in mafunction
+    raise exception_class(errBuff.value.decode("utf-8"), f.__name__)
+PyDAQmx.DAQmxFunctions.CannotSetPropertyWhenTaskRunningError: Specified property cannot be set while the task is running.
+Set the property prior to starting the task, or stop the task prior to setting the property.
+Property: DAQmx_SampTimingType
+
+Task Name: _unnamedTask<2>
+
+Status Code: -200557
+ in function DAQmxSetSampTimingType
+2025-02-25 17:58:38,454 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <measurements.confocal.Confocal object at 0x000001780D693BF0>, trait: y, old value: 49.93, new value: 50.22
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 487, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 122, in _set_scanner_position
+    scanner.setPosition(self.x, self.y, self.z)
+  File "C:\Users\yy3\pi3-mini\hardware\nidaq.py", line 441, in setPosition
+    self.setAOLength(1)
+  File "C:\Users\yy3\pi3-mini\hardware\nidaq.py", line 248, in setAOLength
+    CHK( dll.DAQmxSetSampTimingType( self.AOTask, DAQmx_Val_OnDemand)  )
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in function
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\PyDAQmx\DAQmxFunctions.py", line 62, in mafunction
+    raise exception_class(errBuff.value.decode("utf-8"), f.__name__)
+PyDAQmx.DAQmxFunctions.CannotSetPropertyWhenTaskRunningError: Specified property cannot be set while the task is running.
+Set the property prior to starting the task, or stop the task prior to setting the property.
+Property: DAQmx_SampTimingType
+
+Task Name: _unnamedTask<2>
+
+Status Code: -200557
+ in function DAQmxSetSampTimingType
+2025-02-25 17:58:38,484 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <measurements.confocal.Confocal object at 0x000001780D693BF0>, trait: y, old value: 50.22, new value: 50.51
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 487, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 122, in _set_scanner_position
+    scanner.setPosition(self.x, self.y, self.z)
+  File "C:\Users\yy3\pi3-mini\hardware\nidaq.py", line 441, in setPosition
+    self.setAOLength(1)
+  File "C:\Users\yy3\pi3-mini\hardware\nidaq.py", line 248, in setAOLength
+    CHK( dll.DAQmxSetSampTimingType( self.AOTask, DAQmx_Val_OnDemand)  )
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in function
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\PyDAQmx\DAQmxFunctions.py", line 62, in mafunction
+    raise exception_class(errBuff.value.decode("utf-8"), f.__name__)
+PyDAQmx.DAQmxFunctions.CannotSetPropertyWhenTaskRunningError: Specified property cannot be set while the task is running.
+Set the property prior to starting the task, or stop the task prior to setting the property.
+Property: DAQmx_SampTimingType
+
+Task Name: _unnamedTask<2>
+
+Status Code: -200557
+ in function DAQmxSetSampTimingType
+2025-02-25 17:58:38,487 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <measurements.confocal.Confocal object at 0x000001780D693BF0>, trait: y, old value: 50.51, new value: 50.81
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 487, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 122, in _set_scanner_position
+    scanner.setPosition(self.x, self.y, self.z)
+  File "C:\Users\yy3\pi3-mini\hardware\nidaq.py", line 441, in setPosition
+    self.setAOLength(1)
+  File "C:\Users\yy3\pi3-mini\hardware\nidaq.py", line 248, in setAOLength
+    CHK( dll.DAQmxSetSampTimingType( self.AOTask, DAQmx_Val_OnDemand)  )
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in function
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\PyDAQmx\DAQmxFunctions.py", line 62, in mafunction
+    raise exception_class(errBuff.value.decode("utf-8"), f.__name__)
+PyDAQmx.DAQmxFunctions.CannotSetPropertyWhenTaskRunningError: Specified property cannot be set while the task is running.
+Set the property prior to starting the task, or stop the task prior to setting the property.
+Property: DAQmx_SampTimingType
+
+Task Name: _unnamedTask<2>
+
+Status Code: -200557
+ in function DAQmxSetSampTimingType
+2025-02-25 17:58:38,487 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <measurements.confocal.Confocal object at 0x000001780D693BF0>, trait: y, old value: 50.81, new value: 52.12
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 487, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 122, in _set_scanner_position
+    scanner.setPosition(self.x, self.y, self.z)
+  File "C:\Users\yy3\pi3-mini\hardware\nidaq.py", line 441, in setPosition
+    self.setAOLength(1)
+  File "C:\Users\yy3\pi3-mini\hardware\nidaq.py", line 248, in setAOLength
+    CHK( dll.DAQmxSetSampTimingType( self.AOTask, DAQmx_Val_OnDemand)  )
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in function
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\PyDAQmx\DAQmxFunctions.py", line 62, in mafunction
+    raise exception_class(errBuff.value.decode("utf-8"), f.__name__)
+PyDAQmx.DAQmxFunctions.CannotSetPropertyWhenTaskRunningError: Specified property cannot be set while the task is running.
+Set the property prior to starting the task, or stop the task prior to setting the property.
+Property: DAQmx_SampTimingType
+
+Task Name: _unnamedTask<2>
+
+Status Code: -200557
+ in function DAQmxSetSampTimingType
+2025-02-25 17:58:38,516 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <measurements.confocal.Confocal object at 0x000001780D693BF0>, trait: y, old value: 52.12, new value: 53.0
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 487, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 122, in _set_scanner_position
+    scanner.setPosition(self.x, self.y, self.z)
+  File "C:\Users\yy3\pi3-mini\hardware\nidaq.py", line 441, in setPosition
+    self.setAOLength(1)
+  File "C:\Users\yy3\pi3-mini\hardware\nidaq.py", line 248, in setAOLength
+    CHK( dll.DAQmxSetSampTimingType( self.AOTask, DAQmx_Val_OnDemand)  )
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in function
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\PyDAQmx\DAQmxFunctions.py", line 62, in mafunction
+    raise exception_class(errBuff.value.decode("utf-8"), f.__name__)
+PyDAQmx.DAQmxFunctions.CannotSetPropertyWhenTaskRunningError: Specified property cannot be set while the task is running.
+Set the property prior to starting the task, or stop the task prior to setting the property.
+Property: DAQmx_SampTimingType
+
+Task Name: _unnamedTask<2>
+
+Status Code: -200557
+ in function DAQmxSetSampTimingType
+2025-02-25 17:58:38,521 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <measurements.confocal.Confocal object at 0x000001780D693BF0>, trait: y, old value: 53.0, new value: 53.290000000000006
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 487, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 122, in _set_scanner_position
+    scanner.setPosition(self.x, self.y, self.z)
+  File "C:\Users\yy3\pi3-mini\hardware\nidaq.py", line 441, in setPosition
+    self.setAOLength(1)
+  File "C:\Users\yy3\pi3-mini\hardware\nidaq.py", line 248, in setAOLength
+    CHK( dll.DAQmxSetSampTimingType( self.AOTask, DAQmx_Val_OnDemand)  )
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in function
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\PyDAQmx\DAQmxFunctions.py", line 62, in mafunction
+    raise exception_class(errBuff.value.decode("utf-8"), f.__name__)
+PyDAQmx.DAQmxFunctions.CannotSetPropertyWhenTaskRunningError: Specified property cannot be set while the task is running.
+Set the property prior to starting the task, or stop the task prior to setting the property.
+Property: DAQmx_SampTimingType
+
+Task Name: _unnamedTask<2>
+
+Status Code: -200557
+ in function DAQmxSetSampTimingType
+2025-02-25 17:58:38,534 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <measurements.confocal.Confocal object at 0x000001780D693BF0>, trait: y, old value: 53.290000000000006, new value: 53.44
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 487, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 122, in _set_scanner_position
+    scanner.setPosition(self.x, self.y, self.z)
+  File "C:\Users\yy3\pi3-mini\hardware\nidaq.py", line 441, in setPosition
+    self.setAOLength(1)
+  File "C:\Users\yy3\pi3-mini\hardware\nidaq.py", line 248, in setAOLength
+    CHK( dll.DAQmxSetSampTimingType( self.AOTask, DAQmx_Val_OnDemand)  )
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in function
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\PyDAQmx\DAQmxFunctions.py", line 62, in mafunction
+    raise exception_class(errBuff.value.decode("utf-8"), f.__name__)
+PyDAQmx.DAQmxFunctions.CannotSetPropertyWhenTaskRunningError: Specified property cannot be set while the task is running.
+Set the property prior to starting the task, or stop the task prior to setting the property.
+Property: DAQmx_SampTimingType
+
+Task Name: _unnamedTask<2>
+
+Status Code: -200557
+ in function DAQmxSetSampTimingType
+2025-02-25 17:58:38,537 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <measurements.confocal.Confocal object at 0x000001780D693BF0>, trait: y, old value: 53.44, new value: 53.59
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 487, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 122, in _set_scanner_position
+    scanner.setPosition(self.x, self.y, self.z)
+  File "C:\Users\yy3\pi3-mini\hardware\nidaq.py", line 441, in setPosition
+    self.setAOLength(1)
+  File "C:\Users\yy3\pi3-mini\hardware\nidaq.py", line 248, in setAOLength
+    CHK( dll.DAQmxSetSampTimingType( self.AOTask, DAQmx_Val_OnDemand)  )
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in function
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\PyDAQmx\DAQmxFunctions.py", line 62, in mafunction
+    raise exception_class(errBuff.value.decode("utf-8"), f.__name__)
+PyDAQmx.DAQmxFunctions.CannotSetPropertyWhenTaskRunningError: Specified property cannot be set while the task is running.
+Set the property prior to starting the task, or stop the task prior to setting the property.
+Property: DAQmx_SampTimingType
+
+Task Name: _unnamedTask<2>
+
+Status Code: -200557
+ in function DAQmxSetSampTimingType
+2025-02-25 17:58:38,544 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <measurements.confocal.Confocal object at 0x000001780D693BF0>, trait: y, old value: 53.59, new value: 53.879999999999995
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 487, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 122, in _set_scanner_position
+    scanner.setPosition(self.x, self.y, self.z)
+  File "C:\Users\yy3\pi3-mini\hardware\nidaq.py", line 441, in setPosition
+    self.setAOLength(1)
+  File "C:\Users\yy3\pi3-mini\hardware\nidaq.py", line 248, in setAOLength
+    CHK( dll.DAQmxSetSampTimingType( self.AOTask, DAQmx_Val_OnDemand)  )
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in function
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\PyDAQmx\DAQmxFunctions.py", line 62, in mafunction
+    raise exception_class(errBuff.value.decode("utf-8"), f.__name__)
+PyDAQmx.DAQmxFunctions.CannotSetPropertyWhenTaskRunningError: Specified property cannot be set while the task is running.
+Set the property prior to starting the task, or stop the task prior to setting the property.
+Property: DAQmx_SampTimingType
+
+Task Name: _unnamedTask<2>
+
+Status Code: -200557
+ in function DAQmxSetSampTimingType
+2025-02-25 17:58:38,555 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <measurements.confocal.Confocal object at 0x000001780D693BF0>, trait: y, old value: 53.879999999999995, new value: 54.03
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 487, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 122, in _set_scanner_position
+    scanner.setPosition(self.x, self.y, self.z)
+  File "C:\Users\yy3\pi3-mini\hardware\nidaq.py", line 441, in setPosition
+    self.setAOLength(1)
+  File "C:\Users\yy3\pi3-mini\hardware\nidaq.py", line 248, in setAOLength
+    CHK( dll.DAQmxSetSampTimingType( self.AOTask, DAQmx_Val_OnDemand)  )
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in function
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\PyDAQmx\DAQmxFunctions.py", line 62, in mafunction
+    raise exception_class(errBuff.value.decode("utf-8"), f.__name__)
+PyDAQmx.DAQmxFunctions.CannotSetPropertyWhenTaskRunningError: Specified property cannot be set while the task is running.
+Set the property prior to starting the task, or stop the task prior to setting the property.
+Property: DAQmx_SampTimingType
+
+Task Name: _unnamedTask<2>
+
+Status Code: -200557
+ in function DAQmxSetSampTimingType
+2025-02-25 17:58:38,571 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <measurements.confocal.Confocal object at 0x000001780D693BF0>, trait: y, old value: 54.03, new value: 54.169999999999995
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 487, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 122, in _set_scanner_position
+    scanner.setPosition(self.x, self.y, self.z)
+  File "C:\Users\yy3\pi3-mini\hardware\nidaq.py", line 441, in setPosition
+    self.setAOLength(1)
+  File "C:\Users\yy3\pi3-mini\hardware\nidaq.py", line 248, in setAOLength
+    CHK( dll.DAQmxSetSampTimingType( self.AOTask, DAQmx_Val_OnDemand)  )
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in function
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\PyDAQmx\DAQmxFunctions.py", line 62, in mafunction
+    raise exception_class(errBuff.value.decode("utf-8"), f.__name__)
+PyDAQmx.DAQmxFunctions.CannotSetPropertyWhenTaskRunningError: Specified property cannot be set while the task is running.
+Set the property prior to starting the task, or stop the task prior to setting the property.
+Property: DAQmx_SampTimingType
+
+Task Name: _unnamedTask<2>
+
+Status Code: -200557
+ in function DAQmxSetSampTimingType
+2025-02-25 17:58:38,614 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <measurements.confocal.Confocal object at 0x000001780D693BF0>, trait: y, old value: 54.169999999999995, new value: 54.32
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 487, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 122, in _set_scanner_position
+    scanner.setPosition(self.x, self.y, self.z)
+  File "C:\Users\yy3\pi3-mini\hardware\nidaq.py", line 441, in setPosition
+    self.setAOLength(1)
+  File "C:\Users\yy3\pi3-mini\hardware\nidaq.py", line 248, in setAOLength
+    CHK( dll.DAQmxSetSampTimingType( self.AOTask, DAQmx_Val_OnDemand)  )
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in function
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\PyDAQmx\DAQmxFunctions.py", line 62, in mafunction
+    raise exception_class(errBuff.value.decode("utf-8"), f.__name__)
+PyDAQmx.DAQmxFunctions.CannotSetPropertyWhenTaskRunningError: Specified property cannot be set while the task is running.
+Set the property prior to starting the task, or stop the task prior to setting the property.
+Property: DAQmx_SampTimingType
+
+Task Name: _unnamedTask<2>
+
+Status Code: -200557
+ in function DAQmxSetSampTimingType
+2025-02-25 17:59:04,684 - diamond.<module> - INFO - Starting logger.
+2025-02-25 17:59:05,426 - emod.start - INFO - Starting Job Manager.
+2025-02-25 17:59:05,426 - cron.run - INFO - Starting Cron Daemon.
+2025-02-25 17:59:19,106 - diamond.<module> - INFO - Starting logger.
+2025-02-25 17:59:19,855 - emod.start - INFO - Starting Job Manager.
+2025-02-25 17:59:19,855 - cron.run - INFO - Starting Cron Daemon.
+2025-02-25 18:00:57,176 - diamond.<module> - INFO - Starting logger.
+2025-02-25 18:00:57,954 - emod.start - INFO - Starting Job Manager.
+2025-02-25 18:00:57,955 - cron.run - INFO - Starting Cron Daemon.
+2025-02-25 18:05:20,934 - diamond.<module> - INFO - Starting logger.
+2025-02-25 18:05:21,682 - emod.start - INFO - Starting Job Manager.
+2025-02-25 18:05:21,682 - cron.run - INFO - Starting Cron Daemon.
+2025-02-25 18:05:33,726 - diamond.<module> - INFO - Starting logger.
+2025-02-25 18:05:34,458 - emod.start - INFO - Starting Job Manager.
+2025-02-25 18:05:34,458 - cron.run - INFO - Starting Cron Daemon.
+2025-02-25 18:07:56,379 - diamond.<module> - INFO - Starting logger.
+2025-02-25 18:07:57,145 - emod.start - INFO - Starting Job Manager.
+2025-02-25 18:07:57,146 - cron.run - INFO - Starting Cron Daemon.
+2025-02-25 18:08:56,901 - diamond.<module> - INFO - Starting logger.
+2025-02-25 18:08:57,627 - emod.start - INFO - Starting Job Manager.
+2025-02-25 18:08:57,627 - cron.run - INFO - Starting Cron Daemon.
+2025-02-25 18:09:39,143 - diamond.<module> - INFO - Starting logger.
+2025-02-25 18:09:39,906 - emod.start - INFO - Starting Job Manager.
+2025-02-25 18:09:39,916 - cron.run - INFO - Starting Cron Daemon.
+2025-02-25 18:09:47,172 - diamond.<module> - INFO - Starting logger.
+2025-02-25 18:09:47,922 - emod.start - INFO - Starting Job Manager.
+2025-02-25 18:09:47,922 - cron.run - INFO - Starting Cron Daemon.
+2025-02-25 18:16:17,254 - diamond.<module> - INFO - Starting logger.
+2025-02-25 18:16:18,018 - emod.start - INFO - Starting Job Manager.
+2025-02-25 18:16:18,018 - cron.run - INFO - Starting Cron Daemon.
+2025-02-25 18:25:38,825 - diamond.<module> - INFO - Starting logger.
+2025-02-25 18:25:39,575 - emod.start - INFO - Starting Job Manager.
+2025-02-25 18:25:39,575 - cron.run - INFO - Starting Cron Daemon.
+2025-02-25 18:26:06,058 - diamond.<module> - INFO - Starting logger.
+2025-02-25 18:26:06,797 - emod.start - INFO - Starting Job Manager.
+2025-02-25 18:26:06,797 - cron.run - INFO - Starting Cron Daemon.
+2025-02-25 18:28:11,365 - diamond.<module> - INFO - Starting logger.
+2025-02-25 18:28:12,112 - emod.start - INFO - Starting Job Manager.
+2025-02-25 18:28:12,112 - cron.run - INFO - Starting Cron Daemon.
+2025-02-25 18:38:49,809 - diamond.<module> - INFO - Starting logger.
+2025-02-25 18:38:50,569 - emod.start - INFO - Starting Job Manager.
+2025-02-25 18:38:50,569 - cron.run - INFO - Starting Cron Daemon.

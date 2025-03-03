@@ -36,7 +36,12 @@ def startExperiment:
     ha.AWG().set_vpp(2.0, 0b10)
     ha.AWG().set_sampling(1.e9)
 """
-    
+
+import sys,os
+sys.path.append('C:\\Program Files (x86)\\Swabian Instruments\\Time Tagger\\driver\\Python3.6\\x64\\')
+sys.path.append('C:\\Program Files (x86)\\Swabian Instruments\\Time Tagger\\driver\\x64')
+sys.path.append('C:\\Program Files (x86)\\Swabian Instruments\\Time Tagger\\driver\\firmware')
+
 # That's it for now! We pass over control to custom startup script if present. 
 if os.access(path+'/diamond_custom.py', os.F_OK):
     # PYTHON3 EDIT execfile(path+'/diamond_custom.py')

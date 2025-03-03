@@ -33,9 +33,9 @@ scanner = Scanner()
 class Confocal( ManagedJob, GetSetItemsMixin ):
 
     # scanner position
-    x = Range(low=scanner.getXRange()[0], high=scanner.getXRange()[1], value=0.5*(scanner.getXRange()[0]+scanner.getXRange()[1]), desc='x [micron]', label='x [micron]', mode='slider', editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_str='%.2f'))
-    y = Range(low=scanner.getYRange()[0], high=scanner.getYRange()[1], value=0.5*(scanner.getYRange()[0]+scanner.getYRange()[1]), desc='y [micron]', label='y [micron]', mode='slider', editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_str='%.2f'))
-    z = Range(low=scanner.getZRange()[0], high=scanner.getZRange()[1], value=0.5*(scanner.getZRange()[0]+scanner.getZRange()[1]), desc='z [micron]', label='z [micron]', mode='slider', editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_str='%.2f'))
+    x = Range(low=scanner.getXRange()[0], high=scanner.getXRange()[1], value=0.5*(scanner.getXRange()[0]+scanner.getXRange()[1]), desc='x [micron]', label='x [micron]', mode='slider')#, editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_str='%.2f'))
+    y = Range(low=scanner.getYRange()[0], high=scanner.getYRange()[1], value=0.5*(scanner.getYRange()[0]+scanner.getYRange()[1]), desc='y [micron]', label='y [micron]', mode='slider')#, editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_str='%.2f'))
+    z = Range(low=scanner.getZRange()[0], high=scanner.getZRange()[1], value=0.5*(scanner.getZRange()[0]+scanner.getZRange()[1]), desc='z [micron]', label='z [micron]', mode='slider')#, editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_str='%.2f'))
 
     # imagging parameters
     x1 = Range(low=scanner.getXRange()[0], high=scanner.getXRange()[1], value=scanner.getXRange()[0], desc='x1 [micron]', label='x1', editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_str='%.2f'))

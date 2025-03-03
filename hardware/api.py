@@ -21,8 +21,11 @@ import logging
 import time
 
 # Dummy TimeTagger
+# from .time_tagger_dummy import TimeTaggerDummy
+# time_tagger = TimeTaggerDummy()
+
 from .time_tagger_swabian import time_tagger_control
-time_tagger = time_tagger_control("1740000JEJ", 1, 5, 8)
+time_tagger = time_tagger_control("1740000JEC", 1, 3, 5)
 
 from tools.utility import singleton
 
@@ -31,22 +34,24 @@ def Scanner():
 	# from .nidaq_dummy import Scanner
 	from .nidaq import Scanner
 	
-	return Scanner( CounterIn='/Dev2/Ctr1',
-					CounterOut='/Dev2/Ctr0',
-					TickSource='/Dev2/PFI3',
-					AOChannels='/Dev2/ao0:2',
-					x_range=(0.0,344.0),
-					y_range=(0.0,344.0),
-					z_range=(0,100.0),
-					v_range=(-1.00,10.00))
+	return Scanner( CounterIn='/Dev1/Ctr3',
+					CounterOut='/Dev1/Ctr2',
+					TickSource='/Dev1/PFI0',
+					AOChannels='/Dev1/ao0:2',
+					x_range=(0.0,100.0),
+					y_range=(0.0,100.0),
+					z_range=(0.0,100.0),
+					v_range=(0.0,10.00))
 
 # Counter Initialization Used In ODMR
 @singleton
 def Counter():
 	from .nidaq_dummy import PulseTrainCounter
+	# from .nidaq import PulseTrainCounter
+
 	return PulseTrainCounter( CounterIn='/Dev1/Ctr3',
 							  CounterOut='/Dev1/Ctr2',
-							  TickSource='/Dev1/PFI3' )
+							  TickSource='/Dev1/PFI0' )
 
 # Microvave Source Initialization
 @singleton
