@@ -34,6 +34,19 @@ time_tagger = time_tagger_control(
 	ch_marker=6,
 )
 
+@singleton
+def PulseGenerator():
+	#from .pulse_generator_dummy import PulseGeneratorDummy
+	from .pulse_streamer import PulseStreamer
+	return PulseStreamer(
+		'169.254.8.2',
+		channel_map = {
+			'aom':0,
+			'detect':1,
+			'mw':2,
+			'sync':7,
+		}
+	)
 
 scanner_params = dict(
 	device_name = 'dev1',
@@ -88,19 +101,6 @@ def RFSource():
     return MicrowaveDummy(visa_address='GPIB0::01')
 
 
-@singleton
-def PulseGenerator():
-	#from .pulse_generator_dummy import PulseGeneratorDummy
-	from .pulse_streamer import PulseStreamer
-	return PulseStreamer(
-		'169.254.8.2',
-		channel_map = {
-			'aom':0,
-			'detect':1,
-			'mw':2,
-			'sync':7,
-		}
-	)
 
 
 # @singleton

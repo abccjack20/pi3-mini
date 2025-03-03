@@ -5548,3 +5548,607 @@ NotImplementedError: the 'qt' toolkit does not implement this method
 2025-03-03 19:03:02,847 - diamond.<module> - INFO - Starting logger.
 2025-03-03 19:03:03,582 - emod.start - INFO - Starting Job Manager.
 2025-03-03 19:03:03,582 - cron.run - INFO - Starting Cron Daemon.
+2025-03-03 21:09:29,434 - diamond.<module> - INFO - Starting logger.
+2025-03-03 21:09:30,191 - emod.start - INFO - Starting Job Manager.
+2025-03-03 21:09:30,191 - cron.run - INFO - Starting Cron Daemon.
+2025-03-03 21:11:46,263 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.PulsedAnalyzer object at 0x000002BD2033EC50>, trait: fit, old value: <analysis.pulsed.PulsedFit object at 0x000002BD203860C0>, new value: <analysis.pulsed.PulsedFit object at 0x000002BD2283AA20>
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 343, in __call__
+    self.handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 2476, in _fit_changed
+    for key in plot.plots.keys():
+RuntimeError: dictionary changed size during iteration
+2025-03-03 21:16:00,824 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.RabiFit object at 0x000002BD2282D300>, trait: measurement, old value: <measurements.rabi.Rabi object at 0x000002BD220D9620>, new value: None
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 1360, in update_plot_tau
+    self.line_data.set_data('tau', self.measurement.tau)
+                                   ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'tau'
+2025-03-03 21:16:00,834 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.PulsedAnalyzer object at 0x000002BD2033EC50>, trait: fit, old value: <analysis.pulsed.RabiFit object at 0x000002BD2282D300>, new value: <analysis.pulsed.RabiFit object at 0x000002BD22F76110>
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 343, in __call__
+    self.handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 2476, in _fit_changed
+    plot_names = list(plot.plots.keys())
+RuntimeError: dictionary changed size during iteration
+2025-03-03 21:16:03,587 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.RabiFit object at 0x000002BD22F76110>, trait: measurement, old value: <measurements.rabi.Rabi object at 0x000002BD220D9620>, new value: None
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 1360, in update_plot_tau
+    self.line_data.set_data('tau', self.measurement.tau)
+                                   ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'tau'
+2025-03-03 21:16:03,597 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.PulsedAnalyzer object at 0x000002BD2033EC50>, trait: fit, old value: <analysis.pulsed.RabiFit object at 0x000002BD22F76110>, new value: <analysis.pulsed.PulsedFit object at 0x000002BD22FD6E80>
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 343, in __call__
+    self.handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 2476, in _fit_changed
+    plot_names = list(plot.plots.keys())
+RuntimeError: dictionary changed size during iteration
+2025-03-03 21:16:07,357 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.PulsedAnalyzer object at 0x000002BD2033EC50>, trait: fit, old value: <analysis.pulsed.PulsedFit object at 0x000002BD22FC73D0>, new value: <analysis.pulsed.RabiFit object at 0x000002BD22FC6C50>
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 343, in __call__
+    self.handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 2476, in _fit_changed
+    plot_names = list(plot.plots.keys())
+RuntimeError: dictionary changed size during iteration
+2025-03-03 21:16:21,814 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.RabiFit object at 0x000002BD22FC6C50>, trait: measurement, old value: <measurements.rabi.Rabi object at 0x000002BD22FE9620>, new value: None
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 1360, in update_plot_tau
+    self.line_data.set_data('tau', self.measurement.tau)
+                                   ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'tau'
+2025-03-03 21:16:32,687 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.PulsedAnalyzer object at 0x000002BD2033EC50>, trait: fit, old value: <analysis.pulsed.PulsedFit object at 0x000002BD231D1490>, new value: <analysis.pulsed.PulsedFit object at 0x000002BD22AF8EA0>
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 343, in __call__
+    self.handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 2476, in _fit_changed
+    plot_names = list(plot.plots.keys())
+RuntimeError: dictionary changed size during iteration
+2025-03-03 21:25:06,420 - diamond.<module> - INFO - Starting logger.
+2025-03-03 21:25:07,229 - emod.start - INFO - Starting Job Manager.
+2025-03-03 21:25:07,229 - cron.run - INFO - Starting Cron Daemon.
+2025-03-03 21:25:30,942 - diamond.<module> - INFO - Starting logger.
+2025-03-03 21:25:31,686 - emod.start - INFO - Starting Job Manager.
+2025-03-03 21:25:31,687 - cron.run - INFO - Starting Cron Daemon.
+2025-03-03 21:25:48,556 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.RabiFit object at 0x0000027CAE823150>, trait: measurement, old value: <measurements.rabi.Rabi object at 0x0000027CAE822660>, new value: None
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 1360, in update_plot_tau
+    self.line_data.set_data('tau', self.measurement.tau)
+                                   ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'tau'
+2025-03-03 21:26:03,386 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.RabiFit object at 0x0000027CAEED31A0>, trait: measurement, old value: <measurements.rabi.Rabi object at 0x0000027CAEFAE110>, new value: None
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 1360, in update_plot_tau
+    self.line_data.set_data('tau', self.measurement.tau)
+                                   ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'tau'
+2025-03-03 21:26:37,742 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.RabiFit object at 0x0000027CAEEFDCB0>, trait: measurement, old value: <measurements.rabi.Rabi object at 0x0000027CAEC8A890>, new value: None
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 1360, in update_plot_tau
+    self.line_data.set_data('tau', self.measurement.tau)
+                                   ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'tau'
+2025-03-03 21:35:23,345 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.RabiFit object at 0x0000027CAF3D1490>, trait: measurement, old value: <measurements.rabi.Rabi object at 0x0000027CAF3C2250>, new value: None
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 1360, in update_plot_tau
+    self.line_data.set_data('data_3pi2', spin_state[n:])
+                                   ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'tau'
+2025-03-03 21:35:27,186 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.Hahn3pi2Fit object at 0x0000027CAF202020>, trait: spin_state, old value: [0. 0.], new value: [0. 0.]
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 2017, in update_plot_spin_state
+TypeError: slice indices must be integers or None or have an __index__ method
+2025-03-03 21:35:27,186 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.Hahn3pi2Fit object at 0x0000027CAF202020>, trait: spin_state_error, old value: [0. 0.], new value: [0. 0.]
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 487, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\has_traits.py", line 977, in wrapper0
+    return function(arg)
+           ^^^^^^^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\has_traits.py", line 3353, in notify
+    self.trait_property_changed(name, old)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\has_traits.py", line 905, in decorator
+    self.__dict__[name] = result = function(self)
+                                   ^^^^^^^^^^^^^^
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 1959, in _get_fit_result_pi2
+    JobManager().start()
+            ^^^^^^^^^^^^^
+TypeError: slice indices must be integers or None or have an __index__ method
+2025-03-03 21:35:27,196 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.Hahn3pi2Fit object at 0x0000027CAF202020>, trait: spin_state_error, old value: [0. 0.], new value: [0. 0.]
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 487, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\has_traits.py", line 977, in wrapper0
+    return function(arg)
+           ^^^^^^^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\has_traits.py", line 3353, in notify
+    self.trait_property_changed(name, old)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\has_traits.py", line 905, in decorator
+    self.__dict__[name] = result = function(self)
+                                   ^^^^^^^^^^^^^^
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 1970, in _get_fit_result_3pi2
+    #a.measurement = measurements.pulsed.Rabi()
+            ^^^^^^^^^^^^^^^^^^^
+TypeError: slice indices must be integers or None or have an __index__ method
+2025-03-03 21:35:27,221 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.PulsedAnalyzer object at 0x0000027CAD7925C0>, trait: fit, old value: <analysis.pulsed.PulsedFit object at 0x0000027CAEC8A0C0>, new value: <analysis.pulsed.Hahn3pi2Fit object at 0x0000027CAF202020>
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traitsui\editor.py", line 601, in _update_editor
+    self.update_editor()
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traitsui\qt\instance_editor.py", line 267, in update_editor
+    self.resynch_editor()
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traitsui\qt\instance_editor.py", line 327, in resynch_editor
+    self._ui = ui = view.ui(
+                    ^^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traitsui\view.py", line 457, in ui
+    ui.ui(parent, kind)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traitsui\ui.py", line 234, in ui
+    self.rebuild(self, parent)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traitsui\qt\toolkit.py", line 152, in ui_subpanel
+    ui_panel.ui_subpanel(ui, parent)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traitsui\qt\ui_panel.py", line 72, in ui_subpanel
+    _ui_panel_for(ui, parent, True)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traitsui\qt\ui_panel.py", line 77, in _ui_panel_for
+    ui.control = control = _Panel(ui, parent, is_subpanel).control
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traitsui\qt\ui_panel.py", line 142, in __init__
+    self.control = panel(ui)
+                   ^^^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traitsui\qt\ui_panel.py", line 270, in panel
+    panel = _GroupPanel(content[0], ui).control
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traitsui\qt\ui_panel.py", line 575, in __init__
+    _fill_panel(sub, content, self.ui, self._add_page_item)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traitsui\qt\ui_panel.py", line 305, in _fill_panel
+    gp = _GroupPanel(item, ui, suppress_label=True)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traitsui\qt\ui_panel.py", line 619, in __init__
+    layout = self._add_groups(content, inner)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traitsui\qt\ui_panel.py", line 697, in _add_groups
+    panel = _GroupPanel(subgroup, self.ui).control
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traitsui\qt\ui_panel.py", line 621, in __init__
+    layout = self._add_items(content, inner)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traitsui\qt\ui_panel.py", line 855, in _add_items
+    editor = factory_method(
+             ^^^^^^^^^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traitsui\editor_factory.py", line 150, in readonly_editor
+    return self.readonly_editor_class(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traitsui\editor.py", line 540, in __init__
+    self.old_value = getattr(self.object, self.name)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\has_traits.py", line 905, in decorator
+    self.__dict__[name] = result = function(self)
+                                   ^^^^^^^^^^^^^^
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 1979, in _get_T2_pi2
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\has_traits.py", line 905, in decorator
+    self.__dict__[name] = result = function(self)
+                                   ^^^^^^^^^^^^^^
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 1959, in _get_fit_result_pi2
+    JobManager().start()
+            ^^^^^^^^^^^^^
+TypeError: slice indices must be integers or None or have an __index__ method
+2025-03-03 21:35:45,712 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.Hahn3pi2Fit object at 0x0000027CAF202020>, trait: measurement, old value: <measurements.pulsed.Hahn3pi2 object at 0x0000027CADE3EC00>, new value: None
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 2012, in update_plot_tau
+AttributeError: 'NoneType' object has no attribute 'tau'
+2025-03-03 21:38:50,386 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.ExponentialFit object at 0x0000027CAD4DE1B0>, trait: measurement, old value: <measurements.pulsed.T1pi object at 0x0000027CB0BF4900>, new value: None
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 1648, in update_plot_tau
+    info.object.fit = RabiFit()
+                                
+AttributeError: 'NoneType' object has no attribute 'tau'
+2025-03-03 21:39:03,376 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.PulsedFitTauRef object at 0x0000027CB1495580>, trait: measurement, old value: <measurements.pulsed.T1pi object at 0x0000027CB0BF4900>, new value: None
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 1026, in update_plot_tau
+    return fitting.nonlinear_model(x, y, s, fitting.ExponentialPowerZero, fitting.ExponentialPowerZeroEstimator)
+                               ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'tau'
+2025-03-03 21:41:46,154 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.RabiFit object at 0x0000027CB15A43B0>, trait: measurement, old value: <measurements.rabi.Rabi object at 0x0000027CB15A6340>, new value: None
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 1360, in update_plot_tau
+    self.line_data.set_data('data_3pi2', spin_state[n:])
+                                   ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'tau'
+2025-03-03 21:41:46,154 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.PulsedAnalyzer object at 0x0000027CAD7925C0>, trait: fit, old value: <analysis.pulsed.RabiFit object at 0x0000027CB15A43B0>, new value: <analysis.pulsed.NMRFit object at 0x0000027CB18D6110>
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 343, in __call__
+    self.handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 2493, in _fit_changed
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\base_trait_handler.py", line 74, in error
+    raise TraitError(
+traits.trait_errors.TraitError: The 'measurement' trait of a NMRFit instance must be a NMR or None, but a value of <measurements.rabi.Rabi object at 0x0000027CB15A6340> <class 'measurements.rabi.Rabi'> was specified.
+2025-03-03 21:52:24,253 - diamond.<module> - INFO - Starting logger.
+2025-03-03 21:52:24,998 - emod.start - INFO - Starting Job Manager.
+2025-03-03 21:52:24,998 - cron.run - INFO - Starting Cron Daemon.
+2025-03-03 21:55:52,277 - diamond.<module> - INFO - Starting logger.
+2025-03-03 21:55:53,022 - emod.start - INFO - Starting Job Manager.
+2025-03-03 21:55:53,022 - cron.run - INFO - Starting Cron Daemon.
+2025-03-03 21:57:22,408 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.RabiFit object at 0x000001F0B170F560>, trait: measurement, old value: <measurements.rabi.Rabi object at 0x000001F0B16D7E70>, new value: None
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 702, in update_plot_tau
+    self.line_data.set_data('tau', self.measurement.tau)
+                                   ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'tau'
+2025-03-03 21:57:22,408 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.Hahn3pi2Fit object at 0x000001F0B1E831F0>, trait: spin_state, old value: [0. 0.], new value: [0. 0.]
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 1359, in update_plot_spin_state
+    self.line_data.set_data('data_pi2', spin_state[:n])
+                                        ~~~~~~~~~~^^^^
+TypeError: slice indices must be integers or None or have an __index__ method
+2025-03-03 21:57:22,418 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.Hahn3pi2Fit object at 0x000001F0B1E831F0>, trait: spin_state_error, old value: [0. 0.], new value: [0. 0.]
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 487, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\has_traits.py", line 977, in wrapper0
+    return function(arg)
+           ^^^^^^^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\has_traits.py", line 3353, in notify
+    self.trait_property_changed(name, old)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\has_traits.py", line 905, in decorator
+    self.__dict__[name] = result = function(self)
+                                   ^^^^^^^^^^^^^^
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 1301, in _get_fit_result_pi2
+    y = self.spin_state[:n]
+        ~~~~~~~~~~~~~~~^^^^
+TypeError: slice indices must be integers or None or have an __index__ method
+2025-03-03 21:57:22,421 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.Hahn3pi2Fit object at 0x000001F0B1E831F0>, trait: spin_state_error, old value: [0. 0.], new value: [0. 0.]
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 487, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\has_traits.py", line 977, in wrapper0
+    return function(arg)
+           ^^^^^^^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\has_traits.py", line 3353, in notify
+    self.trait_property_changed(name, old)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\has_traits.py", line 905, in decorator
+    self.__dict__[name] = result = function(self)
+                                   ^^^^^^^^^^^^^^
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 1312, in _get_fit_result_3pi2
+    y = self.spin_state[n:]
+        ~~~~~~~~~~~~~~~^^^^
+TypeError: slice indices must be integers or None or have an __index__ method
+2025-03-03 21:57:22,443 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.PulsedAnalyzer object at 0x000001F0AED48630>, trait: fit, old value: <analysis.pulsed.RabiFit object at 0x000001F0B170F560>, new value: <analysis.pulsed.Hahn3pi2Fit object at 0x000001F0B1E831F0>
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traitsui\editor.py", line 601, in _update_editor
+    self.update_editor()
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traitsui\qt\instance_editor.py", line 267, in update_editor
+    self.resynch_editor()
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traitsui\qt\instance_editor.py", line 327, in resynch_editor
+    self._ui = ui = view.ui(
+                    ^^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traitsui\view.py", line 457, in ui
+    ui.ui(parent, kind)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traitsui\ui.py", line 234, in ui
+    self.rebuild(self, parent)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traitsui\qt\toolkit.py", line 152, in ui_subpanel
+    ui_panel.ui_subpanel(ui, parent)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traitsui\qt\ui_panel.py", line 72, in ui_subpanel
+    _ui_panel_for(ui, parent, True)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traitsui\qt\ui_panel.py", line 77, in _ui_panel_for
+    ui.control = control = _Panel(ui, parent, is_subpanel).control
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traitsui\qt\ui_panel.py", line 142, in __init__
+    self.control = panel(ui)
+                   ^^^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traitsui\qt\ui_panel.py", line 270, in panel
+    panel = _GroupPanel(content[0], ui).control
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traitsui\qt\ui_panel.py", line 575, in __init__
+    _fill_panel(sub, content, self.ui, self._add_page_item)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traitsui\qt\ui_panel.py", line 305, in _fill_panel
+    gp = _GroupPanel(item, ui, suppress_label=True)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traitsui\qt\ui_panel.py", line 619, in __init__
+    layout = self._add_groups(content, inner)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traitsui\qt\ui_panel.py", line 697, in _add_groups
+    panel = _GroupPanel(subgroup, self.ui).control
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traitsui\qt\ui_panel.py", line 621, in __init__
+    layout = self._add_items(content, inner)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traitsui\qt\ui_panel.py", line 855, in _add_items
+    editor = factory_method(
+             ^^^^^^^^^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traitsui\editor_factory.py", line 150, in readonly_editor
+    return self.readonly_editor_class(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traitsui\editor.py", line 540, in __init__
+    self.old_value = getattr(self.object, self.name)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\has_traits.py", line 905, in decorator
+    self.__dict__[name] = result = function(self)
+                                   ^^^^^^^^^^^^^^
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 1321, in _get_T2_pi2
+    return self.fit_result_pi2[0][1], abs(self.fit_result_pi2[1][1, 1]) ** 0.5
+          ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\has_traits.py", line 905, in decorator
+    self.__dict__[name] = result = function(self)
+                                   ^^^^^^^^^^^^^^
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 1301, in _get_fit_result_pi2
+    y = self.spin_state[:n]
+        ~~~~~~~~~~~~~~~^^^^
+TypeError: slice indices must be integers or None or have an __index__ method
+2025-03-03 21:58:53,659 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.Hahn3pi2Fit object at 0x000001F0B1E831F0>, trait: measurement, old value: <measurements.rabi.Rabi object at 0x000001F0B16D7E70>, new value: None
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 1354, in update_plot_tau
+    self.line_data.set_data('tau', self.measurement.tau)
+                                   ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'tau'
+2025-03-03 21:58:53,659 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.DoubleFitTauRef object at 0x000001F0AC8B9300>, trait: spin_state, old value: [0. 0.], new value: [0. 0.]
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 404, in update_plot_spin_state
+    n_ref = self.measurement.n_ref
+            ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Rabi' object has no attribute 'n_ref'
+2025-03-03 21:59:05,681 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.DoubleFitTauRef object at 0x000001F0AC8B9300>, trait: measurement, old value: <measurements.rabi.Rabi object at 0x000001F0B16D7E70>, new value: None
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 412, in update_plot_tau
+    self.line_data.set_data('tau', self.measurement.tau)
+                                   ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'tau'
+2025-03-03 21:59:10,764 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.DoubleFitTauRef object at 0x000001F0B29F3010>, trait: spin_state, old value: [0. 0.], new value: [0. 0.]
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 406, in update_plot_spin_state
+    self.line_data.set_data('first', spin_state[:n])
+                                     ~~~~~~~~~~^^^^
+TypeError: slice indices must be integers or None or have an __index__ method
+2025-03-03 22:05:19,908 - diamond.<module> - INFO - Starting logger.
+2025-03-03 22:05:20,677 - emod.start - INFO - Starting Job Manager.
+2025-03-03 22:05:20,687 - cron.run - INFO - Starting Cron Daemon.
+2025-03-03 22:06:02,680 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.ExponentialFit object at 0x0000027C288761B0>, trait: measurement, old value: <measurements.pulsed.T1pi object at 0x0000027C235DE200>, new value: None
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 990, in update_plot_tau
+    self.line_data.set_data('tau', self.measurement.tau)
+                                   ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'tau'
+2025-03-03 22:08:16,931 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.Hahn3pi2Fit object at 0x0000027C29537880>, trait: measurement, old value: <measurements.pulsed.Hahn3pi2 object at 0x0000027C293AB2E0>, new value: None
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 1354, in update_plot_tau
+    self.line_data.set_data('tau', self.measurement.tau)
+                                   ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'tau'
+2025-03-03 22:13:56,647 - diamond.<module> - INFO - Starting logger.
+2025-03-03 22:13:57,408 - emod.start - INFO - Starting Job Manager.
+2025-03-03 22:13:57,418 - cron.run - INFO - Starting Cron Daemon.
+2025-03-03 22:17:47,982 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <measurements.photon_time_trace.PhotonTimeTrace object at 0x000002BCD865BD30>, trait: c_enable1, old value: True, new value: False
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\measurements\photon_time_trace.py", line 98, in _update_channels_list
+    self._create_counter()
+  File "C:\Users\yy3\pi3-mini\measurements\photon_time_trace.py", line 108, in _create_counter
+    self._counter = tt.Counter(self.channels_list + 1, int(self.SecondsPerPoint*1e12), self.TraceLength)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yy3\pi3-mini\hardware\time_tagger_swabian.py", line 28, in Counter
+    return tt.Counter(
+           ^^^^^^^^^^^
+  File "C:\Program Files\Swabian Instruments\Time Tagger\driver\python\TimeTagger.py", line 3821, in __init__
+    _TimeTagger.Counter_swiginit(self, _TimeTagger.new_Counter(tagger, channels, binwidth, n_values))
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: No channel was provided.
+2025-03-03 22:21:56,827 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.Hahn3pi2Fit object at 0x000002BCE099D170>, trait: measurement, old value: <measurements.pulsed.Hahn3pi2 object at 0x000002BCE0923A10>, new value: None
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 1354, in update_plot_tau
+    self.line_data.set_data('tau', self.measurement.tau)
+                                   ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'tau'
+2025-03-03 22:24:08,527 - diamond.<module> - INFO - Starting logger.
+2025-03-03 22:24:09,282 - emod.start - INFO - Starting Job Manager.
+2025-03-03 22:24:09,283 - cron.run - INFO - Starting Cron Daemon.
+2025-03-03 22:24:48,696 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.PulsedAnalyzer object at 0x0000027A0D1F2E30>, trait: fit, old value: <analysis.pulsed.PulsedFit object at 0x0000027A0DC83BA0>, new value: <analysis.pulsed.RabiFit object at 0x0000027A0DC82CA0>
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 343, in __call__
+    self.handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 1803, in _fit_changed
+    new.measurement = self.measurement
+    ^^^^^^^^^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\base_trait_handler.py", line 74, in error
+    raise TraitError(
+traits.trait_errors.TraitError: The 'measurement' trait of a RabiFit instance must be a PulsedTau or None, but a value of <measurements.rabi.Rabi object at 0x0000027A03347600> <class 'measurements.rabi.Rabi'> was specified.
+2025-03-03 22:32:13,801 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.RabiFit object at 0x0000027A0DC82CA0>, trait: measurement, old value: <measurements.pulsed.Rabi object at 0x0000027A0DE28040>, new value: None
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 702, in update_plot_tau
+    self.line_data.set_data('tau', self.measurement.tau)
+                                   ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'tau'
+2025-03-03 22:32:13,821 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.DoubleFitTauRef object at 0x0000027A0E8F21B0>, trait: spin_state, old value: [0. 0.], new value: [0. 0.]
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 404, in update_plot_spin_state
+    n_ref = self.measurement.n_ref
+            ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Rabi' object has no attribute 'n_ref'
+2025-03-03 22:33:58,753 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.DoubleFitTauRef object at 0x0000027A0E8F21B0>, trait: measurement, old value: <measurements.rabi.Rabi object at 0x0000027A03347600>, new value: None
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 412, in update_plot_tau
+    self.line_data.set_data('tau', self.measurement.tau)
+                                   ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'tau'
+2025-03-03 22:34:29,660 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.Hahn3pi2Fit object at 0x0000027A0EAA4360>, trait: measurement, old value: <measurements.pulsed.Hahn3pi2 object at 0x0000027A0DA87DD0>, new value: None
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 1354, in update_plot_tau
+AttributeError: 'NoneType' object has no attribute 'tau'
+2025-03-03 22:56:37,222 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.DoubleFitTauRef object at 0x0000027A0F7C5D00>, trait: measurement, old value: <measurements.pulsed.CPMG3pi2 object at 0x0000027A0E0811C0>, new value: None
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 412, in update_plot_tau
+    self.line_data.set_data('tau', self.measurement.tau)
+                                   ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'tau'
+2025-03-03 22:58:13,177 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.PulsedFitTauRef object at 0x0000027A0E90A7F0>, trait: measurement, old value: <measurements.pulsed.CPMG object at 0x0000027A0DD20860>, new value: None
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 368, in update_plot_tau
+    self.line_data.set_data('tau', self.measurement.tau)
+                                   ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'tau'
+2025-03-03 22:58:13,187 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.DoubleFitTauRef object at 0x0000027A0E95CD60>, trait: spin_state, old value: [0. 0.], new value: [0. 0.]
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 408, in update_plot_spin_state
+    self.line_data.set_data('bright', np.mean(self.spin_state[-2 * n_ref:-n_ref]) * np.ones(n))
+                                                                                    ^^^^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\numpy\core\numeric.py", line 191, in ones
+    a = empty(shape, dtype, order)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: negative dimensions are not allowed
+2025-03-03 22:58:22,103 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.DoubleFitTauRef object at 0x0000027A0E95CD60>, trait: measurement, old value: <measurements.pulsed.CPMG object at 0x0000027A0DD20860>, new value: None
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 412, in update_plot_tau
+    self.line_data.set_data('tau', self.measurement.tau)
+                                   ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'tau'
+2025-03-03 22:59:15,316 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.DoubleFitTau object at 0x0000027A0F88A6B0>, trait: measurement, old value: <measurements.pulsed.FID3pi2 object at 0x0000027A0E8C6390>, new value: None
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 1127, in update_plot_tau
+    def update_plot_fit_3pi2(self):
+                                    
+AttributeError: 'NoneType' object has no attribute 'tau'
+2025-03-03 23:01:31,346 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.Hahn3pi2Fit object at 0x0000027A0F9D8950>, trait: measurement, old value: <measurements.pulsed.FID3pi2 object at 0x0000027A0E8C6390>, new value: None
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 1354, in update_plot_tau
+    ),
+       
+AttributeError: 'NoneType' object has no attribute 'tau'

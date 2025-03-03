@@ -14,23 +14,31 @@ if __name__ == '__main__':
     from measurements.photon_time_trace import PhotonTimeTrace
     photon_time_trace = PhotonTimeTrace()
     photon_time_trace.edit_traits()
+    photon_time_trace.c_enable1 = True
+    photon_time_trace.c_enable2 = True
+    photon_time_trace.sum_enable = True
+    photon_time_trace.digi_channel = 'cha0+1'
 
     # Start confocal including auto_focus tool
     from measurements.confocal import Confocal
     confocal = Confocal()
-    confocal.edit_traits()
+    #confocal.edit_traits()
 
     # Start autofocus tool
     from measurements.auto_focus import AutoFocus
     auto_focus = AutoFocus(confocal)
-    auto_focus.edit_traits()
+    #auto_focus.edit_traits()
 
     # Start ODMR
-    from measurements.odmr import ODMR
-    odmr = ODMR()
-    odmr.edit_traits()
+    # from measurements.odmr import ODMR
+    # odmr = ODMR()
+    # odmr.edit_traits()
 
     # Start Rabi / PulsedAnalyser
-    from measurements.rabi import Rabi
-    rabi = Rabi()
+    # from measurements.rabi import Rabi
+    # rabi = Rabi()
     # rabi.edit_traits()
+
+    from analysis.pulsed import PulsedAnalyzer
+    pa = PulsedAnalyzer()
+    pa.edit_traits()
