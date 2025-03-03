@@ -100,6 +100,9 @@ class piezostage_controller_aom:
     def getZRange(self):
         return self.zRange
     
+    def getAOMRange(self):
+        return self.aomRange
+    
     def PosToVolt(self, pos):
         posRange = np.vstack([self.xRange, self.yRange, self.zRange, self.aomRange])
         vRange = self.ao_task.vrange

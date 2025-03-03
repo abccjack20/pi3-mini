@@ -36,7 +36,7 @@ class Confocal( ManagedJob, GetSetItemsMixin ):
     x = Range(low=scanner.getXRange()[0], high=scanner.getXRange()[1], value=scanner.x, desc='x [micron]', label='x [micron]', mode='slider')
     y = Range(low=scanner.getYRange()[0], high=scanner.getYRange()[1], value=scanner.y, desc='y [micron]', label='y [micron]', mode='slider')
     z = Range(low=scanner.getZRange()[0], high=scanner.getZRange()[1], value=scanner.z, desc='z [micron]', label='z [micron]', mode='slider')
-    aom = Range(low=scanner.getZRange()[0], high=scanner.getZRange()[1], value=scanner.aom, desc='AOM Power [V]', label='AOM Power [V]', mode='slider')
+    aom = Range(low=scanner.getAOMRange()[0], high=scanner.getAOMRange()[1], value=scanner.aom, desc='AOM Power [V]', label='AOM Power [V]', mode='slider')
     
     # imagging parameters
     x1 = Range(low=scanner.getXRange()[0], high=scanner.getXRange()[1], value=scanner.getXRange()[0], desc='x1 [micron]', label='x1', editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_str='%.2f'))
@@ -117,7 +117,7 @@ class Confocal( ManagedJob, GetSetItemsMixin ):
 
     # scanner position
 
-    @on_trait_change('x,y,z')
+    @on_trait_change('x,y,z,aom')
     def _set_scanner_position(self):
         if self.state != 'run':
             scanner.setPosition(self.x, self.y, self.z, self.aom)

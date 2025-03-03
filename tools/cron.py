@@ -23,7 +23,8 @@ class AllMatch(set):
 allMatch = AllMatch()
 
 def conv_to_set(obj):  # Allow single integer to be provided
-    if isinstance(obj, (int,long)):
+    # if isinstance(obj, (int,long)):
+    if isinstance(obj, (int)):
         return set([obj])  # Single item
     if not isinstance(obj, set):
         obj = set(obj)

@@ -110,10 +110,15 @@ class AutoFocus( ManagedJob, GetSetItemsMixin ):
         else:
             self.current_target = keys[(keys.index(self.current_target)+1)%len(keys)]
 
-    def _targets_changed(self, name, old, new):
-        l = new.keys() + [None]      # rebuild target_list for Enum trait
-        l.sort()
-        self.target_list = l
+    def update_target_list(self, target_new):
+        # l = target_new + [None]      # rebuild target_list for Enum trait
+        # l.sort()
+        target_list = [t for t in self.target_list if t]
+        print(target_list)
+        target_list.append(target_new)
+        print(target_list)
+        target_list.sort()
+        self.target_list = [None] + target_list
         self._draw_targets()    # redraw target labels
 
     def _current_target_changed(self):
@@ -123,7 +128,7 @@ class AutoFocus( ManagedJob, GetSetItemsMixin ):
         c = self.confocal
         c.remove_all_labels()
         c.show_labels=True
-        for key, coordinates in self.targets.iteritems():
+        for key, coordinates in self.targets.items():
             if key == self.current_target:
                 c.set_label(key, coordinates, marker_color='red')
             else:
@@ -162,7 +167,7 @@ class AutoFocus( ManagedJob, GetSetItemsMixin ):
             coordinates = np.array((c.x,c.y,c.z))
         if self.targets == {}:
             self.forget_drift()
-        if self.targets.has_key(key):
+        if key in self.targets:
             if warning('A target with this name already exists.\nOverwriting will move all targets.\nDo you want to continue?'):
                 self.current_drift = coordinates - self.targets[key]
                 self.forget_drift()
@@ -171,7 +176,8 @@ class AutoFocus( ManagedJob, GetSetItemsMixin ):
         else:
             coordinates = coordinates - self.current_drift
             self.targets[key] = coordinates
-        self.trait_property_changed('targets', self.targets)    # trigger event such that Enum is updated and Labels are redrawn
+        # self.trait_property_changed('targets', self.targets)    # trigger event such that Enum is updated and Labels are redrawn
+        self.update_target_list(key)
         self.confocal.show_labels=True
 
     def remove_target(self, key):
@@ -405,7 +411,7 @@ class AutoFocus( ManagedJob, GetSetItemsMixin ):
                         Item('add_target_button', show_label=False),
                     ),
                     HGroup(
-                        Item('current_target'),
+                        Item('current_target', editor= EnumEditor(name = 'target_list')),
                         Item('next_target_button', show_label=False),
                         Item('remove_current_target_button', show_label=False),
                     ),

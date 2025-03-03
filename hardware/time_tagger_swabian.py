@@ -39,7 +39,7 @@ class time_tagger_control:
         ch_click    = self._channels['ticks']
         ch_start    = self._channels['marker']
         ch_end      = -ch_start     # Use falling edge of the same channel
-        return CountBetweenMarkers(
+        return tt.CountBetweenMarkers(
             self._tagger,
             ch_click,
             ch_start,

@@ -27,23 +27,23 @@ from tools.utility import singleton
 
 from .time_tagger_swabian import time_tagger_control
 time_tagger = time_tagger_control(
-	"1740000JEJ",	# serial
+	"1740000JEC",	# serial
 	1,				# ch_ticks
 	5,				# ch_detect
 	8,				# ch_sync
-	ch_marker=2,
+	ch_marker=6,
 )
 
 
 scanner_params = dict(
-	device_name = 'dev2',
-    counter_name = 'ctr0',
+	device_name = 'dev1',
+    counter_name = 'ctr1',
     ao_channels = ['ao0', 'ao1', 'ao2', 'ao3'],
     voltage_range = [
-        [0., 1.],       # ao0
-        [0., 1.],       # ao1
-        [0., 1.],       # ao2
-        [0., 1.],       # ao3
+        [0., 10.],       # ao0
+        [0., 10.],       # ao1
+        [0., 10.],       # ao2
+        [-10., 10.],       # ao3
     ],
     period = .01,
     duty_cycle = 0.9,
