@@ -5,6 +5,25 @@ import nidaqmx as ni
 from .nidaq import sample_clock, analog_output_sweeper
 
 
+def Pulse_Train_Counter(
+    time_tagger,
+    device_name = 'dev1',
+    counter_name = 'ctr0',
+    duty_cycle = 0.9,
+    sec_per_point = 0.01, 
+):
+    frame_size = 10     # Just an initial value, it can be changed later.
+    clk = sample_clock(
+        device_name, counter_name,
+        samps_per_chan=frame_size, period=sec_per_point, duty_cycle=duty_cycle,
+    )
+    clk.prepare_task()
+    
+    counter = pulsetrain_counter(
+        clk, time_tagger,
+    )
+    return counter
+
 # Factory function of class piezostage_controller_aom
 def Stage_control(
     time_tagger,
@@ -17,7 +36,7 @@ def Stage_control(
         [0., 1.],       # ao2
         [0., 1.],       # ao3
     ],
-    period = .01,
+    sec_per_point = .01,
     duty_cycle = 0.9,
     x_range=(-100.0,100.0),
     y_range=(-100.0,100.0),
@@ -32,7 +51,7 @@ def Stage_control(
     frame_size = 10     # Just an initial value, it can be changed later.
     clk = sample_clock(
         device_name, counter_name,
-        samps_per_chan=frame_size, period=period, duty_cycle=duty_cycle,
+        samps_per_chan=frame_size, period=sec_per_point, duty_cycle=duty_cycle,
     )
     clk.prepare_task()
     
@@ -177,19 +196,20 @@ class piezostage_controller_aom:
         time.sleep(.1)
         self.sample_clk.start()
 
-        t = 0
-        while not cbm_task.ready():
-            time.sleep(0.1)
-            t += 0.1
-            if t > timeout:
-                print(f'Scanning timeout! after {t:.1f} sec')
-                break
-        
+        # t = 0
+        # while not cbm_task.ready():
+        #     time.sleep(0.1)
+        #     t += 0.1
+        #     if t > timeout:
+        #         print(f'Scanning timeout! after {t:.1f} sec')
+        #         break
+        sccuess = self.cbm_task.waitUntilFinished(timeout=timeout*1.e3)
+
         self.ao_task.stop()
         self.sample_clk.stop()
         cbm_task.stop()
-        self.setPosToHome()
-        if cbm_task.ready():
+        
+        if sccuess:
             scale = self.sample_clk.sample_rate*self.sample_clk.duty_cycle
             data = cbm_task.getData()
             return data[1:]*scale
@@ -197,3 +217,67 @@ class piezostage_controller_aom:
             print('Fail to get data from Timetagger!')
             return np.zeros(frame_size)
     
+
+class pulsetrain_counter:
+
+    def __init__(self, sample_clk, tagger):
+        self.sample_clk = sample_clk    # A NI CO task providing clock signal to trigger the sweeping and readout.
+        self.tagger = tagger            # A Timtagger object providing readout in sync with the NI sweeping.
+        self.cbm_task = None
+
+    def configure(self, frame_size, SecondsPerPoint, DutyCycle=0.8):
+        self.sample_clk.period = SecondsPerPoint
+
+        '''
+        From microwave_smiq.SMIQ:
+            we switch frequency on negative edge. Thus, the first square pulse of the train
+            is first used for gated count and then the frequency is increased. In this way
+            the first frequency in the list will correspond exactly to the first acquired count.
+        '''
+        self.sample_clk.samps_per_chan = frame_size
+        self.sample_clk.duty_cycle = DutyCycle
+        self.sample_clk.update_task()
+        self.cbm_task = self.tagger.Count_Between_Markers(frame_size)
+
+    def run(self, timeout=None):
+        frame_size = self.sample_clk.samps_per_chan
+        period = self.sample_clk.period
+        sample_rate = self.sample_clk.sample_rate
+        duty_cycle = self.sample_clk.duty_cycle
+        print(frame_size, period, duty_cycle)
+
+        if not timeout:
+            time_per_line = period*frame_size
+            timeout = max(time_per_line*1.5, 10)
+
+        if not self.cbm_task:
+            print('TimeTagger task has not been created!')
+            print('Call configure() to initialize scanning.')
+
+        self.cbm_task.start()
+        time.sleep(.1)
+        self.sample_clk.start()
+
+        # t = 0
+        # while not self.cbm_task.ready():
+        #     time.sleep(0.1)
+        #     t += 0.1
+        #     if t > timeout:
+        #         print(f'Scanning timeout! after {t:.1f} sec')
+        #         break
+        
+        sccuess = self.cbm_task.waitUntilFinished(timeout=timeout*1.e3)
+        
+        self.sample_clk.stop()
+        self.cbm_task.stop()
+
+        if sccuess:
+            scale = sample_rate*duty_cycle
+            data = self.cbm_task.getData()
+            return data[1:]*scale
+        else:
+            print('Fail to get data from Timetagger! Scanning timeout after {timeout:.1f} sec')
+            return np.zeros(frame_size)
+    
+    def clear(self):
+        self.cbm_task.clear()

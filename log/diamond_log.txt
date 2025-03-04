@@ -6278,3 +6278,15 @@ Traceback (most recent call last):
     self.line_data.set_data('tau', self.measurement.tau)
                                    ^^^^^^^^^^^^^^^^^^^^
 AttributeError: 'NoneType' object has no attribute 'tau'
+2025-03-04 00:31:20,162 - diamond.<module> - INFO - Starting logger.
+2025-03-04 00:31:20,938 - emod.start - INFO - Starting Job Manager.
+2025-03-04 00:31:20,938 - cron.run - INFO - Starting Cron Daemon.
+2025-03-04 00:31:39,422 - diamond.<module> - INFO - Starting logger.
+2025-03-04 00:31:40,164 - emod.start - INFO - Starting Job Manager.
+2025-03-04 00:31:40,171 - cron.run - INFO - Starting Cron Daemon.
+2025-03-04 00:35:07,289 - diamond.<module> - INFO - Starting logger.
+2025-03-04 00:35:08,033 - emod.start - INFO - Starting Job Manager.
+2025-03-04 00:35:08,033 - cron.run - INFO - Starting Cron Daemon.
+2025-03-04 00:38:08,965 - diamond.<module> - INFO - Starting logger.
+2025-03-04 00:38:09,752 - emod.start - INFO - Starting Job Manager.
+2025-03-04 00:38:09,752 - cron.run - INFO - Starting Cron Daemon.

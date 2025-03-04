@@ -58,7 +58,7 @@ scanner_params = dict(
         [0., 10.],       # ao2
         [-10., 10.],       # ao3
     ],
-    period = .01,
+    sec_per_point = .01,
     duty_cycle = 0.9,
     x_range = (-100.0,100.0),
     y_range = (-100.0,100.0),
@@ -102,8 +102,6 @@ def RFSource():
     from .microwave_dummy import MicrowaveDummy
 
     return MicrowaveDummy(visa_address='GPIB0::01')
-
-
 
 
 # @singleton

@@ -212,6 +212,7 @@ class sample_clock(task_constructor):
 
     def update_task(self):
         self.output.co_pulse_freq = self.sample_rate
+        self.output.co_pulse_duty_cyc = self.duty_cycle
         self.config_timing()
 
 

@@ -13,11 +13,11 @@ if __name__ == '__main__':
     # Photon Time Trace Startup
     from measurements.photon_time_trace import PhotonTimeTrace
     photon_time_trace = PhotonTimeTrace()
-    photon_time_trace.edit_traits()
     photon_time_trace.c_enable1 = True
     photon_time_trace.c_enable2 = True
     photon_time_trace.sum_enable = True
     photon_time_trace.digi_channel = 'cha0+1'
+    photon_time_trace.edit_traits()
 
     # Start confocal including auto_focus tool
     from measurements.confocal import Confocal
@@ -42,3 +42,6 @@ if __name__ == '__main__':
     from analysis.pulsed import PulsedAnalyzer
     pa = PulsedAnalyzer()
     pa.edit_traits()
+
+    # from hardware.awg520 import AWGHasTraits
+    # awg_control = AWGHasTraits(gpib='GPIB0::1::INSTR')
