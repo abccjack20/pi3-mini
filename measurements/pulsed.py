@@ -301,14 +301,14 @@ class Rabi(PulsedTau):
 
     def shut_down(self):
         PulseGenerator().Light()
-        #Microwave().setOutput(None, self.frequency)
+        Microwave().setOutput(None, self.frequency)
 
     def generate_sequence(self):
         MW = self.switch
         tau = self.tau
         laser = self.laser
         wait = self.wait
-        sequence = [ (['aom'], laser), ([], wait) ]
+        sequence = [ (['sync', 'aom'], laser), ([], wait) ]
         for t in tau:
             sequence += [
                 ([],wait),

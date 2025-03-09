@@ -13,7 +13,7 @@ from traitsui.api import View, VGroup, HGroup, Item, TextEditor, EnumEditor
 
 # TODO: File-transfer via GPIB as emergency
 
-class AWG520( object ):
+class AWG5014( object ):
     """Controller for the Tektronix AWG520 device.
     
     SCPI commands are issued via gpib.
@@ -31,10 +31,11 @@ class AWG520( object ):
         self.socket_addr = socket
         # set ftp parameters
         self.ftp_addr = ftp
-        self.ftp_user = '\r'
-        self.ftp_pw = '\r'
-        self.ftp_cwd = '/main/waves'
-        self.ftp_manager = FTPManager(self)
+        self.ftp_user = 'user'
+        self.ftp_pw = 'pass'
+        #self.ftp_cwd = '/main/waves'
+        self.ftp_cwd = '/'
+        #self.ftp_manager = FTPManager(self)
         self.todo = -1
         self.done = -1
         # setup gpib connection
@@ -42,7 +43,7 @@ class AWG520( object ):
 
         self.rm = visa.ResourceManager()
         self.gpib = self.rm.open_resource(self.gpib_addr)
-        self.gpib.timeout = 5.0
+        self.gpib.timeout = 3000
         
     def __del__(self):
         self.gpib.close()
@@ -75,15 +76,11 @@ class AWG520( object ):
         
     def ask(self, query):
         """Send a query string to AWG and return the response."""
-        self.gpib.write(query)
         try:
-            res = self.gpib.read()
+            res = self.gpib.query(query)
         except visa.VisaIOError as e:
             res = ''
-            if 'Timeout' in e.message:
-                res = 'No response from AWG for: "' + query + '"'
-            else:
-                raise e
+            raise e
         return res
     
     def run(self):
@@ -261,7 +258,7 @@ class FTPManager(Thread):
         self.load_file = None
         super().__init__()
         self.daemon = True
-        self.start()
+        #self.start()
         
     def upload(self, file):
         ut = UploadThread(self.awg, file)
@@ -294,6 +291,7 @@ class FTPManager(Thread):
     def run(self):
         # Event loop 
         while True:
+            time.sleep(0.1)
             # check list of threads repeatedly
             for thr in self.threads:
                 if self.abort: return
@@ -337,7 +335,7 @@ class FTPManager(Thread):
                             self.upload(thr.file)
                             self.threads.remove(thr)
                 # stop threads if abort is set
-                time.sleep(0.001)
+                time.sleep(0.1)
             # check if there is something to load into RAM
             
             if len(self.threads) == 0 and self.awg.done != -1 and self.load_file is not None:
@@ -351,7 +349,7 @@ class FTPManager(Thread):
                 self.paused = False
       
 
-class AWGHasTraits( HasTraits, AWG520 ):
+class AWGHasTraits( HasTraits, AWG5014 ):
     
     todo         = Int()
     done         = Int()
@@ -435,7 +433,7 @@ class AWGHasTraits( HasTraits, AWG520 ):
         ),
         title='AWG520', width=550, buttons=[], resizable=True
     )
-    
+
 # _____________________________________________________________________________
 # EXCEPTIONS:
     # TODO

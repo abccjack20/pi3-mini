@@ -61,7 +61,7 @@ class ODMR(ManagedJob, GetSetItemsMixin):
     frequency_end = Range(low=1, high=6.4e9, value=2.94e9, desc='Stop Frequency [Hz]', label='End [Hz]', editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_str='%e'))
     frequency_delta = Range(low=1e-3, high=6.4e9, value=1.0e+6, desc='frequency step [Hz]', label='Delta [Hz]', editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_str='%e'))
     t_pi = Range(low=1., high=100000., value=1700., desc='length of pi pulse [ns]', label='pi [ns]', mode='text', auto_set=False, enter_set=True)
-    laser = Range(low=1., high=10000., value=300., desc='laser [ns]', label='laser [ns]', mode='text', auto_set=False, enter_set=True)
+    laser = Range(low=1., high=100.e3, value=300., desc='laser [ns]', label='laser [ns]', mode='text', auto_set=False, enter_set=True)
     wait = Range(low=1., high=10000., value=1000., desc='wait [ns]', label='wait [ns]', mode='text', auto_set=False, enter_set=True)
     pulsed = Bool(True, label='pulsed')
     power_p = Range(low= -100., high=20., value= -28.0, desc='Power Pmode [dBm]', label='Power Pmode[dBm]', mode='text', auto_set=False, enter_set=True)
@@ -154,14 +154,15 @@ class ODMR(ManagedJob, GetSetItemsMixin):
 
             # if pulsed, turn on sequence
             if self.add_RF:
-                self.trigger_RF = ('mw_x', 'rf')
+                self.trigger_RF = ('mw', 'rf')
             else:
-                self.trigger_RF =  ('mw_x',)
+                self.trigger_RF =  ('mw',)
             if self.pulsed:
                 #ha.PulseGenerator().Sequence(100 * [ (['laser', 'aom'], self.laser), ([], self.wait), (['mw','mw_x'], self.t_pi) ])
                 # ha.PulseGenerator().Sequence(100 * [ (['laser', 'aom'], self.laser), (['rf', 'mw_b', 'mw', 'aom'], self.randomTime), (['aom'], self.laser), ([], self.wait), (['mw_x'], self.t_pi) ])
                 seq = [
-                (('laser', 'aom'), self.laser),
+                (('detect', 'aom'), self.laser*0.2),
+                (('aom'), self.laser*0.8),
                 ((tuple()),self.wait), 
                 (self.trigger_RF, self.t_pi)]
                 ha.PulseGenerator().Sequence(100 * seq)
@@ -169,7 +170,7 @@ class ODMR(ManagedJob, GetSetItemsMixin):
                 #ha.PulseGenerator().Sequence(100 * [ (['aom'], self.t_pi),  (['mw_x','aom','laser'], self.laser), (['aom'], 6.0)])
             else:
                 #ha.PulseGenerator().Continuous(['green','mw','mw_x'])
-                ha.PulseGenerator().Continuous(['green','mw_x'])
+                ha.PulseGenerator().Continuous(['aom','mw'])
 
             n = len(self.frequency)
 
@@ -178,11 +179,6 @@ class ODMR(ManagedJob, GetSetItemsMixin):
             self._prepareCounter(n)
             """
             if self.pulsed:
-                #temporily added
-                # ha.MicrowaveD().setOutput(self.rf2Power, self.rf2Frequency)
-                # ha.RFSource().setOutput(self.rf1Power, self.rf1Frequency)
-
-
                 ha.Microwave().setPower(self.power_p)
                 ha.Microwave().initSweep(self.frequency, self.power_p * np.ones(self.frequency.shape))
             else:
@@ -208,25 +204,6 @@ class ODMR(ManagedJob, GetSetItemsMixin):
                 self.counts += counts
                 self.counts_matrix = np.vstack((counts, self.counts_matrix[:-1, :]))
                 self.trait_property_changed('counts', self.counts)
-                
-               
-                
-                
-                
-                """
-                ha.Microwave().doSweep()
-                
-                timeout = 3.
-                start_time = time.time()
-                while not self._count_between_markers.ready():
-                    time.sleep(0.1)
-                    if time.time() - start_time > timeout:
-                        print "count between markers timeout in ODMR"
-                        break
-                        
-                counts = self._count_between_markers.getData(0)
-                self._count_between_markers.clean()
-                """
     
             if self.run_time < self.stop_time:
                 self.state = 'idle'            

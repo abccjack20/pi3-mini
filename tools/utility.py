@@ -203,7 +203,6 @@ class GetSetItemsMixin:
         return d            
     
     def load(self, filename=None):
-        print('In other load method ...')
         if os.access(filename, os.F_OK):
             logging.getLogger().debug('attempting to restore state of '+self.__str__()+' from '+filename+'...')
             if filename.find('.txt')!=-1 or filename.find('.asc')!=-1:

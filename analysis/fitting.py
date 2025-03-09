@@ -68,7 +68,8 @@ def fit(x, y, model, estimator):
 	'Estimator' can either be an N-tuple containing a starting guess of the fit parameters, or a callable that returns a respective N-tuple for given x and y."""
 	if callable(estimator):
 		#return scipy.optimize.leastsq(lambda pp: model(*pp)(x) - y, estimator(x,y), warning=False)[0]
-		return scipy.optimize.leastsq(lambda pp: model(*pp)(x) - y, estimator(x,y))[0]
+		p = scipy.optimize.leastsq(lambda pp: model(*pp)(x) - y, estimator(x,y))[0]
+		return p
 	else:
 		#return scipy.optimize.leastsq(lambda pp: model(*pp)(x) - y, estimator, warning=False)[0]
 		return scipy.optimize.leastsq(lambda pp: model(*pp)(x) - y, estimator)[0]
@@ -202,7 +203,7 @@ def CosinusEstimator(x, y):
 	Y = np.fft.fft(y)
 	N = len(Y)
 	D = float(x[1] - x[0])
-	i = abs(Y[1:N/2+1]).argmax()+1
+	i = abs(Y[1:int(N/2)+1]).argmax()+1
 	T = (N * D) / i
 	return a, T, c
 
@@ -227,7 +228,7 @@ def CosinusNoOffsetEstimator(x, y):
 	Y = np.fft.fft(y)
 	N = len(Y)
 	D = float(x[1] - x[0])
-	i = abs(Y[1:N/2+1]).argmax()+1
+	i = abs(Y[1:int(N/2)+1]).argmax()+1
 	T = (N * D) / i
 	return a, T
 

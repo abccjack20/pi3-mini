@@ -54,9 +54,9 @@ def spin_state(c, dt, T, t0=0.0, t1= -1.):
 # Trait GUIs for pulsed fits
 #########################################
 
-from traits.api import HasTraits, Instance, Property, Range, Float, Int, Bool, Array, List, Str, Tuple, Enum, \
+from traits.api import HasTraits, Instance, Button, Property, Range, Float, Int, Bool, Array, List, Str, Tuple, Enum, \
                                  on_trait_change, cached_property, DelegatesTo, Any
-from traitsui.api import View, Item, Tabbed, Group, HGroup, VGroup, VSplit, EnumEditor, TextEditor, InstanceEditor
+from traitsui.api import View, Item, UItem, Tabbed, Group, HGroup, VGroup, VSplit, EnumEditor, TextEditor, InstanceEditor
 from enable.api import ComponentEditor
 from chaco.api import ArrayDataSource, LinePlot, LinearMapper, ArrayPlotData, Plot, Spectral, PlotLabel, jet
 
@@ -94,9 +94,9 @@ class PulsedFit(HasTraits, GetSetItemsMixin):
     spin_state = Array(value=np.array((0., 0.)))
     spin_state_error = Array(value=np.array((0., 0.)))
     
-    integration_width = Range(low=10., high=1000., value=200., desc='time window for pulse analysis [ns]', label='integr. width [ns]', mode='text', auto_set=False, enter_set=True)
-    position_signal = Range(low= -100., high=1000., value=0., desc='position of signal window relative to edge [ns]', label='pos. signal [ns]', mode='text', auto_set=False, enter_set=True)
-    position_normalize = Range(low=0., high=10000., value=2200., desc='position of normalization window relative to edge [ns]', label='pos. norm. [ns]', mode='text', auto_set=False, enter_set=True)
+    integration_width = Range(low=10., high=100.e3, value=200., desc='time window for pulse analysis [ns]', label='integr. width [ns]', mode='text', auto_set=False, enter_set=True)
+    position_signal = Range(low= -100., high=100.e3, value=0., desc='position of signal window relative to edge [ns]', label='pos. signal [ns]', mode='text', auto_set=False, enter_set=True)
+    position_normalize = Range(low=-1., high=100.e3, value=2200., desc='position of normalization window relative to edge [ns]', label='pos. norm. [ns]', mode='text', auto_set=False, enter_set=True)
     
     def __init__(self):
         super().__init__()
@@ -437,9 +437,11 @@ class RabiFit(PulsedFit):
     t_pi = Tuple((0., 0.)) #Property( depends_on='fit_result', label='pi' )
     t_3pi2 = Tuple((0., 0.)) #Property( depends_on='fit_result', label='3pi/2' )
 
+    update_fit_button = Button(label='update', desc='Update fit parameters')
+
     def __init__(self):
         super().__init__()
-        self.on_trait_change(self.update_fit, 'spin_state', dispatch='ui')
+        self.on_trait_change(self.update_fit, 'update_fit_button', dispatch='ui')
         self.on_trait_change(self.update_plot_tau, 'measurement.tau', dispatch='ui')
         self.on_trait_change(self.update_plot_fit, 'fit_result', dispatch='ui')
 
@@ -485,6 +487,7 @@ class RabiFit(PulsedFit):
         self.text = s
 
         self.fit_result = fit_result
+        print('fit_result', self.fit_result)
         
     plots = [{'data':('tau', 'spin_state'), 'color':'blue', 'name':'rabi'},
              {'data':('tau', 'fit'), 'color':'red', 'name':'cos fit'} ]
@@ -503,23 +506,31 @@ class RabiFit(PulsedFit):
         if self.fit_result[0][0] is not np.NaN:
             self.line_data.set_data('fit', fitting.Cosinus(*self.fit_result[0])(self.measurement.tau))            
     
-    traits_view = View(Tabbed(VGroup(HGroup(Item('contrast', style='readonly', width= -100, editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_func=lambda x:' %.1f+-%.1f%%' % x)),
-                                            Item('period', style='readonly', width= -100, editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_func=lambda x:' %.2f+-%.2f' % x)),
-                                            Item('q', style='readonly', width= -100, editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_func=lambda x:(' %.3f' if x >= 0.001 else ' %.2e') % x)),
-                                     ),
-                                     HGroup(Item('t_pi2', style='readonly', width= -100, editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_func=lambda x:' %.2f+-%.2f' % x)),
-                                            Item('t_pi', style='readonly', width= -100, editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_func=lambda x:' %.2f+-%.2f' % x)),
-                                            Item('t_3pi2', style='readonly', width= -100, editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_func=lambda x:' %.2f+-%.2f' % x)),
-                                     ),
-                                     label='fit_parameter'
-                              ),
-                              HGroup(Item('integration_width'),
-                                     Item('position_signal'),
-                                     Item('position_normalize'),
-                                     label='settings'),
-                              ),
+    traits_view = View(
+        Tabbed(
+            VGroup(
+                HGroup(
+                    Item('contrast', style='readonly', width= -100, editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_func=lambda x:' %.1f+-%.1f%%' % x)),
+                    Item('period', style='readonly', width= -100, editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_func=lambda x:' %.2f+-%.2f' % x)),
+                    Item('q', style='readonly', width= -100, editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_func=lambda x:(' %.3f' if x >= 0.001 else ' %.2e') % x)),
+                    UItem('update_fit_button'),
+                ),
+                HGroup(
+                    Item('t_pi2', style='readonly', width= -100, editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_func=lambda x:' %.2f+-%.2f' % x)),
+                    Item('t_pi', style='readonly', width= -100, editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_func=lambda x:' %.2f+-%.2f' % x)),
+                    Item('t_3pi2', style='readonly', width= -100, editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_func=lambda x:' %.2f+-%.2f' % x)),
+                ),
+                label='fit_parameter'
+            ),
+            HGroup(
+                Item('integration_width'),
+                Item('position_signal'),
+                Item('position_normalize'),
+                label='settings'
+            ),
+        ),
                        title='Rabi Fit',
-                       )
+    )
 
     get_set_items = PulsedFit.get_set_items + ['fit_result', 'contrast', 'period', 't_pi2', 't_pi', 't_3pi2', 'text']
 

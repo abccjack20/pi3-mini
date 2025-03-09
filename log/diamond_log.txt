@@ -6290,3 +6290,649 @@ AttributeError: 'NoneType' object has no attribute 'tau'
 2025-03-04 00:38:08,965 - diamond.<module> - INFO - Starting logger.
 2025-03-04 00:38:09,752 - emod.start - INFO - Starting Job Manager.
 2025-03-04 00:38:09,752 - cron.run - INFO - Starting Cron Daemon.
+2025-03-04 00:44:49,199 - diamond.<module> - INFO - Starting logger.
+2025-03-04 00:44:49,971 - emod.start - INFO - Starting Job Manager.
+2025-03-04 00:44:49,972 - cron.run - INFO - Starting Cron Daemon.
+2025-03-04 12:02:59,005 - diamond.<module> - INFO - Starting logger.
+2025-03-04 12:02:59,782 - emod.start - INFO - Starting Job Manager.
+2025-03-04 12:02:59,792 - cron.run - INFO - Starting Cron Daemon.
+2025-03-04 12:07:02,598 - diamond.<module> - INFO - Starting logger.
+2025-03-04 12:07:03,342 - emod.start - INFO - Starting Job Manager.
+2025-03-04 12:07:03,342 - cron.run - INFO - Starting Cron Daemon.
+2025-03-04 12:07:27,042 - diamond.<module> - INFO - Starting logger.
+2025-03-04 12:07:27,790 - emod.start - INFO - Starting Job Manager.
+2025-03-04 12:07:27,790 - cron.run - INFO - Starting Cron Daemon.
+2025-03-04 12:09:17,218 - diamond.<module> - INFO - Starting logger.
+2025-03-04 12:09:17,961 - emod.start - INFO - Starting Job Manager.
+2025-03-04 12:09:17,961 - cron.run - INFO - Starting Cron Daemon.
+2025-03-04 12:09:28,942 - diamond.<module> - INFO - Starting logger.
+2025-03-04 12:09:29,686 - emod.start - INFO - Starting Job Manager.
+2025-03-04 12:09:29,686 - cron.run - INFO - Starting Cron Daemon.
+2025-03-04 13:57:48,142 - diamond.<module> - INFO - Starting logger.
+2025-03-04 13:57:48,902 - emod.start - INFO - Starting Job Manager.
+2025-03-04 13:57:48,902 - cron.run - INFO - Starting Cron Daemon.
+2025-03-04 13:58:16,743 - odmr._run - ERROR - Error in odmr.
+Traceback (most recent call last):
+  File "C:\Users\yy3\pi3-mini\measurements\odmr.py", line 172, in _run
+    ha.PulseGenerator().Continuous(['green','mw_x'])
+  File "C:\Users\yy3\pi3-mini\hardware\pulse_streamer.py", line 21, in Continuous
+    ch_list = [self.channel_map[ch] for ch in channels]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yy3\pi3-mini\hardware\pulse_streamer.py", line 21, in <listcomp>
+    ch_list = [self.channel_map[ch] for ch in channels]
+               ~~~~~~~~~~~~~~~~^^^^
+KeyError: 'green'
+2025-03-04 14:00:45,465 - diamond.<module> - INFO - Starting logger.
+2025-03-04 14:00:46,220 - emod.start - INFO - Starting Job Manager.
+2025-03-04 14:00:46,222 - cron.run - INFO - Starting Cron Daemon.
+2025-03-04 14:01:07,119 - odmr._run - ERROR - Error in odmr.
+Traceback (most recent call last):
+  File "C:\Users\yy3\pi3-mini\measurements\odmr.py", line 172, in _run
+    ha.PulseGenerator().Continuous(['green','mw_x'])
+  File "C:\Users\yy3\pi3-mini\hardware\pulse_streamer.py", line 21, in Continuous
+    ch_list = [self.channel_map[ch] for ch in channels]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yy3\pi3-mini\hardware\pulse_streamer.py", line 21, in <listcomp>
+    ch_list = [self.channel_map[ch] for ch in channels]
+               ~~~~~~~~~~~~~~~~^^^^
+KeyError: 'green'
+2025-03-04 14:01:54,335 - diamond.<module> - INFO - Starting logger.
+2025-03-04 14:01:55,136 - emod.start - INFO - Starting Job Manager.
+2025-03-04 14:01:55,137 - cron.run - INFO - Starting Cron Daemon.
+2025-03-04 14:02:39,548 - odmr._run - ERROR - Error in odmr.
+Traceback (most recent call last):
+  File "C:\Users\yy3\pi3-mini\measurements\odmr.py", line 186, in _run
+    ha.Counter().configure(n, self.seconds_per_point, DutyCycle=0.8)
+    ^^^^^^^^^^^^
+  File "C:\Users\yy3\pi3-mini\tools\utility.py", line 435, in func
+    func.instance = old_func()
+                    ^^^^^^^^^^
+  File "C:\Users\yy3\pi3-mini\hardware\api.py", line 90, in Counter
+    from nidaq_finite_scanner import Pulse_Train_Counter
+ModuleNotFoundError: No module named 'nidaq_finite_scanner'
+2025-03-04 14:03:35,795 - diamond.<module> - INFO - Starting logger.
+2025-03-04 14:03:36,568 - emod.start - INFO - Starting Job Manager.
+2025-03-04 14:03:36,570 - cron.run - INFO - Starting Cron Daemon.
+2025-03-04 14:04:01,592 - odmr._run - ERROR - Error in odmr.
+Traceback (most recent call last):
+  File "C:\Users\yy3\pi3-mini\measurements\odmr.py", line 203, in _run
+    self.counts += counts
+ValueError: operands could not be broadcast together with shapes (10,) (9,) (10,) 
+2025-03-04 14:06:09,111 - diamond.<module> - INFO - Starting logger.
+2025-03-04 14:06:09,890 - emod.start - INFO - Starting Job Manager.
+2025-03-04 14:06:09,891 - cron.run - INFO - Starting Cron Daemon.
+2025-03-04 14:10:41,124 - diamond.<module> - INFO - Starting logger.
+2025-03-04 14:10:41,897 - emod.start - INFO - Starting Job Manager.
+2025-03-04 14:10:41,897 - cron.run - INFO - Starting Cron Daemon.
+2025-03-04 14:23:19,628 - diamond.<module> - INFO - Starting logger.
+2025-03-04 14:23:20,372 - emod.start - INFO - Starting Job Manager.
+2025-03-04 14:23:20,372 - cron.run - INFO - Starting Cron Daemon.
+2025-03-04 14:23:39,985 - diamond.<module> - INFO - Starting logger.
+2025-03-04 14:23:40,728 - emod.start - INFO - Starting Job Manager.
+2025-03-04 14:23:40,728 - cron.run - INFO - Starting Cron Daemon.
+2025-03-04 14:32:52,589 - diamond.<module> - INFO - Starting logger.
+2025-03-04 14:32:53,356 - emod.start - INFO - Starting Job Manager.
+2025-03-04 14:32:53,357 - cron.run - INFO - Starting Cron Daemon.
+2025-03-04 14:35:25,567 - diamond.<module> - INFO - Starting logger.
+2025-03-04 14:35:26,367 - emod.start - INFO - Starting Job Manager.
+2025-03-04 14:35:26,367 - cron.run - INFO - Starting Cron Daemon.
+2025-03-04 14:38:48,846 - diamond.<module> - INFO - Starting logger.
+2025-03-04 14:38:49,634 - emod.start - INFO - Starting Job Manager.
+2025-03-04 14:38:49,635 - cron.run - INFO - Starting Cron Daemon.
+2025-03-04 14:39:05,791 - odmr._run - ERROR - Error in odmr.
+Traceback (most recent call last):
+  File "C:\Users\yy3\pi3-mini\measurements\odmr.py", line 186, in _run
+    ha.Counter().configure(n, self.seconds_per_point, DutyCycle=0.8)
+    ^^^^^^^^^^^^
+  File "C:\Users\yy3\pi3-mini\tools\utility.py", line 435, in func
+    func.instance = old_func()
+                    ^^^^^^^^^^
+  File "C:\Users\yy3\pi3-mini\hardware\api.py", line 92, in Counter
+    return Pulse_Train_Counter(time_tagger, **counter_params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yy3\pi3-mini\hardware\nidaq_finite_scanner.py", line 21, in Pulse_Train_Counter
+    clk.prepare_task()
+  File "C:\Users\yy3\pi3-mini\hardware\nidaq.py", line 205, in prepare_task
+    ni.system.System().connect_terms(
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\nidaqmx\system\system.py", line 168, in connect_terms
+    self._interpreter.connect_terms(
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\nidaqmx\_library_interpreter.py", line 557, in connect_terms
+    self.check_for_error(error_code)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\nidaqmx\_library_interpreter.py", line 6412, in check_for_error
+    raise DaqError(extended_error_info, error_code)
+nidaqmx.errors.DaqError: Terminal for the device is invalid.
+Terminal: dev1/pfi13
+
+Status Code: -89129
+2025-03-04 14:40:23,629 - diamond.<module> - INFO - Starting logger.
+2025-03-04 14:40:24,372 - emod.start - INFO - Starting Job Manager.
+2025-03-04 14:40:24,382 - cron.run - INFO - Starting Cron Daemon.
+2025-03-04 14:43:11,313 - odmr._run - ERROR - Error in odmr.
+Traceback (most recent call last):
+  File "C:\Users\yy3\pi3-mini\hardware\microwave_smiq.py", line 41, in _write
+    self.instr.write(string)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\pyvisa\resources\messagebased.py", line 196, in write
+    count = self.write_raw(message.encode(enco))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\pyvisa\resources\messagebased.py", line 156, in write_raw
+    return self.visalib.write(self.session, message)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\pyvisa\ctwrapper\functions.py", line 2795, in write
+    ret = library.viWrite(session, data, len(data), byref(return_count))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\pyvisa\ctwrapper\highlevel.py", line 226, in _return_handler
+    return self.handle_return_value(session, ret_value)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\pyvisa\highlevel.py", line 251, in handle_return_value
+    raise errors.VisaIOError(rv)
+pyvisa.errors.VisaIOError: VI_ERROR_TMO (-1073807339): Timeout expired before operation completed.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\yy3\pi3-mini\measurements\odmr.py", line 185, in _run
+    ha.Microwave().initSweep(self.frequency, self.power * np.ones(self.frequency.shape))
+  File "C:\Users\yy3\pi3-mini\hardware\microwave_smiq.py", line 120, in initSweep
+    self._write(':FREQ:MODE LIST')
+  File "C:\Users\yy3\pi3-mini\hardware\microwave_smiq.py", line 47, in _write
+    self.instr.write(string)
+    ^^^^^^^^^^
+AttributeError: 'SMIQ' object has no attribute 'instr'
+2025-03-04 14:44:44,258 - diamond.<module> - INFO - Starting logger.
+2025-03-04 14:44:45,006 - emod.start - INFO - Starting Job Manager.
+2025-03-04 14:44:45,006 - cron.run - INFO - Starting Cron Daemon.
+2025-03-04 14:54:35,447 - diamond.<module> - INFO - Starting logger.
+2025-03-04 14:54:36,221 - emod.start - INFO - Starting Job Manager.
+2025-03-04 14:54:36,223 - cron.run - INFO - Starting Cron Daemon.
+2025-03-04 14:58:28,508 - diamond.<module> - INFO - Starting logger.
+2025-03-04 14:58:29,266 - emod.start - INFO - Starting Job Manager.
+2025-03-04 14:58:29,266 - cron.run - INFO - Starting Cron Daemon.
+2025-03-04 15:00:13,044 - diamond.<module> - INFO - Starting logger.
+2025-03-04 15:00:13,811 - emod.start - INFO - Starting Job Manager.
+2025-03-04 15:00:13,813 - cron.run - INFO - Starting Cron Daemon.
+2025-03-04 15:02:22,031 - diamond.<module> - INFO - Starting logger.
+2025-03-04 15:02:22,784 - emod.start - INFO - Starting Job Manager.
+2025-03-04 15:02:22,794 - cron.run - INFO - Starting Cron Daemon.
+2025-03-04 15:09:48,955 - diamond.<module> - INFO - Starting logger.
+2025-03-04 15:09:49,719 - emod.start - INFO - Starting Job Manager.
+2025-03-04 15:09:49,720 - cron.run - INFO - Starting Cron Daemon.
+2025-03-04 15:55:04,363 - diamond.<module> - INFO - Starting logger.
+2025-03-04 15:55:05,112 - emod.start - INFO - Starting Job Manager.
+2025-03-04 15:55:05,113 - cron.run - INFO - Starting Cron Daemon.
+2025-03-04 15:58:08,761 - diamond.<module> - INFO - Starting logger.
+2025-03-04 15:58:09,523 - emod.start - INFO - Starting Job Manager.
+2025-03-04 15:58:09,525 - cron.run - INFO - Starting Cron Daemon.
+2025-03-04 16:01:06,856 - diamond.<module> - INFO - Starting logger.
+2025-03-04 16:01:07,658 - emod.start - INFO - Starting Job Manager.
+2025-03-04 16:01:07,659 - cron.run - INFO - Starting Cron Daemon.
+2025-03-05 21:17:04,592 - diamond.<module> - INFO - Starting logger.
+2025-03-05 21:17:05,368 - emod.start - INFO - Starting Job Manager.
+2025-03-05 21:17:05,368 - cron.run - INFO - Starting Cron Daemon.
+2025-03-05 21:19:50,634 - diamond.<module> - INFO - Starting logger.
+2025-03-05 21:19:51,369 - emod.start - INFO - Starting Job Manager.
+2025-03-05 21:19:51,379 - cron.run - INFO - Starting Cron Daemon.
+2025-03-05 21:20:21,348 - diamond.<module> - INFO - Starting logger.
+2025-03-05 21:20:22,094 - emod.start - INFO - Starting Job Manager.
+2025-03-05 21:20:22,094 - cron.run - INFO - Starting Cron Daemon.
+2025-03-05 21:25:37,005 - diamond.<module> - INFO - Starting logger.
+2025-03-05 21:25:37,748 - emod.start - INFO - Starting Job Manager.
+2025-03-05 21:25:37,748 - cron.run - INFO - Starting Cron Daemon.
+2025-03-05 21:38:03,693 - diamond.<module> - INFO - Starting logger.
+2025-03-05 21:38:04,508 - emod.start - INFO - Starting Job Manager.
+2025-03-05 21:38:04,508 - cron.run - INFO - Starting Cron Daemon.
+2025-03-05 21:38:47,657 - diamond.<module> - INFO - Starting logger.
+2025-03-05 21:38:48,406 - emod.start - INFO - Starting Job Manager.
+2025-03-05 21:38:48,407 - cron.run - INFO - Starting Cron Daemon.
+2025-03-05 21:39:12,185 - diamond.<module> - INFO - Starting logger.
+2025-03-05 21:39:12,922 - emod.start - INFO - Starting Job Manager.
+2025-03-05 21:39:12,922 - cron.run - INFO - Starting Cron Daemon.
+2025-03-05 21:39:53,200 - diamond.<module> - INFO - Starting logger.
+2025-03-05 21:39:53,940 - emod.start - INFO - Starting Job Manager.
+2025-03-05 21:39:53,950 - cron.run - INFO - Starting Cron Daemon.
+2025-03-05 21:42:16,506 - diamond.<module> - INFO - Starting logger.
+2025-03-05 21:42:17,252 - emod.start - INFO - Starting Job Manager.
+2025-03-05 21:42:17,252 - cron.run - INFO - Starting Cron Daemon.
+2025-03-05 21:47:12,510 - diamond.<module> - INFO - Starting logger.
+2025-03-05 21:47:13,252 - emod.start - INFO - Starting Job Manager.
+2025-03-05 21:47:13,252 - cron.run - INFO - Starting Cron Daemon.
+2025-03-05 21:55:32,891 - diamond.<module> - INFO - Starting logger.
+2025-03-05 21:55:33,634 - emod.start - INFO - Starting Job Manager.
+2025-03-05 21:55:33,634 - cron.run - INFO - Starting Cron Daemon.
+2025-03-05 21:59:19,225 - diamond.<module> - INFO - Starting logger.
+2025-03-05 21:59:19,976 - emod.start - INFO - Starting Job Manager.
+2025-03-05 21:59:19,977 - cron.run - INFO - Starting Cron Daemon.
+2025-03-05 22:01:38,586 - diamond.<module> - INFO - Starting logger.
+2025-03-05 22:01:39,325 - emod.start - INFO - Starting Job Manager.
+2025-03-05 22:01:39,325 - cron.run - INFO - Starting Cron Daemon.
+2025-03-05 22:13:29,077 - diamond.<module> - INFO - Starting logger.
+2025-03-05 22:13:29,847 - emod.start - INFO - Starting Job Manager.
+2025-03-05 22:13:29,848 - cron.run - INFO - Starting Cron Daemon.
+2025-03-05 22:13:50,536 - diamond.<module> - INFO - Starting logger.
+2025-03-05 22:13:51,306 - emod.start - INFO - Starting Job Manager.
+2025-03-05 22:13:51,306 - cron.run - INFO - Starting Cron Daemon.
+2025-03-05 22:14:21,969 - diamond.<module> - INFO - Starting logger.
+2025-03-05 22:14:22,711 - emod.start - INFO - Starting Job Manager.
+2025-03-05 22:14:22,711 - cron.run - INFO - Starting Cron Daemon.
+2025-03-05 22:15:29,297 - diamond.<module> - INFO - Starting logger.
+2025-03-05 22:15:30,053 - emod.start - INFO - Starting Job Manager.
+2025-03-05 22:15:30,053 - cron.run - INFO - Starting Cron Daemon.
+2025-03-05 22:19:10,534 - diamond.<module> - INFO - Starting logger.
+2025-03-05 22:19:11,292 - emod.start - INFO - Starting Job Manager.
+2025-03-05 22:19:11,292 - cron.run - INFO - Starting Cron Daemon.
+2025-03-05 22:20:21,010 - diamond.<module> - INFO - Starting logger.
+2025-03-05 22:20:21,762 - emod.start - INFO - Starting Job Manager.
+2025-03-05 22:20:21,762 - cron.run - INFO - Starting Cron Daemon.
+2025-03-06 16:14:23,430 - diamond.<module> - INFO - Starting logger.
+2025-03-06 16:14:24,196 - emod.start - INFO - Starting Job Manager.
+2025-03-06 16:14:24,198 - cron.run - INFO - Starting Cron Daemon.
+2025-03-06 16:19:28,986 - diamond.<module> - INFO - Starting logger.
+2025-03-06 16:19:29,773 - emod.start - INFO - Starting Job Manager.
+2025-03-06 16:19:29,773 - cron.run - INFO - Starting Cron Daemon.
+2025-03-06 18:17:46,898 - diamond.<module> - INFO - Starting logger.
+2025-03-06 18:17:47,655 - emod.start - INFO - Starting Job Manager.
+2025-03-06 18:17:47,655 - cron.run - INFO - Starting Cron Daemon.
+2025-03-06 18:18:12,251 - diamond.<module> - INFO - Starting logger.
+2025-03-06 18:18:13,047 - emod.start - INFO - Starting Job Manager.
+2025-03-06 18:18:13,047 - cron.run - INFO - Starting Cron Daemon.
+2025-03-06 18:24:21,448 - diamond.<module> - INFO - Starting logger.
+2025-03-06 18:24:22,227 - emod.start - INFO - Starting Job Manager.
+2025-03-06 18:24:22,227 - cron.run - INFO - Starting Cron Daemon.
+2025-03-06 18:43:11,349 - diamond.<module> - INFO - Starting logger.
+2025-03-06 18:43:12,106 - emod.start - INFO - Starting Job Manager.
+2025-03-06 18:43:12,106 - cron.run - INFO - Starting Cron Daemon.
+2025-03-07 16:10:37,671 - emod.submit - INFO - The job <measurements.confocal.Confocal object at 0x00000186DE900B30> is already running or in the queue.
+2025-03-07 16:37:39,637 - diamond.<module> - INFO - Starting logger.
+2025-03-07 16:37:40,466 - emod.start - INFO - Starting Job Manager.
+2025-03-07 16:37:40,467 - cron.run - INFO - Starting Cron Daemon.
+2025-03-07 16:38:26,415 - odmr._run - ERROR - Error in odmr.
+Traceback (most recent call last):
+  File "C:\Users\yy3\pi3-mini\measurements\odmr.py", line 186, in _run
+    ha.Counter().configure(n, self.seconds_per_point, DutyCycle=0.8)
+    ^^^^^^^^^^^^
+  File "C:\Users\yy3\pi3-mini\tools\utility.py", line 435, in func
+    func.instance = old_func()
+                    ^^^^^^^^^^
+  File "C:\Users\yy3\pi3-mini\hardware\api.py", line 91, in Counter
+    return Pulse_Train_Counter(time_tagger, **counter_params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yy3\pi3-mini\hardware\nidaq_finite_scanner.py", line 17, in Pulse_Train_Counter
+    device_name, ctr_list, des_term=des_term,
+                                    ^^^^^^^^
+NameError: name 'des_term' is not defined
+2025-03-07 16:39:01,759 - diamond.<module> - INFO - Starting logger.
+2025-03-07 16:39:02,513 - emod.start - INFO - Starting Job Manager.
+2025-03-07 16:39:02,513 - cron.run - INFO - Starting Cron Daemon.
+2025-03-07 16:39:35,018 - odmr._run - ERROR - Error in odmr.
+Traceback (most recent call last):
+  File "C:\Users\yy3\pi3-mini\measurements\odmr.py", line 186, in _run
+    ha.Counter().configure(n, self.seconds_per_point, DutyCycle=0.8)
+  File "C:\Users\yy3\pi3-mini\hardware\nidaq_finite_scanner.py", line 239, in configure
+    self.sample_clk.update_task()
+  File "C:\Users\yy3\pi3-mini\hardware\nidaq.py", line 309, in update_task
+    self.output.co_pulse_freq = self.sample_rate
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'co_pulse_freq'
+2025-03-07 16:40:30,810 - diamond.<module> - INFO - Starting logger.
+2025-03-07 16:40:31,607 - emod.start - INFO - Starting Job Manager.
+2025-03-07 16:40:31,617 - cron.run - INFO - Starting Cron Daemon.
+2025-03-07 16:52:55,906 - diamond.<module> - INFO - Starting logger.
+2025-03-07 16:52:56,713 - emod.start - INFO - Starting Job Manager.
+2025-03-07 16:52:56,713 - cron.run - INFO - Starting Cron Daemon.
+2025-03-07 16:54:09,579 - odmr._run - ERROR - Error in odmr.
+Traceback (most recent call last):
+  File "C:\Users\yy3\pi3-mini\measurements\odmr.py", line 186, in _run
+    ha.Counter().configure(n, self.seconds_per_point, DutyCycle=0.8)
+    ^^^^^^^^^^^^
+  File "C:\Users\yy3\pi3-mini\tools\utility.py", line 435, in func
+    func.instance = old_func()
+                    ^^^^^^^^^^
+  File "C:\Users\yy3\pi3-mini\hardware\api.py", line 93, in Counter
+    return Pulse_Train_Counter(time_tagger, **counter_params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Pulse_Train_Counter() got an unexpected keyword argument 'des_term'
+2025-03-07 16:54:45,522 - diamond.<module> - INFO - Starting logger.
+2025-03-07 16:54:46,283 - emod.start - INFO - Starting Job Manager.
+2025-03-07 16:54:46,283 - cron.run - INFO - Starting Cron Daemon.
+2025-03-07 17:21:55,901 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.RabiFit object at 0x0000026E5B442CA0>, trait: measurement, old value: <measurements.pulsed.Rabi object at 0x0000026E5B4C0A40>, new value: None
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 500, in update_plot_tau
+    self.line_data.set_data('tau', self.measurement.tau)
+                                   ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'tau'
+2025-03-07 17:27:58,367 - diamond.<module> - INFO - Starting logger.
+2025-03-07 17:27:59,130 - emod.start - INFO - Starting Job Manager.
+2025-03-07 17:27:59,130 - cron.run - INFO - Starting Cron Daemon.
+2025-03-07 18:11:19,737 - diamond.<module> - INFO - Starting logger.
+2025-03-07 18:11:20,532 - emod.start - INFO - Starting Job Manager.
+2025-03-07 18:11:20,534 - cron.run - INFO - Starting Cron Daemon.
+2025-03-07 18:24:02,436 - diamond.<module> - INFO - Starting logger.
+2025-03-07 18:24:03,179 - emod.start - INFO - Starting Job Manager.
+2025-03-07 18:24:03,179 - cron.run - INFO - Starting Cron Daemon.
+2025-03-07 18:39:39,867 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.DoubleFitTau object at 0x000001D4F2C1ADE0>, trait: measurement, old value: <measurements.pulsed.FID3pi2 object at 0x000001D4F2C1A390>, new value: None
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 800, in update_plot_tau
+    self.line_data.set_data('tau', self.measurement.tau)
+                                   ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'tau'
+2025-03-07 18:39:43,972 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.DoubleFitTau object at 0x000001D4F5C2BDD0>, trait: measurement, old value: <measurements.pulsed.FID3pi2 object at 0x000001D4F2C1A390>, new value: None
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 800, in update_plot_tau
+    self.line_data.set_data('tau', self.measurement.tau)
+                                   ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'tau'
+2025-03-07 19:37:08,566 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.Hahn3pi2Fit object at 0x000001D4F5B6D760>, trait: measurement, old value: <measurements.pulsed.FID3pi2 object at 0x000001D4F2C1A390>, new value: None
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 1027, in update_plot_tau
+    self.line_data.set_data('tau', self.measurement.tau)
+                                   ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'tau'
+2025-03-07 20:26:39,447 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.RabiFit object at 0x000001D4F238F150>, trait: measurement, old value: <measurements.pulsed.Rabi object at 0x000001D4F894D580>, new value: None
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 500, in update_plot_tau
+    self.line_data.set_data('tau', self.measurement.tau)
+                                   ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'tau'
+2025-03-07 20:30:00,001 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.DoubleFitTau object at 0x000001D4F53DFB50>, trait: measurement, old value: <measurements.pulsed.FID3pi2 object at 0x000001D4F65FBFB0>, new value: None
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 800, in update_plot_tau
+    self.line_data.set_data('tau', self.measurement.tau)
+                                   ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'tau'
+2025-03-08 15:32:10,312 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.Hahn3pi2Fit object at 0x000001D4F2BE5EE0>, trait: measurement, old value: <measurements.pulsed.FID3pi2 object at 0x000001D4F65FBFB0>, new value: None
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 1027, in update_plot_tau
+    self.line_data.set_data('tau', self.measurement.tau)
+                                   ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'tau'
+2025-03-08 16:37:09,856 - diamond.<module> - INFO - Starting logger.
+2025-03-08 16:37:10,684 - emod.start - INFO - Starting Job Manager.
+2025-03-08 16:37:10,686 - cron.run - INFO - Starting Cron Daemon.
+2025-03-08 16:38:29,887 - diamond.<module> - INFO - Starting logger.
+2025-03-08 16:38:30,676 - emod.start - INFO - Starting Job Manager.
+2025-03-08 16:38:30,676 - cron.run - INFO - Starting Cron Daemon.
+2025-03-08 16:39:52,325 - diamond.<module> - INFO - Starting logger.
+2025-03-08 16:39:53,130 - emod.start - INFO - Starting Job Manager.
+2025-03-08 16:39:53,132 - cron.run - INFO - Starting Cron Daemon.
+2025-03-08 16:41:09,169 - diamond.<module> - INFO - Starting logger.
+2025-03-08 16:41:10,023 - emod.start - INFO - Starting Job Manager.
+2025-03-08 16:41:10,023 - cron.run - INFO - Starting Cron Daemon.
+2025-03-08 16:42:11,775 - diamond.<module> - INFO - Starting logger.
+2025-03-08 16:42:12,544 - emod.start - INFO - Starting Job Manager.
+2025-03-08 16:42:12,545 - cron.run - INFO - Starting Cron Daemon.
+2025-03-08 16:43:27,809 - diamond.<module> - INFO - Starting logger.
+2025-03-08 16:43:28,566 - emod.start - INFO - Starting Job Manager.
+2025-03-08 16:43:28,566 - cron.run - INFO - Starting Cron Daemon.
+2025-03-08 16:44:54,620 - diamond.<module> - INFO - Starting logger.
+2025-03-08 16:44:55,370 - emod.start - INFO - Starting Job Manager.
+2025-03-08 16:44:55,370 - cron.run - INFO - Starting Cron Daemon.
+2025-03-08 16:47:23,177 - diamond.<module> - INFO - Starting logger.
+2025-03-08 16:47:23,948 - emod.start - INFO - Starting Job Manager.
+2025-03-08 16:47:23,949 - cron.run - INFO - Starting Cron Daemon.
+2025-03-08 16:48:08,179 - diamond.<module> - INFO - Starting logger.
+2025-03-08 16:48:08,943 - emod.start - INFO - Starting Job Manager.
+2025-03-08 16:48:08,944 - cron.run - INFO - Starting Cron Daemon.
+2025-03-08 16:48:14,440 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.RabiFit object at 0x000002ABD6CAC450>, trait: spin_state, old value: [0. 0.], new value: [0. 0.]
+Traceback (most recent call last):
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 450, in update_fit
+    fit_result = fitting.fit_rabi(self.measurement.tau, self.spin_state, self.spin_state_error)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yy3\pi3-mini\analysis\fitting.py", line 604, in fit_rabi
+    p = fit(x, yp, CosinusNoOffset, CosinusNoOffsetEstimator)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yy3\pi3-mini\analysis\fitting.py", line 73, in fit
+    p = scipy.optimize.leastsq(lambda pp: model(*pp)(x) - y, estimator(x,y))[0]
+                                                             ^^^^^^^^^^^^^^
+  File "C:\Users\yy3\pi3-mini\analysis\fitting.py", line 235, in CosinusNoOffsetEstimator
+    i = abs(Y[1:N/2+1]).argmax()+1
+            ~^^^^^^^^^
+TypeError: slice indices must be integers or None or have an __index__ method
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 453, in update_fit
+    pritn('except')
+    ^^^^^
+NameError: name 'pritn' is not defined
+2025-03-08 16:50:13,858 - diamond.<module> - INFO - Starting logger.
+2025-03-08 16:50:14,657 - emod.start - INFO - Starting Job Manager.
+2025-03-08 16:50:14,659 - cron.run - INFO - Starting Cron Daemon.
+2025-03-08 16:51:14,598 - diamond.<module> - INFO - Starting logger.
+2025-03-08 16:51:15,384 - emod.start - INFO - Starting Job Manager.
+2025-03-08 16:51:15,385 - cron.run - INFO - Starting Cron Daemon.
+2025-03-08 16:51:36,217 - diamond.<module> - INFO - Starting logger.
+2025-03-08 16:51:36,962 - emod.start - INFO - Starting Job Manager.
+2025-03-08 16:51:36,962 - cron.run - INFO - Starting Cron Daemon.
+2025-03-08 16:53:18,331 - diamond.<module> - INFO - Starting logger.
+2025-03-08 16:53:19,087 - emod.start - INFO - Starting Job Manager.
+2025-03-08 16:53:19,087 - cron.run - INFO - Starting Cron Daemon.
+2025-03-08 16:58:59,830 - diamond.<module> - INFO - Starting logger.
+2025-03-08 16:59:00,624 - emod.start - INFO - Starting Job Manager.
+2025-03-08 16:59:00,626 - cron.run - INFO - Starting Cron Daemon.
+2025-03-08 17:00:36,082 - diamond.<module> - INFO - Starting logger.
+2025-03-08 17:00:36,845 - emod.start - INFO - Starting Job Manager.
+2025-03-08 17:00:36,847 - cron.run - INFO - Starting Cron Daemon.
+2025-03-08 17:01:58,231 - diamond.<module> - INFO - Starting logger.
+2025-03-08 17:01:58,999 - emod.start - INFO - Starting Job Manager.
+2025-03-08 17:01:59,000 - cron.run - INFO - Starting Cron Daemon.
+2025-03-08 17:03:55,875 - diamond.<module> - INFO - Starting logger.
+2025-03-08 17:03:56,647 - emod.start - INFO - Starting Job Manager.
+2025-03-08 17:03:56,647 - cron.run - INFO - Starting Cron Daemon.
+2025-03-08 17:09:38,472 - diamond.<module> - INFO - Starting logger.
+2025-03-08 17:09:39,242 - emod.start - INFO - Starting Job Manager.
+2025-03-08 17:09:39,242 - cron.run - INFO - Starting Cron Daemon.
+2025-03-08 17:17:37,160 - diamond.<module> - INFO - Starting logger.
+2025-03-08 17:17:37,998 - emod.start - INFO - Starting Job Manager.
+2025-03-08 17:17:38,000 - cron.run - INFO - Starting Cron Daemon.
+2025-03-08 17:21:44,738 - diamond.<module> - INFO - Starting logger.
+2025-03-08 17:21:45,515 - emod.start - INFO - Starting Job Manager.
+2025-03-08 17:21:45,516 - cron.run - INFO - Starting Cron Daemon.
+2025-03-09 01:35:41,777 - diamond.<module> - INFO - Starting logger.
+2025-03-09 01:35:42,583 - emod.start - INFO - Starting Job Manager.
+2025-03-09 01:35:42,585 - cron.run - INFO - Starting Cron Daemon.
+2025-03-09 01:37:07,196 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.RabiFit object at 0x0000021D3F7573D0>, trait: measurement, old value: <measurements.pulsed.Rabi object at 0x0000021D305951C0>, new value: None
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 503, in update_plot_tau
+    self.line_data.set_data('tau', self.measurement.tau)
+                                   ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'tau'
+2025-03-09 01:37:23,763 - utility.set_items - WARNING - failed to set item 'fit_result_pi2'
+2025-03-09 01:37:23,763 - utility.set_items - WARNING - failed to set item 'fit_result_3pi2'
+2025-03-09 01:37:23,763 - utility.set_items - WARNING - failed to set item 'T2_pi2'
+2025-03-09 01:37:23,763 - utility.set_items - WARNING - failed to set item 'T2_3pi2'
+2025-03-09 01:37:23,773 - utility.set_items - WARNING - failed to set item 'exponent_pi2'
+2025-03-09 01:37:23,773 - utility.set_items - WARNING - failed to set item 'exponent_3pi2'
+2025-03-09 01:38:57,542 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.Hahn3pi2Fit object at 0x0000021D3E573D30>, trait: measurement, old value: <measurements.pulsed.Hahn3pi2 object at 0x0000021D40C32480>, new value: None
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 1038, in update_plot_tau
+    self.line_data.set_data('tau', self.measurement.tau)
+                                   ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'tau'
+2025-03-09 01:38:57,552 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.DoubleFitTauRef object at 0x0000021D420E4040>, trait: spin_state, old value: [0. 0.], new value: [313312.27334759 314723.50056981 312367.94698386 314481.14538359
+ 314283.84532974 311747.5152148  315536.8227108  315862.60497777
+ 313951.7978714  312520.72952799 311291.29727211 311802.03327996
+ 313869.60350637 314305.33186415 314671.90058876 315465.17762214
+ 312204.30365421 314081.53834629 312413.35435782 313642.0204327
+ 314192.24411627 313543.29894674 314549.15850982 313269.06812625
+ 311605.15093486 316549.29156907 311780.28643327 314042.77595062
+ 313055.4500982  312110.33266163 313505.84305648 314714.42458885
+ 314816.99015713 313414.11501641 312969.28165774 313678.59396752
+ 313203.23068466 312518.9544766  315693.78594461 312671.96066487
+ 313874.94418249 315166.27209364 312819.93157008 314835.71988322
+ 314751.85643547 311776.38608909 314461.38932246 311104.72369567
+ 313098.81318674 311753.51140937 314579.16412895 316202.57692762
+ 312136.34633006 313092.53620362 313180.76761853 314765.45238124
+ 310598.38453841 314308.54098375 313128.06736728 312559.19672194
+ 314607.43898499 311635.26130112 311320.90212988 313312.19292307
+ 314378.5627798  314797.01657782 312561.23945554 311319.84893317
+ 312660.35729995 313465.96397816 313055.80441977 312447.20210403
+ 313399.83326299 312120.66490002 310783.23428092 314704.05715289
+ 312936.55157703 313319.23044679 313526.7534367  312999.14020541
+ 312196.02701649 312546.96540236 311135.52813932 314990.78722396
+ 315141.68012908 311271.42021237 311914.47333516 314844.45193282
+ 313298.06410115 313012.48393063 312384.57162118 313463.10451701
+ 312748.43932662 313131.91880934 313187.9108799  312407.03792428
+ 312906.94532442 313160.76562457 311839.47589721 311823.05844614
+ 311995.3445394  313741.08048718 314066.32885096 312389.68056838
+ 311757.65640865 310107.72683585 313582.58661111 313252.94847096
+ 313955.00492538 313772.39110667 314616.73176198 311809.20941319
+ 311265.51885246 311493.77800317 312660.90134944 311612.58692072
+ 312583.70240673 311204.89633537 313154.92772108 313246.93096158
+ 311552.86017926 311892.60440882 312224.58948501 313031.03253569
+ 313144.80399412 312822.74387047 314222.53864574 313272.13775134
+ 310855.61233837 313313.83854064 310865.08056407 312109.23704063
+ 313302.10776823 312149.10250033 311821.22675353 312466.86875773
+ 312918.5805782  314083.08701721 310573.53305412 313420.90059715
+ 311147.4202789  313566.88781729 311538.27695683 310405.7144995
+ 313949.8420976  311299.4413869  314424.10944435 312009.14516576
+ 311475.60469531 313372.04933827 311895.44704089 313540.30180583
+ 312035.86447796 310869.4732491  313651.81790192 311993.64391236
+ 313466.81208024 312799.56763283 314031.13759179 312920.66280593
+ 309450.94981957 312105.0262243  312196.59034883 312894.85316765
+ 310241.58797546 311824.33643486 312983.85199297 312498.94767958
+ 313431.34411451 310796.64270467 310192.45992473 312842.75933021
+ 311999.15945067 310906.471713   312153.26729423 311294.08405637
+ 315074.95138608 310589.67457921 312802.7647385  313286.13175026
+ 311365.19030828 311847.91840783 312011.97643198 312988.82090606
+ 312881.23158821 313402.35859602 313952.78670146 312108.71835284
+ 311598.16883267 311368.01088352 312330.06386616 310841.29165306
+ 310658.67565328 312852.92454036 310820.12074051 311678.7619535
+ 311755.8744893  313265.80101799 311838.66382975 310320.8654116 ]
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 404, in update_plot_spin_state
+    n_ref = self.measurement.n_ref
+            ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Hahn3pi2' object has no attribute 'n_ref'
+2025-03-09 01:39:02,732 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.DoubleFitTauRef object at 0x0000021D420E4040>, trait: measurement, old value: <measurements.pulsed.Hahn3pi2 object at 0x0000021D40C32480>, new value: None
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 412, in update_plot_tau
+    self.line_data.set_data('tau', self.measurement.tau)
+                                   ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'tau'
+2025-03-09 01:39:38,264 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.Hahn3pi2Fit object at 0x0000021D422B7B00>, trait: measurement, old value: <measurements.pulsed.Hahn3pi2 object at 0x0000021D40C32480>, new value: None
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 1038, in update_plot_tau
+    self.line_data.set_data('tau', self.measurement.tau)
+                                   ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'tau'
+2025-03-09 01:40:54,252 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.DecayRabiFit object at 0x0000021D423EACA0>, trait: measurement, old value: <measurements.pulsed.Hahn3pi2 object at 0x0000021D40C32480>, new value: None
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 613, in update_plot_tau
+    self.line_data.set_data('tau', self.measurement.tau)
+                                   ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'tau'
+2025-03-09 01:40:54,262 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.Frequency3pi2Fit object at 0x0000021D379F0B80>, trait: spin_state, old value: [0. 0.], new value: [313312.27334759 314723.50056981 312367.94698386 314481.14538359
+ 314283.84532974 311747.5152148  315536.8227108  315862.60497777
+ 313951.7978714  312520.72952799 311291.29727211 311802.03327996
+ 313869.60350637 314305.33186415 314671.90058876 315465.17762214
+ 312204.30365421 314081.53834629 312413.35435782 313642.0204327
+ 314192.24411627 313543.29894674 314549.15850982 313269.06812625
+ 311605.15093486 316549.29156907 311780.28643327 314042.77595062
+ 313055.4500982  312110.33266163 313505.84305648 314714.42458885
+ 314816.99015713 313414.11501641 312969.28165774 313678.59396752
+ 313203.23068466 312518.9544766  315693.78594461 312671.96066487
+ 313874.94418249 315166.27209364 312819.93157008 314835.71988322
+ 314751.85643547 311776.38608909 314461.38932246 311104.72369567
+ 313098.81318674 311753.51140937 314579.16412895 316202.57692762
+ 312136.34633006 313092.53620362 313180.76761853 314765.45238124
+ 310598.38453841 314308.54098375 313128.06736728 312559.19672194
+ 314607.43898499 311635.26130112 311320.90212988 313312.19292307
+ 314378.5627798  314797.01657782 312561.23945554 311319.84893317
+ 312660.35729995 313465.96397816 313055.80441977 312447.20210403
+ 313399.83326299 312120.66490002 310783.23428092 314704.05715289
+ 312936.55157703 313319.23044679 313526.7534367  312999.14020541
+ 312196.02701649 312546.96540236 311135.52813932 314990.78722396
+ 315141.68012908 311271.42021237 311914.47333516 314844.45193282
+ 313298.06410115 313012.48393063 312384.57162118 313463.10451701
+ 312748.43932662 313131.91880934 313187.9108799  312407.03792428
+ 312906.94532442 313160.76562457 311839.47589721 311823.05844614
+ 311995.3445394  313741.08048718 314066.32885096 312389.68056838
+ 311757.65640865 310107.72683585 313582.58661111 313252.94847096
+ 313955.00492538 313772.39110667 314616.73176198 311809.20941319
+ 311265.51885246 311493.77800317 312660.90134944 311612.58692072
+ 312583.70240673 311204.89633537 313154.92772108 313246.93096158
+ 311552.86017926 311892.60440882 312224.58948501 313031.03253569
+ 313144.80399412 312822.74387047 314222.53864574 313272.13775134
+ 310855.61233837 313313.83854064 310865.08056407 312109.23704063
+ 313302.10776823 312149.10250033 311821.22675353 312466.86875773
+ 312918.5805782  314083.08701721 310573.53305412 313420.90059715
+ 311147.4202789  313566.88781729 311538.27695683 310405.7144995
+ 313949.8420976  311299.4413869  314424.10944435 312009.14516576
+ 311475.60469531 313372.04933827 311895.44704089 313540.30180583
+ 312035.86447796 310869.4732491  313651.81790192 311993.64391236
+ 313466.81208024 312799.56763283 314031.13759179 312920.66280593
+ 309450.94981957 312105.0262243  312196.59034883 312894.85316765
+ 310241.58797546 311824.33643486 312983.85199297 312498.94767958
+ 313431.34411451 310796.64270467 310192.45992473 312842.75933021
+ 311999.15945067 310906.471713   312153.26729423 311294.08405637
+ 315074.95138608 310589.67457921 312802.7647385  313286.13175026
+ 311365.19030828 311847.91840783 312011.97643198 312988.82090606
+ 312881.23158821 313402.35859602 313952.78670146 312108.71835284
+ 311598.16883267 311368.01088352 312330.06386616 310841.29165306
+ 310658.67565328 312852.92454036 310820.12074051 311678.7619535
+ 311755.8744893  313265.80101799 311838.66382975 310320.8654116 ]
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 264, in update_plot_spin_state
+    if old_mesh is not None and len(old_mesh) != len(self.measurement.frequencies):
+                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Hahn3pi2' object has no attribute 'frequencies'

@@ -43,7 +43,7 @@ def PulseGenerator():
 		channel_map = {
 			'aom':0,
 			'detect':1,
-			'mw':2,
+			'mw':4,
 			'sync':7,
 		}
 	)
@@ -64,11 +64,20 @@ scanner_params = dict(
     y_range = (-100.0,100.0),
     z_range = (0,100.0),
     aom_range = (-10,10),
-    home_pos = [0., 0., 0., 0.],
+    home_pos = [0., 0., 0., -10.],
     invert_x = False,
     invert_y = False,
     invert_z = False,
     swap_xy = False,
+)
+
+counter_params = dict(
+    device_name = 'dev1',
+    counter_name = 'ctr0',
+    # ctr_list = ['ctr0','ctr1']
+    des_term = '/dev1/pfi13',
+    sec_per_point = .01,
+    duty_cycle = 0.9,
 )
 
 @singleton
@@ -80,12 +89,13 @@ def Scanner():
 # Counter Initialization Used In ODMR
 @singleton
 def Counter():
-	from .nidaq_dummy import PulseTrainCounter
-	# from .nidaq import PulseTrainCounter
-
-	return PulseTrainCounter( CounterIn='/Dev1/Ctr3',
-							  CounterOut='/Dev1/Ctr2',
-							  TickSource='/Dev1/PFI0' )
+    from .nidaq_finite_scanner import Pulse_Train_Counter
+    return Pulse_Train_Counter(time_tagger, **counter_params)
+	# from .nidaq_dummy import PulseTrainCounter
+	# from .nidaq_dll import PulseTrainCounter
+	# return PulseTrainCounter( CounterIn='/Dev1/Ctr3',
+	# 						  CounterOut='/Dev1/Ctr2',
+	# 						  TickSource='/Dev1/PFI0' )
 
 # Microvave Source Initialization
 @singleton

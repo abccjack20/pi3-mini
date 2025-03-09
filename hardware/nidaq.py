@@ -166,12 +166,13 @@ class sample_clock(task_constructor):
     Almost all scanning task (confocal or ODMR) needs this to sync triggers and readout.
     '''
 
-    def __init__(self, device_name, counter_name, period=0.01, duty_cycle=0.9, samps_per_chan=None):
+    def __init__(self, device_name, counter_name, period=0.01, duty_cycle=0.9, des_term=None, samps_per_chan=None):
         super().__init__(device_name)
         self.counter_name = counter_name
         self.period = period
         self.duty_cycle = duty_cycle
         self.samps_per_chan = samps_per_chan
+        self.des_term = des_term
         
     @property
     def sample_rate(self):
@@ -199,9 +200,22 @@ class sample_clock(task_constructor):
             freq=self.sample_rate,
             duty_cycle=self.duty_cycle,
         )
-
         # 3. Configure Timing
         self.config_timing()
+
+    def connect_term(self):
+        # print('Connected %s and %s' % (self.source + 'InternalOutput',self.des_term))
+        ni.system.System().connect_terms(
+            source_terminal=self.source + 'InternalOutput',
+            destination_terminal=self.des_term
+        )
+    
+    def disconnect_term(self):
+        # print('Disconnected %s and %s' % (self.source + 'InternalOutput',self.des_term))
+        ni.system.System().disconnect_terms(
+            source_terminal=self.source + 'InternalOutput',
+            destination_terminal=self.des_term
+        )
 
     def config_timing(self):
         samps_per_chan = self.samps_per_chan if self.samps_per_chan else 1000
@@ -214,6 +228,81 @@ class sample_clock(task_constructor):
         self.output.co_pulse_freq = self.sample_rate
         self.output.co_pulse_duty_cyc = self.duty_cycle
         self.config_timing()
+
+    def start(self):
+        super().start()
+        if self.des_term: self.connect_term()
+
+    def stop(self):
+        super().stop()
+        if self.des_term: self.disconnect_term()
+
+
+class sample_DoubleClock(task_constructor):
+
+    '''
+    Task constructor for creating a sample clock signal from NIDAQ internal clock.
+    Almost all scanning task (confocal or ODMR) needs this to sync triggers and readout.
+    '''
+
+    def __init__(self, device_name, ctr_list, period=0.01, duty_cycle=0.9, des_term=None, samps_per_chan=None):
+        super().__init__(device_name)
+        self.ctr_list = ctr_list
+        self.period = period
+        self.duty_cycle = duty_cycle
+        self.samps_per_chan = samps_per_chan
+        
+    @property
+    def sample_rate(self):
+        return 1/self.period
+    
+    @sample_rate.setter
+    def sample_rate(self, rate):
+        self.period = 1/rate
+
+    @property
+    def sources(self):
+        return [f'/{self.device_name}/{ctr}' for ctr in self.ctr_list]
+
+    def prepare_task(self):
+        # 1. Acquire task handle
+        if self.task:
+            self.clear_task()
+        self.task_name = f'clock_{id(self)}'
+        self.task = ni_tasks_manager.create_task(self.task_name)
+
+        # 2. Configure output
+        self.output = []
+        for src in self.sources:
+            output = self.task.co_channels.add_co_pulse_chan_freq(
+                src,
+                idle_state=ni.constants.Level.LOW,
+                freq=self.sample_rate,
+                duty_cycle=self.duty_cycle,
+            )
+            self.output.append(output)
+        # 3. Configure Timing
+        self.config_timing()
+
+    def config_timing(self):
+        samps_per_chan = self.samps_per_chan if self.samps_per_chan else 1000
+        mode = ni.constants.AcquisitionType.FINITE if self.samps_per_chan else ni.constants.AcquisitionType.CONTINUOUS
+        self.task.timing.cfg_implicit_timing(
+            sample_mode=mode, samps_per_chan=samps_per_chan,
+        )
+
+    def update_task(self):
+        for output in self.output:
+            output.co_pulse_freq = self.sample_rate
+            output.co_pulse_duty_cyc = self.duty_cycle
+        self.config_timing()
+
+    def start(self):
+        super().start()
+
+    def stop(self):
+        super().stop()
+
 
 
 class analog_output_constant(task_constructor):

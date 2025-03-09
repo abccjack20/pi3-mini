@@ -216,46 +216,4 @@ class SMR20():
         self._write(':ABOR:LIST')
         self._write('*WAI')
 
-from .nidaq_dll import SquareWave
-
-class HybridMicrowaveSourceSMIQNIDAQ():
-    """Provides a microwave source that can do frequency sweeps
-    with pixel clock output using SMIQ and nidaq card."""
-
-    def __init__(self, visa_address, square_wave_device):
-        self.source = SMIQ( visa_address )
-        self.square_wave = SquareWave( square_wave_device )
-
-    def setOutput(self, power, frequency, seconds_per_point=1e-2):
-        """Sets the output of the microwave source.
-        'power' specifies the power in dBm. 'frequency' specifies the
-        frequency in Hz. If 'frequency' is a single number, the source
-        is set to cw. If 'frequency' contains multiple values, the
-        source sweeps over the frequencies. 'seconds_per_point' specifies
-        the time in seconds that the source spends on each frequency step.
-        A sweep is excecute by the 'doSweep' method."""
-        
-        # in any case set the CW power
-        self.source.setPower(power)
-        self.square_wave.setTiming(seconds_per_point)
-        
-        try: length=len(frequency)
-        except TypeError: length=0
-
-        self._length=length
-
-        if length:
-            self.source.setFrequency(frequency[0])
-            self.source.initSweep(frequency, power*numpy.ones(length))
-        else:
-            self.source.setFrequency(frequency)
-
-    def doSweep(self):
-        """Perform a single sweep."""
-        if not self._length:
-            raise RuntimeError('Not in sweep mode. Change to sweep mode and try again.')
-        #self.source.resetListPos()
-        self.square_wave.setLength(self._length)
-        self.square_wave.output()
-
 
