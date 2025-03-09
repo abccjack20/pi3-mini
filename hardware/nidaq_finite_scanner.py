@@ -8,19 +8,13 @@ from .nidaq import sample_clock, sample_DoubleClock, analog_output_sweeper
 def Pulse_Train_Counter(
     time_tagger,
     device_name = 'dev1',
-    #ctr_list = ['ctr0','ctr1'],
-    des_term = '/dev1/pfi13',
-    counter_name = 'ctr0',
+    ctr_list = ['ctr0','ctr1'],
     duty_cycle = 0.9,
     sec_per_point = 0.01, 
 ):
     frame_size = 10     # Just an initial value, it can be changed later.
-    # clk = sample_DoubleClock(
-    #     device_name, ctr_list,
-    #     samps_per_chan=frame_size, period=sec_per_point, duty_cycle=duty_cycle,
-    # )
-    clk = sample_clock(
-        device_name, counter_name, des_term=des_term,
+    clk = sample_DoubleClock(
+        device_name, ctr_list,
         samps_per_chan=frame_size, period=sec_per_point, duty_cycle=duty_cycle,
     )
     clk.prepare_task()

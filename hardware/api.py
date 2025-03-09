@@ -28,7 +28,7 @@ from tools.utility import singleton
 from .time_tagger_swabian import time_tagger_control
 time_tagger = time_tagger_control(
 	"1740000JEC",	# serial
-	1,				# ch_ticks
+	[1, 2],         # ch_list_ticks
 	5,				# ch_detect
 	8,				# ch_sync
 	ch_marker=6,
@@ -73,9 +73,7 @@ scanner_params = dict(
 
 counter_params = dict(
     device_name = 'dev1',
-    counter_name = 'ctr0',
-    # ctr_list = ['ctr0','ctr1']
-    des_term = '/dev1/pfi13',
+    ctr_list = ['ctr0','ctr1'],
     sec_per_point = .01,
     duty_cycle = 0.9,
 )

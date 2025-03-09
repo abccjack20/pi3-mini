@@ -437,11 +437,11 @@ class RabiFit(PulsedFit):
     t_pi = Tuple((0., 0.)) #Property( depends_on='fit_result', label='pi' )
     t_3pi2 = Tuple((0., 0.)) #Property( depends_on='fit_result', label='3pi/2' )
 
-    update_fit_button = Button(label='update', desc='Update fit parameters')
+    perform_fit = Bool(True, label='perform fit')
 
     def __init__(self):
         super().__init__()
-        self.on_trait_change(self.update_fit, 'update_fit_button', dispatch='ui')
+        self.on_trait_change(self.update_fit, 'spin_state, perform_fit', dispatch='ui')
         self.on_trait_change(self.update_plot_tau, 'measurement.tau', dispatch='ui')
         self.on_trait_change(self.update_plot_fit, 'fit_result', dispatch='ui')
 
@@ -487,14 +487,21 @@ class RabiFit(PulsedFit):
         self.text = s
 
         self.fit_result = fit_result
-        print('fit_result', self.fit_result)
-        
-    plots = [{'data':('tau', 'spin_state'), 'color':'blue', 'name':'rabi'},
-             {'data':('tau', 'fit'), 'color':'red', 'name':'cos fit'} ]
+
+    fit_name_dict = {'cos fit': 'fit'}
+    plots = [
+        {'data':('tau', 'spin_state'), 'color':'blue', 'name':'rabi'},
+        {'data':('tau', 'fit'), 'color':'red', 'name':'cos fit'}
+    ]
     
-    line_data = Instance(ArrayPlotData, factory=ArrayPlotData, kw={'tau':np.array((0, 1)),
-                                                                    'spin_state':np.array((0, 0)),
-                                                                    'fit':np.array((0, 0))})
+    line_data = Instance(
+        ArrayPlotData, factory=ArrayPlotData,
+        kw={
+            'tau':np.array((0, 1)),
+            'spin_state':np.array((0, 0)),
+            'fit':np.array((0, 0))
+        }
+    )
 
     def update_plot_spin_state(self):
         self.line_data.set_data('spin_state', self.spin_state)
@@ -505,7 +512,7 @@ class RabiFit(PulsedFit):
     def update_plot_fit(self):
         if self.fit_result[0][0] is not np.NaN:
             self.line_data.set_data('fit', fitting.Cosinus(*self.fit_result[0])(self.measurement.tau))            
-    
+
     traits_view = View(
         Tabbed(
             VGroup(
@@ -513,12 +520,12 @@ class RabiFit(PulsedFit):
                     Item('contrast', style='readonly', width= -100, editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_func=lambda x:' %.1f+-%.1f%%' % x)),
                     Item('period', style='readonly', width= -100, editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_func=lambda x:' %.2f+-%.2f' % x)),
                     Item('q', style='readonly', width= -100, editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_func=lambda x:(' %.3f' if x >= 0.001 else ' %.2e') % x)),
-                    UItem('update_fit_button'),
                 ),
                 HGroup(
                     Item('t_pi2', style='readonly', width= -100, editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_func=lambda x:' %.2f+-%.2f' % x)),
                     Item('t_pi', style='readonly', width= -100, editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_func=lambda x:' %.2f+-%.2f' % x)),
                     Item('t_3pi2', style='readonly', width= -100, editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_func=lambda x:' %.2f+-%.2f' % x)),
+                    Item('perform_fit'),
                 ),
                 label='fit_parameter'
             ),
@@ -529,10 +536,10 @@ class RabiFit(PulsedFit):
                 label='settings'
             ),
         ),
-                       title='Rabi Fit',
+        title='Rabi Fit',
     )
 
-    get_set_items = PulsedFit.get_set_items + ['fit_result', 'contrast', 'period', 't_pi2', 't_pi', 't_3pi2', 'text']
+    get_set_items = PulsedFit.get_set_items + ['fit_result', 'contrast', 'period', 't_pi2', 't_pi', 't_3pi2', 'text', 'perform_fit']
 
 class DecayRabiFit(PulsedFit):
 
@@ -1319,12 +1326,15 @@ class PulsedAnalyzerHandler(GetSetItemsHandler):
             info.object.save_line_plot(filename)
             
     # new measurements
-
     def new_t1_measurement(self, info):
         info.object.measurement = mp.T1()
         #if pulsed.measurement.state=='run':
         #    logging.getLogger().exception(str(RuntimeError('Measurement running. Stop it and try again!')))
         #    raise RuntimeError('Measurement running. Stop it and try again!')
+
+    def new_t1pi_measurement(self, info):
+        info.object.measurement = mp.T1pi()
+        info.object.fit = DoubleFitTau()    
     
     def new_rabi_measurement(self, info):
         """info.object.measurement = mp.Rabi()"""
@@ -1343,10 +1353,7 @@ class PulsedAnalyzerHandler(GetSetItemsHandler):
         info.object.measurement = mp.Hahn3pi2()
         info.object.fit = Hahn3pi2Fit()
   
-    def new_t1pi_measurement(self, info):
-        info.object.measurement = mp.T1pi()
-        info.object.fit = DoubleFitTau()
-    
+
     def new_CPMG_measurement(self, info):
         info.object.measurement = mp.CPMG()
         info.object.fit = PulsedFitTauRef()
@@ -1410,6 +1417,9 @@ class PulsedAnalyzer(HasTraits, GetSetItemsMixin):
     pulse_plot = Instance(Plot)
     line_plot = Instance(Plot)
     # line_data is provided by fit class
+
+    perform_fit = Bool(True, label='perform fit')
+
 
     def __init__(self):
         super(PulsedAnalyzer, self).__init__()
@@ -1486,8 +1496,15 @@ class PulsedAnalyzer(HasTraits, GetSetItemsMixin):
         for key in plot_names:
             plot.delplot(key)
         # set new data source
-        plot.data = self.fit.line_data
+        plot.data = new.line_data
         # make new plots
+
+        if hasattr(old, 'perform_fit'):
+            old.sync_trait('perform_fit', self, mutual=False, remove=True)
+        if hasattr(new, 'perform_fit'):
+            self.perform_fit = new.perform_fit
+            new.sync_trait('perform_fit', self, mutual=False)
+
         for item in self.fit.plots:
             plot.plot(**item)
         # if the fit has an attr 'text' attached to it, print it in the lower left corner of the plot
@@ -1500,6 +1517,18 @@ class PulsedAnalyzer(HasTraits, GetSetItemsMixin):
             new.sync_trait('text', label, 'text', mutual=False)
             plot.overlays = [label]
     
+    def _perform_fit_changed(self, new):
+        plot = self.line_plot
+        if new:
+            for plot_name, fit_name in self.fit.fit_name_dict.items():
+                if plot_name not in plot.plots.keys():
+                    plot.plot(('tau', fit_name), style='line', color='red', name=plot_name)
+        else:
+            for plot_name in self.fit.fit_name_dict.keys():
+                if plot_name in plot.plots.keys():
+                    plot.delplot(plot_name)
+        plot.request_redraw()
+
     def save_matrix_plot(self, filename):
         self.save_figure(self.matrix_plot, filename)
     

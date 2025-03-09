@@ -68,11 +68,11 @@ class ODMR(ManagedJob, GetSetItemsMixin):
     frequency_begin_p = Range(low=1, high=6.4e9, value=1.55e9, desc='Start Frequency Pmode[Hz]', label='Begin Pmode[Hz]', editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_str='%e'))
     frequency_end_p = Range(low=1, high=6.4e9, value=1.555e9, desc='Stop Frequency Pmode[Hz]', label='End Pmode[Hz]', editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_str='%e'))
     frequency_delta_p = Range(low=1e-3, high=6.4e9, value=1.0e5, desc='frequency step Pmode[Hz]', label='Delta Pmode[Hz]', editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_str='%e'))
-    seconds_per_point = Range(low=20e-3, high=1, value=20e-3, desc='Seconds per point', label='Seconds per point', mode='text', auto_set=False, enter_set=True)
+    seconds_per_point = Range(low=3e-3, high=1, value=20e-3, desc='Seconds per point', label='Seconds per point', mode='text', auto_set=False, enter_set=True)
     stop_time = Range(low=1., value=np.inf, desc='Time after which the experiment stops by itself [s]', label='Stop time [s]', mode='text', auto_set=False, enter_set=True)
     add_RF = Bool(False) # helper variable to decide whether to keep existing data
     n_lines = Range (low=1, high=10000, value=50, desc='Number of lines in Matrix', label='Matrix lines', mode='text', auto_set=False, enter_set=True)
-    
+    n_sweep = Int(0, label='# Sweeped lines')
     # rf1Frequency = Range(low=1., high=20e9, value=2.948470e+06, desc='radio frequency', label='rf1 frequency [Hz]', mode='text', auto_set=False, enter_set=True, editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_str='%e'))
     # rf1Power = Range(low= -100., high=16., value= -10, desc='power of radio frequency', label='rf1 power[dBm]', mode='text', auto_set=False, enter_set=True)
     # rf2Frequency = Range(low=1., high=20e9, value=6.942600e+06, desc='radio frequency', label='rf2 frequency [Hz]', mode='text', auto_set=False, enter_set=True, editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_str='%e'))
@@ -158,18 +158,14 @@ class ODMR(ManagedJob, GetSetItemsMixin):
             else:
                 self.trigger_RF =  ('mw',)
             if self.pulsed:
-                #ha.PulseGenerator().Sequence(100 * [ (['laser', 'aom'], self.laser), ([], self.wait), (['mw','mw_x'], self.t_pi) ])
-                # ha.PulseGenerator().Sequence(100 * [ (['laser', 'aom'], self.laser), (['rf', 'mw_b', 'mw', 'aom'], self.randomTime), (['aom'], self.laser), ([], self.wait), (['mw_x'], self.t_pi) ])
                 seq = [
-                (('detect', 'aom'), self.laser*0.2),
-                (('aom'), self.laser*0.8),
-                ((tuple()),self.wait), 
-                (self.trigger_RF, self.t_pi)]
-                ha.PulseGenerator().Sequence(100 * seq)
-                #ha.PulseGenerator().Sequence(100 * [ (['laser', 'aom'], self.laser), (self.trigger_RF, self.wait), (['mw_x'], self.t_pi) ])
-                #ha.PulseGenerator().Sequence(100 * [ (['aom'], self.t_pi),  (['mw_x','aom','laser'], self.laser), (['aom'], 6.0)])
+                    (('detect', 'aom'), self.laser*0.2),
+                    (('aom'), self.laser*0.8),
+                    ((tuple()),self.wait), 
+                    (self.trigger_RF, self.t_pi)
+                ]
+                ha.PulseGenerator().Sequence(seq)
             else:
-                #ha.PulseGenerator().Continuous(['green','mw','mw_x'])
                 ha.PulseGenerator().Continuous(['aom','mw'])
 
             n = len(self.frequency)
@@ -188,7 +184,7 @@ class ODMR(ManagedJob, GetSetItemsMixin):
             time.sleep(0.5)
 
             #currentfreq = self.frequency_begin # just for testing
-            
+            self.n_sweep = 0
             while self.run_time < self.stop_time:
                 start_time = time.time()
                 
@@ -201,7 +197,10 @@ class ODMR(ManagedJob, GetSetItemsMixin):
                 #--------------------------
                 counts = ha.Counter().run()                
                 self.run_time += time.time() - start_time
-                self.counts += counts
+
+                s = self.n_sweep
+                self.counts = self.counts*s/(s + 1) + counts/(s + 1)
+                self.n_sweep += 1
                 self.counts_matrix = np.vstack((counts, self.counts_matrix[:-1, :]))
                 self.trait_property_changed('counts', self.counts)
     
@@ -406,6 +405,7 @@ class ODMR(ManagedJob, GetSetItemsMixin):
                                             Item('number_of_resonances', width= -60),
                                             Item('threshold', width= -60),
                                             Item('n_lines', width= -60),
+                                            Item('n_sweep', style='readonly'),
                                             spring
                                             ),
                                      HGroup(Item('fit_contrast', style='readonly'),
