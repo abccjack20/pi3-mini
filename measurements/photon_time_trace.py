@@ -36,7 +36,7 @@ class StartThreadHandler( GetSetItemsHandler ):
 class PhotonTimeTrace( FreeJob, GetSetItemsMixin ):
 
     TraceLength = Range(low=10, high=10000, value=100, desc='Length of Count Trace', label='Trace Length')
-    SecondsPerPoint = Range(low=0.001, high=1, value=0.1, desc='Seconds per point [s]', label='Seconds per point [s]')
+    SecondsPerPoint = Range(low=0.00001, high=1, value=0.1, desc='Seconds per point [s]', label='Seconds per point [s]')
     RefreshRate = Range(low=0.01, high=1, value=0.1, desc='Refresh rate [s]', label='Refresh rate [s]')
     digi_channel = Enum('cha0','cha1','cha2','cha3','cha4','cha5', 'cha6','cha7','cha0+1', desc='Digi channel', label='Digi channel')
 

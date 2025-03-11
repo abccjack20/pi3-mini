@@ -120,8 +120,8 @@ class Pulsed(ManagedJob, GetSetItemsMixin):
 
     sequence = Instance(list, factory=list)
     
-    record_length = Range(low=100, high=100000., value=3000, desc='length of acquisition record [ns]', label='record length [ns]', mode='text', auto_set=False, enter_set=True)
-    bin_width = Range(low=0.1, high=1000., value=1.0, desc='bin width [ns]', label='bin width [ns]', mode='text', auto_set=False, enter_set=True)
+    record_length = Range(low=100, high=1000000., value=3000, desc='length of acquisition record [ns]', label='record length [ns]', mode='text', auto_set=False, enter_set=True)
+    bin_width = Range(low=0.1, high=10000., value=1.0, desc='bin width [ns]', label='bin width [ns]', mode='text', auto_set=False, enter_set=True)
     
     n_laser = Int(2)
     n_bins = Int(2)
@@ -191,7 +191,7 @@ class Pulsed(ManagedJob, GetSetItemsMixin):
             self.start_up()
             PulseGenerator().Night()
             tagger_0 = TimeTagger.Pulsed(self.n_bins, int(np.round(self.bin_width * 1000)), self.n_laser, 0, 2, 3)
-            tagger_1 = TimeTagger.Pulsed(self.n_bins, int(np.round(self.bin_width * 1000)), self.n_laser, 1, 2, 3)
+            # tagger_1 = TimeTagger.Pulsed(self.n_bins, int(np.round(self.bin_width * 1000)), self.n_laser, 1, 2, 3)
 
             #tagger_0 = TimeTagger.Pulsed(int(self.n_bins), int(np.round(self.bin_width * 1000)), int(self.n_laser), Int(0), Int(2), Int(3))
             #tagger_1 = TimeTagger.Pulsed(self.n_bins, int(np.round(self.bin_width * 1000)), self.n_laser, Int(1), Int(2), Int(3))
@@ -201,7 +201,6 @@ class Pulsed(ManagedJob, GetSetItemsMixin):
                 PulseGenerator().Night()
                 PulseGenerator().Sequence(self.sequence)
                 
-            
             while self.run_time < self.stop_time:
                 start_time = time.time()
                 self.thread.stop_request.wait(1.0)
@@ -212,7 +211,9 @@ class Pulsed(ManagedJob, GetSetItemsMixin):
                     logging.getLogger().info('Underflow in pulse generator.')
                     PulseGenerator().Night()
                     PulseGenerator().Sequence(self.sequence)
-                self.count_data = self.old_count_data + tagger_0.getData()  + tagger_1.getData()
+
+                # print(tagger_0.getIndex())
+                self.count_data = self.old_count_data + tagger_0.getData() # + tagger_1.getData()
                 self.run_time += time.time() - start_time
 
             if self.run_time < self.stop_time:
@@ -220,7 +221,6 @@ class Pulsed(ManagedJob, GetSetItemsMixin):
             else:
                 self.state = 'done'
             del tagger_0
-            del tagger_1
             self.shut_down()
             PulseGenerator().Light()
 
@@ -292,9 +292,11 @@ class Rabi(PulsedTau):
     power = Range(low= -100., high=25., value= -20, desc='microwave power', label='power [dBm]', mode='text', auto_set=False, enter_set=True)
     switch = Enum('mw', 'mw_y', desc='switch to use for microwave pulses', label='switch', editor=EnumEditor(cols=3, values={'mw':'1:X', 'mw_y':'2:Y'}))
 
-    laser = Range(low=1., high=100000., value=3000., desc='laser [ns]', label='laser [ns]', mode='text', auto_set=False, enter_set=True)
+    laser = Range(low=1., high=1000000., value=3000., desc='laser [ns]', label='laser [ns]', mode='text', auto_set=False, enter_set=True)
     wait = Range(low=0., high=100000., value=1000., desc='wait [ns]', label='wait [ns]', mode='text', auto_set=False, enter_set=True)
-        
+    wait2 = Range(low=0., high=100000., value=1000., desc='wait at the end', label='wait 2 [ns]', mode='text', auto_set=False, enter_set=True)
+
+
     def start_up(self):
         PulseGenerator().Night()
         Microwave().setOutput(self.power, self.frequency)
@@ -308,46 +310,62 @@ class Rabi(PulsedTau):
         tau = self.tau
         laser = self.laser
         wait = self.wait
-        sequence = [ (['sync', 'aom'], laser), ([], wait) ]
+        wait2 = self.wait2
+        sequence = [ (['sync', 'aom'], laser)]
         for t in tau:
             sequence += [
                 ([],wait),
-                ([MW],t), ([],tau[-1] - t),
+                ([MW],t),
+                # ([],tau[-1] - t),
+                ([],wait2),
                 (['aom', 'detect'], laser)
             ]
         
         return sequence
 
-    get_set_items = PulsedTau.get_set_items + ['frequency', 'power', 'switch', 'laser', 'wait']
+    get_set_items = PulsedTau.get_set_items + ['frequency', 'power', 'switch', 'laser', 'wait', 'wait2']
 
-    traits_view = View(VGroup(HGroup(Item('submit_button', show_label=False),
-                                     Item('remove_button', show_label=False),
-                                     Item('resubmit_button', show_label=False),
-                                     Item('priority'),
-                                     Item('stop_time'),
-                                     Item('run_time', style='readonly', format_str='%.f'),
-                                     Item('state', style='readonly'),
-                                     ),
-                              Tabbed(VGroup(HGroup(Item('frequency', width= -80, enabled_when='state != "run"'),
-                                                   Item('power', width= -80, enabled_when='state != "run"'),
-                                                   Item('switch', style='custom', enabled_when='state != "run"'),
-                                                   ),
-                                            HGroup(Item('tau_begin', width= -80, enabled_when='state != "run"'),
-                                                   Item('tau_end', width= -80, enabled_when='state != "run"'),
-                                                   Item('tau_delta', width= -80, enabled_when='state != "run"'),
-                                                   ),
-                                            label='parameter'),
-                                     VGroup(HGroup(Item('laser', width= -80, enabled_when='state != "run"'),
-                                                   Item('wait', width= -80, enabled_when='state != "run"'),
-                                                   Item('record_length', width= -80, enabled_when='state != "run"'),
-                                                   Item('bin_width', width= -80, enabled_when='state != "run"'),
-                                                   ),
-                                     label='settings'),
-                              ),
-                              
-                        ),
-                       title='Rabi Measurement',
-                  )
+    traits_view = View(
+        VGroup(
+            HGroup(
+                Item('submit_button', show_label=False),
+                Item('remove_button', show_label=False),
+                Item('resubmit_button', show_label=False),
+                Item('priority'),
+                Item('stop_time'),
+                Item('run_time', style='readonly', format_str='%.f'),
+                Item('state', style='readonly'),
+            ),
+            Tabbed(
+                VGroup(
+                    HGroup(
+                        Item('frequency', width= -80, enabled_when='state != "run"'),
+                        Item('power', width= -80, enabled_when='state != "run"'),
+                        Item('switch', style='custom', enabled_when='state != "run"'),
+                    ),
+                    HGroup(
+                        Item('tau_begin', width= -80, enabled_when='state != "run"'),
+                        Item('tau_end', width= -80, enabled_when='state != "run"'),
+                        Item('tau_delta', width= -80, enabled_when='state != "run"'),
+                    ),
+                    label='parameter'
+                ),
+                VGroup(
+                    HGroup(
+                        Item('laser', width= -80, enabled_when='state != "run"'),
+                        Item('wait', width= -80, enabled_when='state != "run"'),
+                        Item('wait2', width= -80, enabled_when='state != "run"'),
+                    ),
+                    HGroup(
+                        Item('record_length', width= -80, enabled_when='state != "run"'),
+                        Item('bin_width', width= -80, enabled_when='state != "run"'),
+                    ),
+                label='settings'
+                ),
+            ),
+        ),
+        title='Rabi Measurement',
+    )
 
 class T1(PulsedTau):
     
@@ -565,9 +583,27 @@ class Hahn3pi2(Rabi):
         t_3pi2 = self.t_3pi2
         sequence = []
         for t in tau:
-            sequence += [  (['mw','mw_x'], t_pi2), ([], 0.5 * t), (['mw','mw_x'], t_pi), ([], 0.5 * t), (['mw','mw_x'], t_pi2), (['detect', 'aom'], laser), ([], wait)  ]
+            sequence += [
+                ([], self.tau_end - t),
+                (['mw','mw_x'], t_pi2),
+                ([], 0.5 * t),
+                (['mw','mw_x'], t_pi),
+                ([], 0.5 * t),
+                (['mw','mw_x'], t_pi2),
+                ([], wait),
+                (['detect', 'aom'], laser),
+            ]
         for t in tau:
-            sequence += [  (['mw','mw_x'], t_pi2), ([], 0.5 * t), (['mw','mw_x'], t_pi), ([], 0.5 * t), (['mw','mw_x'], t_3pi2), (['detect', 'aom'], laser), ([], wait)  ]
+            sequence += [
+                ([], self.tau_end - t),
+                (['mw','mw_x'], t_pi2),
+                ([], 0.5 * t),
+                (['mw','mw_x'], t_pi),
+                ([], 0.5 * t),
+                (['mw','mw_x'], t_3pi2),
+                ([], wait),
+                (['detect', 'aom'], laser),
+            ]
         sequence += [  (['sync'], 100)  ]
         return sequence
 
@@ -946,17 +982,19 @@ class FID3pi2(Rabi):
         t_3pi2 = self.t_3pi2
         sequence = []
         for t in tau:
+            sequence.append(([       ], 100))
             sequence.append((['mw','mw_x'], t_pi2))
             sequence.append(([       ], t))
             sequence.append((['mw','mw_x'   ], t_pi2))
-            sequence.append((['detect', 'aom'], laser))
             sequence.append(([       ], wait))
+            sequence.append((['detect', 'aom'], laser))
         for t in tau:
+            sequence.append(([       ], 100))
             sequence.append((['mw','mw_x'   ], t_pi2))
             sequence.append(([       ], t))
             sequence.append((['mw','mw_x'   ], t_3pi2))
-            sequence.append((['detect', 'aom'], laser))
             sequence.append(([       ], wait))
+            sequence.append((['detect', 'aom'], laser))
         sequence.append((['sync'], 100))
         return sequence
     

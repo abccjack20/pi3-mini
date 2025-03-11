@@ -459,7 +459,7 @@ class AutoFocus( ManagedJob, GetSetItemsMixin ):
         handler=AutoFocusHandler
     )
 
-    get_set_items=['confocal','targets','current_target','current_drift','drift','drift_time','periodic_focus',
+    get_set_items=['confocal','targets','target_list','current_target','current_drift','drift','drift_time','periodic_focus',
                    'size_xy', 'size_z', 'step_xy', 'step_z', 'seconds_per_point_xy', 'seconds_per_point_z',
                    'data_xy', 'data_z', 'X', 'Y', 'Z', 'focus_interval' ]
     get_set_order=['confocal','targets']

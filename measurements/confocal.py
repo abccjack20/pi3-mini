@@ -47,7 +47,7 @@ class Confocal( ManagedJob, GetSetItemsMixin ):
     z2 = Range(low=scanner.getZRange()[0], high=scanner.getZRange()[1], value=scanner.getZRange()[1], desc='z2 [micron]', label='z2', editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_str='%.2f'))
     resolution = Range(low=1, high=1000, value=100, desc='Number of point in long direction', label='resolution', auto_set=False, enter_set=True)
     seconds_per_point = Range(low=1e-3, high=10, value=0.005, desc='Seconds per point [s]', label='Seconds per point [s]', mode='text', auto_set=False, enter_set=True)
-    bidirectional = Bool( True )
+    bidirectional = Bool( False )
     return_speed = Range(low=1.0, high=100., value=10., desc='Multiplier for return speed of Scanner if mode is monodirectional', label='return speed', mode='text', auto_set=False, enter_set=True)
     constant_axis = Enum('z', 'x', 'y',
                          label='constant axis',
@@ -517,14 +517,14 @@ class Confocal( ManagedJob, GetSetItemsMixin ):
                 Item('scanz', show_label=True, tooltip="scan xy with different z inwards", enabled_when='constant_axis=="z"'),
                 Item('z_range', width=-80, show_label=True, enabled_when='scanz == True'),
                 Item('z_step', width=-80, show_label=True, enabled_when='scanz == True'),
-                Item('bidirectional', enabled_when='state != "run"'),
+                # Item('bidirectional', enabled_when='state != "run"'),
                 Item('seconds_per_point', width=-80),
                 Item('return_speed', width=-80),
             ),
             Item('x', format_str='%.2f', enabled_when='state != "run" or (state == "run" and constant_axis == "x")'),
             Item('y', format_str='%.2f', enabled_when='state != "run" or (state == "run" and constant_axis == "y")'),
             Item('z', format_str='%.2f', enabled_when='state != "run" or (state == "run" and constant_axis == "z")'),
-            Item('aom', format_str='%.2f', enabled_when='state != "run" or (state == "run" and constant_axis == "z")'),
+            Item('aom', format_str='%.2f', enabled_when='state != "run"'),
         ),
         menubar = MenuBar(
             Menu(

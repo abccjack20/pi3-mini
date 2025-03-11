@@ -170,6 +170,7 @@ class piezostage_controller_aom:
     def scanLine(self, Line, SecondsPerPoint, timeout=None, add_aom=True):
         
         Line = np.array(Line)
+        # print(Line)
         frame_size = Line.shape[1]
         if not timeout:
             timeout = max(SecondsPerPoint*frame_size*1.5, 10)

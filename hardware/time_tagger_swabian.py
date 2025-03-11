@@ -64,6 +64,16 @@ class td_combiner(task_combiner):
         for t in self.task_list:
             data += t.getData()
         return data
+        # return self.task_list[self.main_id].getData()
+
+    def getIndex(self):
+        return self.task_list[self.main_id].getIndex()
+        
+    def getCounts(self):
+        counts = []
+        for t in self.task_list:
+            counts.append(t.getCounts())
+        return counts
     
     def ready(self):
         state = False
@@ -99,7 +109,7 @@ def multiple_td(tagger, ch_list_click, ch_start, ch_next, ch_sync, binwidth, n_b
             n_bins=n_bins,
             n_histograms=n_lasers,
         )
-    task_list.append(task)
+        task_list.append(task)
     return td_combiner(*task_list)
 
 class time_tagger_control:

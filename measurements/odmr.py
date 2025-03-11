@@ -62,7 +62,7 @@ class ODMR(ManagedJob, GetSetItemsMixin):
     frequency_delta = Range(low=1e-3, high=6.4e9, value=1.0e+6, desc='frequency step [Hz]', label='Delta [Hz]', editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_str='%e'))
     t_pi = Range(low=1., high=100000., value=1700., desc='length of pi pulse [ns]', label='pi [ns]', mode='text', auto_set=False, enter_set=True)
     laser = Range(low=1., high=100.e3, value=300., desc='laser [ns]', label='laser [ns]', mode='text', auto_set=False, enter_set=True)
-    wait = Range(low=1., high=10000., value=1000., desc='wait [ns]', label='wait [ns]', mode='text', auto_set=False, enter_set=True)
+    wait = Range(low=1., high=100.e3, value=1000., desc='wait [ns]', label='wait [ns]', mode='text', auto_set=False, enter_set=True)
     pulsed = Bool(True, label='pulsed')
     power_p = Range(low= -100., high=20., value= -28.0, desc='Power Pmode [dBm]', label='Power Pmode[dBm]', mode='text', auto_set=False, enter_set=True)
     frequency_begin_p = Range(low=1, high=6.4e9, value=1.55e9, desc='Start Frequency Pmode[Hz]', label='Begin Pmode[Hz]', editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_str='%e'))
@@ -154,15 +154,16 @@ class ODMR(ManagedJob, GetSetItemsMixin):
 
             # if pulsed, turn on sequence
             if self.add_RF:
-                self.trigger_RF = ('mw', 'rf')
+                self.trigger_RF = ['mw', 'rf']
             else:
-                self.trigger_RF =  ('mw',)
+                self.trigger_RF =  ['mw',]
             if self.pulsed:
                 seq = [
-                    (('detect', 'aom'), self.laser*0.2),
-                    (('aom'), self.laser*0.8),
-                    ((tuple()),self.wait), 
-                    (self.trigger_RF, self.t_pi)
+                    (['detect', 'aom'], self.laser*0.2),
+                    (['aom'], self.laser*0.8),
+                    ([],100.), 
+                    (self.trigger_RF, self.t_pi),
+                    ([],self.wait),
                 ]
                 ha.PulseGenerator().Sequence(seq)
             else:
@@ -184,7 +185,8 @@ class ODMR(ManagedJob, GetSetItemsMixin):
             time.sleep(0.5)
 
             #currentfreq = self.frequency_begin # just for testing
-            self.n_sweep = 0
+            if not self.keep_data:
+                self.n_sweep = 0
             while self.run_time < self.stop_time:
                 start_time = time.time()
                 
@@ -437,7 +439,7 @@ class ODMR(ManagedJob, GetSetItemsMixin):
                      'power', 'frequency_begin', 'frequency_end', 'frequency_delta',
                      'power_p', 'frequency_begin_p', 'frequency_end_p', 'frequency_delta_p',
                      'laser', 'wait', 'pulsed', 't_pi',
-                     'seconds_per_point', 'stop_time', 'n_lines',
+                     'seconds_per_point', 'stop_time', 'n_lines', 'n_sweep',
                      'number_of_resonances', 'threshold',
                      '__doc__']
 
