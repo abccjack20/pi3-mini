@@ -7,6 +7,7 @@ import pickle as cPickle
 from traits.api import Float, HasPrivateTraits, Str, Tuple
 from traitsui.api import Handler, View, Item, OKButton, CancelButton
 from traitsui.file_dialog import open_file, save_file
+from pyface.api import FileDialog, OK
 
 # PYTHON3 EDIT chaco.api to chaco for PlotGraphicsContext
 from chaco.api import PlotGraphicsContext
@@ -256,17 +257,20 @@ class GetSettableHistory(History,GetSetItemsMixin):
 class GetSetItemsHandler( Handler ):
     """Handles save and load actions."""
         
-    def save(self,info):
-        filename = save_file(title='Save')
-        if filename == '':
+    def save(self, info):
+        dlg = FileDialog(action='save as', title='Save as')
+        result = dlg.open()
+        if result != OK:
             return
         else:
-            info.object.save(filename)
+            info.object.save(dlg.path)
 
     def export(self, info):
-        filename = save_file(title='Export to Ascii')
-        if filename == '':
+        dlg = FileDialog(action='save as', title='Export as txt')
+        result = dlg.open()
+        if result != OK:
             return
+        filename = dlg.path
         if filename.find('.txt')==-1 or filename.find('.asc')==-1:
             filename=filename+'.asc'
             info.object.save(filename)
@@ -274,12 +278,12 @@ class GetSetItemsHandler( Handler ):
             info.object.save(filename)
 
     def load(self, info):
-        filename = open_file(title='Load')
-        if filename == '':
+        dlg = FileDialog(action='open', title='Load')
+        result = dlg.open()
+        if result != OK:
             return
         else:
-            print('Loading File ...')
-            info.object.load(filename)
+            info.object.load(dlg.path)
 
     """
     def _on_close(self, info):
@@ -299,13 +303,14 @@ class GetSetSaveImageHandler( GetSetItemsHandler ):
     """Provides handling of image save action."""
 
     def save_image(self, info):
-        filename = save_file(title='Save Image')
-        if filename == '':
+        dlg = FileDialog(action='save as', title='Save as image')
+        result = dlg.open()
+        if result != OK:
             return
-        else:
-            if filename.find('.png')==-1:
-                filename=filename+'.png'
-            info.object.save_image(filename)    
+        filename = dlg.path
+        if filename.find('.png')==-1:
+            filename=filename+'.png'
+        info.object.save_image(filename)    
 
 class AspectZoomTool(ZoomTool):
 

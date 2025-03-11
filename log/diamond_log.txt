@@ -513,3 +513,23 @@ AttributeError: 'NoneType' object has no attribute 'tau'
 2025-03-11 11:22:17,963 - diamond.<module> - INFO - Starting logger.
 2025-03-11 11:22:18,781 - emod.start - INFO - Starting Job Manager.
 2025-03-11 11:22:18,781 - cron.run - INFO - Starting Cron Daemon.
+2025-03-11 11:48:36,477 - diamond.<module> - INFO - Starting logger.
+2025-03-11 11:48:37,297 - emod.start - INFO - Starting Job Manager.
+2025-03-11 11:48:37,307 - cron.run - INFO - Starting Cron Daemon.
+2025-03-11 11:48:49,282 - diamond.<module> - INFO - Starting logger.
+2025-03-11 11:48:50,039 - emod.start - INFO - Starting Job Manager.
+2025-03-11 11:48:50,039 - cron.run - INFO - Starting Cron Daemon.
+2025-03-11 11:54:56,753 - diamond.<module> - INFO - Starting logger.
+2025-03-11 11:54:57,514 - emod.start - INFO - Starting Job Manager.
+2025-03-11 11:54:57,514 - cron.run - INFO - Starting Cron Daemon.
+2025-03-11 12:00:00,011 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x00000138A087F010>> at time 2025-03-11 12:00:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x00000138A087F010>>.
+2025-03-11 12:00:10,202 - auto_focus.focus - INFO - Focus: 16.37, -10.20, 29.49
+2025-03-11 12:08:31,483 - diamond.<module> - INFO - Starting logger.
+2025-03-11 12:08:32,248 - emod.start - INFO - Starting Job Manager.
+2025-03-11 12:08:32,248 - cron.run - INFO - Starting Cron Daemon.
+2025-03-11 12:09:55,133 - diamond.<module> - INFO - Starting logger.
+2025-03-11 12:09:55,921 - emod.start - INFO - Starting Job Manager.
+2025-03-11 12:09:55,922 - cron.run - INFO - Starting Cron Daemon.
+2025-03-11 12:11:37,937 - diamond.<module> - INFO - Starting logger.
+2025-03-11 12:11:38,687 - emod.start - INFO - Starting Job Manager.
+2025-03-11 12:11:38,687 - cron.run - INFO - Starting Cron Daemon.
