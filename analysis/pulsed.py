@@ -969,21 +969,27 @@ class Hahn3pi2Fit(PulsedFit):
 
     fit_result_pi2 = Property(depends_on='spin_state_error')
     fit_result_3pi2 = Property(depends_on='spin_state_error')
+    fit_result_diff = Property(depends_on='spin_state_error')
 
     T2_pi2 = Property(depends_on='fit_result_pi2', label='T2 pi/2 [ns]')
     T2_3pi2 = Property(depends_on='fit_result_3pi2', label='T2 3pi/2 [ns]')
+    T2_diff = Property(depends_on='fit_result_diff', label='T2 diff [ns]')
 
     q_pi2 = Property(depends_on='fit_result_pi2', label='q pi/2')
     q_3pi2 = Property(depends_on='fit_result_3pi2', label='q 3pi/2')
+    q_diff = Property(depends_on='fit_result_diff', label='q diff')
 
     exponent_pi2 = Property(depends_on='fit_result_pi2', label='exponent pi/2')
     exponent_3pi2 = Property(depends_on='fit_result_3pi2', label='exponent 3pi/2')
+    exponent_diff = Property(depends_on='fit_result_diff', label='exponent diff')
 
     def __init__(self):
         PulsedFit.__init__(self)
         self.on_trait_change(self.update_plot_tau, 'measurement.tau', dispatch='ui')
         self.on_trait_change(self.update_plot_fit_pi2, 'fit_result_pi2', dispatch='ui')
         self.on_trait_change(self.update_plot_fit_3pi2, 'fit_result_3pi2', dispatch='ui')
+        self.on_trait_change(self.update_plot_fit_diff, 'fit_result_diff', dispatch='ui')
+
 
     @cached_property
     def _get_fit_result_pi2(self):
@@ -1008,6 +1014,19 @@ class Hahn3pi2Fit(PulsedFit):
             return (np.NaN * np.zeros(4), np.NaN * np.zeros((4, 4)), np.NaN, np.NaN)  
 
     @cached_property
+    def _get_fit_result_diff(self):
+        x = self.measurement.tau
+        n = int(len(self.spin_state) / 2)
+        dark = self.spin_state[:n]
+        bright = self.spin_state[n:]
+        y = bright - dark
+        s = self.spin_state_error[n:]
+        try:
+            return fitting.nonlinear_model(x, y, s, fitting.ExponentialPowerZero, fitting.ExponentialPowerZeroEstimator)
+        except: 
+            return (np.NaN * np.zeros(4), np.NaN * np.zeros((4, 4)), np.NaN, np.NaN)  
+
+    @cached_property
     def _get_T2_pi2(self):
         return self.fit_result_pi2[0][1], abs(self.fit_result_pi2[1][1, 1]) ** 0.5 
     
@@ -1015,6 +1034,9 @@ class Hahn3pi2Fit(PulsedFit):
     def _get_T2_3pi2(self):
         return self.fit_result_3pi2[0][1], abs(self.fit_result_3pi2[1][1, 1]) ** 0.5 
     
+    def _get_T2_diff(self):
+        return self.fit_result_diff[0][1], abs(self.fit_result_diff[1][1, 1]) ** 0.5 
+
     @cached_property
     def _get_exponent_pi2(self):
         return self.fit_result_pi2[0][2], abs(self.fit_result_pi2[1][2, 2]) ** 0.5 
@@ -1024,6 +1046,10 @@ class Hahn3pi2Fit(PulsedFit):
         return self.fit_result_3pi2[0][2], abs(self.fit_result_3pi2[1][2, 2]) ** 0.5 
     
     @cached_property
+    def _get_exponent_diff(self):
+        return self.fit_result_diff[0][2], abs(self.fit_result_diff[1][2, 2]) ** 0.5 
+
+    @cached_property
     def _get_q_pi2(self):
         return self.fit_result_pi2[2]
 
@@ -1031,15 +1057,32 @@ class Hahn3pi2Fit(PulsedFit):
     def _get_q_3pi2(self):
         return self.fit_result_3pi2[2]
 
-    line_data = Instance(ArrayPlotData, factory=ArrayPlotData, kw={'tau':np.array((0, 1)),
-                                                                    'data_pi2':np.array((0, 0)),
-                                                                    'data_3pi2':np.array((0, 0)),
-                                                                    'fit_pi2':np.array((0, 0)),
-                                                                    'fit_3pi2':np.array((0, 0)), })
+    @cached_property
+    def _get_q_diff(self):
+        return self.fit_result_diff[2]
+
+    line_data = Instance(
+        ArrayPlotData, factory=ArrayPlotData,
+        kw={
+            'tau':np.array((0, 1)),
+            'data_pi2':np.array((0, 0)),
+            'data_3pi2':np.array((0, 0)),
+            'data_diff':np.array((0, 0)),
+            'fit_pi2':np.array((0, 0)),
+            'fit_3pi2':np.array((0, 0)),
+            'fit_diff':np.array((0, 0)),
+        }
+    )
+
+    params_diff = dict(x='tau', bright='data_pi2', dark='data_3pi2')
+    
     plots = [{'name':'data_pi2', 'data':('tau', 'data_pi2'), 'color':'blue'},
              {'name':'data_3pi2', 'data':('tau', 'data_3pi2'), 'color':'green'},
              {'name':'fit_pi2', 'data':('tau', 'fit_pi2'), 'color':'red'},
              {'name':'fit_3pi2', 'data':('tau', 'fit_3pi2'), 'color':'magenta'} ]
+    
+    display_options = Instance( list, factory=list, args=(['Normal', 'Differential'],) )
+    current_display_mode = Enum(values='display_options')
 
     def update_plot_tau(self):
         self.line_data.set_data('tau', self.measurement.tau)
@@ -1047,8 +1090,11 @@ class Hahn3pi2Fit(PulsedFit):
     def update_plot_spin_state(self):
         spin_state = self.spin_state
         n = int(len(spin_state) / 2)
-        self.line_data.set_data('data_pi2', spin_state[:n])
-        self.line_data.set_data('data_3pi2', spin_state[n:])
+        dark = spin_state[:n]
+        bright = spin_state[n:]
+        self.line_data.set_data('data_pi2', dark)
+        self.line_data.set_data('data_3pi2', bright)
+        self.line_data.set_data('data_diff', bright - dark)
     
     def update_plot_fit_pi2(self):
         if self.fit_result_pi2[0][0] is not np.NaN:
@@ -1058,25 +1104,58 @@ class Hahn3pi2Fit(PulsedFit):
         if self.fit_result_3pi2[0][0] is not np.NaN:
             self.line_data.set_data('fit_3pi2', fitting.ExponentialPowerZero(*self.fit_result_3pi2[0])(self.measurement.tau))
     
-    traits_view = View(Tabbed(VGroup(HGroup(Item('T2_pi2', style='readonly', width= -100, editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_func=lambda x:' %.2f+-%.2f' % x)),
-                                            Item('exponent_pi2', style='readonly', width= -100, editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_func=lambda x:' %.2f+-%.2f' % x)),
-                                            Item('q_pi2', style='readonly', width= -100, editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_func=lambda x:(' %.3f' if x >= 0.001 else ' %.2e') % x)),
-                                     ),
-                                     HGroup(Item('T2_3pi2', style='readonly', width= -100, editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_func=lambda x:' %.2f+-%.2f' % x)),
-                                            Item('exponent_3pi2', style='readonly', width= -100, editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_func=lambda x:' %.2f+-%.2f' % x)),
-                                            Item('q_3pi2', style='readonly', width= -100, editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_func=lambda x:(' %.3f' if x >= 0.001 else ' %.2e') % x)),
-                                     ),
-                                     label='fit results'
-                              ),
-                              VGroup(HGroup(Item('integration_width'),
-                                            Item('position_signal'),
-                                            Item('position_normalize'),
-                                     ),
-                                     label='settings'
-                              ),
-                       ),
-                       title='Hahn-Echo Fit 3pi2',
-                  )
+    def update_plot_fit_diff(self):
+        if self.fit_result_diff[0][0] is not np.NaN:
+            self.line_data.set_data('fit_diff', fitting.ExponentialPowerZero(*self.fit_result_diff[0])(self.measurement.tau))
+
+    @on_trait_change('current_display_mode')
+    def update_plots_params(self):
+        if self.current_display_mode == 'Normal':
+            self.plots = [
+                {'name':'data_pi2', 'data':('tau', 'data_pi2'), 'color':'blue'},
+                {'name':'data_3pi2', 'data':('tau', 'data_3pi2'), 'color':'green'},
+                {'name':'fit_pi2', 'data':('tau', 'fit_pi2'), 'color':'red'},
+                {'name':'fit_3pi2', 'data':('tau', 'fit_3pi2'), 'color':'magenta'}
+            ]
+        elif self.current_display_mode == 'Differential':
+            self.plots = [
+                {'name':'data_diff', 'data':('tau', 'data_diff'), 'color':'blue'},
+                {'name':'fit_diff', 'data':('tau', 'fit_diff'), 'color':'red'},
+            ]
+    
+
+    traits_view = View(
+        Tabbed(
+            VGroup(
+                HGroup(
+                    Item('T2_pi2', style='readonly', width= -100, editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_func=lambda x:' %.2f+-%.2f' % x)),
+                    Item('exponent_pi2', style='readonly', width= -100, editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_func=lambda x:' %.2f+-%.2f' % x)),
+                    Item('q_pi2', style='readonly', width= -100, editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_func=lambda x:(' %.3f' if x >= 0.001 else ' %.2e') % x)),
+                    Item('current_display_mode', editor= EnumEditor(name='display_options')),
+                ),
+                HGroup(
+                    Item('T2_3pi2', style='readonly', width= -100, editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_func=lambda x:' %.2f+-%.2f' % x)),
+                    Item('exponent_3pi2', style='readonly', width= -100, editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_func=lambda x:' %.2f+-%.2f' % x)),
+                    Item('q_3pi2', style='readonly', width= -100, editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_func=lambda x:(' %.3f' if x >= 0.001 else ' %.2e') % x)),
+                ),
+                HGroup(
+                    Item('T2_diff', style='readonly', width= -100, editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_func=lambda x:' %.2f+-%.2f' % x)),
+                    Item('exponent_diff', style='readonly', width= -100, editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_func=lambda x:' %.2f+-%.2f' % x)),
+                    Item('q_diff', style='readonly', width= -100, editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_func=lambda x:(' %.3f' if x >= 0.001 else ' %.2e') % x)),
+                ),
+                    label='fit results'
+                ),
+                VGroup(
+                    HGroup(
+                        Item('integration_width'),
+                        Item('position_signal'),
+                        Item('position_normalize'),
+                    ),
+                    label='settings'
+                ),
+        ),
+        title='Hahn-Echo Fit 3pi2',
+    )
 
     get_set_items = PulsedFit.get_set_items + ['fit_result_pi2', 'fit_result_3pi2', 'T2_pi2', 'T2_3pi2', 'exponent_pi2', 'exponent_3pi2']
 
@@ -1293,6 +1372,8 @@ class T1piFit(PulsedFit):
 # Pulsed Analyzer Tool
 #########################################
 
+from pyface.api import FileDialog, OK
+
 class PulsedAnalyzerHandler(GetSetItemsHandler):
 
     """Provides handling of menu."""
@@ -1300,30 +1381,25 @@ class PulsedAnalyzerHandler(GetSetItemsHandler):
     # save plots
     
     def save_matrix_plot(self, info):
-        filename = save_file(title='Save Matrix Plot')
-        if filename == '':
+        dlg = FileDialog(action='save as', title='Save as')
+        result = dlg.open()
+        if result != OK:
             return
-        else:
-            if filename.find('.png') == -1:
-                filename = filename + '.png'
-            info.object.save_matrix_plot(filename)
+        filename = dlg.path
+
+        if filename.find('.png') == -1:
+            filename = filename + '.png'
+        info.object.save_matrix_plot(filename)
 
     def save_line_plot(self, info):
-        filename = save_file(title='Save Line Plot')
-        if filename == '':
+        dlg = FileDialog(action='save as', title='Save as')
+        result = dlg.open()
+        if result != OK:
             return
-        else:
-            if filename.find('.png') == -1:
-                filename = filename + '.png'
-            info.object.save_line_plot(filename)
-            
-    #def save_all(self, info):
-    #    filename = save_file(title='Save All')
-    #    if filename is '':
-    #        return
-    #    else:
-    #        info.object.save_all(filename)
-            info.object.save_line_plot(filename)
+        filename = dlg.path
+        if filename.find('.png') == -1:
+            filename = filename + '.png'
+        info.object.save_line_plot(filename)
             
     # new measurements
     def new_t1_measurement(self, info):
@@ -1419,7 +1495,7 @@ class PulsedAnalyzer(HasTraits, GetSetItemsMixin):
     # line_data is provided by fit class
 
     perform_fit = Bool(True, label='perform fit')
-
+    current_display_mode = Enum(['Normal', 'Differential'])
 
     def __init__(self):
         super(PulsedAnalyzer, self).__init__()
@@ -1428,6 +1504,7 @@ class PulsedAnalyzer(HasTraits, GetSetItemsMixin):
         self.on_trait_change(self.refresh_pulse, 'fit.pulse', dispatch='ui')
         self.on_trait_change(self.refresh_time_bins, 'measurement.time_bins', dispatch='ui')
         self.on_trait_change(self.refresh_flank, 'fit.flank', dispatch='ui')
+        self.on_trait_change(self.update_plot, 'current_display_mode', dispatch='ui')
 
     def _measurement_changed(self, new):
         self.fit = PulsedFit()
@@ -1487,17 +1564,22 @@ class PulsedAnalyzer(HasTraits, GetSetItemsMixin):
     def refresh_flank(self):
         self.pulse_plot.components[1].index.set_data(np.array((self.fit.flank, self.fit.flank)))
 
-    def _fit_changed(self, name, old, new):
-        old.measurement = None
-        new.measurement = self.measurement
+    def update_plot(self,):
         plot = self.line_plot
         # delete all old plots
         plot_names = list(plot.plots.keys())
         for key in plot_names:
             plot.delplot(key)
-        # set new data source
-        plot.data = new.line_data
+        plot.data = self.fit.line_data
         # make new plots
+        for item in self.fit.plots:
+            plot.plot(**item)
+        
+
+    def _fit_changed(self, name, old, new):
+        old.measurement = None
+        new.measurement = self.measurement
+
 
         if hasattr(old, 'perform_fit'):
             old.sync_trait('perform_fit', self, mutual=False, remove=True)
@@ -1505,9 +1587,14 @@ class PulsedAnalyzer(HasTraits, GetSetItemsMixin):
             self.perform_fit = new.perform_fit
             new.sync_trait('perform_fit', self, mutual=False)
 
-        for item in self.fit.plots:
-            plot.plot(**item)
+        if hasattr(old, 'current_display_mode'):
+            old.sync_trait('current_display_mode', self, mutual=False, remove=True)
+        if hasattr(new, 'current_display_mode'):
+            self.current_display_mode = new.current_display_mode
+            new.sync_trait('current_display_mode', self, mutual=False)
         # if the fit has an attr 'text' attached to it, print it in the lower left corner of the plot
+        self.update_plot()
+        plot = self.line_plot
         if hasattr(old, 'text'):
             label = plot.overlays[0]
             old.sync_trait('text', label, 'text', mutual=False, remove=True)
@@ -1516,6 +1603,7 @@ class PulsedAnalyzer(HasTraits, GetSetItemsMixin):
             label = PlotLabel(text=self.fit.text, hjustify='left', vjustify='bottom', position=[64, 32])
             new.sync_trait('text', label, 'text', mutual=False)
             plot.overlays = [label]
+        
     
     def _perform_fit_changed(self, new):
         plot = self.line_plot
@@ -1546,7 +1634,7 @@ class PulsedAnalyzer(HasTraits, GetSetItemsMixin):
                 VGroup(
                     Item(name='fit', style='custom', show_label=False),
                     Tabbed(
-                        Item('line_plot', name='normalized intensity', editor=ComponentEditor(), show_label=False, width=500, height=300, resizable=True),
+                        UItem('line_plot', name='normalized intensity', editor=ComponentEditor(), width=500, height=300, resizable=True),
                         Item('pulse_plot', name='pulse profile', editor=ComponentEditor(), show_label=False, width=500, height=300, resizable=True),
                     ),
                 ),

@@ -4,6 +4,7 @@ from traits.api import Trait, Instance, Property, String, Range, Float, Int, Boo
 from traitsui.api import View, Item, HGroup, VGroup, VSplit, Tabbed, EnumEditor, TextEditor, Group, spring
 from enable.api import Component, ComponentEditor
 from chaco.api import ArrayPlotData, Plot, Spectral, PlotLabel
+from pyface.api import FileDialog, OK
 
 from traitsui.file_dialog import save_file
 from traitsui.menu import Action, Menu, MenuBar
@@ -23,29 +24,32 @@ from tools.utility import GetSetItemsHandler, GetSetItemsMixin
 class ODMRHandler(GetSetItemsHandler):
 
     def saveLinePlot(self, info):
-        filename = save_file(title='Save Line Plot')
-        if filename == '':
+        dlg = FileDialog(action='save as', title='Save Line Plot (.png)')
+        result = dlg.open()
+        if result != OK:
             return
-        else:
-            if filename.find('.png') == -1:
-                filename = filename + '.png'
-            info.object.save_line_plot(filename)
+        filename = dlg.path
+        if filename.find('.png') == -1:
+            filename = filename + '.png'
+        info.object.save_line_plot(filename)
 
     def saveMatrixPlot(self, info):
-        filename = save_file(title='Save Matrix Plot')
-        if filename == '':
+        dlg = FileDialog(action='save as', title='Save Matrix Plot (.png)')
+        result = dlg.open()
+        if result != OK:
             return
-        else:
-            if filename.find('.png') == -1:
-                filename = filename + '.png'
-            info.object.save_matrix_plot(filename)
+        filename = dlg.path
+        if filename.find('.png') == -1:
+            filename = filename + '.png'
+        info.object.save_matrix_plot(filename)
     
     def saveAll(self, info):
-        filename = save_file(title='Save All')
-        if filename == '':
+        dlg = FileDialog(action='save as', title='Save All')
+        result = dlg.open()
+        if result != OK:
             return
-        else:
-            info.object.save_all(filename)
+        filename = dlg.path
+        info.object.save_all(filename)
 
 
 class ODMR(ManagedJob, GetSetItemsMixin):

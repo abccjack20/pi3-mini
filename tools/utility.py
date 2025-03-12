@@ -44,18 +44,6 @@ class Singleton(type):
             cls._instances[cls] = super(Singleton, cls).__call__(*args, **kwargs)
         return cls._instances[cls]
 
-#class Singleton(object):
-#    """
-#    Singleton overwriting __new__.
-#
-#    Cons: multiple inheritance
-#          __new__ could be overwritten
-#          __init__ is called upon every 'instantiation'
-#    """
-#    def __new__(cls, *a, **k):
-#        if not hasattr(cls, '_inst'):
-#            cls._inst = super(Singleton, cls).__new__(cls)
-#        return cls._inst
 
 class History(object):
     """History of length 'length'."""

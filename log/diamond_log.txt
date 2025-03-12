@@ -533,3 +533,986 @@ AttributeError: 'NoneType' object has no attribute 'tau'
 2025-03-11 12:11:37,937 - diamond.<module> - INFO - Starting logger.
 2025-03-11 12:11:38,687 - emod.start - INFO - Starting Job Manager.
 2025-03-11 12:11:38,687 - cron.run - INFO - Starting Cron Daemon.
+2025-03-11 12:20:00,009 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002725B4A3EC0>> at time 2025-03-11 12:20:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002725B4A3EC0>>.
+2025-03-11 12:20:10,274 - auto_focus.focus - INFO - Focus: 15.97, -9.90, 29.19
+2025-03-11 12:30:00,014 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002725B4A3EC0>> at time 2025-03-11 12:30:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002725B4A3EC0>>.
+2025-03-11 12:30:10,337 - auto_focus.focus - INFO - Focus: 15.97, -9.80, 29.89
+2025-03-11 12:40:00,009 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002725B4A3EC0>> at time 2025-03-11 12:40:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002725B4A3EC0>>.
+2025-03-11 12:40:10,346 - auto_focus.focus - INFO - Focus: 15.57, -9.60, 30.69
+2025-03-11 12:50:00,002 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002725B4A3EC0>> at time 2025-03-11 12:50:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002725B4A3EC0>>.
+2025-03-11 12:50:10,358 - auto_focus.focus - INFO - Focus: 16.17, -10.10, 29.89
+2025-03-11 13:00:00,002 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002725B4A3EC0>> at time 2025-03-11 13:00:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002725B4A3EC0>>.
+2025-03-11 13:00:10,265 - auto_focus.focus - INFO - Focus: 15.87, -9.70, 29.19
+2025-03-11 13:11:03,316 - diamond.<module> - INFO - Starting logger.
+2025-03-11 13:11:04,187 - emod.start - INFO - Starting Job Manager.
+2025-03-11 13:11:04,188 - cron.run - INFO - Starting Cron Daemon.
+2025-03-11 13:13:59,590 - diamond.<module> - INFO - Starting logger.
+2025-03-11 13:14:00,413 - emod.start - INFO - Starting Job Manager.
+2025-03-11 13:14:00,414 - cron.run - INFO - Starting Cron Daemon.
+2025-03-11 13:15:30,613 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.RabiFit object at 0x000001F1CE784810>, trait: measurement, old value: <measurements.pulsed.Rabi object at 0x000001F1CE735760>, new value: None
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 510, in update_plot_tau
+    self.line_data.set_data('tau', self.measurement.tau)
+                                   ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'tau'
+2025-03-11 13:34:22,793 - diamond.<module> - INFO - Starting logger.
+2025-03-11 13:34:23,553 - emod.start - INFO - Starting Job Manager.
+2025-03-11 13:34:23,553 - cron.run - INFO - Starting Cron Daemon.
+2025-03-11 13:34:33,855 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.PulsedAnalyzer object at 0x000001D627628F90>, trait: fit, old value: <analysis.pulsed.PulsedFit object at 0x000001D627A33510>, new value: <analysis.pulsed.Hahn3pi2Fit object at 0x000001D629B0EED0>
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 343, in __call__
+    self.handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 1534, in _fit_changed
+    new.measurement = self.measurement
+    ^^^^^^^^^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\base_trait_handler.py", line 74, in error
+    raise TraitError(
+traits.trait_errors.TraitError: The 'measurement' trait of a Hahn3pi2Fit instance must be a PulsedTau or None, but a value of <measurements.pulsed.Pulsed object at 0x000001D62781ED90> <class 'measurements.pulsed.Pulsed'> was specified.
+2025-03-11 13:34:53,378 - utility.set_items - WARNING - failed to set item 'fit_result_pi2'
+2025-03-11 13:34:53,378 - utility.set_items - WARNING - failed to set item 'fit_result_3pi2'
+2025-03-11 13:34:53,378 - utility.set_items - WARNING - failed to set item 'T2_pi2'
+2025-03-11 13:34:53,378 - utility.set_items - WARNING - failed to set item 'T2_3pi2'
+2025-03-11 13:34:53,378 - utility.set_items - WARNING - failed to set item 'exponent_pi2'
+2025-03-11 13:34:53,378 - utility.set_items - WARNING - failed to set item 'exponent_3pi2'
+2025-03-11 13:34:57,270 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.Hahn3pi2Fit object at 0x000001D629B0EED0>, trait: measurement, old value: <measurements.pulsed.Hahn3pi2 object at 0x000001D629AE8F40>, new value: None
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 1051, in update_plot_tau
+    self.line_data.set_data('tau', self.measurement.tau)
+                                   ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'tau'
+2025-03-11 13:35:03,271 - utility.set_items - WARNING - failed to set item 'fit_result_pi2'
+2025-03-11 13:35:03,271 - utility.set_items - WARNING - failed to set item 'fit_result_3pi2'
+2025-03-11 13:35:03,271 - utility.set_items - WARNING - failed to set item 'T2_pi2'
+2025-03-11 13:35:03,271 - utility.set_items - WARNING - failed to set item 'T2_3pi2'
+2025-03-11 13:35:03,281 - utility.set_items - WARNING - failed to set item 'exponent_pi2'
+2025-03-11 13:35:03,281 - utility.set_items - WARNING - failed to set item 'exponent_3pi2'
+2025-03-11 13:36:20,590 - diamond.<module> - INFO - Starting logger.
+2025-03-11 13:36:21,346 - emod.start - INFO - Starting Job Manager.
+2025-03-11 13:36:21,346 - cron.run - INFO - Starting Cron Daemon.
+2025-03-11 13:36:42,941 - utility.set_items - WARNING - failed to set item 'fit_result_pi2'
+2025-03-11 13:36:42,941 - utility.set_items - WARNING - failed to set item 'fit_result_3pi2'
+2025-03-11 13:36:42,941 - utility.set_items - WARNING - failed to set item 'T2_pi2'
+2025-03-11 13:36:42,941 - utility.set_items - WARNING - failed to set item 'T2_3pi2'
+2025-03-11 13:36:42,941 - utility.set_items - WARNING - failed to set item 'exponent_pi2'
+2025-03-11 13:36:42,941 - utility.set_items - WARNING - failed to set item 'exponent_3pi2'
+2025-03-11 13:55:29,593 - diamond.<module> - INFO - Starting logger.
+2025-03-11 13:55:30,348 - emod.start - INFO - Starting Job Manager.
+2025-03-11 13:55:30,348 - cron.run - INFO - Starting Cron Daemon.
+2025-03-11 13:55:49,404 - diamond.<module> - INFO - Starting logger.
+2025-03-11 13:55:50,156 - emod.start - INFO - Starting Job Manager.
+2025-03-11 13:55:50,156 - cron.run - INFO - Starting Cron Daemon.
+2025-03-11 13:55:58,368 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.PulsedAnalyzer object at 0x000001F7D6547F60>, trait: fit, old value: <analysis.pulsed.PulsedFit object at 0x000001F7D82A9350>, new value: <analysis.pulsed.Hahn3pi2Fit object at 0x000001F7D6B4BD30>
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 343, in __call__
+    self.handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 1588, in _fit_changed
+    self.current_display_mode = new.current_display_mode
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_types.py", line 2174, in _validate
+    if safe_contains(value, xgetattr(object, self.name)):
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_base.py", line 322, in xgetattr
+    return getattr(object, names[-1])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'PulsedAnalyzer' object has no attribute 'display_options'
+2025-03-11 13:57:22,287 - diamond.<module> - INFO - Starting logger.
+2025-03-11 13:57:23,042 - emod.start - INFO - Starting Job Manager.
+2025-03-11 13:57:23,052 - cron.run - INFO - Starting Cron Daemon.
+2025-03-11 13:59:29,805 - utility.set_items - WARNING - failed to set item 'fit_result_pi2'
+2025-03-11 13:59:29,805 - utility.set_items - WARNING - failed to set item 'fit_result_3pi2'
+2025-03-11 13:59:29,805 - utility.set_items - WARNING - failed to set item 'T2_pi2'
+2025-03-11 13:59:29,805 - utility.set_items - WARNING - failed to set item 'T2_3pi2'
+2025-03-11 13:59:29,805 - utility.set_items - WARNING - failed to set item 'exponent_pi2'
+2025-03-11 13:59:29,805 - utility.set_items - WARNING - failed to set item 'exponent_3pi2'
+2025-03-11 14:02:50,169 - diamond.<module> - INFO - Starting logger.
+2025-03-11 14:02:50,927 - emod.start - INFO - Starting Job Manager.
+2025-03-11 14:02:50,937 - cron.run - INFO - Starting Cron Daemon.
+2025-03-11 14:03:04,931 - utility.set_items - WARNING - failed to set item 'fit_result_pi2'
+2025-03-11 14:03:04,931 - utility.set_items - WARNING - failed to set item 'fit_result_3pi2'
+2025-03-11 14:03:04,931 - utility.set_items - WARNING - failed to set item 'T2_pi2'
+2025-03-11 14:03:04,931 - utility.set_items - WARNING - failed to set item 'T2_3pi2'
+2025-03-11 14:03:04,931 - utility.set_items - WARNING - failed to set item 'exponent_pi2'
+2025-03-11 14:03:04,931 - utility.set_items - WARNING - failed to set item 'exponent_3pi2'
+2025-03-11 14:12:45,264 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.Hahn3pi2Fit object at 0x0000027A4D7830B0>, trait: measurement, old value: <measurements.pulsed.Hahn3pi2 object at 0x0000027A4D7752B0>, new value: None
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 1085, in update_plot_tau
+    self.line_data.set_data('tau', self.measurement.tau)
+                                   ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'tau'
+2025-03-11 14:12:53,043 - utility.set_items - WARNING - failed to set item 'fit_result_pi2'
+2025-03-11 14:12:53,043 - utility.set_items - WARNING - failed to set item 'fit_result_3pi2'
+2025-03-11 14:12:53,043 - utility.set_items - WARNING - failed to set item 'T2_pi2'
+2025-03-11 14:12:53,043 - utility.set_items - WARNING - failed to set item 'T2_3pi2'
+2025-03-11 14:12:53,043 - utility.set_items - WARNING - failed to set item 'exponent_pi2'
+2025-03-11 14:12:53,043 - utility.set_items - WARNING - failed to set item 'exponent_3pi2'
+2025-03-11 14:14:12,945 - diamond.<module> - INFO - Starting logger.
+2025-03-11 14:14:13,807 - emod.start - INFO - Starting Job Manager.
+2025-03-11 14:14:13,808 - cron.run - INFO - Starting Cron Daemon.
+2025-03-11 14:14:27,647 - utility.set_items - WARNING - failed to set item 'fit_result_pi2'
+2025-03-11 14:14:27,647 - utility.set_items - WARNING - failed to set item 'fit_result_3pi2'
+2025-03-11 14:14:27,647 - utility.set_items - WARNING - failed to set item 'T2_pi2'
+2025-03-11 14:14:27,647 - utility.set_items - WARNING - failed to set item 'T2_3pi2'
+2025-03-11 14:14:27,647 - utility.set_items - WARNING - failed to set item 'exponent_pi2'
+2025-03-11 14:14:27,647 - utility.set_items - WARNING - failed to set item 'exponent_3pi2'
+2025-03-11 14:15:46,562 - diamond.<module> - INFO - Starting logger.
+2025-03-11 14:15:47,314 - emod.start - INFO - Starting Job Manager.
+2025-03-11 14:15:47,314 - cron.run - INFO - Starting Cron Daemon.
+2025-03-11 14:15:58,888 - utility.set_items - WARNING - failed to set item 'fit_result_pi2'
+2025-03-11 14:15:58,888 - utility.set_items - WARNING - failed to set item 'fit_result_3pi2'
+2025-03-11 14:15:58,888 - utility.set_items - WARNING - failed to set item 'T2_pi2'
+2025-03-11 14:15:58,888 - utility.set_items - WARNING - failed to set item 'T2_3pi2'
+2025-03-11 14:15:58,888 - utility.set_items - WARNING - failed to set item 'exponent_pi2'
+2025-03-11 14:15:58,888 - utility.set_items - WARNING - failed to set item 'exponent_3pi2'
+2025-03-11 14:16:25,534 - diamond.<module> - INFO - Starting logger.
+2025-03-11 14:16:26,315 - emod.start - INFO - Starting Job Manager.
+2025-03-11 14:16:26,316 - cron.run - INFO - Starting Cron Daemon.
+2025-03-11 14:16:37,826 - utility.set_items - WARNING - failed to set item 'fit_result_pi2'
+2025-03-11 14:16:37,826 - utility.set_items - WARNING - failed to set item 'fit_result_3pi2'
+2025-03-11 14:16:37,826 - utility.set_items - WARNING - failed to set item 'T2_pi2'
+2025-03-11 14:16:37,826 - utility.set_items - WARNING - failed to set item 'T2_3pi2'
+2025-03-11 14:16:37,826 - utility.set_items - WARNING - failed to set item 'exponent_pi2'
+2025-03-11 14:16:37,826 - utility.set_items - WARNING - failed to set item 'exponent_3pi2'
+2025-03-11 14:18:51,118 - diamond.<module> - INFO - Starting logger.
+2025-03-11 14:18:51,893 - emod.start - INFO - Starting Job Manager.
+2025-03-11 14:18:51,894 - cron.run - INFO - Starting Cron Daemon.
+2025-03-11 14:19:46,105 - utility.set_items - WARNING - failed to set item 'fit_result_pi2'
+2025-03-11 14:19:46,105 - utility.set_items - WARNING - failed to set item 'fit_result_3pi2'
+2025-03-11 14:19:46,105 - utility.set_items - WARNING - failed to set item 'T2_pi2'
+2025-03-11 14:19:46,105 - utility.set_items - WARNING - failed to set item 'T2_3pi2'
+2025-03-11 14:19:46,105 - utility.set_items - WARNING - failed to set item 'exponent_pi2'
+2025-03-11 14:19:46,105 - utility.set_items - WARNING - failed to set item 'exponent_3pi2'
+2025-03-11 14:24:06,885 - diamond.<module> - INFO - Starting logger.
+2025-03-11 14:24:07,729 - emod.start - INFO - Starting Job Manager.
+2025-03-11 14:24:07,739 - cron.run - INFO - Starting Cron Daemon.
+2025-03-11 14:24:22,015 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.HahnFit object at 0x000001607A756B60>, trait: measurement, old value: <measurements.pulsed.Hahn object at 0x000001607C415F30>, new value: None
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 744, in update_plot_tau
+    self.line_data.set_data('tau', self.measurement.tau)
+                                   ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'tau'
+2025-03-11 14:24:27,999 - utility.set_items - WARNING - failed to set item 'fit_result_pi2'
+2025-03-11 14:24:27,999 - utility.set_items - WARNING - failed to set item 'fit_result_3pi2'
+2025-03-11 14:24:27,999 - utility.set_items - WARNING - failed to set item 'T2_pi2'
+2025-03-11 14:24:28,009 - utility.set_items - WARNING - failed to set item 'T2_3pi2'
+2025-03-11 14:24:28,009 - utility.set_items - WARNING - failed to set item 'exponent_pi2'
+2025-03-11 14:24:28,009 - utility.set_items - WARNING - failed to set item 'exponent_3pi2'
+2025-03-11 15:20:00,008 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x00000160779BC900>> at time 2025-03-11 15:20:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x00000160779BC900>>.
+2025-03-11 15:20:10,179 - auto_focus.focus - INFO - Focus: 16.37, -9.50, 29.59
+2025-03-11 15:37:03,590 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <measurements.photon_time_trace.PhotonTimeTrace object at 0x0000016073642F20>, trait: c_enable2, old value: True, new value: False
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\measurements\photon_time_trace.py", line 98, in _update_channels_list
+    self._create_counter()
+  File "C:\Users\yy3\pi3-mini\measurements\photon_time_trace.py", line 108, in _create_counter
+    self._counter = tt.Counter(self.channels_list + 1, int(self.SecondsPerPoint*1e12), self.TraceLength)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yy3\pi3-mini\hardware\time_tagger_swabian.py", line 128, in Counter
+    return tt.Counter(
+           ^^^^^^^^^^^
+  File "C:\Program Files\Swabian Instruments\Time Tagger\driver\python\TimeTagger.py", line 3821, in __init__
+    _TimeTagger.Counter_swiginit(self, _TimeTagger.new_Counter(tagger, channels, binwidth, n_values))
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: No channel was provided.
+2025-03-11 15:37:10,351 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <measurements.photon_time_trace.PhotonTimeTrace object at 0x0000016073642F20>, trait: c_enable3, old value: True, new value: False
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\measurements\photon_time_trace.py", line 98, in _update_channels_list
+    self._create_counter()
+  File "C:\Users\yy3\pi3-mini\measurements\photon_time_trace.py", line 108, in _create_counter
+    self._counter = tt.Counter(self.channels_list + 1, int(self.SecondsPerPoint*1e12), self.TraceLength)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yy3\pi3-mini\hardware\time_tagger_swabian.py", line 128, in Counter
+    return tt.Counter(
+           ^^^^^^^^^^^
+  File "C:\Program Files\Swabian Instruments\Time Tagger\driver\python\TimeTagger.py", line 3821, in __init__
+    _TimeTagger.Counter_swiginit(self, _TimeTagger.new_Counter(tagger, channels, binwidth, n_values))
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: No channel was provided.
+2025-03-11 15:51:06,507 - diamond.<module> - INFO - Starting logger.
+2025-03-11 15:51:07,253 - emod.start - INFO - Starting Job Manager.
+2025-03-11 15:51:07,253 - cron.run - INFO - Starting Cron Daemon.
+2025-03-11 15:57:09,215 - auto_focus.focus - INFO - Focus: 16.27, -9.60, 29.99
+2025-03-11 15:58:01,507 - auto_focus.focus - INFO - Focus: 20.19, 2.89, 30.77
+2025-03-11 15:58:15,524 - auto_focus.focus - INFO - Focus: 20.09, 2.89, 30.37
+2025-03-11 15:58:48,900 - auto_focus.focus - INFO - Focus: 20.19, 2.89, 30.47
+2025-03-11 15:59:09,254 - utility.set_items - WARNING - failed to set item 'fit_result_pi2'
+2025-03-11 15:59:09,254 - utility.set_items - WARNING - failed to set item 'fit_result_3pi2'
+2025-03-11 15:59:09,254 - utility.set_items - WARNING - failed to set item 'T2_pi2'
+2025-03-11 15:59:09,254 - utility.set_items - WARNING - failed to set item 'T2_3pi2'
+2025-03-11 15:59:09,254 - utility.set_items - WARNING - failed to set item 'exponent_pi2'
+2025-03-11 15:59:09,254 - utility.set_items - WARNING - failed to set item 'exponent_3pi2'
+2025-03-11 16:00:00,001 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C302C400>> at time 2025-03-11 16:00:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C302C400>>.
+2025-03-11 16:00:09,209 - utility.set_items - WARNING - failed to set item 'fit_result_pi2'
+2025-03-11 16:00:09,209 - utility.set_items - WARNING - failed to set item 'fit_result_3pi2'
+2025-03-11 16:00:09,209 - utility.set_items - WARNING - failed to set item 'T2_pi2'
+2025-03-11 16:00:09,209 - utility.set_items - WARNING - failed to set item 'T2_3pi2'
+2025-03-11 16:00:09,209 - utility.set_items - WARNING - failed to set item 'exponent_pi2'
+2025-03-11 16:00:09,209 - utility.set_items - WARNING - failed to set item 'exponent_3pi2'
+2025-03-11 16:00:09,632 - auto_focus.focus - INFO - Focus: 20.19, 2.89, 30.57
+2025-03-11 16:01:14,363 - odmr._run - ERROR - Error in odmr.
+Traceback (most recent call last):
+  File "C:\Users\yy3\pi3-mini\hardware\microwave_smiq.py", line 41, in _write
+    self.instr.write(string)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\pyvisa\resources\messagebased.py", line 196, in write
+    count = self.write_raw(message.encode(enco))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\pyvisa\resources\messagebased.py", line 156, in write_raw
+    return self.visalib.write(self.session, message)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\pyvisa\ctwrapper\functions.py", line 2795, in write
+    ret = library.viWrite(session, data, len(data), byref(return_count))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\pyvisa\ctwrapper\highlevel.py", line 226, in _return_handler
+    return self.handle_return_value(session, ret_value)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\pyvisa\highlevel.py", line 251, in handle_return_value
+    raise errors.VisaIOError(rv)
+pyvisa.errors.VisaIOError: VI_ERROR_TMO (-1073807339): Timeout expired before operation completed.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\yy3\pi3-mini\measurements\odmr.py", line 183, in _run
+    ha.Microwave().initSweep(self.frequency, self.power * np.ones(self.frequency.shape))
+  File "C:\Users\yy3\pi3-mini\hardware\microwave_smiq.py", line 120, in initSweep
+    self._write(':FREQ:MODE LIST')
+  File "C:\Users\yy3\pi3-mini\hardware\microwave_smiq.py", line 47, in _write
+    self.instr.write(string)
+    ^^^^^^^^^^
+AttributeError: 'SMIQ' object has no attribute 'instr'
+2025-03-11 16:02:45,978 - diamond.<module> - INFO - Starting logger.
+2025-03-11 16:02:46,742 - emod.start - INFO - Starting Job Manager.
+2025-03-11 16:02:46,744 - cron.run - INFO - Starting Cron Daemon.
+2025-03-11 16:03:50,380 - auto_focus.focus - INFO - Focus: 20.09, 2.89, 30.77
+2025-03-11 16:04:42,390 - auto_focus.focus - INFO - Focus: 20.09, 2.89, 30.57
+2025-03-11 16:10:00,002 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>> at time 2025-03-11 16:10:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>>.
+2025-03-11 16:10:11,645 - auto_focus.focus - INFO - Focus: 20.09, 2.89, 30.67
+2025-03-11 16:29:14,662 - auto_focus.focus - INFO - Focus: 20.09, 2.99, 30.57
+2025-03-11 16:58:03,492 - emod.submit - INFO - The job <measurements.odmr.ODMR object at 0x0000020891C1C270> is already running or in the queue.
+2025-03-11 17:26:02,769 - auto_focus.focus - INFO - Focus: 24.84, -3.21, 30.97
+2025-03-11 17:26:15,426 - auto_focus.focus - INFO - Focus: 24.64, -3.21, 30.77
+2025-03-11 17:26:41,637 - auto_focus.focus - INFO - Focus: 24.64, -3.21, 30.97
+2025-03-11 17:26:53,423 - auto_focus.focus - INFO - Focus: 24.64, -3.21, 30.57
+2025-03-11 17:42:51,732 - auto_focus.focus - INFO - Focus: 24.24, -2.91, 29.67
+2025-03-11 17:43:10,543 - auto_focus.focus - INFO - Focus: 24.14, -2.61, 28.77
+2025-03-11 17:45:03,097 - auto_focus.focus - INFO - Focus: 29.41, -0.79, 24.86
+2025-03-11 17:45:45,377 - auto_focus.focus - INFO - Focus: 29.01, -0.49, 25.66
+2025-03-11 17:46:01,089 - auto_focus.focus - INFO - Focus: 28.71, -0.39, 25.76
+2025-03-11 18:01:25,082 - auto_focus.focus - INFO - Focus: 29.01, -0.39, 24.76
+2025-03-11 18:02:01,147 - auto_focus.focus - INFO - Focus: 28.71, -0.29, 23.76
+2025-03-11 18:19:00,992 - auto_focus.focus - INFO - Focus: 28.91, -0.19, 22.76
+2025-03-11 18:19:15,345 - auto_focus.focus - INFO - Focus: 28.91, -0.19, 21.76
+2025-03-11 18:19:29,731 - auto_focus.focus - INFO - Focus: 28.91, -0.19, 21.16
+2025-03-11 18:22:07,887 - auto_focus.focus - INFO - Focus: 28.91, -0.19, 20.66
+2025-03-11 18:22:19,906 - auto_focus.focus - INFO - Focus: 28.81, -0.09, 20.06
+2025-03-11 18:24:58,967 - auto_focus.focus - INFO - Focus: 28.91, -0.09, 20.16
+2025-03-11 18:28:13,899 - auto_focus.focus - INFO - Focus: 28.81, -0.09, 20.46
+2025-03-11 18:40:05,726 - auto_focus.focus - INFO - Focus: 28.61, -0.19, 19.56
+2025-03-11 18:43:11,867 - auto_focus.focus - INFO - Focus: 28.61, -0.19, 19.06
+2025-03-11 18:44:43,967 - auto_focus.focus - INFO - Focus: 28.41, -0.29, 19.66
+2025-03-11 18:56:29,020 - auto_focus.focus - INFO - Focus: 28.51, -0.19, 19.26
+2025-03-11 19:10:39,929 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.RabiFit object at 0x0000020896C96FC0>, trait: measurement, old value: <measurements.pulsed.Rabi object at 0x000002089C703240>, new value: None
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 510, in update_plot_tau
+    self.line_data.set_data('tau', self.measurement.tau)
+                                   ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'tau'
+2025-03-11 19:10:50,613 - utility.set_items - WARNING - failed to set item 'fit_result_pi2'
+2025-03-11 19:10:50,613 - utility.set_items - WARNING - failed to set item 'fit_result_3pi2'
+2025-03-11 19:10:50,613 - utility.set_items - WARNING - failed to set item 'T2_pi2'
+2025-03-11 19:10:50,613 - utility.set_items - WARNING - failed to set item 'T2_3pi2'
+2025-03-11 19:10:50,613 - utility.set_items - WARNING - failed to set item 'exponent_pi2'
+2025-03-11 19:10:50,613 - utility.set_items - WARNING - failed to set item 'exponent_3pi2'
+2025-03-11 19:14:48,170 - auto_focus.focus - INFO - Focus: 28.51, 0.01, 19.26
+2025-03-11 19:31:15,798 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.Hahn3pi2Fit object at 0x00000208A6BE7F10>, trait: measurement, old value: <measurements.pulsed.Hahn3pi2 object at 0x0000020895E0CE50>, new value: None
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 1088, in update_plot_tau
+    self.line_data.set_data('tau', self.measurement.tau)
+                                   ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'tau'
+2025-03-11 19:33:36,868 - auto_focus.focus - INFO - Focus: 28.51, 0.01, 18.66
+2025-03-11 19:36:01,993 - auto_focus.focus - INFO - Focus: 28.51, 0.01, 18.36
+2025-03-11 19:36:57,140 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <measurements.photon_time_trace.PhotonTimeTrace object at 0x000002088CFC73D0>, trait: c_enable1, old value: True, new value: False
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\measurements\photon_time_trace.py", line 98, in _update_channels_list
+    self._create_counter()
+  File "C:\Users\yy3\pi3-mini\measurements\photon_time_trace.py", line 108, in _create_counter
+    self._counter = tt.Counter(self.channels_list + 1, int(self.SecondsPerPoint*1e12), self.TraceLength)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yy3\pi3-mini\hardware\time_tagger_swabian.py", line 128, in Counter
+    return tt.Counter(
+           ^^^^^^^^^^^
+  File "C:\Program Files\Swabian Instruments\Time Tagger\driver\python\TimeTagger.py", line 3821, in __init__
+    _TimeTagger.Counter_swiginit(self, _TimeTagger.new_Counter(tagger, channels, binwidth, n_values))
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: No channel was provided.
+2025-03-11 19:49:22,663 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.RabiFit object at 0x0000020895D7CBD0>, trait: measurement, old value: <measurements.pulsed.Rabi object at 0x000002089AFE7650>, new value: None
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 510, in update_plot_tau
+    self.line_data.set_data('tau', self.measurement.tau)
+                                   ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'tau'
+2025-03-11 19:49:36,769 - utility.set_items - WARNING - failed to set item 'fit_result_pi2'
+2025-03-11 19:49:36,769 - utility.set_items - WARNING - failed to set item 'fit_result_3pi2'
+2025-03-11 19:49:36,769 - utility.set_items - WARNING - failed to set item 'T2_pi2'
+2025-03-11 19:49:36,769 - utility.set_items - WARNING - failed to set item 'T2_3pi2'
+2025-03-11 19:49:36,769 - utility.set_items - WARNING - failed to set item 'exponent_pi2'
+2025-03-11 19:49:36,769 - utility.set_items - WARNING - failed to set item 'exponent_3pi2'
+2025-03-11 21:01:43,389 - auto_focus.focus - INFO - Focus: 28.11, -0.09, 18.56
+2025-03-11 21:02:01,108 - auto_focus.focus - INFO - Focus: 28.31, 0.21, 19.46
+2025-03-11 21:05:00,003 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>> at time 2025-03-11 21:05:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>>.
+2025-03-11 21:05:09,738 - auto_focus.focus - INFO - Focus: 28.31, 0.11, 20.36
+2025-03-11 21:10:00,006 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>> at time 2025-03-11 21:10:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>>.
+2025-03-11 21:10:09,667 - auto_focus.focus - INFO - Focus: 28.31, 0.21, 20.26
+2025-03-11 21:15:00,012 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>> at time 2025-03-11 21:15:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>>.
+2025-03-11 21:15:09,681 - auto_focus.focus - INFO - Focus: 28.31, 0.21, 19.86
+2025-03-11 21:20:00,002 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>> at time 2025-03-11 21:20:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>>.
+2025-03-11 21:20:09,766 - auto_focus.focus - INFO - Focus: 28.31, 0.21, 20.36
+2025-03-11 21:25:00,002 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>> at time 2025-03-11 21:25:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>>.
+2025-03-11 21:25:09,748 - auto_focus.focus - INFO - Focus: 28.31, 0.31, 20.76
+2025-03-11 21:30:00,001 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>> at time 2025-03-11 21:30:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>>.
+2025-03-11 21:30:09,584 - auto_focus.focus - INFO - Focus: 28.31, 0.21, 20.76
+2025-03-11 21:35:00,003 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>> at time 2025-03-11 21:35:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>>.
+2025-03-11 21:35:09,773 - auto_focus.focus - INFO - Focus: 28.31, 0.21, 20.46
+2025-03-11 21:40:00,009 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>> at time 2025-03-11 21:40:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>>.
+2025-03-11 21:40:09,799 - auto_focus.focus - INFO - Focus: 28.31, 0.31, 20.56
+2025-03-11 21:45:00,007 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>> at time 2025-03-11 21:45:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>>.
+2025-03-11 21:45:09,894 - auto_focus.focus - INFO - Focus: 28.31, 0.31, 21.26
+2025-03-11 21:50:00,000 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>> at time 2025-03-11 21:50:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>>.
+2025-03-11 21:50:09,940 - auto_focus.focus - INFO - Focus: 28.21, 0.21, 21.46
+2025-03-11 21:55:00,006 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>> at time 2025-03-11 21:55:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>>.
+2025-03-11 21:55:09,890 - auto_focus.focus - INFO - Focus: 28.31, 0.21, 21.36
+2025-03-11 22:00:00,008 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>> at time 2025-03-11 22:00:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>>.
+2025-03-11 22:00:09,942 - auto_focus.focus - INFO - Focus: 28.21, 0.31, 21.46
+2025-03-11 22:05:00,005 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>> at time 2025-03-11 22:05:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>>.
+2025-03-11 22:05:09,922 - auto_focus.focus - INFO - Focus: 28.21, 0.31, 21.16
+2025-03-11 22:10:00,013 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>> at time 2025-03-11 22:10:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>>.
+2025-03-11 22:10:09,798 - auto_focus.focus - INFO - Focus: 28.21, 0.31, 21.06
+2025-03-11 22:15:00,004 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>> at time 2025-03-11 22:15:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>>.
+2025-03-11 22:15:09,892 - auto_focus.focus - INFO - Focus: 28.21, 0.31, 21.16
+2025-03-11 22:20:00,010 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>> at time 2025-03-11 22:20:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>>.
+2025-03-11 22:20:09,844 - auto_focus.focus - INFO - Focus: 28.21, 0.31, 21.06
+2025-03-11 22:25:00,012 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>> at time 2025-03-11 22:25:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>>.
+2025-03-11 22:25:09,848 - auto_focus.focus - INFO - Focus: 28.21, 0.31, 21.76
+2025-03-11 22:30:00,005 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>> at time 2025-03-11 22:30:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>>.
+2025-03-11 22:30:09,801 - auto_focus.focus - INFO - Focus: 28.21, 0.31, 21.66
+2025-03-11 22:35:00,002 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>> at time 2025-03-11 22:35:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>>.
+2025-03-11 22:35:09,843 - auto_focus.focus - INFO - Focus: 28.11, 0.41, 21.16
+2025-03-11 22:40:00,005 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>> at time 2025-03-11 22:40:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>>.
+2025-03-11 22:40:09,829 - auto_focus.focus - INFO - Focus: 28.21, 0.41, 21.16
+2025-03-11 22:45:00,009 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>> at time 2025-03-11 22:45:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>>.
+2025-03-11 22:45:09,921 - auto_focus.focus - INFO - Focus: 27.91, 0.01, 20.66
+2025-03-11 22:50:00,010 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>> at time 2025-03-11 22:50:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>>.
+2025-03-11 22:50:09,940 - auto_focus.focus - INFO - Focus: 28.21, 0.31, 21.66
+2025-03-11 22:55:00,002 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>> at time 2025-03-11 22:55:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>>.
+2025-03-11 22:55:09,828 - auto_focus.focus - INFO - Focus: 28.21, 0.31, 21.86
+2025-03-11 23:00:00,002 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>> at time 2025-03-11 23:00:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>>.
+2025-03-11 23:00:09,926 - auto_focus.focus - INFO - Focus: 28.31, 0.31, 22.26
+2025-03-11 23:05:00,005 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>> at time 2025-03-11 23:05:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>>.
+2025-03-11 23:05:09,816 - auto_focus.focus - INFO - Focus: 28.21, 0.31, 22.36
+2025-03-11 23:10:00,006 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>> at time 2025-03-11 23:10:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>>.
+2025-03-11 23:10:09,963 - auto_focus.focus - INFO - Focus: 28.11, 0.41, 22.06
+2025-03-11 23:15:00,008 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>> at time 2025-03-11 23:15:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>>.
+2025-03-11 23:15:09,869 - auto_focus.focus - INFO - Focus: 28.21, 0.41, 21.66
+2025-03-11 23:20:00,006 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>> at time 2025-03-11 23:20:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>>.
+2025-03-11 23:20:09,926 - auto_focus.focus - INFO - Focus: 28.21, 0.41, 22.46
+2025-03-11 23:25:00,004 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>> at time 2025-03-11 23:25:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>>.
+2025-03-11 23:25:09,799 - auto_focus.focus - INFO - Focus: 28.21, 0.41, 22.56
+2025-03-11 23:30:00,012 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>> at time 2025-03-11 23:30:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>>.
+2025-03-11 23:30:09,869 - auto_focus.focus - INFO - Focus: 28.21, 0.41, 22.76
+2025-03-11 23:35:00,004 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>> at time 2025-03-11 23:35:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>>.
+2025-03-11 23:35:09,924 - auto_focus.focus - INFO - Focus: 28.21, 0.41, 23.36
+2025-03-11 23:40:00,016 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>> at time 2025-03-11 23:40:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>>.
+2025-03-11 23:40:09,848 - auto_focus.focus - INFO - Focus: 28.31, 0.31, 23.46
+2025-03-11 23:45:00,009 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>> at time 2025-03-11 23:45:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>>.
+2025-03-11 23:45:09,866 - auto_focus.focus - INFO - Focus: 28.31, 0.31, 23.66
+2025-03-11 23:50:00,008 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>> at time 2025-03-11 23:50:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>>.
+2025-03-11 23:50:09,824 - auto_focus.focus - INFO - Focus: 28.31, 0.31, 23.46
+2025-03-11 23:55:00,007 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>> at time 2025-03-11 23:55:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>>.
+2025-03-11 23:55:09,919 - auto_focus.focus - INFO - Focus: 28.11, 0.41, 22.76
+2025-03-12 00:00:00,010 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>> at time 2025-03-12 00:00:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>>.
+2025-03-12 00:00:09,956 - auto_focus.focus - INFO - Focus: 28.21, 0.41, 22.16
+2025-03-12 00:05:00,010 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>> at time 2025-03-12 00:05:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>>.
+2025-03-12 00:05:10,071 - auto_focus.focus - INFO - Focus: 28.21, 0.41, 22.26
+2025-03-12 00:10:00,002 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>> at time 2025-03-12 00:10:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>>.
+2025-03-12 00:10:09,749 - auto_focus.focus - INFO - Focus: 28.11, 0.51, 22.56
+2025-03-12 00:15:00,007 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>> at time 2025-03-12 00:15:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>>.
+2025-03-12 00:15:09,849 - auto_focus.focus - INFO - Focus: 28.21, 0.41, 22.76
+2025-03-12 00:20:00,009 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>> at time 2025-03-12 00:20:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>>.
+2025-03-12 00:20:09,937 - auto_focus.focus - INFO - Focus: 28.11, 0.51, 22.46
+2025-03-12 00:25:00,004 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>> at time 2025-03-12 00:25:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>>.
+2025-03-12 00:25:09,899 - auto_focus.focus - INFO - Focus: 27.81, 0.21, 21.96
+2025-03-12 00:30:00,008 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>> at time 2025-03-12 00:30:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>>.
+2025-03-12 00:30:09,688 - auto_focus.focus - INFO - Focus: 28.11, 0.51, 22.86
+2025-03-12 00:35:00,012 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>> at time 2025-03-12 00:35:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>>.
+2025-03-12 00:35:09,522 - auto_focus.focus - INFO - Focus: 28.21, 0.41, 23.76
+2025-03-12 00:40:00,009 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>> at time 2025-03-12 00:40:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>>.
+2025-03-12 00:40:09,585 - auto_focus.focus - INFO - Focus: 28.31, 0.41, 23.66
+2025-03-12 00:45:00,007 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>> at time 2025-03-12 00:45:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>>.
+2025-03-12 00:45:09,570 - auto_focus.focus - INFO - Focus: 28.21, 0.41, 24.06
+2025-03-12 00:50:00,001 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>> at time 2025-03-12 00:50:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>>.
+2025-03-12 00:50:09,568 - auto_focus.focus - INFO - Focus: 28.31, 0.41, 23.66
+2025-03-12 00:55:00,009 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>> at time 2025-03-12 00:55:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>>.
+2025-03-12 00:55:09,631 - auto_focus.focus - INFO - Focus: 28.21, 0.41, 23.56
+2025-03-12 01:00:00,005 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>> at time 2025-03-12 01:00:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>>.
+2025-03-12 01:00:09,587 - auto_focus.focus - INFO - Focus: 28.21, 0.41, 22.96
+2025-03-12 01:05:00,007 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>> at time 2025-03-12 01:05:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>>.
+2025-03-12 01:05:09,514 - auto_focus.focus - INFO - Focus: 28.21, 0.41, 23.66
+2025-03-12 01:10:00,002 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>> at time 2025-03-12 01:10:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>>.
+2025-03-12 01:10:09,556 - auto_focus.focus - INFO - Focus: 28.31, 0.41, 24.06
+2025-03-12 01:15:00,002 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>> at time 2025-03-12 01:15:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>>.
+2025-03-12 01:15:09,699 - auto_focus.focus - INFO - Focus: 28.21, 0.41, 23.66
+2025-03-12 01:20:00,002 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>> at time 2025-03-12 01:20:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>>.
+2025-03-12 01:20:09,650 - auto_focus.focus - INFO - Focus: 28.21, 0.41, 23.46
+2025-03-12 01:25:00,011 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>> at time 2025-03-12 01:25:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000002088E3315D0>>.
+2025-03-12 01:25:09,611 - auto_focus.focus - INFO - Focus: 27.81, 0.21, 22.86
+2025-03-12 01:48:02,827 - auto_focus.focus - INFO - Focus: 10.59, 3.99, 21.86
+2025-03-12 01:48:18,743 - auto_focus.focus - INFO - Focus: 10.69, 3.99, 21.16
+2025-03-12 01:50:23,043 - auto_focus.focus - INFO - Focus: 10.69, 4.09, 20.76
+2025-03-12 01:54:15,959 - exception_handling._log_exception - ERROR - Exception occurred in traits notification handler for event object: TraitChangeEvent(object=<chaco.tools.cursor_tool.CursorTool2D object at 0x0000020891A8D2B0>, name='current_index', old=(79, 125), new=(79, 29))
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\observation\_trait_event_notifier.py", line 122, in __call__
+    self.dispatcher(handler, event)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\observation\observe.py", line 43, in dispatch_same
+    handler(event)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\has_traits.py", line 327, in handler
+    instance.trait_property_changed(property_name, old)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\has_traits.py", line 905, in decorator
+    self.__dict__[name] = result = function(self)
+                                   ^^^^^^^^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\chaco\tools\cursor_tool.py", line 255, in _get_current_position
+    x = xdata.get_data()[ndx]
+        ~~~~~~~~~~~~~~~~^^^^^
+IndexError: index 79 is out of bounds for axis 0 with size 75
+2025-03-12 01:54:16,047 - exception_handling._log_exception - ERROR - Exception occurred in traits notification handler for event object: TraitChangeEvent(object=<chaco.tools.cursor_tool.CursorTool2D object at 0x0000020891A8D2B0>, name='current_index', old=(79, 29), new=(79, 28))
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\observation\_trait_event_notifier.py", line 122, in __call__
+    self.dispatcher(handler, event)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\observation\observe.py", line 43, in dispatch_same
+    handler(event)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\has_traits.py", line 327, in handler
+    instance.trait_property_changed(property_name, old)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\has_traits.py", line 905, in decorator
+    self.__dict__[name] = result = function(self)
+                                   ^^^^^^^^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\chaco\tools\cursor_tool.py", line 255, in _get_current_position
+    x = xdata.get_data()[ndx]
+        ~~~~~~~~~~~~~~~~^^^^^
+IndexError: index 79 is out of bounds for axis 0 with size 75
+2025-03-12 01:54:48,311 - diamond.<module> - INFO - Starting logger.
+2025-03-12 01:54:49,164 - emod.start - INFO - Starting Job Manager.
+2025-03-12 01:54:49,165 - cron.run - INFO - Starting Cron Daemon.
+2025-03-12 01:58:31,196 - auto_focus.focus - INFO - Focus: -1.34, 9.87, 21.86
+2025-03-12 01:58:48,162 - auto_focus.focus - INFO - Focus: -1.34, 9.97, 21.06
+2025-03-12 01:59:36,123 - auto_focus.focus - INFO - Focus: -1.63, 12.62, 20.86
+2025-03-12 02:00:06,638 - auto_focus.focus - INFO - Focus: -1.73, 12.62, 20.16
+2025-03-12 02:12:32,992 - auto_focus.focus - INFO - Focus: -1.73, 12.82, 20.96
+2025-03-12 02:12:45,503 - auto_focus.focus - INFO - Focus: -1.73, 12.82, 21.06
+2025-03-12 02:13:02,608 - auto_focus.focus - INFO - Focus: -1.73, 12.72, 21.26
+2025-03-12 02:13:24,790 - auto_focus.focus - INFO - Focus: 27.91, 0.01, 23.36
+2025-03-12 02:13:36,501 - auto_focus.focus - INFO - Focus: 28.21, 0.11, 23.16
+2025-03-12 02:19:00,916 - auto_focus.focus - INFO - Focus: 28.21, 0.31, 22.86
+2025-03-12 02:20:00,008 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 02:20:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 02:20:09,878 - auto_focus.focus - INFO - Focus: 28.21, 0.21, 23.56
+2025-03-12 02:25:00,000 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 02:25:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 02:25:11,103 - auto_focus.focus - INFO - Focus: 28.21, 0.11, 24.06
+2025-03-12 02:30:00,010 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 02:30:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 02:30:10,602 - auto_focus.focus - INFO - Focus: 28.21, 0.31, 24.36
+2025-03-12 02:35:00,002 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 02:35:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 02:35:10,556 - auto_focus.focus - INFO - Focus: 28.21, 0.21, 24.56
+2025-03-12 02:40:00,002 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 02:40:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 02:40:10,738 - auto_focus.focus - INFO - Focus: 28.21, 0.21, 24.96
+2025-03-12 02:45:00,003 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 02:45:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 02:45:10,462 - auto_focus.focus - INFO - Focus: 28.21, 0.21, 25.36
+2025-03-12 02:50:00,003 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 02:50:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 02:50:10,316 - auto_focus.focus - INFO - Focus: 28.11, 0.41, 25.86
+2025-03-12 02:55:00,002 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 02:55:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 02:55:10,202 - auto_focus.focus - INFO - Focus: 28.21, 0.31, 26.76
+2025-03-12 03:00:00,008 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 03:00:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 03:00:10,056 - auto_focus.focus - INFO - Focus: 28.21, 0.31, 27.36
+2025-03-12 03:05:00,001 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 03:05:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 03:05:12,128 - auto_focus.focus - INFO - Focus: 28.11, 0.41, 27.46
+2025-03-12 03:10:00,003 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 03:10:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 03:10:12,040 - auto_focus.focus - INFO - Focus: 28.01, 0.61, 27.86
+2025-03-12 03:15:00,002 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 03:15:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 03:15:10,837 - auto_focus.focus - INFO - Focus: 28.21, 0.41, 28.66
+2025-03-12 03:20:00,003 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 03:20:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 03:20:12,128 - auto_focus.focus - INFO - Focus: 28.01, 0.61, 28.36
+2025-03-12 03:25:00,009 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 03:25:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 03:25:10,882 - auto_focus.focus - INFO - Focus: 28.01, 0.61, 28.96
+2025-03-12 03:30:00,002 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 03:30:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 03:30:11,398 - auto_focus.focus - INFO - Focus: 28.01, 0.51, 29.66
+2025-03-12 03:35:00,003 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 03:35:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 03:35:11,862 - auto_focus.focus - INFO - Focus: 28.01, 0.61, 30.16
+2025-03-12 03:40:00,013 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 03:40:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 03:40:11,259 - auto_focus.focus - INFO - Focus: 28.11, 0.51, 31.16
+2025-03-12 03:45:00,011 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 03:45:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 03:45:11,202 - auto_focus.focus - INFO - Focus: 27.91, 0.71, 31.26
+2025-03-12 03:50:00,003 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 03:50:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 03:50:10,915 - auto_focus.focus - INFO - Focus: 28.01, 0.61, 31.66
+2025-03-12 03:55:00,003 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 03:55:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 03:55:11,335 - auto_focus.focus - INFO - Focus: 28.01, 0.61, 32.36
+2025-03-12 04:00:00,003 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 04:00:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 04:00:12,065 - auto_focus.focus - INFO - Focus: 28.01, 0.61, 33.16
+2025-03-12 04:05:00,001 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 04:05:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 04:05:10,083 - auto_focus.focus - INFO - Focus: 27.91, 0.71, 33.56
+2025-03-12 04:10:00,003 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 04:10:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 04:10:10,388 - auto_focus.focus - INFO - Focus: 27.91, 0.71, 34.36
+2025-03-12 04:15:00,002 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 04:15:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 04:15:11,186 - auto_focus.focus - INFO - Focus: 27.91, 0.61, 34.46
+2025-03-12 04:20:00,002 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 04:20:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 04:20:12,864 - auto_focus.focus - INFO - Focus: 27.91, 0.71, 34.46
+2025-03-12 04:25:00,013 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 04:25:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 04:25:10,566 - auto_focus.focus - INFO - Focus: 27.91, 0.71, 35.26
+2025-03-12 04:30:00,000 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 04:30:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 04:30:10,388 - auto_focus.focus - INFO - Focus: 27.91, 0.71, 35.46
+2025-03-12 04:35:00,011 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 04:35:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 04:35:12,050 - auto_focus.focus - INFO - Focus: 27.81, 0.81, 35.86
+2025-03-12 04:40:00,002 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 04:40:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 04:40:10,118 - auto_focus.focus - INFO - Focus: 27.81, 0.81, 36.36
+2025-03-12 04:45:00,007 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 04:45:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 04:45:11,036 - auto_focus.focus - INFO - Focus: 27.81, 0.81, 36.86
+2025-03-12 04:50:00,011 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 04:50:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 04:50:10,521 - auto_focus.focus - INFO - Focus: 27.71, 0.91, 37.66
+2025-03-12 04:55:00,003 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 04:55:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 04:55:11,634 - auto_focus.focus - INFO - Focus: 27.61, 1.01, 38.56
+2025-03-12 05:00:00,011 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 05:00:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 05:00:11,590 - auto_focus.focus - INFO - Focus: 27.21, 1.31, 39.56
+2025-03-12 05:05:00,011 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 05:05:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 05:05:10,202 - auto_focus.focus - INFO - Focus: 27.51, 1.51, 40.36
+2025-03-12 05:10:00,003 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 05:10:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 05:10:10,523 - auto_focus.focus - INFO - Focus: 27.51, 1.51, 41.36
+2025-03-12 05:15:00,021 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 05:15:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 05:15:10,774 - auto_focus.focus - INFO - Focus: 27.51, 1.41, 41.96
+2025-03-12 05:20:00,003 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 05:20:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 05:20:10,712 - auto_focus.focus - INFO - Focus: 27.51, 1.11, 41.36
+2025-03-12 05:25:00,001 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 05:25:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 05:25:11,064 - auto_focus.focus - INFO - Focus: 27.61, 1.01, 41.76
+2025-03-12 05:30:00,006 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 05:30:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 05:30:12,149 - auto_focus.focus - INFO - Focus: 27.61, 1.01, 42.26
+2025-03-12 05:35:00,013 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 05:35:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 05:35:10,431 - auto_focus.focus - INFO - Focus: 27.61, 1.01, 42.86
+2025-03-12 05:40:00,010 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 05:40:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 05:40:11,685 - auto_focus.focus - INFO - Focus: 27.61, 1.01, 43.16
+2025-03-12 05:45:00,013 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 05:45:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 05:45:11,947 - auto_focus.focus - INFO - Focus: 27.41, 1.11, 44.06
+2025-03-12 05:50:00,009 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 05:50:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 05:50:11,513 - auto_focus.focus - INFO - Focus: 27.41, 1.11, 44.76
+2025-03-12 05:55:00,008 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 05:55:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 05:55:10,163 - auto_focus.focus - INFO - Focus: 27.51, 1.01, 45.66
+2025-03-12 06:00:00,015 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 06:00:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 06:00:10,377 - auto_focus.focus - INFO - Focus: 27.51, 0.91, 45.46
+2025-03-12 06:05:00,010 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 06:05:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 06:05:10,750 - auto_focus.focus - INFO - Focus: 27.41, 1.11, 45.76
+2025-03-12 06:10:00,001 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 06:10:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 06:10:11,072 - auto_focus.focus - INFO - Focus: 27.41, 1.11, 46.66
+2025-03-12 06:15:00,010 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 06:15:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 06:15:11,553 - auto_focus.focus - INFO - Focus: 27.41, 1.11, 47.46
+2025-03-12 06:20:00,002 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 06:20:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 06:20:11,909 - auto_focus.focus - INFO - Focus: 27.31, 1.21, 48.16
+2025-03-12 06:25:00,003 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 06:25:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 06:25:11,261 - auto_focus.focus - INFO - Focus: 27.31, 1.21, 48.96
+2025-03-12 06:30:00,013 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 06:30:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 06:30:09,925 - auto_focus.focus - INFO - Focus: 27.31, 1.21, 49.56
+2025-03-12 06:35:00,009 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 06:35:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 06:35:10,931 - auto_focus.focus - INFO - Focus: 27.31, 1.21, 50.26
+2025-03-12 06:40:00,015 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 06:40:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 06:40:11,212 - auto_focus.focus - INFO - Focus: 27.31, 1.21, 51.16
+2025-03-12 06:45:00,013 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 06:45:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 06:45:11,377 - auto_focus.focus - INFO - Focus: 27.21, 1.21, 51.66
+2025-03-12 06:50:00,003 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 06:50:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 06:50:10,354 - auto_focus.focus - INFO - Focus: 27.11, 1.31, 51.66
+2025-03-12 06:55:00,012 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 06:55:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 06:55:11,234 - auto_focus.focus - INFO - Focus: 27.21, 1.21, 52.46
+2025-03-12 07:00:00,003 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 07:00:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 07:00:12,086 - auto_focus.focus - INFO - Focus: 27.41, 1.61, 53.36
+2025-03-12 07:05:00,003 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 07:05:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 07:05:10,323 - auto_focus.focus - INFO - Focus: 27.41, 1.61, 54.26
+2025-03-12 07:10:00,001 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 07:10:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 07:10:11,358 - auto_focus.focus - INFO - Focus: 27.41, 1.61, 55.16
+2025-03-12 07:15:00,009 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 07:15:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 07:15:11,952 - auto_focus.focus - INFO - Focus: 27.41, 1.61, 55.56
+2025-03-12 07:20:00,007 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 07:20:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 07:20:10,498 - auto_focus.focus - INFO - Focus: 27.31, 1.61, 56.46
+2025-03-12 07:25:00,002 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 07:25:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 07:25:10,639 - auto_focus.focus - INFO - Focus: 26.91, 1.81, 56.86
+2025-03-12 07:30:00,003 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 07:30:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 07:30:11,316 - auto_focus.focus - INFO - Focus: 27.11, 1.81, 56.96
+2025-03-12 07:35:00,008 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 07:35:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 07:35:10,206 - auto_focus.focus - INFO - Focus: 27.31, 1.61, 57.16
+2025-03-12 07:40:00,000 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 07:40:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 07:40:11,201 - auto_focus.focus - INFO - Focus: 27.21, 1.71, 57.96
+2025-03-12 07:45:00,006 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 07:45:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 07:45:11,357 - auto_focus.focus - INFO - Focus: 27.21, 1.71, 58.96
+2025-03-12 07:50:00,012 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 07:50:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 07:50:09,972 - auto_focus.focus - INFO - Focus: 27.21, 1.71, 59.66
+2025-03-12 07:55:00,007 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 07:55:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 07:55:11,014 - auto_focus.focus - INFO - Focus: 27.11, 1.81, 60.56
+2025-03-12 08:00:00,005 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 08:00:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 08:00:11,793 - auto_focus.focus - INFO - Focus: 27.11, 1.71, 61.06
+2025-03-12 08:05:00,013 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 08:05:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 08:05:12,003 - auto_focus.focus - INFO - Focus: 27.11, 1.71, 61.86
+2025-03-12 08:10:00,008 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 08:10:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 08:10:10,315 - auto_focus.focus - INFO - Focus: 27.11, 1.71, 62.66
+2025-03-12 08:15:00,011 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 08:15:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 08:15:09,524 - auto_focus.focus - INFO - Focus: 27.21, 1.71, 61.96
+2025-03-12 08:20:00,012 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 08:20:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 08:20:09,658 - auto_focus.focus - INFO - Focus: 27.11, 1.81, 61.16
+2025-03-12 08:25:00,009 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 08:25:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 08:25:09,708 - auto_focus.focus - INFO - Focus: 27.11, 1.81, 61.46
+2025-03-12 08:30:00,006 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 08:30:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 08:30:09,608 - auto_focus.focus - INFO - Focus: 27.11, 1.81, 62.46
+2025-03-12 08:35:00,003 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 08:35:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 08:35:09,617 - auto_focus.focus - INFO - Focus: 27.21, 1.71, 62.56
+2025-03-12 08:40:00,002 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 08:40:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 08:40:09,659 - auto_focus.focus - INFO - Focus: 27.11, 1.81, 62.56
+2025-03-12 08:45:00,003 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 08:45:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 08:45:09,702 - auto_focus.focus - INFO - Focus: 27.11, 1.81, 62.26
+2025-03-12 08:50:00,008 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 08:50:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 08:50:09,597 - auto_focus.focus - INFO - Focus: 27.11, 1.81, 62.96
+2025-03-12 08:55:00,013 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 08:55:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 08:55:09,739 - auto_focus.focus - INFO - Focus: 27.11, 1.71, 62.56
+2025-03-12 09:00:00,010 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 09:00:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 09:00:09,665 - auto_focus.focus - INFO - Focus: 27.01, 1.81, 62.36
+2025-03-12 09:05:00,008 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 09:05:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 09:05:09,727 - auto_focus.focus - INFO - Focus: 27.11, 1.71, 62.26
+2025-03-12 09:10:00,001 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 09:10:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 09:10:09,574 - auto_focus.focus - INFO - Focus: 27.11, 1.71, 61.96
+2025-03-12 09:15:00,008 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 09:15:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 09:15:09,667 - auto_focus.focus - INFO - Focus: 27.01, 1.81, 62.86
+2025-03-12 09:20:00,004 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 09:20:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 09:20:09,848 - auto_focus.focus - INFO - Focus: 27.11, 1.71, 62.86
+2025-03-12 09:25:00,006 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 09:25:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 09:25:09,838 - auto_focus.focus - INFO - Focus: 27.11, 1.71, 63.46
+2025-03-12 09:30:00,005 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 09:30:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 09:30:09,874 - auto_focus.focus - INFO - Focus: 27.11, 1.71, 64.06
+2025-03-12 09:35:00,001 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 09:35:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 09:35:09,861 - auto_focus.focus - INFO - Focus: 27.11, 1.71, 63.66
+2025-03-12 09:40:00,004 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 09:40:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 09:40:09,860 - auto_focus.focus - INFO - Focus: 27.11, 1.71, 63.96
+2025-03-12 09:45:00,000 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 09:45:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 09:45:09,724 - auto_focus.focus - INFO - Focus: 27.11, 1.71, 64.86
+2025-03-12 09:50:00,001 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 09:50:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 09:50:09,777 - auto_focus.focus - INFO - Focus: 27.11, 1.71, 64.16
+2025-03-12 09:55:00,004 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 09:55:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 09:55:09,780 - auto_focus.focus - INFO - Focus: 27.01, 1.71, 64.26
+2025-03-12 10:00:00,009 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 10:00:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 10:00:09,907 - auto_focus.focus - INFO - Focus: 27.01, 1.71, 64.76
+2025-03-12 10:05:00,012 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 10:05:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 10:05:09,503 - auto_focus.focus - INFO - Focus: 27.11, 1.71, 64.96
+2025-03-12 10:10:00,014 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 10:10:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 10:10:09,674 - auto_focus.focus - INFO - Focus: 27.01, 1.71, 64.46
+2025-03-12 10:15:00,004 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 10:15:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 10:15:09,583 - auto_focus.focus - INFO - Focus: 27.01, 1.71, 65.06
+2025-03-12 10:20:00,002 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 10:20:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 10:20:09,596 - auto_focus.focus - INFO - Focus: 27.01, 1.71, 65.16
+2025-03-12 10:21:20,071 - auto_focus.focus - INFO - Focus: 27.01, 1.71, 65.16
+2025-03-12 11:34:44,151 - auto_focus.focus - INFO - Focus: 26.91, 1.71, 65.86
+2025-03-12 14:03:22,368 - auto_focus.focus - INFO - Focus: 26.51, 1.51, 66.86
+2025-03-12 14:03:35,331 - auto_focus.focus - INFO - Focus: 26.21, 1.11, 67.86
+2025-03-12 14:03:47,594 - auto_focus.focus - INFO - Focus: 26.11, 1.31, 68.86
+2025-03-12 14:04:02,106 - auto_focus.focus - INFO - Focus: 26.11, 1.41, 69.86
+2025-03-12 14:05:02,712 - auto_focus.focus - INFO - Focus: 26.99, 0.25, 70.86
+2025-03-12 14:05:16,683 - auto_focus.focus - INFO - Focus: 26.59, 0.55, 71.86
+2025-03-12 14:05:29,650 - auto_focus.focus - INFO - Focus: 26.29, 0.85, 72.86
+2025-03-12 14:05:40,369 - auto_focus.focus - INFO - Focus: 26.29, 1.15, 73.76
+2025-03-12 14:05:51,963 - auto_focus.focus - INFO - Focus: 26.29, 1.15, 74.66
+2025-03-12 14:06:01,814 - auto_focus.focus - INFO - Focus: 26.19, 1.25, 75.66
+2025-03-12 14:06:12,916 - auto_focus.focus - INFO - Focus: 26.19, 1.35, 76.66
+2025-03-12 14:06:25,426 - auto_focus.focus - INFO - Focus: 26.19, 1.55, 77.66
+2025-03-12 14:06:38,242 - auto_focus.focus - INFO - Focus: 26.19, 1.55, 78.66
+2025-03-12 14:06:49,083 - auto_focus.focus - INFO - Focus: 26.19, 1.65, 79.66
+2025-03-12 14:06:59,780 - auto_focus.focus - INFO - Focus: 26.09, 1.75, 80.56
+2025-03-12 14:07:19,248 - emod.submit - INFO - The job <measurements.auto_focus.AutoFocus object at 0x000001A89645B330> is already running or in the queue.
+2025-03-12 14:07:19,380 - auto_focus.focus - INFO - Focus: 26.19, 1.75, 81.56
+2025-03-12 14:07:30,885 - emod.submit - INFO - The job <measurements.auto_focus.AutoFocus object at 0x000001A89645B330> is already running or in the queue.
+2025-03-12 14:07:32,091 - auto_focus.focus - INFO - Focus: 26.09, 1.85, 82.46
+2025-03-12 14:07:43,017 - auto_focus.focus - INFO - Focus: 26.19, 1.85, 82.26
+2025-03-12 14:07:53,577 - auto_focus.focus - INFO - Focus: 26.19, 1.85, 83.16
+2025-03-12 14:08:04,951 - auto_focus.focus - INFO - Focus: 26.19, 1.85, 82.96
+2025-03-12 14:08:20,535 - auto_focus.focus - INFO - Focus: 26.19, 1.85, 83.46
+2025-03-12 14:08:48,686 - auto_focus.focus - INFO - Focus: 26.19, 1.85, 83.86
+2025-03-12 14:14:39,360 - auto_focus.remove_target - INFO - Target cannot be removed. Target does not exist.
+2025-03-12 14:14:40,424 - auto_focus.remove_target - INFO - Target cannot be removed. Target does not exist.
+2025-03-12 14:14:40,600 - auto_focus.remove_target - INFO - Target cannot be removed. Target does not exist.
+2025-03-12 14:14:46,592 - auto_focus.remove_target - INFO - Target cannot be removed. Target does not exist.
+2025-03-12 14:14:46,761 - auto_focus.remove_target - INFO - Target cannot be removed. Target does not exist.
+2025-03-12 14:14:46,912 - auto_focus.remove_target - INFO - Target cannot be removed. Target does not exist.
+2025-03-12 14:14:47,064 - auto_focus.remove_target - INFO - Target cannot be removed. Target does not exist.
+2025-03-12 14:14:47,224 - auto_focus.remove_target - INFO - Target cannot be removed. Target does not exist.
+2025-03-12 14:14:47,368 - auto_focus.remove_target - INFO - Target cannot be removed. Target does not exist.
+2025-03-12 14:14:47,520 - auto_focus.remove_target - INFO - Target cannot be removed. Target does not exist.
+2025-03-12 14:14:47,672 - auto_focus.remove_target - INFO - Target cannot be removed. Target does not exist.
+2025-03-12 14:14:47,816 - auto_focus.remove_target - INFO - Target cannot be removed. Target does not exist.
+2025-03-12 14:14:47,960 - auto_focus.remove_target - INFO - Target cannot be removed. Target does not exist.
+2025-03-12 14:14:48,096 - auto_focus.remove_target - INFO - Target cannot be removed. Target does not exist.
+2025-03-12 14:14:48,259 - auto_focus.remove_target - INFO - Target cannot be removed. Target does not exist.
+2025-03-12 14:20:00,008 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 14:20:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 14:20:10,784 - auto_focus.focus - INFO - Focus: 26.09, 1.85, 84.86
+2025-03-12 14:25:00,002 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 14:25:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 14:25:11,139 - auto_focus.focus - INFO - Focus: 26.09, 1.85, 85.86
+2025-03-12 14:30:00,005 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 14:30:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 14:30:11,331 - auto_focus.focus - INFO - Focus: 25.99, 1.85, 86.56
+2025-03-12 14:35:00,007 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 14:35:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 14:35:11,929 - auto_focus.focus - INFO - Focus: 25.99, 1.85, 87.46
+2025-03-12 14:40:00,001 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 14:40:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 14:40:11,350 - auto_focus.focus - INFO - Focus: 25.89, 1.85, 87.56
+2025-03-12 14:45:00,006 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 14:45:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 14:45:11,451 - auto_focus.focus - INFO - Focus: 25.89, 1.85, 88.16
+2025-03-12 14:50:00,009 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 14:50:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 14:50:11,367 - auto_focus.focus - INFO - Focus: 25.89, 1.85, 88.36
+2025-03-12 14:55:00,002 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 14:55:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 14:55:11,792 - auto_focus.focus - INFO - Focus: 25.89, 1.85, 89.26
+2025-03-12 15:00:00,007 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 15:00:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 15:00:12,141 - auto_focus.focus - INFO - Focus: 25.89, 1.85, 89.86
+2025-03-12 15:05:00,002 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 15:05:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 15:05:12,217 - auto_focus.focus - INFO - Focus: 25.79, 1.85, 90.66
+2025-03-12 15:10:00,009 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 15:10:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 15:10:12,115 - auto_focus.focus - INFO - Focus: 25.79, 1.85, 91.66
+2025-03-12 15:15:00,009 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 15:15:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 15:15:10,758 - auto_focus.focus - INFO - Focus: 25.79, 1.85, 91.36
+2025-03-12 15:20:00,013 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 15:20:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 15:20:10,888 - auto_focus.focus - INFO - Focus: 25.79, 1.85, 90.76
+2025-03-12 15:25:00,001 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 15:25:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 15:25:11,337 - auto_focus.focus - INFO - Focus: 25.69, 1.75, 91.36
+2025-03-12 15:30:00,003 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 15:30:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 15:30:11,267 - auto_focus.focus - INFO - Focus: 25.69, 1.75, 91.76
+2025-03-12 15:35:00,007 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 15:35:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 15:35:11,601 - auto_focus.focus - INFO - Focus: 25.59, 1.85, 92.66
+2025-03-12 15:40:00,002 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 15:40:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 15:40:11,341 - auto_focus.focus - INFO - Focus: 25.69, 1.85, 93.56
+2025-03-12 15:45:00,013 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 15:45:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 15:45:11,550 - auto_focus.focus - INFO - Focus: 25.59, 1.85, 94.36
+2025-03-12 15:50:00,019 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 15:50:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 15:50:12,147 - auto_focus.focus - INFO - Focus: 25.59, 1.85, 94.76
+2025-03-12 15:55:00,009 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 15:55:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 15:55:12,375 - auto_focus.focus - INFO - Focus: 25.59, 1.85, 94.96
+2025-03-12 16:00:00,011 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 16:00:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 16:00:10,494 - auto_focus.focus - INFO - Focus: 25.59, 1.85, 95.46
+2025-03-12 16:05:00,008 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 16:05:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 16:05:11,304 - auto_focus.focus - INFO - Focus: 25.59, 1.85, 95.76
+2025-03-12 16:10:00,005 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 16:10:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 16:10:10,926 - auto_focus.focus - INFO - Focus: 25.49, 1.85, 96.56
+2025-03-12 16:15:00,011 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 16:15:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 16:15:10,980 - auto_focus.focus - INFO - Focus: 25.49, 1.85, 97.16
+2025-03-12 16:20:00,006 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 16:20:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 16:20:10,739 - auto_focus.focus - INFO - Focus: 25.49, 1.85, 97.56
+2025-03-12 16:25:00,006 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 16:25:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 16:25:10,188 - auto_focus.focus - INFO - Focus: 25.49, 1.75, 97.66
+2025-03-12 16:30:00,001 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 16:30:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 16:30:12,225 - auto_focus.focus - INFO - Focus: 25.39, 1.75, 98.36
+2025-03-12 16:35:00,005 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 16:35:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 16:35:12,320 - auto_focus.focus - INFO - Focus: 25.39, 1.85, 99.16
+2025-03-12 16:40:00,010 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 16:40:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 16:40:10,373 - auto_focus.focus - INFO - Focus: 25.39, 1.85, 98.76
+2025-03-12 16:45:00,013 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 16:45:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 16:45:09,629 - auto_focus.focus - INFO - Focus: 25.39, 1.85, 99.16
+2025-03-12 16:50:00,008 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 16:50:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 16:50:09,742 - auto_focus.focus - INFO - Focus: 25.49, 1.85, 100.00
+2025-03-12 16:55:00,003 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 16:55:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 16:55:08,984 - emod.submit - INFO - The job <measurements.pulsed.Rabi object at 0x000001A8A2A71AD0> is already running or in the queue.
+2025-03-12 16:55:09,731 - auto_focus.focus - INFO - Focus: 25.49, 1.85, 99.70
+2025-03-12 16:57:23,439 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.RabiFit object at 0x000001A8A2A73E20>, trait: measurement, old value: <measurements.pulsed.Rabi object at 0x000001A8A2A71AD0>, new value: None
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 510, in update_plot_tau
+    self.line_data.set_data('tau', self.measurement.tau)
+                                   ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'tau'
+2025-03-12 16:58:57,341 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.HahnFit object at 0x000001A8C78BAC50>, trait: measurement, old value: <measurements.pulsed.Hahn object at 0x000001A8CB75B970>, new value: None
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 744, in update_plot_tau
+    self.line_data.set_data('tau', self.measurement.tau)
+                                   ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'tau'
+2025-03-12 17:00:00,007 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 17:00:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 17:00:09,720 - auto_focus.focus - INFO - Focus: 25.49, 1.95, 99.10
+2025-03-12 17:03:22,785 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.Hahn3pi2Fit object at 0x000001A893BCC9F0>, trait: measurement, old value: <measurements.pulsed.Hahn3pi2 object at 0x000001A8BB131A30>, new value: None
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 1088, in update_plot_tau
+    self.line_data.set_data('tau', self.measurement.tau)
+                                   ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'tau'
+2025-03-12 17:05:00,003 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 17:05:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 17:05:09,864 - auto_focus.focus - INFO - Focus: 25.49, 1.95, 99.20
+2025-03-12 17:10:00,002 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 17:10:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 17:10:09,814 - auto_focus.focus - INFO - Focus: 25.49, 1.85, 99.50
+2025-03-12 17:15:00,002 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>> at time 2025-03-12 17:15:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001A89645B330>>.
+2025-03-12 17:15:09,847 - auto_focus.focus - INFO - Focus: 25.49, 1.85, 99.80
+2025-03-12 17:16:00,668 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.HahnFit object at 0x000001A89B5E9670>, trait: measurement, old value: <measurements.pulsed.Hahn object at 0x000001A898A81440>, new value: None
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 744, in update_plot_tau
+    self.line_data.set_data('tau', self.measurement.tau)
+                                   ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'tau'
+2025-03-12 17:16:57,833 - diamond.<module> - INFO - Starting logger.
+2025-03-12 17:16:58,629 - emod.start - INFO - Starting Job Manager.
+2025-03-12 17:16:58,629 - cron.run - INFO - Starting Cron Daemon.
+2025-03-12 17:26:35,255 - auto_focus.remove_target - INFO - Target cannot be removed. Target does not exist.
+2025-03-12 17:26:35,422 - auto_focus.remove_target - INFO - Target cannot be removed. Target does not exist.
+2025-03-12 17:26:35,574 - auto_focus.remove_target - INFO - Target cannot be removed. Target does not exist.
+2025-03-12 17:26:35,719 - auto_focus.remove_target - INFO - Target cannot be removed. Target does not exist.
+2025-03-12 17:26:35,878 - auto_focus.remove_target - INFO - Target cannot be removed. Target does not exist.
+2025-03-12 17:27:12,944 - auto_focus.focus - INFO - Focus: 26.28, 0.41, 88.13
+2025-03-12 17:27:26,367 - auto_focus.focus - INFO - Focus: 25.88, 0.71, 89.03
+2025-03-12 17:27:33,814 - emod.submit - INFO - The job <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00> is already running or in the queue.
+2025-03-12 17:27:36,186 - auto_focus.focus - INFO - Focus: 25.48, 1.01, 89.93
+2025-03-12 17:27:46,620 - auto_focus.focus - INFO - Focus: 25.48, 1.31, 90.83
+2025-03-12 17:27:57,347 - auto_focus.focus - INFO - Focus: 25.48, 1.31, 91.83
+2025-03-12 17:28:11,195 - auto_focus.focus - INFO - Focus: 25.48, 1.51, 92.83
+2025-03-12 17:28:21,507 - auto_focus.focus - INFO - Focus: 25.58, 1.71, 93.83
+2025-03-12 17:28:24,582 - emod.submit - INFO - The job <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00> is already running or in the queue.
+2025-03-12 17:28:34,239 - auto_focus.focus - INFO - Focus: 25.48, 1.71, 94.73
+2025-03-12 17:28:45,600 - auto_focus.focus - INFO - Focus: 25.48, 1.61, 95.43
+2025-03-12 17:29:07,656 - auto_focus.focus - INFO - Focus: 25.48, 1.81, 97.05
+2025-03-12 17:29:23,125 - auto_focus.focus - INFO - Focus: 25.48, 1.81, 96.85
+2025-03-12 17:29:36,152 - auto_focus.focus - INFO - Focus: 25.48, 1.81, 97.65
+2025-03-12 17:30:45,302 - auto_focus.focus - INFO - Focus: 25.68, 2.01, 43.52
+2025-03-12 17:30:56,882 - auto_focus.focus - INFO - Focus: 25.68, 2.01, 43.62
+2025-03-12 17:31:34,966 - auto_focus.focus - INFO - Focus: 25.68, 2.01, 42.92
+2025-03-12 17:32:06,062 - auto_focus.focus - INFO - Focus: 25.68, 2.01, 42.12
+2025-03-12 17:54:54,334 - auto_focus.focus - INFO - Focus: 25.58, 2.01, 43.02
+2025-03-12 17:55:08,268 - auto_focus.focus - INFO - Focus: 25.58, 2.01, 42.52
+2025-03-12 18:00:00,008 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>> at time 2025-03-12 18:00:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>>.
+2025-03-12 18:00:09,859 - auto_focus.focus - INFO - Focus: 25.58, 2.01, 42.12
+2025-03-12 18:05:00,009 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>> at time 2025-03-12 18:05:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>>.
+2025-03-12 18:05:11,005 - auto_focus.focus - INFO - Focus: 25.58, 2.01, 42.92
+2025-03-12 18:10:00,006 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>> at time 2025-03-12 18:10:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>>.
+2025-03-12 18:10:12,304 - auto_focus.focus - INFO - Focus: 25.48, 2.01, 42.22
+2025-03-12 18:15:00,005 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>> at time 2025-03-12 18:15:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>>.
+2025-03-12 18:15:10,593 - auto_focus.focus - INFO - Focus: 25.48, 2.01, 42.52
+2025-03-12 18:20:00,010 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>> at time 2025-03-12 18:20:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>>.
+2025-03-12 18:20:12,631 - auto_focus.focus - INFO - Focus: 25.48, 2.01, 43.32
+2025-03-12 18:25:00,005 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>> at time 2025-03-12 18:25:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>>.
+2025-03-12 18:25:10,719 - auto_focus.focus - INFO - Focus: 25.48, 2.01, 42.72
+2025-03-12 18:30:00,008 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>> at time 2025-03-12 18:30:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>>.
+2025-03-12 18:30:12,721 - auto_focus.focus - INFO - Focus: 25.48, 2.01, 42.82
+2025-03-12 18:35:00,008 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>> at time 2025-03-12 18:35:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>>.
+2025-03-12 18:35:10,665 - auto_focus.focus - INFO - Focus: 25.48, 2.01, 42.82
+2025-03-12 18:40:00,001 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>> at time 2025-03-12 18:40:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>>.
+2025-03-12 18:40:11,141 - auto_focus.focus - INFO - Focus: 25.48, 2.01, 43.02
+2025-03-12 18:45:00,000 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>> at time 2025-03-12 18:45:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>>.
+2025-03-12 18:45:12,825 - auto_focus.focus - INFO - Focus: 25.48, 2.01, 42.42
+2025-03-12 18:50:00,018 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>> at time 2025-03-12 18:50:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>>.
+2025-03-12 18:50:10,808 - auto_focus.focus - INFO - Focus: 25.48, 1.91, 43.42
+2025-03-12 18:55:00,009 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>> at time 2025-03-12 18:55:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>>.
+2025-03-12 18:55:12,600 - auto_focus.focus - INFO - Focus: 25.48, 2.01, 42.92
+2025-03-12 19:00:00,007 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>> at time 2025-03-12 19:00:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>>.
+2025-03-12 19:00:12,399 - auto_focus.focus - INFO - Focus: 25.48, 2.01, 42.72
+2025-03-12 19:05:00,009 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>> at time 2025-03-12 19:05:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>>.
+2025-03-12 19:05:11,112 - auto_focus.focus - INFO - Focus: 25.48, 2.01, 42.92
+2025-03-12 19:10:00,014 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>> at time 2025-03-12 19:10:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>>.
+2025-03-12 19:10:10,819 - auto_focus.focus - INFO - Focus: 25.48, 1.91, 43.22
+2025-03-12 19:15:00,003 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>> at time 2025-03-12 19:15:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>>.
+2025-03-12 19:15:12,104 - auto_focus.focus - INFO - Focus: 25.48, 1.91, 43.12
+2025-03-12 19:20:00,004 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>> at time 2025-03-12 19:20:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>>.
+2025-03-12 19:20:10,956 - auto_focus.focus - INFO - Focus: 25.48, 1.91, 42.92
+2025-03-12 19:25:00,010 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>> at time 2025-03-12 19:25:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>>.
+2025-03-12 19:25:12,511 - auto_focus.focus - INFO - Focus: 25.48, 1.91, 43.82
+2025-03-12 19:30:00,008 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>> at time 2025-03-12 19:30:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>>.
+2025-03-12 19:30:10,326 - auto_focus.focus - INFO - Focus: 25.48, 1.91, 44.22
+2025-03-12 19:35:00,008 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>> at time 2025-03-12 19:35:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>>.
+2025-03-12 19:35:11,581 - auto_focus.focus - INFO - Focus: 25.48, 1.91, 44.42
+2025-03-12 19:40:00,005 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>> at time 2025-03-12 19:40:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>>.
+2025-03-12 19:40:10,740 - auto_focus.focus - INFO - Focus: 25.48, 1.91, 43.62
+2025-03-12 19:45:00,007 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>> at time 2025-03-12 19:45:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>>.
+2025-03-12 19:45:12,055 - auto_focus.focus - INFO - Focus: 25.48, 1.91, 43.52
+2025-03-12 19:50:00,006 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>> at time 2025-03-12 19:50:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>>.
+2025-03-12 19:50:11,131 - auto_focus.focus - INFO - Focus: 25.48, 1.91, 43.82
+2025-03-12 19:55:00,007 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>> at time 2025-03-12 19:55:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>>.
+2025-03-12 19:55:10,869 - auto_focus.focus - INFO - Focus: 25.48, 1.91, 44.72
+2025-03-12 20:00:00,009 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>> at time 2025-03-12 20:00:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>>.
+2025-03-12 20:00:10,158 - auto_focus.focus - INFO - Focus: 25.48, 1.91, 45.22
+2025-03-12 20:05:00,007 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>> at time 2025-03-12 20:05:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>>.
+2025-03-12 20:05:11,741 - auto_focus.focus - INFO - Focus: 25.38, 1.61, 44.52
+2025-03-12 20:10:00,006 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>> at time 2025-03-12 20:10:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>>.
+2025-03-12 20:10:10,600 - auto_focus.focus - INFO - Focus: 25.48, 1.91, 44.92
+2025-03-12 20:15:00,004 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>> at time 2025-03-12 20:15:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>>.
+2025-03-12 20:15:12,576 - auto_focus.focus - INFO - Focus: 25.48, 1.81, 45.42
+2025-03-12 20:20:00,007 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>> at time 2025-03-12 20:20:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>>.
+2025-03-12 20:20:12,013 - auto_focus.focus - INFO - Focus: 25.48, 1.91, 45.52
+2025-03-12 20:25:00,008 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>> at time 2025-03-12 20:25:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>>.
+2025-03-12 20:25:10,833 - auto_focus.focus - INFO - Focus: 25.48, 1.91, 45.72
+2025-03-12 20:30:00,014 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>> at time 2025-03-12 20:30:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>>.
+2025-03-12 20:30:11,450 - auto_focus.focus - INFO - Focus: 25.48, 1.91, 46.22
+2025-03-12 20:35:00,001 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>> at time 2025-03-12 20:35:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>>.
+2025-03-12 20:35:12,810 - auto_focus.focus - INFO - Focus: 25.48, 1.91, 46.92
+2025-03-12 20:40:00,009 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>> at time 2025-03-12 20:40:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>>.
+2025-03-12 20:40:12,118 - auto_focus.focus - INFO - Focus: 25.48, 1.91, 46.62
+2025-03-12 20:45:00,013 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>> at time 2025-03-12 20:45:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>>.
+2025-03-12 20:45:10,158 - auto_focus.focus - INFO - Focus: 25.48, 1.91, 45.82
+2025-03-12 20:50:00,004 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>> at time 2025-03-12 20:50:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>>.
+2025-03-12 20:50:11,228 - auto_focus.focus - INFO - Focus: 25.38, 1.61, 45.62
+2025-03-12 20:55:00,010 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>> at time 2025-03-12 20:55:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>>.
+2025-03-12 20:55:10,438 - auto_focus.focus - INFO - Focus: 25.38, 1.71, 46.52
+2025-03-12 21:00:00,002 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>> at time 2025-03-12 21:00:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>>.
+2025-03-12 21:00:11,396 - auto_focus.focus - INFO - Focus: 25.48, 1.91, 46.62
+2025-03-12 21:05:00,003 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>> at time 2025-03-12 21:05:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>>.
+2025-03-12 21:05:10,493 - auto_focus.focus - INFO - Focus: 25.38, 1.61, 47.02
+2025-03-12 21:10:00,011 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>> at time 2025-03-12 21:10:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>>.
+2025-03-12 21:10:12,051 - auto_focus.focus - INFO - Focus: 25.38, 1.91, 46.82
+2025-03-12 21:15:00,002 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>> at time 2025-03-12 21:15:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>>.
+2025-03-12 21:15:10,025 - auto_focus.focus - INFO - Focus: 25.38, 1.61, 46.52
+2025-03-12 21:20:00,009 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>> at time 2025-03-12 21:20:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>>.
+2025-03-12 21:20:11,762 - auto_focus.focus - INFO - Focus: 25.38, 1.61, 47.32
+2025-03-12 21:25:00,383 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>> at time 2025-03-12 21:25:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>>.
+2025-03-12 21:30:00,023 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>> at time 2025-03-12 21:30:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>>.
+2025-03-12 21:30:00,024 - emod.submit - INFO - The job <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00> is already running or in the queue.
+2025-03-12 21:30:02,658 - auto_focus.focus - INFO - Focus: 25.48, 1.91, 48.02
+2025-03-12 21:32:27,093 - auto_focus.focus - INFO - Focus: 25.48, 1.91, 48.12
+2025-03-12 21:35:00,014 - cron.check - INFO - Time match at cron event Cron Event on callable <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>> at time 2025-03-12 21:35:00. Executing <bound method ManagedJob.submit of <measurements.auto_focus.AutoFocus object at 0x000001B3C6D40E00>>.
+2025-03-12 21:35:09,501 - auto_focus.focus - INFO - Focus: 25.48, 1.91, 47.32
+2025-03-12 21:36:35,977 - auto_focus.focus - INFO - Focus: 25.48, 1.91, 46.92
