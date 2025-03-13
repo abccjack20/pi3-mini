@@ -34,7 +34,7 @@ if __name__ == '__main__':
     auto_focus.edit_traits()
 
     # Start ODMR
-    from measurements.odmr import ODMR
+    from measurements.odmr_ps import ODMR
     odmr = ODMR()
     odmr.edit_traits()
 

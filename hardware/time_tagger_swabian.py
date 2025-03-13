@@ -114,7 +114,7 @@ def multiple_td(tagger, ch_list_click, ch_start, ch_next, ch_sync, binwidth, n_b
 
 class time_tagger_control:
 
-    def __init__(self, serial, ch_list_ticks, ch_detect, ch_sync, ch_marker=None):
+    def __init__(self, serial, ch_list_ticks, ch_detect, ch_sync):
         self._serial = serial
         self._tagger = tt.createTimeTagger(serial)
         self._channels = dict(
@@ -122,7 +122,6 @@ class time_tagger_control:
             detect = ch_detect,
             sync = ch_sync
         )
-        if ch_marker: self._channels['marker'] = ch_marker
 
     def Counter(self, ch_list, binwidth, TraceLength):
         return tt.Counter(
@@ -132,12 +131,8 @@ class time_tagger_control:
             TraceLength
         )
     
-    def Count_Between_Markers(self, n_bins):
-        if not 'marker' in self._channels.keys():
-            print("Marker channel is not specified!")
-            return
+    def Count_Between_Markers(self, n_bins, ch_start):
         ch_list_ticks   = self._channels['ticks']
-        ch_start        = self._channels['marker']
         ch_end          = -ch_start     # Use falling edge of the same channel
         return multiple_cbm(
             self._tagger,

@@ -21,32 +21,23 @@ import logging
 import time
 from tools.utility import singleton
 
-# Dummy TimeTagger
-# from .time_tagger_dummy import TimeTaggerDummy
-# time_tagger = TimeTaggerDummy()
 
-from .time_tagger_swabian import time_tagger_control
-time_tagger = time_tagger_control(
-	"1740000JEC",	# serial
-	[1, 2],         # ch_list_ticks
-	5,				# ch_detect
-	8,				# ch_sync
-	ch_marker=6,
-)
+tt_serial       = "1740000JEC"
+ch_list_ticks   = [1, 2]
+ch_detect       = 5
+ch_sync         = 8
 
-@singleton
-def PulseGenerator():
-	#from .pulse_generator_dummy import PulseGeneratorDummy
-	from .pulse_streamer import PulseStreamer
-	return PulseStreamer(
-		'169.254.8.2',
-		channel_map = {
-			'aom':0,
-			'detect':1,
-			'mw':4,
-			'sync':7,
-		}
-	)
+ch_marker_scanner = 6
+ch_marker_counter = ch_detect
+
+ps_ip = '169.254.8.2'
+ps_channels = {
+    'aom':0,
+    'detect':1,
+    'mw':4,
+    'next':6,
+    'sync':7,
+}
 
 scanner_params = dict(
 	device_name = 'dev1',
@@ -71,29 +62,51 @@ scanner_params = dict(
     swap_xy = False,
 )
 
+# counter_params = dict(
+#     device_name = 'dev1',
+#     ctr_list = ['ctr0','ctr1'],
+#     sec_per_point = .01,
+#     duty_cycle = 0.9,
+# )
+
 counter_params = dict(
-    device_name = 'dev1',
-    ctr_list = ['ctr0','ctr1'],
     sec_per_point = .01,
     duty_cycle = 0.9,
+    laser_init = 0.5
+)
+
+# Dummy TimeTagger
+# from .time_tagger_dummy import TimeTaggerDummy
+# time_tagger = TimeTaggerDummy()
+
+from .time_tagger_swabian import time_tagger_control
+time_tagger = time_tagger_control(
+	tt_serial,	# serial
+	ch_list_ticks,         # ch_list_ticks
+	ch_detect,				# ch_detect
+	ch_sync,				# ch_sync
 )
 
 @singleton
+def PulseGenerator():
+	#from .pulse_generator_dummy import PulseGeneratorDummy
+	from .pulse_streamer import PulseStreamer
+	return PulseStreamer(ps_ip, channel_map=ps_channels)
+
+@singleton
 def Scanner():
-    from .nidaq_finite_scanner import Stage_control
-    return Stage_control(time_tagger, **scanner_params)
+    from .finite_scanner import Stage_control
+    return Stage_control(time_tagger, ch_marker_scanner, **scanner_params)
     
 
 # Counter Initialization Used In ODMR
 @singleton
 def Counter():
-    from .nidaq_finite_scanner import Pulse_Train_Counter
-    return Pulse_Train_Counter(time_tagger, **counter_params)
-	# from .nidaq_dummy import PulseTrainCounter
-	# from .nidaq_dll import PulseTrainCounter
-	# return PulseTrainCounter( CounterIn='/Dev1/Ctr3',
-	# 						  CounterOut='/Dev1/Ctr2',
-	# 						  TickSource='/Dev1/PFI0' )
+    # from .finite_scanner import NIDAQ_Pulse_Train_Counter
+    # return NIDAQ_Pulse_Train_Counter(time_tagger, **counter_params)
+    from .finite_scanner import PS_Pulse_Train_Counter
+    return PS_Pulse_Train_Counter(time_tagger, PulseGenerator(), ch_marker_counter, **counter_params)
+
 
 # Microvave Source Initialization
 @singleton
@@ -108,7 +121,6 @@ MicrowaveA = Microwave
 @singleton
 def RFSource():
     from .microwave_dummy import MicrowaveDummy
-
     return MicrowaveDummy(visa_address='GPIB0::01')
 
 

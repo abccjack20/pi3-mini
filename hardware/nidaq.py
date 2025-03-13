@@ -241,8 +241,7 @@ class sample_clock(task_constructor):
 class sample_DoubleClock(task_constructor):
 
     '''
-    Task constructor for creating a sample clock signal from NIDAQ internal clock.
-    Almost all scanning task (confocal or ODMR) needs this to sync triggers and readout.
+    Almost identical to sample_clock, but having multiple digital output
     '''
 
     def __init__(self, device_name, ctr_list, period=0.01, duty_cycle=0.9, des_term=None, samps_per_chan=None):

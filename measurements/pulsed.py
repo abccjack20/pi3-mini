@@ -584,7 +584,7 @@ class Hahn3pi2(Rabi):
         sequence = []
         for t in tau:
             sequence += [
-                ([], self.tau_end - t),
+                #([], self.tau_end - t),
                 (['mw','mw_x'], t_pi2),
                 ([], 0.5 * t),
                 (['mw','mw_x'], t_pi),
@@ -595,7 +595,7 @@ class Hahn3pi2(Rabi):
             ]
         for t in tau:
             sequence += [
-                ([], self.tau_end - t),
+                #([], self.tau_end - t),
                 (['mw','mw_x'], t_pi2),
                 ([], 0.5 * t),
                 (['mw','mw_x'], t_pi),
