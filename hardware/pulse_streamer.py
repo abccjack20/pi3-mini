@@ -10,15 +10,18 @@ CH_MAP_DUMMY = {
 class PulseStreamer:
 
     def __init__(self, ip, channel_map=CH_MAP_DUMMY):
+        self.ip = ip
         self.channel_map = channel_map
         self.pulse_streamer = ps.PulseStreamer(ip)
         self.pulse_streamer.reset()
         self.seq = self.pulse_streamer.createSequence()
         self.pulse_streamer.selectClock(ps.ClockSource.INTERNAL)
+        self.ch_high = []
 
     def Continuous(self, channels):
         # Turn on the specified channels indefinitely
-        ch_list = [self.channel_map[ch] for ch in channels]
+        self.ch_high = channels
+        ch_list = [self.channel_map[ch] for ch in self.ch_high]
         self.pulse_streamer.constant((ch_list, 0, 0))
     
     def Sequence(self, sequence, start=True):
@@ -49,11 +52,11 @@ class PulseStreamer:
     
     def Night(self):
         # Turn off all channels
-        self.pulse_streamer.constant()
+        self.Continuous([])
 
     def Light(self):
         # Turn on aom channel only
-        self.pulse_streamer.constant(([self.channel_map['aom']], 0, 0))
+        self.Continuous(['aom'])
 
     def checkUnderflow(self):
         # PulseStream do not underflow anymore

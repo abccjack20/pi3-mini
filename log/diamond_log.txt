@@ -90,3 +90,231 @@ Traceback (most recent call last):
     self.line_data.set_data('tau', self.measurement.tau)
                                    ^^^^^^^^^^^^^^^^^^^^
 AttributeError: 'NoneType' object has no attribute 'tau'
+2025-03-31 18:09:47,413 - diamond.<module> - INFO - Starting logger.
+2025-03-31 18:09:48,227 - emod.start - INFO - Starting Job Manager.
+2025-03-31 18:09:48,229 - cron.run - INFO - Starting Cron Daemon.
+2025-03-31 18:10:45,730 - diamond.<module> - INFO - Starting logger.
+2025-03-31 18:10:46,505 - emod.start - INFO - Starting Job Manager.
+2025-03-31 18:10:46,506 - cron.run - INFO - Starting Cron Daemon.
+2025-03-31 18:11:10,947 - diamond.<module> - INFO - Starting logger.
+2025-03-31 18:11:11,750 - emod.start - INFO - Starting Job Manager.
+2025-03-31 18:11:11,751 - cron.run - INFO - Starting Cron Daemon.
+2025-03-31 18:11:31,285 - diamond.<module> - INFO - Starting logger.
+2025-03-31 18:11:32,077 - emod.start - INFO - Starting Job Manager.
+2025-03-31 18:11:32,078 - cron.run - INFO - Starting Cron Daemon.
+2025-03-31 18:11:46,695 - diamond.<module> - INFO - Starting logger.
+2025-03-31 18:11:47,471 - emod.start - INFO - Starting Job Manager.
+2025-03-31 18:11:47,472 - cron.run - INFO - Starting Cron Daemon.
+2025-03-31 18:19:19,230 - diamond.<module> - INFO - Starting logger.
+2025-03-31 18:19:20,040 - emod.start - INFO - Starting Job Manager.
+2025-03-31 18:19:20,041 - cron.run - INFO - Starting Cron Daemon.
+2025-03-31 18:20:39,806 - diamond.<module> - INFO - Starting logger.
+2025-03-31 18:20:40,587 - emod.start - INFO - Starting Job Manager.
+2025-03-31 18:20:40,588 - cron.run - INFO - Starting Cron Daemon.
+2025-03-31 18:20:53,925 - diamond.<module> - INFO - Starting logger.
+2025-03-31 18:20:54,714 - emod.start - INFO - Starting Job Manager.
+2025-03-31 18:20:54,715 - cron.run - INFO - Starting Cron Daemon.
+2025-03-31 18:21:48,903 - diamond.<module> - INFO - Starting logger.
+2025-03-31 18:21:49,690 - emod.start - INFO - Starting Job Manager.
+2025-03-31 18:21:49,692 - cron.run - INFO - Starting Cron Daemon.
+2025-03-31 18:22:53,127 - diamond.<module> - INFO - Starting logger.
+2025-03-31 18:22:53,889 - emod.start - INFO - Starting Job Manager.
+2025-03-31 18:22:53,891 - cron.run - INFO - Starting Cron Daemon.
+2025-03-31 18:25:42,063 - diamond.<module> - INFO - Starting logger.
+2025-03-31 18:25:42,859 - emod.start - INFO - Starting Job Manager.
+2025-03-31 18:25:42,861 - cron.run - INFO - Starting Cron Daemon.
+2025-03-31 18:26:42,207 - diamond.<module> - INFO - Starting logger.
+2025-03-31 18:26:42,973 - emod.start - INFO - Starting Job Manager.
+2025-03-31 18:26:42,974 - cron.run - INFO - Starting Cron Daemon.
+2025-03-31 18:27:23,825 - diamond.<module> - INFO - Starting logger.
+2025-03-31 18:27:24,598 - emod.start - INFO - Starting Job Manager.
+2025-03-31 18:27:24,599 - cron.run - INFO - Starting Cron Daemon.
+2025-03-31 18:27:56,083 - diamond.<module> - INFO - Starting logger.
+2025-03-31 18:27:56,878 - emod.start - INFO - Starting Job Manager.
+2025-03-31 18:27:56,879 - cron.run - INFO - Starting Cron Daemon.
+2025-03-31 18:28:59,127 - diamond.<module> - INFO - Starting logger.
+2025-03-31 18:28:59,915 - emod.start - INFO - Starting Job Manager.
+2025-03-31 18:28:59,916 - cron.run - INFO - Starting Cron Daemon.
+2025-03-31 18:33:09,552 - diamond.<module> - INFO - Starting logger.
+2025-03-31 18:33:10,418 - emod.start - INFO - Starting Job Manager.
+2025-03-31 18:33:10,420 - cron.run - INFO - Starting Cron Daemon.
+2025-03-31 18:35:21,339 - diamond.<module> - INFO - Starting logger.
+2025-03-31 18:35:22,133 - emod.start - INFO - Starting Job Manager.
+2025-03-31 18:35:22,134 - cron.run - INFO - Starting Cron Daemon.
+2025-03-31 18:36:06,878 - diamond.<module> - INFO - Starting logger.
+2025-03-31 18:36:07,690 - emod.start - INFO - Starting Job Manager.
+2025-03-31 18:36:07,691 - cron.run - INFO - Starting Cron Daemon.
+2025-03-31 18:38:20,732 - diamond.<module> - INFO - Starting logger.
+2025-03-31 18:38:21,529 - emod.start - INFO - Starting Job Manager.
+2025-03-31 18:38:21,530 - cron.run - INFO - Starting Cron Daemon.
+2025-03-31 18:39:50,775 - diamond.<module> - INFO - Starting logger.
+2025-03-31 18:39:51,560 - emod.start - INFO - Starting Job Manager.
+2025-03-31 18:39:51,562 - cron.run - INFO - Starting Cron Daemon.
+2025-03-31 18:56:38,430 - diamond.<module> - INFO - Starting logger.
+2025-03-31 18:56:39,209 - emod.start - INFO - Starting Job Manager.
+2025-03-31 18:56:39,210 - cron.run - INFO - Starting Cron Daemon.
+2025-03-31 22:22:18,669 - diamond.<module> - INFO - Starting logger.
+2025-03-31 22:22:19,463 - emod.start - INFO - Starting Job Manager.
+2025-03-31 22:22:19,464 - cron.run - INFO - Starting Cron Daemon.
+2025-03-31 22:23:07,066 - diamond.<module> - INFO - Starting logger.
+2025-03-31 22:23:07,839 - emod.start - INFO - Starting Job Manager.
+2025-03-31 22:23:07,841 - cron.run - INFO - Starting Cron Daemon.
+2025-03-31 22:24:28,115 - diamond.<module> - INFO - Starting logger.
+2025-03-31 22:24:28,876 - emod.start - INFO - Starting Job Manager.
+2025-03-31 22:24:28,878 - cron.run - INFO - Starting Cron Daemon.
+2025-03-31 22:26:17,358 - diamond.<module> - INFO - Starting logger.
+2025-03-31 22:26:18,118 - emod.start - INFO - Starting Job Manager.
+2025-03-31 22:26:18,119 - cron.run - INFO - Starting Cron Daemon.
+2025-03-31 22:32:41,388 - diamond.<module> - INFO - Starting logger.
+2025-03-31 22:32:42,158 - emod.start - INFO - Starting Job Manager.
+2025-03-31 22:32:42,160 - cron.run - INFO - Starting Cron Daemon.
+2025-03-31 22:35:44,928 - diamond.<module> - INFO - Starting logger.
+2025-03-31 22:35:45,687 - emod.start - INFO - Starting Job Manager.
+2025-03-31 22:35:45,689 - cron.run - INFO - Starting Cron Daemon.
+2025-03-31 22:38:30,329 - diamond.<module> - INFO - Starting logger.
+2025-03-31 22:38:31,089 - emod.start - INFO - Starting Job Manager.
+2025-03-31 22:38:31,099 - cron.run - INFO - Starting Cron Daemon.
+2025-03-31 22:40:17,172 - diamond.<module> - INFO - Starting logger.
+2025-03-31 22:40:17,931 - emod.start - INFO - Starting Job Manager.
+2025-03-31 22:40:17,931 - cron.run - INFO - Starting Cron Daemon.
+2025-03-31 22:41:33,931 - diamond.<module> - INFO - Starting logger.
+2025-03-31 22:41:34,703 - emod.start - INFO - Starting Job Manager.
+2025-03-31 22:41:34,703 - cron.run - INFO - Starting Cron Daemon.
+2025-03-31 22:54:18,002 - diamond.<module> - INFO - Starting logger.
+2025-03-31 22:54:18,858 - emod.start - INFO - Starting Job Manager.
+2025-03-31 22:54:18,859 - cron.run - INFO - Starting Cron Daemon.
+2025-03-31 23:15:14,195 - diamond.<module> - INFO - Starting logger.
+2025-03-31 23:15:14,961 - emod.start - INFO - Starting Job Manager.
+2025-03-31 23:15:14,963 - cron.run - INFO - Starting Cron Daemon.
+2025-03-31 23:35:16,198 - diamond.<module> - INFO - Starting logger.
+2025-03-31 23:35:17,001 - emod.start - INFO - Starting Job Manager.
+2025-03-31 23:35:17,002 - cron.run - INFO - Starting Cron Daemon.
+2025-03-31 23:36:06,026 - diamond.<module> - INFO - Starting logger.
+2025-03-31 23:36:06,788 - emod.start - INFO - Starting Job Manager.
+2025-03-31 23:36:06,790 - cron.run - INFO - Starting Cron Daemon.
+2025-03-31 23:36:29,850 - diamond.<module> - INFO - Starting logger.
+2025-03-31 23:36:30,637 - emod.start - INFO - Starting Job Manager.
+2025-03-31 23:36:30,638 - cron.run - INFO - Starting Cron Daemon.
+2025-03-31 23:42:56,905 - diamond.<module> - INFO - Starting logger.
+2025-03-31 23:42:57,667 - emod.start - INFO - Starting Job Manager.
+2025-03-31 23:42:57,668 - cron.run - INFO - Starting Cron Daemon.
+2025-03-31 23:43:40,605 - diamond.<module> - INFO - Starting logger.
+2025-03-31 23:43:41,368 - emod.start - INFO - Starting Job Manager.
+2025-03-31 23:43:41,369 - cron.run - INFO - Starting Cron Daemon.
+2025-03-31 23:44:13,258 - diamond.<module> - INFO - Starting logger.
+2025-03-31 23:44:14,025 - emod.start - INFO - Starting Job Manager.
+2025-03-31 23:44:14,027 - cron.run - INFO - Starting Cron Daemon.
+2025-03-31 23:44:41,127 - diamond.<module> - INFO - Starting logger.
+2025-03-31 23:44:41,918 - emod.start - INFO - Starting Job Manager.
+2025-03-31 23:44:41,920 - cron.run - INFO - Starting Cron Daemon.
+2025-03-31 23:45:07,460 - diamond.<module> - INFO - Starting logger.
+2025-03-31 23:45:08,242 - emod.start - INFO - Starting Job Manager.
+2025-03-31 23:45:08,244 - cron.run - INFO - Starting Cron Daemon.
+2025-03-31 23:45:47,166 - diamond.<module> - INFO - Starting logger.
+2025-03-31 23:45:47,927 - emod.start - INFO - Starting Job Manager.
+2025-03-31 23:45:47,928 - cron.run - INFO - Starting Cron Daemon.
+2025-03-31 23:46:05,979 - diamond.<module> - INFO - Starting logger.
+2025-03-31 23:46:06,772 - emod.start - INFO - Starting Job Manager.
+2025-03-31 23:46:06,773 - cron.run - INFO - Starting Cron Daemon.
+2025-03-31 23:49:09,977 - diamond.<module> - INFO - Starting logger.
+2025-03-31 23:49:10,770 - emod.start - INFO - Starting Job Manager.
+2025-03-31 23:49:10,771 - cron.run - INFO - Starting Cron Daemon.
+2025-03-31 23:49:31,356 - diamond.<module> - INFO - Starting logger.
+2025-03-31 23:49:32,136 - emod.start - INFO - Starting Job Manager.
+2025-03-31 23:49:32,137 - cron.run - INFO - Starting Cron Daemon.
+2025-03-31 23:51:00,564 - diamond.<module> - INFO - Starting logger.
+2025-03-31 23:51:01,323 - emod.start - INFO - Starting Job Manager.
+2025-03-31 23:51:01,324 - cron.run - INFO - Starting Cron Daemon.
+2025-03-31 23:51:14,436 - diamond.<module> - INFO - Starting logger.
+2025-03-31 23:51:15,197 - emod.start - INFO - Starting Job Manager.
+2025-03-31 23:51:15,198 - cron.run - INFO - Starting Cron Daemon.
+2025-03-31 23:52:38,188 - diamond.<module> - INFO - Starting logger.
+2025-03-31 23:52:38,945 - emod.start - INFO - Starting Job Manager.
+2025-03-31 23:52:38,946 - cron.run - INFO - Starting Cron Daemon.
+2025-03-31 23:53:52,851 - diamond.<module> - INFO - Starting logger.
+2025-03-31 23:53:53,618 - emod.start - INFO - Starting Job Manager.
+2025-03-31 23:53:53,620 - cron.run - INFO - Starting Cron Daemon.
+2025-03-31 23:54:46,900 - diamond.<module> - INFO - Starting logger.
+2025-03-31 23:54:47,660 - emod.start - INFO - Starting Job Manager.
+2025-03-31 23:54:47,662 - cron.run - INFO - Starting Cron Daemon.
+2025-03-31 23:55:21,089 - diamond.<module> - INFO - Starting logger.
+2025-03-31 23:55:21,843 - emod.start - INFO - Starting Job Manager.
+2025-03-31 23:55:21,845 - cron.run - INFO - Starting Cron Daemon.
+2025-03-31 23:55:55,243 - diamond.<module> - INFO - Starting logger.
+2025-03-31 23:55:56,005 - emod.start - INFO - Starting Job Manager.
+2025-03-31 23:55:56,006 - cron.run - INFO - Starting Cron Daemon.
+2025-03-31 23:57:25,119 - diamond.<module> - INFO - Starting logger.
+2025-03-31 23:57:25,879 - emod.start - INFO - Starting Job Manager.
+2025-03-31 23:57:25,880 - cron.run - INFO - Starting Cron Daemon.
+2025-03-31 23:57:45,490 - diamond.<module> - INFO - Starting logger.
+2025-03-31 23:57:46,253 - emod.start - INFO - Starting Job Manager.
+2025-03-31 23:57:46,254 - cron.run - INFO - Starting Cron Daemon.
+2025-03-31 23:58:43,246 - diamond.<module> - INFO - Starting logger.
+2025-03-31 23:58:44,010 - emod.start - INFO - Starting Job Manager.
+2025-03-31 23:58:44,011 - cron.run - INFO - Starting Cron Daemon.
+2025-04-01 00:01:13,023 - diamond.<module> - INFO - Starting logger.
+2025-04-01 00:01:13,796 - emod.start - INFO - Starting Job Manager.
+2025-04-01 00:01:13,797 - cron.run - INFO - Starting Cron Daemon.
+2025-04-01 00:02:25,023 - diamond.<module> - INFO - Starting logger.
+2025-04-01 00:02:25,849 - emod.start - INFO - Starting Job Manager.
+2025-04-01 00:02:25,850 - cron.run - INFO - Starting Cron Daemon.
+2025-04-01 00:07:40,685 - diamond.<module> - INFO - Starting logger.
+2025-04-01 00:07:41,454 - emod.start - INFO - Starting Job Manager.
+2025-04-01 00:07:41,456 - cron.run - INFO - Starting Cron Daemon.
+2025-04-01 00:08:04,375 - diamond.<module> - INFO - Starting logger.
+2025-04-01 00:08:05,140 - emod.start - INFO - Starting Job Manager.
+2025-04-01 00:08:05,141 - cron.run - INFO - Starting Cron Daemon.
+2025-04-01 00:08:25,430 - diamond.<module> - INFO - Starting logger.
+2025-04-01 00:08:26,201 - emod.start - INFO - Starting Job Manager.
+2025-04-01 00:08:26,202 - cron.run - INFO - Starting Cron Daemon.
+2025-04-01 00:09:13,120 - diamond.<module> - INFO - Starting logger.
+2025-04-01 00:09:13,895 - emod.start - INFO - Starting Job Manager.
+2025-04-01 00:09:13,896 - cron.run - INFO - Starting Cron Daemon.
+2025-04-01 00:09:29,619 - diamond.<module> - INFO - Starting logger.
+2025-04-01 00:09:30,416 - emod.start - INFO - Starting Job Manager.
+2025-04-01 00:09:30,418 - cron.run - INFO - Starting Cron Daemon.
+2025-04-01 00:10:10,844 - diamond.<module> - INFO - Starting logger.
+2025-04-01 00:10:11,635 - emod.start - INFO - Starting Job Manager.
+2025-04-01 00:10:11,636 - cron.run - INFO - Starting Cron Daemon.
+2025-04-01 00:11:25,714 - diamond.<module> - INFO - Starting logger.
+2025-04-01 00:11:26,510 - emod.start - INFO - Starting Job Manager.
+2025-04-01 00:11:26,511 - cron.run - INFO - Starting Cron Daemon.
+2025-04-01 00:11:42,521 - diamond.<module> - INFO - Starting logger.
+2025-04-01 00:11:43,297 - emod.start - INFO - Starting Job Manager.
+2025-04-01 00:11:43,298 - cron.run - INFO - Starting Cron Daemon.
+2025-04-01 00:14:02,435 - diamond.<module> - INFO - Starting logger.
+2025-04-01 00:14:03,200 - emod.start - INFO - Starting Job Manager.
+2025-04-01 00:14:03,201 - cron.run - INFO - Starting Cron Daemon.
+2025-04-01 00:18:12,310 - diamond.<module> - INFO - Starting logger.
+2025-04-01 00:18:13,079 - emod.start - INFO - Starting Job Manager.
+2025-04-01 00:18:13,081 - cron.run - INFO - Starting Cron Daemon.
+2025-04-01 00:19:18,955 - diamond.<module> - INFO - Starting logger.
+2025-04-01 00:19:19,725 - emod.start - INFO - Starting Job Manager.
+2025-04-01 00:19:19,726 - cron.run - INFO - Starting Cron Daemon.
+2025-04-01 00:20:06,189 - diamond.<module> - INFO - Starting logger.
+2025-04-01 00:20:06,952 - emod.start - INFO - Starting Job Manager.
+2025-04-01 00:20:06,953 - cron.run - INFO - Starting Cron Daemon.
+2025-04-01 00:21:01,213 - diamond.<module> - INFO - Starting logger.
+2025-04-01 00:21:01,989 - emod.start - INFO - Starting Job Manager.
+2025-04-01 00:21:01,990 - cron.run - INFO - Starting Cron Daemon.
+2025-04-01 00:23:18,163 - diamond.<module> - INFO - Starting logger.
+2025-04-01 00:23:18,927 - emod.start - INFO - Starting Job Manager.
+2025-04-01 00:23:18,928 - cron.run - INFO - Starting Cron Daemon.
+2025-04-01 00:43:05,903 - diamond.<module> - INFO - Starting logger.
+2025-04-01 00:43:06,727 - emod.start - INFO - Starting Job Manager.
+2025-04-01 00:43:06,729 - cron.run - INFO - Starting Cron Daemon.
+2025-04-01 00:46:44,345 - diamond.<module> - INFO - Starting logger.
+2025-04-01 00:46:45,118 - emod.start - INFO - Starting Job Manager.
+2025-04-01 00:46:45,119 - cron.run - INFO - Starting Cron Daemon.
+2025-04-01 00:47:51,231 - diamond.<module> - INFO - Starting logger.
+2025-04-01 00:47:52,055 - emod.start - INFO - Starting Job Manager.
+2025-04-01 00:47:52,057 - cron.run - INFO - Starting Cron Daemon.
+2025-04-01 00:52:38,635 - diamond.<module> - INFO - Starting logger.
+2025-04-01 00:52:39,415 - emod.start - INFO - Starting Job Manager.
+2025-04-01 00:52:39,416 - cron.run - INFO - Starting Cron Daemon.
+2025-04-01 00:53:30,093 - diamond.<module> - INFO - Starting logger.
+2025-04-01 00:53:30,860 - emod.start - INFO - Starting Job Manager.
+2025-04-01 00:53:30,861 - cron.run - INFO - Starting Cron Daemon.
+2025-04-01 00:55:28,351 - diamond.<module> - INFO - Starting logger.
+2025-04-01 00:55:29,115 - emod.start - INFO - Starting Job Manager.
+2025-04-01 00:55:29,116 - cron.run - INFO - Starting Cron Daemon.

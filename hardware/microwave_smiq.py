@@ -67,7 +67,7 @@ class SMIQ():
     def onStatus(self):
         return float(self._ask(':OUTP?'))
     
-    def setPower(self, power):
+    def setPower(self, power, output=True):
         if power is None or power < self._output_threshold:
             logging.getLogger().debug('SMIQ at '+str(self.visa_address)+' turning off.')
             self._write(':FREQ:MODE CW')
@@ -77,7 +77,7 @@ class SMIQ():
         if self.getPower()!=power:
             self._write(':FREQ:MODE CW')
             self._write(':POW %f' % float(power))
-        if self.onStatus()==0:
+        if self.onStatus()==0 and output:
             self._write(':OUTP ON')
 
     def getFrequency(self):
@@ -89,8 +89,8 @@ class SMIQ():
             self._write(':FREQ %e' % frequency)
 
     def setOutput(self, power, frequency):
-        self.setPower(power)
         self.setFrequency(frequency)
+        self.setPower(power)
 
     def initSweep(self, frequency, power):
         if len(frequency) != len(power):

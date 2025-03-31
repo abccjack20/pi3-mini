@@ -193,7 +193,6 @@ class PhotonTimeTrace( FreeJob, GetSetItemsMixin ):
             averagelength=int(self.RefreshRate/self.SecondsPerPoint)
             self.update_digits_plot(numpy.average(self.C4[-5*averagelength:]))
 
-
     def _update_C5(self):
         self.TraceData.set_data('y5', self.C5)
         #self.TracePlot.request_redraw()
