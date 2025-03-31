@@ -96,7 +96,7 @@ class PulsedFit(HasTraits, GetSetItemsMixin):
     
     integration_width = Range(low=10., high=100.e3, value=200., desc='time window for pulse analysis [ns]', label='integr. width [ns]', mode='text', auto_set=False, enter_set=True)
     position_signal = Range(low= -100., high=100.e3, value=0., desc='position of signal window relative to edge [ns]', label='pos. signal [ns]', mode='text', auto_set=False, enter_set=True)
-    position_normalize = Range(low=-1., high=100.e3, value=2200., desc='position of normalization window relative to edge [ns]', label='pos. norm. [ns]', mode='text', auto_set=False, enter_set=True)
+    position_normalize = Range(low=-1., high=100.e3, value=-1., desc='position of normalization window relative to edge [ns]', label='pos. norm. [ns]', mode='text', auto_set=False, enter_set=True)
     
     def __init__(self):
         super().__init__()
@@ -428,6 +428,7 @@ class RabiFit(PulsedFit):
     measurement = Instance(mp.PulsedTau, factory=mp.Rabi)
     
     fit_result = Tuple()
+    fit_result_diff = Tuple()
     text = Str('')
     
     period = Tuple((0., 0.)) #Property( depends_on='fit_result', label='period' )
@@ -437,20 +438,31 @@ class RabiFit(PulsedFit):
     t_pi = Tuple((0., 0.)) #Property( depends_on='fit_result', label='pi' )
     t_3pi2 = Tuple((0., 0.)) #Property( depends_on='fit_result', label='3pi/2' )
 
+    spin_state_diff = Array(value=np.array((0., 0.)))
+
     perform_fit = Bool(True, label='perform fit')
+    display_options = Instance( list, factory=list, args=(['Normal', 'Differential'],) )
+    current_display_mode = Enum(values='display_options')
 
     def __init__(self):
         super().__init__()
-        self.on_trait_change(self.update_fit, 'spin_state, perform_fit', dispatch='ui')
+        self.on_trait_change(self.update_fit, 'spin_state, perform_fit, current_display_mode', dispatch='ui')
         self.on_trait_change(self.update_plot_tau, 'measurement.tau', dispatch='ui')
         self.on_trait_change(self.update_plot_fit, 'fit_result', dispatch='ui')
 
     def update_fit(self):
         # try to compute new fit from spin_state and tau. If it fails, set result to NaNs
         try:
-            fit_result = fitting.fit_rabi(self.measurement.tau, self.spin_state, self.spin_state_error)
-        except:
+            x = self.measurement.tau
+            y_sd = self.spin_state_error[::2]
+            if self.current_display_mode == 'Differential':
+                y = self.spin_state_diff
+            else:
+                y = self.spin_state[::2]
+            fit_result = fitting.fit_rabi(x, y, y_sd)
+        except Exception as e:
             fit_result = (np.NaN * np.zeros(3), np.NaN * np.zeros((3, 3)), np.NaN, np.NaN)
+            print(e)
 
         p, v, q, chisqr = fit_result
         a, T, c = p
@@ -490,8 +502,9 @@ class RabiFit(PulsedFit):
 
     fit_name_dict = {'cos fit': 'fit'}
     plots = [
-        {'data':('tau', 'spin_state'), 'color':'blue', 'name':'rabi'},
-        {'data':('tau', 'fit'), 'color':'red', 'name':'cos fit'}
+        {'name':'rabi', 'data':('tau', 'spin_state'), 'color':'blue'},
+        {'name':'ref', 'data':('tau', 'ref'), 'color':'green'},
+        {'name':'cos fit', 'data':('tau', 'fit'), 'color':'red'}
     ]
     
     line_data = Instance(
@@ -499,12 +512,22 @@ class RabiFit(PulsedFit):
         kw={
             'tau':np.array((0, 1)),
             'spin_state':np.array((0, 0)),
-            'fit':np.array((0, 0))
+            'ref':np.array((0, 0)),
+            'diff':np.array((0, 0)),
+            'fit':np.array((0, 0)),
+            'fit_diff':np.array((0, 0)),
         }
     )
 
     def update_plot_spin_state(self):
-        self.line_data.set_data('spin_state', self.spin_state)
+        spin_state = self.spin_state
+        # n = int(len(spin_state) / 2)
+        sig = spin_state[::2]
+        ref = spin_state[1::2]
+        self.spin_state_diff = sig - ref
+        self.line_data.set_data('spin_state', sig)
+        self.line_data.set_data('ref', ref)
+        self.line_data.set_data('diff', self.spin_state_diff)
 
     def update_plot_tau(self):
         self.line_data.set_data('tau', self.measurement.tau)
@@ -513,6 +536,20 @@ class RabiFit(PulsedFit):
         if self.fit_result[0][0] is not np.NaN:
             self.line_data.set_data('fit', fitting.Cosinus(*self.fit_result[0])(self.measurement.tau))            
 
+    @on_trait_change('current_display_mode')
+    def update_plots_params(self):
+        if self.current_display_mode == 'Differential':
+            self.plots = [
+                {'name':'diff', 'data':('tau', 'diff'), 'color':'blue'},
+                {'name':'cos fit', 'data':('tau', 'fit'), 'color':'red'}
+            ]
+        else:
+            self.plots = [
+                {'name':'rabi', 'data':('tau', 'spin_state'), 'color':'blue'},
+                {'name':'ref', 'data':('tau', 'ref'), 'color':'green'},
+                {'name':'cos fit', 'data':('tau', 'fit'), 'color':'red'}
+            ]
+
     traits_view = View(
         Tabbed(
             VGroup(
@@ -520,6 +557,7 @@ class RabiFit(PulsedFit):
                     Item('contrast', style='readonly', width= -100, editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_func=lambda x:' %.1f+-%.1f%%' % x)),
                     Item('period', style='readonly', width= -100, editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_func=lambda x:' %.2f+-%.2f' % x)),
                     Item('q', style='readonly', width= -100, editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_func=lambda x:(' %.3f' if x >= 0.001 else ' %.2e') % x)),
+                    Item('current_display_mode', editor= EnumEditor(name='display_options')),
                 ),
                 HGroup(
                     Item('t_pi2', style='readonly', width= -100, editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_func=lambda x:' %.2f+-%.2f' % x)),

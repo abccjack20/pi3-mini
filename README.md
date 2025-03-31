@@ -10,4 +10,4 @@
 	
 # Environment variables
 	$env:pythonpath = 'C:\Program Files\Swabian Instruments\Time Tagger\driver\python'
-	$env:timetagger_install_path = 'C:\Program Files\Swabian Instruments\Time Tagger\'
+	$env:timetagger_install_path = 'C:\Program Files\Swabian Instruments\Time Tagger'

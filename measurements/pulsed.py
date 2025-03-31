@@ -316,8 +316,13 @@ class Rabi(PulsedTau):
             sequence += [
                 ([],wait),
                 ([MW],t),
-                # ([],tau[-1] - t),
+                #([],tau[-1] - t),
                 ([],wait2),
+                (['aom', 'detect'], laser)
+            ]
+            sequence += [
+                ([],wait + t + wait2),
+                #([],tau[-1] - t),
                 (['aom', 'detect'], laser)
             ]
         

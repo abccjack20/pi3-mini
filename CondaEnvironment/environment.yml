@@ -11,9 +11,13 @@ dependencies:
   - pydaqmx
   - pip
   - pip:
+      - matplotlib
       - pyqt5
       - traitsui==8.0.0
       - chaco
       - nidaqmx
       - pyvisa
       - pulsestreamer
+variables:
+  timetagger_install_path: "C:\Program Files\Swabian Instruments\Time Tagger"
+  pythonpath: "C:\Program Files\Swabian Instruments\Time Tagger\driver\python"

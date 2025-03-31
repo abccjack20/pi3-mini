@@ -258,6 +258,7 @@ class pulsetrain_counter:
         self.tagger = tagger            # A Timtagger object providing readout in sync with the NI sweeping.
         self.cbm_task = None
         self.ch_marker = ch_marker
+        
 
     def configure(self, frame_size, SecondsPerPoint, DutyCycle=0.8):
         self.sample_clk.period = SecondsPerPoint
@@ -269,17 +270,17 @@ class pulsetrain_counter:
             the first frequency in the list will correspond exactly to the first acquired count.
         '''
         self.sample_clk.samps_per_chan = frame_size
+        self.frame_size = frame_size
         self.sample_clk.duty_cycle = DutyCycle
         self.sample_clk.update_task()
         self.cbm_task = self.tagger.Count_Between_Markers(frame_size, self.ch_marker)
 
     def run(self, timeout=None):
-        frame_size = self.sample_clk.samps_per_chan
         period = self.sample_clk.period
 
         if not timeout:
-            time_per_line = period*frame_size
-            timeout = max(time_per_line*1.5, 4)
+            time_per_line = period*self.frame_size
+            timeout = max(self.sample_clk.laser_init + time_per_line*1.5, 4)
 
         if not self.cbm_task:
             print('TimeTagger task has not been created!')
@@ -327,7 +328,9 @@ class pulsetrain_counter_diff(pulsetrain_counter):
         self.sample_clk.duty_cycle = DutyCycle
         self.sample_clk.mode = mode
         self.sample_clk.update_task()
-        self.cbm_task = self.tagger.Count_Between_Markers(frame_size*2, self.ch_marker)
+        N = self.sample_clk.N_per_samp*2
+        self.cbm_task = self.tagger.Count_Between_Markers(frame_size*N, self.ch_marker)
+        self.frame_size = frame_size
 
     def get_cbm_data(self):
         bin_width = self.cbm_task.getBinWidths()*1.e-12
@@ -336,11 +339,15 @@ class pulsetrain_counter_diff(pulsetrain_counter):
 
         n_samps = self.sample_clk.samps_per_chan
         n_per_samp = self.sample_clk.N_per_samp
-        shape = tuple((n_samps, n_per_samp))
-        sig = data[::2].reshape(shape)/bin_width[::2].reshape(shape)
-        ref = data[1::2].reshape(shape)/bin_width[1::2].reshape(shape)
-        
-        sig = sig.mean(axis=1)
-        ref = ref.mean(axis=1)
+        # shape = tuple((n_samps, n_per_samp))
+        # sig = data[::2].reshape(shape)/bin_width[::2].reshape(shape)
+        # ref = data[1::2].reshape(shape)/bin_width[1::2].reshape(shape)
+        shape = tuple((n_samps, n_per_samp*2))
+        data = data.reshape(shape)
+        bin_width = bin_width.reshape(shape)
+        sig = data[:,:n_per_samp]/bin_width[:,:n_per_samp]
+        ref = data[:,n_per_samp:]/bin_width[:,n_per_samp:]
+        sig = sig.mean(axis=1) + 1.e-9
+        ref = ref.mean(axis=1) + 1.e-9
         
         return 100. + 100.*(sig - ref)/ref

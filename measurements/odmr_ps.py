@@ -60,18 +60,22 @@ class ODMR(ManagedJob, GetSetItemsMixin):
     resubmit_button = Button(label='resubmit', desc='Submits the measurement to the job manager. Tries to keep previously acquired data. Behaves like a normal submit if sequence or time bins have changed since previous run.')    
     
     # measurement parameters
-    power = Range(low= -100., high=15., value= -30.0, desc='Power [dBm]', label='Power [dBm]', mode='text', auto_set=False, enter_set=True)
+    power = Range(low= -100., high=30., value= -30.0, desc='Power [dBm]', label='Power [dBm]', mode='text', auto_set=False, enter_set=True)
     frequency_begin = Range(low=1, high=6.4e9, value=2.8e9, desc='Start Frequency [Hz]', label='Begin [Hz]', editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_str='%e'))
     frequency_end = Range(low=1, high=6.4e9, value=2.94e9, desc='Stop Frequency [Hz]', label='End [Hz]', editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_str='%e'))
     frequency_delta = Range(low=1e-3, high=6.4e9, value=1.0e+6, desc='frequency step [Hz]', label='Delta [Hz]', editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_str='%e'))
-    t_pi = Range(low=1., high=100000., value=1700., desc='length of pi pulse [ns]', label='pi [ns]', mode='text', auto_set=False, enter_set=True)
-    laser = Range(low=1., high=100.e3, value=300., desc='laser [ns]', label='laser [ns]', mode='text', auto_set=False, enter_set=True)
+    
+    T_pi = Range(low=1., high=100000., value=1700., desc='length of pi pulse [ns]', label='pi [ns]', mode='text', auto_set=False, enter_set=True)
+    T_init = Range(low=1., high=1.e6, value=20.e3, desc='laser init time [ns]', label='laser init time [ns]', mode='text', auto_set=False, enter_set=True)
+    T_readout = Range(low=1., high=1.e6, value=20.e3, desc='laser readout time [ns]', label='laser readout time [ns]', mode='text', auto_set=False, enter_set=True)
     wait = Range(low=1., high=100.e3, value=1000., desc='wait [ns]', label='wait [ns]', mode='text', auto_set=False, enter_set=True)
+    
     pulsed = Bool(True, label='pulsed')
     power_p = Range(low= -100., high=20., value= -28.0, desc='Power Pmode [dBm]', label='Power Pmode[dBm]', mode='text', auto_set=False, enter_set=True)
     frequency_begin_p = Range(low=1, high=6.4e9, value=1.55e9, desc='Start Frequency Pmode[Hz]', label='Begin Pmode[Hz]', editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_str='%e'))
     frequency_end_p = Range(low=1, high=6.4e9, value=1.555e9, desc='Stop Frequency Pmode[Hz]', label='End Pmode[Hz]', editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_str='%e'))
     frequency_delta_p = Range(low=1e-3, high=6.4e9, value=1.0e5, desc='frequency step Pmode[Hz]', label='Delta Pmode[Hz]', editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_str='%e'))
+    
     seconds_per_point = Range(low=3e-3, high=1, value=20e-3, desc='Seconds per point', label='Seconds per point', mode='text', auto_set=False, enter_set=True)
     stop_time = Range(low=1., value=np.inf, desc='Time after which the experiment stops by itself [s]', label='Stop time [s]', mode='text', auto_set=False, enter_set=True)
     n_lines = Range (low=1, high=10000, value=50, desc='Number of lines in Matrix', label='Matrix lines', mode='text', auto_set=False, enter_set=True)
@@ -130,6 +134,10 @@ class ODMR(ManagedJob, GetSetItemsMixin):
         """Apply the current parameters and decide whether to keep previous data."""
         if self.pulsed:
             frequency = np.arange(self.frequency_begin_p, self.frequency_end_p + self.frequency_delta_p, self.frequency_delta_p)
+            ha.Counter().sample_clk.T_init = self.T_init*1.e-9
+            ha.Counter().sample_clk.T_readout = self.T_readout*1.e-9
+            ha.Counter().sample_clk.T_pi = self.T_pi*1.e-9
+            ha.Counter().sample_clk.wait = self.wait*1.e-9
         else:
             frequency = np.arange(self.frequency_begin, self.frequency_end + self.frequency_delta, self.frequency_delta)
 
@@ -361,11 +369,12 @@ class ODMR(ManagedJob, GetSetItemsMixin):
                                             Item('frequency_begin_p', width= -80, enabled_when='state != "run"'),
                                             Item('frequency_end_p', width= -80, enabled_when='state != "run"'),
                                             Item('frequency_delta_p', width= -80, enabled_when='state != "run"'),
-                                            Item('t_pi', width= -50, enabled_when='state != "run"'),
                                             spring
                                             ),
                                      HGroup(Item('seconds_per_point', width= -40, enabled_when='state != "run"'),
-                                            Item('laser', width= -50, enabled_when='state != "run"'),
+                                            Item('T_init', width= -50, enabled_when='state != "run"'),
+                                            Item('T_readout', width= -50, enabled_when='state != "run"'),
+                                            Item('T_pi', width= -50, enabled_when='state != "run"'),
                                             Item('wait', width= -50, enabled_when='state != "run"'),
                                             spring
                                             ),
@@ -411,7 +420,7 @@ class ODMR(ManagedJob, GetSetItemsMixin):
                      'perform_fit', 'run_time',
                      'power', 'frequency_begin', 'frequency_end', 'frequency_delta',
                      'power_p', 'frequency_begin_p', 'frequency_end_p', 'frequency_delta_p',
-                     'laser', 'wait', 'pulsed', 't_pi',
+                     'T_init', 'T_readout', 'wait', 'pulsed', 'T_pi',
                      'seconds_per_point', 'stop_time', 'n_lines', 'n_sweep',
                      'number_of_resonances', 'threshold',
                      '__doc__']

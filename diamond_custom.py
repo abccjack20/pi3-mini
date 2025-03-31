@@ -47,9 +47,10 @@ if __name__ == '__main__':
     pa = PulsedAnalyzer()
     pa.edit_traits()
 
-    from hardware.awg5000_test import AWG5014, AWGManager
+    from hardware.awg5000 import AWG5014, AWGManager
     awg_control = AWGManager(
         gpib='GPIB0::1::INSTR',
         ftp='169.254.103.111',
         socket=('169.254.103.111',4001),
     )
+    awg_control.edit_traits()

@@ -68,7 +68,9 @@ def fit(x, y, model, estimator):
 	'Estimator' can either be an N-tuple containing a starting guess of the fit parameters, or a callable that returns a respective N-tuple for given x and y."""
 	if callable(estimator):
 		#return scipy.optimize.leastsq(lambda pp: model(*pp)(x) - y, estimator(x,y), warning=False)[0]
+		print('d','callable')
 		p = scipy.optimize.leastsq(lambda pp: model(*pp)(x) - y, estimator(x,y))[0]
+		print('e')
 		return p
 	else:
 		#return scipy.optimize.leastsq(lambda pp: model(*pp)(x) - y, estimator, warning=False)[0]
@@ -595,11 +597,10 @@ def fit_rabi(x, y, s):
 def fit_rabi(x, y, s):
 	y_offset=y.mean()
 	yp = y - y_offset
-
 	p = fit(x, yp, CosinusNoOffset, CosinusNoOffsetEstimator)
 	if p[0] < 0:
 		p[0] = -p[0]
-		p[2] =	( ( p[2]/p[1] + 0.5 ) % 1 ) * p[1]
+		#p[2] =	( ( p[2]/p[1] + 0.5 ) % 1 ) * p[1]
 		#p = fit(x, yp, CosinusNoOffset, p)
 	p = (p[0], p[1], y_offset)
 	return nonlinear_model(x, y, s, Cosinus, p)

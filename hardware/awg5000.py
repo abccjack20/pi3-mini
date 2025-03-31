@@ -7,14 +7,16 @@ from ftplib import FTP, error_temp
 #from waveform import *
 
 # UI
-from traits.api import HasTraits, Range, Float, Bool, Int, Str, Enum, Button, Property, Instance, on_trait_change
-from traitsui.api import View, VGroup, HGroup, Item, TextEditor, EnumEditor
+from traits.api import HasTraits, Array, Range, Float, Bool, Int, Str, Enum, Button, Property, Instance, on_trait_change
+from traitsui.api import View, Tabbed, VGroup, HGroup, Item, UItem
+from traitsui.ui_editors.array_view_editor import ArrayViewEditor
+from traitsui.api import EnumEditor, TabularEditor, TabularAdapter
 
 
-# TODO: File-transfer via GPIB as emergency
+from copy import deepcopy
 
 class AWG5014( object ):
-    """Controller for the Tektronix AWG520 device.
+    """Controller for the Tektronix AWG5014 device.
     
     SCPI commands are issued via gpib.
     See device manual for command documentation.
@@ -33,14 +35,13 @@ class AWG5014( object ):
         self.ftp_addr = ftp
         self.ftp_user = 'user'
         self.ftp_pw = 'pass'
-        #self.ftp_cwd = '/main/waves'
         self.ftp_cwd = '/'
-        #self.ftp_manager = FTPManager(self)
+        self.ftp_manager = FTPManager(self)
         self.todo = -1
         self.done = -1
         # setup gpib connection
         self.gpib_addr = gpib
-
+        
         self.rm = visa.ResourceManager()
         self.gpib = self.rm.open_resource(self.gpib_addr)
         self.gpib.timeout = 3000
@@ -81,7 +82,7 @@ class AWG5014( object ):
         except visa.VisaIOError as e:
             res = ''
             raise e
-        return res
+        return res.strip('\n')
     
     def run(self):
         self.tell('AWGC:RUN')
@@ -124,12 +125,19 @@ class AWG5014( object ):
                   }
         self.tell('AWGC:RMOD %s' % look_up[mode.upper()])
     
+    def get_mode(self):
+        return self.ask('AWGC:RMOD?')
+
     def set_sampling(self, frequency):
         """ Set the output sampling rate.
         
         """
         frequency *= 1e-9
         self.tell('SOUR:FREQ %.4GGHz' % frequency)
+
+    def get_sampling(self):
+        f = self.ask('SOUR:FREQ?')
+        return float(f)
     
     def set_vpp(self, voltage, channel=0b11):
         """ Set output peak-to-peak voltage of specified channel.
@@ -142,7 +150,6 @@ class AWG5014( object ):
     
     def load(self, filename, channel=1, cwd='\waves', block=False):
         """Load sequence or waveform file into RAM, preparing it for output.
-        
         Waveforms and single channel sequences can be assigned to each or both
         channels. Double channel sequences must be assigned to channel 1.
         The AWG's file system is case-sensitive.
@@ -172,7 +179,6 @@ class AWG5014( object ):
         """ Reset the AWG settings. """
         self.tell('*RST')
         
-
 class FTPThread(Thread):
     """ Thread, which opens a new FTP connection.
     """
@@ -196,8 +202,11 @@ class FTPThread(Thread):
     def run(self):
         try:
             self.setup_ftp()
+            #print('after setup_ftp')
             self.task()
+            #print('after task')
             self.ftp.close()
+            #print('after ftp.close')
             self.file.state = 'finished'
         except Exception as e:
             try:
@@ -211,7 +220,6 @@ class FTPThread(Thread):
             
     def task(self): pass
 
-
 class UploadThread(FTPThread):
     
     def __init__(self, awg, file):
@@ -220,11 +228,19 @@ class UploadThread(FTPThread):
     
     def task(self):
         self.file.seek(0)
-        self.ftp.storbinary('STOR ' + self.file.name, self.file)
-
+        try:
+            self.ftp.storbinary('STOR ' + self.file.fname, self.file)
+            print('Success!', type(self.file))
+        except Exception as error:
+            print('Error occur', type(self.file))
+            print(repr(error))
 
 class DeleteAllThread(FTPThread):
     
+    def __init__(self, awg):
+        super().__init__(awg)
+        print(self.file)
+
     def task(self):
         filelist = self.ftp.nlst()
         try:
@@ -237,12 +253,11 @@ class DeleteAllThread(FTPThread):
             self.awg.tell('MMEM:DEL "%s"' % file)
             #self.ftp.delete(file)
         time.sleep(0.5)
-
-      
+            
 class FTPManager(Thread):
-    """ This Thread will prevent/workaround 421 session limit.
-        
-        It is only able to do to tasks, uploading files and deleting all files.
+    """
+    This Thread will prevent/workaround 421 session limit.
+    It is only able to do to tasks, uploading files and deleting all files.
     """
     
     def __init__(self, awg):
@@ -256,9 +271,9 @@ class FTPManager(Thread):
         self.pause_set = False
         self.paused = False
         self.load_file = None
-        super().__init__()
+        super(FTPManager, self).__init__()
         self.daemon = True
-        #self.start()
+        self.start()
         
     def upload(self, file):
         ut = UploadThread(self.awg, file)
@@ -269,10 +284,11 @@ class FTPManager(Thread):
         self.threads.append(dt)
         
     def load(self, filename, channel=1, cwd='\waves'):
-        self.load_file = { 'filename': filename,
-                           'channel' : channel,
-                           'cwd'     : cwd
-                         }
+        self.load_file = {
+            'filename': filename,
+            'channel' : channel,
+            'cwd'     : cwd,
+        }
         
     def reset(self):
         self.pause_set = True
@@ -291,8 +307,8 @@ class FTPManager(Thread):
     def run(self):
         # Event loop 
         while True:
-            time.sleep(0.1)
             # check list of threads repeatedly
+            time.sleep(0.1)
             for thr in self.threads:
                 if self.abort: return
                 # ignore running threads
@@ -335,7 +351,7 @@ class FTPManager(Thread):
                             self.upload(thr.file)
                             self.threads.remove(thr)
                 # stop threads if abort is set
-                time.sleep(0.1)
+                time.sleep(0.001)
             # check if there is something to load into RAM
             
             if len(self.threads) == 0 and self.awg.done != -1 and self.load_file is not None:
@@ -347,34 +363,223 @@ class FTPManager(Thread):
                 while self.pause_set:
                     time.sleep(0.1)
                 self.paused = False
-      
+                
 
-class AWGHasTraits( HasTraits, AWG5014 ):
+def getFile(s):
+    s_split = s.split(',')
+    fname = s_split[0]
+    # s_split[1] is DIR or empty, hence s_split[2]
+    if s_split[1] == 'DIR':
+        ftype = 'Directory'
+    elif s_split[1] == '':
+        ftype = 'File'
+    else:
+        ftype = 'Unknown'
+    fsize = s_split[2]
+
+    if fname == '':
+        fname = '-'
+    if fsize == '':
+        fsize = '-'
+
+    return fname, ftype, fsize
+
+# When there are many files, deleting or query can both be quite time-consuming
+# It deserves a separate thread
+class CatThread(Thread):
+
+    def __init__(self,awg):
+        self.awg = awg
+        super(CatThread, self).__init__()
+
+    def run(self):
+        self.awg.cat_thread_state = 'Loading...'
+        raw = self.awg.ask('MMEM:CAT?')
+        self.awg.decode_flist(raw)
+        self.awg.cat_empty = False
+        self.awg.cat_thread_state = 'Idle'
+
+
+class DeleteByRangeThread(Thread):
+
+    def __init__(self,awg,head,tail):
+        self.awg = awg
+        self.head = head
+        self.tail = tail
+        super(DeleteByRangeThread, self).__init__()
+
+    def run(self):
+        self.awg.del_byRange_thread_state = 'Loading...'
+        self.awg.delete_range(self.head,self.tail)
+        self.awg.del_byRange_thread_state = 'Idle'
+
+
+def format_bytes(size):
+    # 2**10 = 1024
+    power = 2**10
+    n = 0
+    power_labels = {0 : '', 1: 'k', 2: 'M', 3: 'G', 4: 'T'}
+    while size > power:
+        size /= power
+        n += 1
+    return '%d %s' % (size, power_labels[n]+'B')
+
+
+class ArrayAdapter(TabularAdapter):
+
+    columns = [('Index', 'index'), ('File name', 0), ('Type', 1), ('File size', 2)]
+
+    font = 'Default 10'
+    alignment = 'center'
+
+    index_text = Property()
+
+    def _get_index_text(self):
+        return str(self.row)
+    
+
+class AWGManager( HasTraits, AWG5014 ):
     
     todo         = Int()
     done         = Int()
     progress     = Property(trait=Float, depends_on=['todo', 'done'],  format_str='%.1f')
     abort_button = Button(label='abort upload')
+    recent_upload = Str('', label='Wave', desc='last set waveform or sequence')
     
-    en1  = Bool(False, label='CH 1', desc='enable CH1')
-    en2  = Bool(False, label='CH 2', desc='enable CH2')
-    
-    current_wave = Str('', label='Wave', desc='last set waveform or sequence')
-    
-    mode = Enum(['ENH', 'CONT', 'TRIG', 'GATE'], desc='select run mode', editor=EnumEditor(values=['CONT', 'TRIG', 'GATE', 'ENH'], cols=4, format_str='%s'))
-    
+    # OUTP
+    outp_table = {
+        '1':True, 'On':True,
+        '0':False, 'Off':False,
+    }
+    outp1  = Bool(False, label='CH 1', desc='enable CH1')
+    outp2  = Bool(False, label='CH 2', desc='enable CH2')
+    outp_sbutton = Button(label='Set')
+    outp_qbutton = Button(label='Query')
+
+    # AWGC:RMOD
+    rmod_table = {
+        'CONT':'Continuous',
+        'TRIG':'Triggered',
+        'GATE':'Gated',
+        'SEQ':'Sequence',
+    }
+    rmod = Enum(['SEQ', 'CONT', 'TRIG', 'GATE'],
+        label='Options',
+        desc='the run mode of AWG',
+        editor=EnumEditor(
+            values=rmod_table,
+            format_str='%s mode'
+        )
+    )
+    rmod_sbutton = Button(label='Set')
+    rmod_qbutton = Button(label='Query')
+    rmod_query = Str('', label='Result')
+
+    # AWGC:RUN
     run_button  = Button(label='Run', desc='Run')
+    # AWGC:STOP
     stop_button = Button(label='Stop', desc='Stop')
-    trig_button = Button(label='Trigger', desc='Trigger')
-    
-    def __init__(self, gpib='GPIB0::1::INSTR',
-                        ftp='192.168.1.6',
-                        socket=('192.168.1.6',4000),
-                       **kwargs
-                ):
-        AWG520.__init__(self, gpib, ftp, socket)
+
+    # *TRG or TRIG[:SEQ][:IMM]
+    trig_button = Button(label='Force Trigger', desc='Force Trigger')
+
+    # TRIG:LEV
+    lev = Range(
+        value=1.0, low=-5.0, high=5.0, label='Level [V]', desc='Trigger Level',
+        mode='text', auto_set=False, enter_set=True
+    )
+    lev_sbutton = Button(label='Set')
+    lev_qbutton = Button(label='Query')
+
+    # TRIG:SLOP
+    slop_table = {
+        'POS':'Positive',
+        'NEG':'Negative',
+    }
+    slop = Enum(['NEG','POS'],
+        label='Set',
+        desc='the trigger mode',
+        editor=EnumEditor(
+            values=slop_table,
+            format_str='%s'
+        )
+    )
+    slop_sbutton = Button(label='Set')
+    slop_qbutton = Button(label='Query')
+    #slop_query = Str('', label='Result')
+
+    # MMEM:CDIR
+    cdir = Str('', label='Directory Name')
+    cdir_sbutton = Button(label='Set')
+    cdir_qbutton = Button(label='Query')
+
+    mdir = Str('', label='Directory Name')
+    mdir_sbutton = Button(label='Make')
+
+    del_byName = Str('', label='By Name')
+    del_byName_sbutton = Button(label='Delete')
+
+    del_byRange = Str(
+        value='', label='By Range',
+        desc='e.g. input 0:7 to delete the 0th - 7th files'
+    )
+    del_byRange_sbutton = Button(label='Delete')
+    del_byRange_thread_state = Str('Idle')
+
+    # MMEM:CAT
+    #cat_list = List(Instance(AWGFile))
+    cat_file_2dlist = Array()
+    cat_capacity = Str('0 B', label='Total memory capacity')
+    cat_available = Str('0 B', label='Available memory')
+    cat_thread_state = Str('Idle')
+    cat_qbutton = Button(label='Query')
+
+    # SOUR
+
+    # SOUR<x>:FUNC:USER
+    func1 = Str('', label='CH1')
+    func2 = Str('', label='CH2')
+    func_qbutton = Button(label='Query')
+    func_sbutton = Button(label='Set')
+
+    # SOUR<x>:VOLT:LEV
+    volt_lev1 = Range(
+        value=2.0, low=0.02, high=2.0, label='CH1 [V]', desc='Voltage Level',
+        mode='text', auto_set=False, enter_set=True
+    )
+    volt_lev2 = Range(
+        value=2.0, low=0.02, high=2.0, label='CH2 [V]', desc='Voltage Level',
+        mode='text', auto_set=False, enter_set=True
+    )
+    volt_lev_qbutton = Button(label='Query')
+    volt_lev_sbutton = Button(label='Set')
+
+    # SOUR<x>:VOLT:AMPL
+    volt_ampl1 = Range(
+        value=1.0, low=0.0, high=1.0, label='CH1', desc='Voltage Level',
+        mode='text', auto_set=False, enter_set=True
+    )
+    volt_ampl2 = Range(
+        value=1.0, low=0.0, high=1.0, label='CH2', desc='Voltage Level',
+        mode='text', auto_set=False, enter_set=True
+    )
+    volt_ampl_qbutton = Button(label='Query')
+    volt_ampl_sbutton = Button(label='Set')
+
+
+    def __init__(self,
+        gpib='GPIB0::1::INSTR',
+        ftp='192.168.1.6',
+        socket=('192.168.1.6',4000),
+        **kwargs
+    ):
+        AWG5014.__init__(self, gpib, ftp, socket)
         HasTraits.__init__(self, **kwargs)
-    
+        self._outp_qbutton_fired()
+        self.cat_empty = True
+
+    ##### FTP #####
+
     def sync_upload_trait(self, client, trait_name):
         self.sync_trait('progress', client, trait_name, mutual=False)
     
@@ -383,57 +588,344 @@ class AWGHasTraits( HasTraits, AWG5014 ):
         
     def _abort_button_fired(self):
         self.ftp_manager.reset()
-        
+
+    ##### AWGC #####
+
     def _run_button_fired(self):
         self.run()
         
     def _stop_button_fired(self):
         self.stop()
-        
+    
+    def _rmod_sbutton_fired(self):
+        self.set_mode(self.rmod)
+
+    def _rmod_qbutton_fired(self):
+        result = self.ask('AWGC:RMOD?')
+        self.rmod = result
+
+
+    ##### TRIG #####
+
     def _trig_button_fired(self):
         self.force_trigger()
-        
-    @on_trait_change('en1', 'en2')
-    def change_output(self):
-        self.set_output((self.en2 << 1) + self.en1)
-        
-    @on_trait_change('mode')
-    def change_mode(self):
-        self.set_mode(self.mode)
     
-    #override
+    def _lev_sbutton_fired(self):
+        self.tell('TRIG:LEV %f' % self.lev)
+
+    def _lev_qbutton_fired(self):
+        self.lev = float(self.ask('TRIG:LEV?'))
+
+    def _slop_sbutton_fired(self):
+        self.set('TRIG:SLOP %s' % self.slop)
+
+    def _slop_qbutton_fired(self):
+        result = self.ask('TRIG:SLOP?')
+        self.slop = result
+
+    ##### OUTP #####
+
+    def _outp_qbutton_fired(self):
+        result1 = self.ask('OUTP1:STAT?')
+        result2 = self.ask('OUTP2:STAT?')
+        self.outp1 = self.outp_table[result1]
+        self.outp2 = self.outp_table[result2]
+        
+    def _outp_sbutton_fired(self):
+        if self.outp1:
+            self.tell('OUTP1 1')
+        if self.outp2:
+            self.tell('OUTP2 1')
+
+    ##### SOUR #####
+
+    def _func_qbutton_fired(self):
+        result1 = self.ask('SOUR1:FUNC:USER?')
+        result2 = self.ask('SOUR2:FUNC:USER?')
+        s1 = result1.split('","')[0]
+        s2 = result2.split('","')[0]
+        self.func1 = s1.replace('"','').replace('\\','')
+        self.func2 = s2.replace('"','').replace('\\','')
+
+    def _func_sbutton_fired(self):
+        self.tell('SOUR1:FUNC:USER "%s"' % self.func1)
+        self.tell('SOUR2:FUNC:USER "%s"' % self.func2)
+
+    def _volt_lev_qbutton_fired(self):
+        result1 = self.ask('SOUR1:VOLT:LEV?')
+        result2 = self.ask('SOUR2:VOLT:LEV?')
+        self.volt_lev1 = float(result1)
+        self.volt_lev2 = float(result2)
+
+    def _volt_lev_sbutton_fired(self):
+        self.tell('SOUR1:VOLT:LEV % ' % self.func1)
+        self.tell('SOUR2:VOLT:LEV % ' % self.func2)
+    
+    def _volt_ampl_qbutton_fired(self):
+        result1 = self.ask('SOUR1:VOLT:AMPL?')
+        result2 = self.ask('SOUR2:VOLT:AMPL?')
+        self.volt_ampl1 = float(result1)
+        self.volt_ampl2 = float(result2)
+
+    def _volt_ampl_sbutton_fired(self):
+        self.tell('SOUR1:VOLT:AMPL % ' % self.volt_ampl1)
+        self.tell('SOUR2:VOLT:AMPL % ' % self.volt_ampl2)
+
+    ##### MMEM #####
+
     def load(self, filename, channel=1, cwd='\waves', block=False):
-        self.current_wave = filename
-        super().load(filename, channel, cwd, block)
+        self.recent_upload = filename
+        super(AWGManager, self).load(filename, channel, cwd, block)
     
+    def _cdir_sbutton_fired(self):
+        try:
+            self.tell('MMEM:CDIR "%s"' % self.cdir)
+        except:
+            print('Failed to change directory to %s' % self.cdir)
+
+    def _cdir_qbutton_fired(self):
+        result = self.ask('MMEM:CDIR?')
+        self.cdir = result.replace('"','')
+
+    def _cat_qbutton_fired(self):
+        cat_thread = CatThread(self)
+        cat_thread.start()
+
+    def _cat_file_2dlist_default(self):
+        return [['-','-','-']]
+
+    def decode_flist(self, raw_str):
+        str_list = raw_str.split('","')
+        fname_list = []
+        ftype_list = []
+        fsize_list = []
+
+        # The first entry is expected to be:
+        # [Total capacity],[available],"[Fname1],[DIR or empty],[Fsize1]
+        
+        # Split by " at the center
+        s0 = str_list[0].split('"')
+
+        s00_split = s0[0].split(',')
+        capacity = int(s00_split[0])
+        available = int(s00_split[1])
+        
+        self.cat_capacity = format_bytes(capacity)
+        self.cat_available = format_bytes(available)
+        if len(s0) <= 1:
+            self.cat_file_2dlist = [['-', '-', 0]]
+            return
+        s01 = s0[1]
+        fn, ft, fs = getFile(s01)
+        fname_list.append(fn)
+        ftype_list.append(ft)
+        fsize_list.append(format_bytes(int(fs)))
+
+        # This for-loop only run if there are >= 3 files 
+        for s_raw in str_list[1:-1]:
+            fn, ft, fs = getFile(s_raw)
+            fname_list.append(fn)
+            ftype_list.append(ft)
+            fsize_list.append(format_bytes(int(fs)))
+        
+        if len(str_list) > 1:
+            s_las = str_list[-1].replace('"','')
+            fn, ft, fs = getFile(s_las)
+            fname_list.append(fn)
+            ftype_list.append(ft)
+            fsize_list.append(format_bytes(int(fs)))
+
+        self.cat_file_2dlist = np.array([fname_list,ftype_list,fsize_list]).T
+
+    def _mdir_sbutton_fired(self):
+        self.tell('MMEM:MDIR "%s"' % self.mdir)
+    
+    def _del_byName_sbutton_fired(self):
+        self.tell('MMEM:DEL "%s"' % self.del_byName)
+
+    def _del_byRange_sbutton_fired(self):
+        proceed = True # Decide whether to delete files
+
+        if self.cat_empty is False:
+            head,tail = self.del_byRange.split(':')
+            if head.replace(' ','') == '':
+                head = 0
+            else:
+                try:
+                    head = int(head)
+                except:
+                    proceed = False
+                    print(head, 'is not an integer')
+            if tail.replace(' ','') == '':
+                tail = len(self.cat_file_2dlist)
+            else:
+                try:
+                    tail = int(tail)
+                except:
+                    proceed = False
+                    print(tail, 'is not an integer')
+        else:
+            proceed = False
+            print('Please read the list of files for once')
+        
+        if proceed:
+            del_thread = DeleteByRangeThread(self,head,tail)
+            del_thread.start()
+
+
+    def delete_range(self,head,tail):  
+        for row in self.cat_file_2dlist[head:tail]:
+            fname = row[0]
+            self.tell('MMEM:DEL "%s"' % fname)
+
+    # cat_array_editor = ArrayViewEditor(
+    #     titles = ['File name', 'Type', 'File size'],
+    #     show_index = True,
+    # )
+
+    cat_array_editor = TabularEditor(
+        adapter=ArrayAdapter(),
+        # auto_resize=True,
+        editable=False,
+        operations=[],
+        drag_move=False,
+    )
+
     view = View(
-        VGroup(
-            HGroup(
-                Item('progress', width=40, style='readonly', format_str='%.1f'),
-                Item('todo', width=40, style='readonly'),
-                Item('abort_button', show_label=False),
-                label='FTP',
-                show_border=True,
+        Tabbed(
+            VGroup(
+                HGroup(
+                    Item('progress', width=40, style='readonly', format_str='%.1f'),
+                    Item('todo', width=40, style='readonly'),
+                    UItem('abort_button'),
+                    Item('recent_upload', style='readonly'),
+                    label='FTP Information',
+                    show_border=True,
+                ),
+                HGroup(
+                    Item('outp1'),
+                    Item('outp2'),
+                    UItem('outp_sbutton'),
+                    UItem('outp_qbutton'),
+                    label='Output (OUTP)',
+                    show_border=True,
+                ),
+                HGroup(
+                    HGroup(
+                        UItem('run_button'),
+                        UItem('stop_button'),
+                    ),
+                    HGroup(
+                        Item('rmod', width=-120),
+                        UItem('rmod_sbutton'),
+                        UItem('rmod_qbutton'),
+                        label='Run mode (RMOD)',
+                        show_border=True,
+                    ),
+                    label='AWG Control (AWGC)',
+                    show_border=True,
+                ),
+                VGroup(
+                    HGroup(
+                        Item('trig_button', show_label=False),
+                        HGroup(
+                            Item('lev', width=-40),
+                            UItem('lev_sbutton'),
+                            UItem('lev_qbutton'),
+                            label='Level (LEV)',
+                            show_border=True,
+                        ),                        
+                    ),
+                    HGroup(
+                        Item('slop', width=-80),
+                        UItem('slop_sbutton'),
+                        UItem('slop_qbutton'),
+                        label='Slope (SLOP)',
+                        show_border=True,
+                    ),
+                    label='Trigger (TRIG)',
+                    show_border=True,
+                ),
+                VGroup(
+                    HGroup(
+                        Item('func1', width=-140),
+                        Item('func2', width=-140),
+                        UItem('func_sbutton'),
+                        UItem('func_qbutton'),
+                        label='Loaded sequence (FUNC:USER)',
+                        show_border=True,
+                    ),
+                    HGroup(
+                        Item('volt_lev1', width=-40),
+                        Item('volt_lev2', width=-40),
+                        UItem('volt_lev_sbutton'),
+                        UItem('volt_lev_qbutton'),
+                        label='Voltage level (VOLT:LEV)',
+                        show_border=True,
+                    ),
+                    HGroup(
+                        Item('volt_ampl1', width=-40),
+                        Item('volt_ampl2', width=-40),
+                        UItem('volt_ampl_sbutton'),
+                        UItem('volt_ampl_qbutton'),
+                        label='Amplitude (VOLT:AMPL)',
+                        show_border=True,
+                    ),
+                    label='Source (SOUR)',
+                    show_border=True,
+                ),
+                label='Control'
             ),
             VGroup(
                 HGroup(
-                    Item('en1'),
-                    Item('en2'),
-                    Item('run_button', show_label=False),
-                    Item('stop_button', show_label=False),
-                    Item('trig_button', show_label=False),
+                    Item('cdir', width=-200),
+                    UItem('cdir_sbutton'),
+                    UItem('cdir_qbutton'),
+                    label='Current Directory (CDIR)',
+                    show_border=True,
                 ),
                 HGroup(
-                    Item('mode', style='custom', show_label=False, width=-250),
-                    Item('current_wave', style='readonly')
+                    Item('mdir', width=-200),
+                    UItem('mdir_sbutton'),
+                    label='Make Directory (MDIR)',
+                    show_border=True,
                 ),
-                label='Output',
+                VGroup(
+                    HGroup(
+                        Item('del_byName', width=-200),
+                        UItem('del_byName_sbutton'),
+                    ),
+                    HGroup(
+                        Item('del_byRange', width=-200),
+                        UItem('del_byRange_sbutton'),
+                        UItem('del_byRange_thread_state', style='readonly'),
+                    ),
+                    label='Delete File/Directory (DEL)',
+                    show_border=True,
+                ),
+                VGroup(
+                    VGroup(
+                        HGroup(
+                            UItem('cat_qbutton'),
+                            UItem('cat_thread_state', style='readonly'),
+                        ),
+                        HGroup(
+                            Item('cat_capacity', style='readonly', width=80),
+                            Item('cat_available', style='readonly', width=80),
+                        ),
+                    ),
+                    UItem('cat_file_2dlist', editor=cat_array_editor, resizable=True),
+                    label='Catalog (CAT)',
+                    show_border=True,
+                ),
+                label='Mass Memory (MMEM)',
                 show_border=True,
-            ),
+            ),           
         ),
-        title='AWG520', width=550, buttons=[], resizable=True
+        title='AWG5014 Manager',
+        width=600,height=800,
+        buttons=[], resizable=True
     )
-
 # _____________________________________________________________________________
 # EXCEPTIONS:
     # TODO
@@ -443,25 +935,3 @@ class AWGHasTraits( HasTraits, AWG5014 ):
 
 if __name__ == '__main__':
     pass
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
