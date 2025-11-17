@@ -68,9 +68,7 @@ def fit(x, y, model, estimator):
 	'Estimator' can either be an N-tuple containing a starting guess of the fit parameters, or a callable that returns a respective N-tuple for given x and y."""
 	if callable(estimator):
 		#return scipy.optimize.leastsq(lambda pp: model(*pp)(x) - y, estimator(x,y), warning=False)[0]
-		print('d','callable')
 		p = scipy.optimize.leastsq(lambda pp: model(*pp)(x) - y, estimator(x,y))[0]
-		print('e')
 		return p
 	else:
 		#return scipy.optimize.leastsq(lambda pp: model(*pp)(x) - y, estimator, warning=False)[0]

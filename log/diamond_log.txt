@@ -1,320 +1,382 @@
-2025-03-31 11:43:19,452 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.RabiFit object at 0x00000239EC0E57B0>, trait: measurement, old value: <measurements.pulsed.Rabi object at 0x00000239E9F79F30>, new value: None
+2025-10-29 09:07:51,532 - diamond.<module> - INFO - Starting logger.
+2025-10-29 09:08:54,420 - diamond.<module> - INFO - Starting logger.
+2025-10-29 09:09:24,860 - diamond.<module> - INFO - Starting logger.
+2025-10-29 09:09:25,706 - emod.start - INFO - Starting Job Manager.
+2025-10-29 09:09:25,706 - cron.run - INFO - Starting Cron Daemon.
+2025-10-29 09:22:32,827 - auto_focus.focus - INFO - Focus: -25.61, 42.19, 43.59
+2025-10-29 09:22:58,694 - auto_focus.focus - INFO - Focus: -25.06, 42.14, 44.59
+2025-10-29 09:23:23,004 - auto_focus.focus - INFO - Focus: -24.71, 41.59, 45.59
+2025-10-29 09:40:50,873 - auto_focus.focus - INFO - Focus: -84.26, -12.01, 55.17
+2025-10-29 09:41:15,043 - auto_focus.focus - INFO - Focus: -84.21, -12.06, 56.17
+2025-10-29 09:42:50,072 - auto_focus.focus - INFO - Focus: -54.02, 25.06, 56.17
+2025-10-29 09:43:17,023 - auto_focus.focus - INFO - Focus: -53.97, 25.01, 56.17
+2025-10-29 09:53:52,628 - auto_focus.focus - INFO - Focus: -19.86, 37.84, 55.17
+2025-10-29 09:54:20,661 - auto_focus.focus - INFO - Focus: -19.91, 37.89, 54.17
+2025-10-29 09:55:58,691 - auto_focus.focus - INFO - Focus: 43.27, -45.22, 54.07
+2025-10-29 09:56:25,680 - auto_focus.focus - INFO - Focus: 43.22, -45.27, 53.97
+2025-10-29 10:01:42,794 - emod.submit - INFO - The job <measurements.confocal.Confocal object at 0x000001BF526E9DF0> is already running or in the queue.
+2025-10-29 10:05:09,990 - auto_focus.focus - INFO - Focus: -93.00, 38.26, 53.97
+2025-10-29 10:05:34,794 - auto_focus.focus - INFO - Focus: -93.05, 38.31, 53.97
+2025-10-29 10:10:32,075 - auto_focus.focus - INFO - Focus: -84.79, 43.21, 53.97
+2025-10-29 10:10:55,638 - auto_focus.focus - INFO - Focus: -84.84, 43.26, 53.97
+2025-10-29 10:11:42,157 - auto_focus.focus - INFO - Focus: -83.74, 37.73, 53.87
+2025-10-29 10:12:35,507 - auto_focus.focus - INFO - Focus: -77.56, 37.68, 53.87
+2025-10-29 10:13:30,177 - auto_focus.focus - INFO - Focus: -89.59, 35.28, 53.87
+2025-10-29 10:14:06,590 - auto_focus.focus - INFO - Focus: -81.01, 33.54, 53.87
+2025-10-29 10:17:47,010 - auto_focus.focus - INFO - Focus: 79.76, -11.38, 52.87
+2025-10-29 10:22:05,667 - auto_focus.focus - INFO - Focus: 60.16, -4.31, 51.97
+2025-10-29 10:22:33,920 - auto_focus.focus - INFO - Focus: 60.21, -4.36, 51.67
+2025-10-29 10:24:00,043 - auto_focus.focus - INFO - Focus: 82.71, -13.56, 51.47
+2025-10-29 10:24:30,696 - auto_focus.focus - INFO - Focus: 82.36, -13.31, 50.67
+2025-10-29 10:57:58,163 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <chaco.data_range_1d.DataRange1D object at 0x000001BF538EBE70>, trait: _low_value, old value: -100.0, new value: -101.90217391304348
 Traceback (most recent call last):
   File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
     self.dispatch(handler, *args)
   File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
     handler(*args)
-  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 510, in update_plot_tau
-    sig = spin_state[:n]
-                         
-AttributeError: 'NoneType' object has no attribute 'tau'
-2025-03-31 11:43:27,308 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.HahnFit object at 0x0000023A2C59C040>, trait: measurement, old value: <measurements.pulsed.Hahn object at 0x0000023A2C501580>, new value: None
+  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 419, in update_axis_lv
+    self.y1 = self.figure.value_range.low
+    ^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\base_trait_handler.py", line 74, in error
+    raise TraitError(
+traits.trait_errors.TraitError: The 'y1' trait of a Confocal instance must be -100.0 <= a floating point number <= 100.0, but a value of -101.90217391304348 <class 'float'> was specified.
+2025-10-29 11:03:24,938 - auto_focus.focus - INFO - Focus: -23.94, -82.48, 34.90
+2025-10-29 11:04:01,783 - auto_focus.focus - INFO - Focus: -17.65, -80.01, 35.60
+2025-10-29 11:04:49,676 - auto_focus.focus - INFO - Focus: -41.36, -96.84, 36.60
+2025-10-29 11:06:34,563 - auto_focus.focus - INFO - Focus: -24.64, -82.08, 35.80
+2025-10-29 11:07:20,586 - auto_focus.focus - INFO - Focus: -24.59, -82.03, 35.80
+2025-10-29 11:08:03,971 - auto_focus.focus - INFO - Focus: -51.67, -82.72, 36.80
+2025-10-29 11:09:31,277 - auto_focus.focus - INFO - Focus: -24.47, -76.00, 36.00
+2025-10-29 11:16:27,155 - auto_focus.focus - INFO - Focus: 28.28, -62.94, 35.30
+2025-10-29 11:16:51,972 - auto_focus.focus - INFO - Focus: 28.23, -62.99, 35.10
+2025-10-29 11:29:18,678 - auto_focus.focus - INFO - Focus: -89.91, 51.59, 33.91
+2025-10-29 12:39:26,334 - auto_focus.focus - INFO - Focus: -1.57, -50.75, 30.21
+2025-10-29 12:40:07,505 - auto_focus.focus - INFO - Focus: -1.24, -43.93, 31.21
+2025-10-29 12:41:21,368 - auto_focus.focus - INFO - Focus: 2.84, -35.09, 31.21
+2025-10-29 12:42:17,978 - auto_focus.focus - INFO - Focus: 11.24, -38.05, 31.21
+2025-10-29 12:43:13,728 - auto_focus.focus - INFO - Focus: -6.41, -5.02, 31.21
+2025-10-29 12:43:49,380 - auto_focus.focus - INFO - Focus: -1.70, -5.02, 31.21
+2025-10-29 12:44:35,495 - auto_focus.focus - INFO - Focus: 24.26, -4.42, 31.21
+2025-10-29 12:45:07,454 - auto_focus.focus - INFO - Focus: 29.73, -12.04, 30.41
+2025-10-29 12:46:01,156 - auto_focus.focus - INFO - Focus: 63.12, -6.71, 30.91
+2025-10-29 12:47:03,410 - auto_focus.focus - INFO - Focus: 61.22, -0.22, 31.01
+2025-10-29 12:48:32,522 - auto_focus.focus - INFO - Focus: 16.91, 32.76, 30.91
+2025-10-29 12:49:15,500 - auto_focus.focus - INFO - Focus: 19.15, -57.26, 30.91
+2025-10-29 12:50:16,690 - auto_focus.focus - INFO - Focus: 15.88, -66.33, 30.91
+2025-10-29 12:50:48,452 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <chaco.data_range_1d.DataRange1D object at 0x000001BF538EBE70>, trait: _high_value, old value: 100.0, new value: 101.08695652173913
 Traceback (most recent call last):
   File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
     self.dispatch(handler, *args)
   File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
     handler(*args)
-  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 744, in update_plot_tau
-    'fit':np.array((0, 0))})
-    ^^^^^^^^^^^^^^^^^^^^
-AttributeError: 'NoneType' object has no attribute 'tau'
-2025-03-31 12:10:43,899 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.Hahn3pi2Fit object at 0x0000023A2C550450>, trait: measurement, old value: <measurements.pulsed.Hahn3pi2 object at 0x0000023A2C5004A0>, new value: None
+  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 426, in update_axis_hv
+    self.y2 = self.figure.value_range.high
+    ^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\base_trait_handler.py", line 74, in error
+    raise TraitError(
+traits.trait_errors.TraitError: The 'y2' trait of a Confocal instance must be -100.0 <= a floating point number <= 100.0, but a value of 101.08695652173913 <class 'float'> was specified.
+2025-10-29 12:54:54,657 - auto_focus.focus - INFO - Focus: 61.77, 94.28, 30.61
+2025-10-29 12:56:39,355 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <chaco.data_range_1d.DataRange1D object at 0x000001BF527029D0>, trait: _low_value, old value: -100.0, new value: -104.21195652173913
 Traceback (most recent call last):
   File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
     self.dispatch(handler, *args)
   File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
     handler(*args)
-  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 1088, in update_plot_tau
-    {'name':'fit_pi2', 'data':('tau', 'fit_pi2'), 'color':'red'},
-                              ^^^^^^^^^^^^^^^^^^^^
-AttributeError: 'NoneType' object has no attribute 'tau'
-2025-03-31 13:50:30,372 - diamond.<module> - INFO - Starting logger.
-2025-03-31 13:50:31,177 - emod.start - INFO - Starting Job Manager.
-2025-03-31 13:50:31,179 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 15:35:32,018 - diamond.<module> - INFO - Starting logger.
-2025-03-31 15:35:32,826 - emod.start - INFO - Starting Job Manager.
-2025-03-31 15:35:32,829 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 15:50:24,587 - diamond.<module> - INFO - Starting logger.
-2025-03-31 15:50:25,339 - emod.start - INFO - Starting Job Manager.
-2025-03-31 15:50:25,349 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 15:54:47,177 - diamond.<module> - INFO - Starting logger.
-2025-03-31 15:54:47,937 - emod.start - INFO - Starting Job Manager.
-2025-03-31 15:54:47,937 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 15:57:33,499 - diamond.<module> - INFO - Starting logger.
-2025-03-31 15:57:34,248 - emod.start - INFO - Starting Job Manager.
-2025-03-31 15:57:34,258 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 16:01:11,671 - diamond.<module> - INFO - Starting logger.
-2025-03-31 16:01:12,429 - emod.start - INFO - Starting Job Manager.
-2025-03-31 16:01:12,429 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 16:04:20,935 - diamond.<module> - INFO - Starting logger.
-2025-03-31 16:04:21,710 - emod.start - INFO - Starting Job Manager.
-2025-03-31 16:04:21,710 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 16:10:22,365 - diamond.<module> - INFO - Starting logger.
-2025-03-31 16:10:23,138 - emod.start - INFO - Starting Job Manager.
-2025-03-31 16:10:23,138 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 16:12:37,853 - diamond.<module> - INFO - Starting logger.
-2025-03-31 16:12:38,634 - emod.start - INFO - Starting Job Manager.
-2025-03-31 16:12:38,634 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 16:14:29,717 - diamond.<module> - INFO - Starting logger.
-2025-03-31 16:14:30,483 - emod.start - INFO - Starting Job Manager.
-2025-03-31 16:14:30,483 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 16:21:33,448 - diamond.<module> - INFO - Starting logger.
-2025-03-31 16:21:34,246 - emod.start - INFO - Starting Job Manager.
-2025-03-31 16:21:34,247 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 16:23:11,295 - diamond.<module> - INFO - Starting logger.
-2025-03-31 16:23:12,094 - emod.start - INFO - Starting Job Manager.
-2025-03-31 16:23:12,095 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 16:26:59,688 - diamond.<module> - INFO - Starting logger.
-2025-03-31 16:27:00,471 - emod.start - INFO - Starting Job Manager.
-2025-03-31 16:27:00,471 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 16:31:42,045 - diamond.<module> - INFO - Starting logger.
-2025-03-31 16:31:42,828 - emod.start - INFO - Starting Job Manager.
-2025-03-31 16:31:42,829 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 16:35:57,263 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.RabiFit object at 0x00000209D50A5440>, trait: measurement, old value: <measurements.pulsed.Rabi object at 0x00000209D4FF98F0>, new value: None
+  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 405, in update_axis_li
+    self.x1 = self.figure.index_range.low
+    ^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\base_trait_handler.py", line 74, in error
+    raise TraitError(
+traits.trait_errors.TraitError: The 'x1' trait of a Confocal instance must be -100.0 <= a floating point number <= 100.0, but a value of -104.21195652173913 <class 'float'> was specified.
+2025-10-29 13:01:55,328 - auto_focus.focus - INFO - Focus: -91.38, -24.70, 31.61
+2025-10-29 13:02:35,818 - auto_focus.focus - INFO - Focus: -52.06, -4.08, 31.61
+2025-10-29 13:23:49,323 - auto_focus.focus - INFO - Focus: -88.31, -6.77, 26.64
+2025-10-29 13:24:39,164 - auto_focus.focus - INFO - Focus: -27.81, 43.02, 26.64
+2025-10-29 13:25:26,280 - auto_focus.focus - INFO - Focus: -8.01, 51.22, 26.64
+2025-10-29 13:25:49,993 - auto_focus.focus - INFO - Focus: -7.96, 51.27, 26.64
+2025-10-29 13:26:51,178 - auto_focus.focus - INFO - Focus: 23.43, -35.84, 27.64
+2025-10-29 13:27:17,775 - auto_focus.focus - INFO - Focus: 23.38, -35.89, 28.64
+2025-10-29 13:28:09,778 - auto_focus.focus - INFO - Focus: 6.77, -0.48, 28.64
+2025-10-29 13:28:35,298 - auto_focus.focus - INFO - Focus: 6.82, -0.43, 28.64
+2025-10-29 13:31:15,192 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <chaco.data_range_1d.DataRange1D object at 0x000001BF527029D0>, trait: _low_value, old value: -100.0, new value: -100.95108695652173
 Traceback (most recent call last):
   File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
     self.dispatch(handler, *args)
   File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
     handler(*args)
-  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 537, in update_plot_tau
-    self.line_data.set_data('tau', self.measurement.tau)
-                                   ^^^^^^^^^^^^^^^^^^^^
-AttributeError: 'NoneType' object has no attribute 'tau'
-2025-03-31 16:36:02,629 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <analysis.pulsed.DoubleFitTau object at 0x00000209D7F5E5C0>, trait: measurement, old value: <measurements.pulsed.FID3pi2 object at 0x00000209D7DF7E70>, new value: None
+  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 405, in update_axis_li
+    self.x1 = self.figure.index_range.low
+    ^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\base_trait_handler.py", line 74, in error
+    raise TraitError(
+traits.trait_errors.TraitError: The 'x1' trait of a Confocal instance must be -100.0 <= a floating point number <= 100.0, but a value of -100.95108695652173 <class 'float'> was specified.
+2025-10-29 13:33:59,105 - auto_focus.focus - INFO - Focus: -92.86, -20.83, 28.64
+2025-10-29 13:34:29,678 - auto_focus.focus - INFO - Focus: -93.61, -20.88, 29.64
+2025-10-29 14:19:57,471 - auto_focus.focus - INFO - Focus: 13.63, -39.80, 44.49
+2025-10-29 14:21:05,200 - auto_focus.focus - INFO - Focus: 23.41, -34.36, 44.49
+2025-10-29 14:21:43,446 - auto_focus.focus - INFO - Focus: 23.31, -32.90, 44.49
+2025-10-29 14:22:29,705 - auto_focus.focus - INFO - Focus: 52.48, -22.18, 43.49
+2025-10-29 14:23:22,031 - auto_focus.focus - INFO - Focus: 62.47, -22.72, 43.49
+2025-10-29 14:24:18,217 - auto_focus.focus - INFO - Focus: 69.80, -2.79, 42.49
+2025-10-29 14:25:22,480 - auto_focus.focus - INFO - Focus: 65.98, 4.09, 41.49
+2025-10-29 14:26:13,939 - emod.submit - INFO - The job <measurements.auto_focus.AutoFocus object at 0x000001BF53B61E40> is already running or in the queue.
+2025-10-29 14:26:20,334 - auto_focus.focus - INFO - Focus: 67.61, -0.78, 41.39
+2025-10-29 14:27:25,691 - auto_focus.focus - INFO - Focus: 78.88, -14.73, 41.29
+2025-10-29 14:34:28,660 - auto_focus.focus - INFO - Focus: -37.79, 0.37, 42.29
+2025-10-29 14:34:53,061 - auto_focus.focus - INFO - Focus: -37.84, 0.42, 43.29
+2025-10-29 14:35:52,574 - auto_focus.focus - INFO - Focus: -44.83, -11.70, 44.29
+2025-10-29 14:36:57,834 - auto_focus.focus - INFO - Focus: -49.13, -18.06, 45.29
+2025-10-29 14:37:42,019 - auto_focus.focus - INFO - Focus: -31.19, -26.68, 46.29
+2025-10-29 14:38:41,862 - auto_focus.focus - INFO - Focus: -34.75, -24.33, 45.69
+2025-10-29 14:39:21,487 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <chaco.data_range_1d.DataRange1D object at 0x000001BF527029D0>, trait: _low_value, old value: -100.0, new value: -105.70652173913044
 Traceback (most recent call last):
   File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
     self.dispatch(handler, *args)
   File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
     handler(*args)
-  File "C:\Users\yy3\pi3-mini\analysis\pulsed.py", line 860, in update_plot_tau
-    self.line_data.set_data('tau', self.measurement.tau)
-                                   ^^^^^^^^^^^^^^^^^^^^
-AttributeError: 'NoneType' object has no attribute 'tau'
-2025-03-31 18:09:47,413 - diamond.<module> - INFO - Starting logger.
-2025-03-31 18:09:48,227 - emod.start - INFO - Starting Job Manager.
-2025-03-31 18:09:48,229 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 18:10:45,730 - diamond.<module> - INFO - Starting logger.
-2025-03-31 18:10:46,505 - emod.start - INFO - Starting Job Manager.
-2025-03-31 18:10:46,506 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 18:11:10,947 - diamond.<module> - INFO - Starting logger.
-2025-03-31 18:11:11,750 - emod.start - INFO - Starting Job Manager.
-2025-03-31 18:11:11,751 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 18:11:31,285 - diamond.<module> - INFO - Starting logger.
-2025-03-31 18:11:32,077 - emod.start - INFO - Starting Job Manager.
-2025-03-31 18:11:32,078 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 18:11:46,695 - diamond.<module> - INFO - Starting logger.
-2025-03-31 18:11:47,471 - emod.start - INFO - Starting Job Manager.
-2025-03-31 18:11:47,472 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 18:19:19,230 - diamond.<module> - INFO - Starting logger.
-2025-03-31 18:19:20,040 - emod.start - INFO - Starting Job Manager.
-2025-03-31 18:19:20,041 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 18:20:39,806 - diamond.<module> - INFO - Starting logger.
-2025-03-31 18:20:40,587 - emod.start - INFO - Starting Job Manager.
-2025-03-31 18:20:40,588 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 18:20:53,925 - diamond.<module> - INFO - Starting logger.
-2025-03-31 18:20:54,714 - emod.start - INFO - Starting Job Manager.
-2025-03-31 18:20:54,715 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 18:21:48,903 - diamond.<module> - INFO - Starting logger.
-2025-03-31 18:21:49,690 - emod.start - INFO - Starting Job Manager.
-2025-03-31 18:21:49,692 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 18:22:53,127 - diamond.<module> - INFO - Starting logger.
-2025-03-31 18:22:53,889 - emod.start - INFO - Starting Job Manager.
-2025-03-31 18:22:53,891 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 18:25:42,063 - diamond.<module> - INFO - Starting logger.
-2025-03-31 18:25:42,859 - emod.start - INFO - Starting Job Manager.
-2025-03-31 18:25:42,861 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 18:26:42,207 - diamond.<module> - INFO - Starting logger.
-2025-03-31 18:26:42,973 - emod.start - INFO - Starting Job Manager.
-2025-03-31 18:26:42,974 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 18:27:23,825 - diamond.<module> - INFO - Starting logger.
-2025-03-31 18:27:24,598 - emod.start - INFO - Starting Job Manager.
-2025-03-31 18:27:24,599 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 18:27:56,083 - diamond.<module> - INFO - Starting logger.
-2025-03-31 18:27:56,878 - emod.start - INFO - Starting Job Manager.
-2025-03-31 18:27:56,879 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 18:28:59,127 - diamond.<module> - INFO - Starting logger.
-2025-03-31 18:28:59,915 - emod.start - INFO - Starting Job Manager.
-2025-03-31 18:28:59,916 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 18:33:09,552 - diamond.<module> - INFO - Starting logger.
-2025-03-31 18:33:10,418 - emod.start - INFO - Starting Job Manager.
-2025-03-31 18:33:10,420 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 18:35:21,339 - diamond.<module> - INFO - Starting logger.
-2025-03-31 18:35:22,133 - emod.start - INFO - Starting Job Manager.
-2025-03-31 18:35:22,134 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 18:36:06,878 - diamond.<module> - INFO - Starting logger.
-2025-03-31 18:36:07,690 - emod.start - INFO - Starting Job Manager.
-2025-03-31 18:36:07,691 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 18:38:20,732 - diamond.<module> - INFO - Starting logger.
-2025-03-31 18:38:21,529 - emod.start - INFO - Starting Job Manager.
-2025-03-31 18:38:21,530 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 18:39:50,775 - diamond.<module> - INFO - Starting logger.
-2025-03-31 18:39:51,560 - emod.start - INFO - Starting Job Manager.
-2025-03-31 18:39:51,562 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 18:56:38,430 - diamond.<module> - INFO - Starting logger.
-2025-03-31 18:56:39,209 - emod.start - INFO - Starting Job Manager.
-2025-03-31 18:56:39,210 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 22:22:18,669 - diamond.<module> - INFO - Starting logger.
-2025-03-31 22:22:19,463 - emod.start - INFO - Starting Job Manager.
-2025-03-31 22:22:19,464 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 22:23:07,066 - diamond.<module> - INFO - Starting logger.
-2025-03-31 22:23:07,839 - emod.start - INFO - Starting Job Manager.
-2025-03-31 22:23:07,841 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 22:24:28,115 - diamond.<module> - INFO - Starting logger.
-2025-03-31 22:24:28,876 - emod.start - INFO - Starting Job Manager.
-2025-03-31 22:24:28,878 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 22:26:17,358 - diamond.<module> - INFO - Starting logger.
-2025-03-31 22:26:18,118 - emod.start - INFO - Starting Job Manager.
-2025-03-31 22:26:18,119 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 22:32:41,388 - diamond.<module> - INFO - Starting logger.
-2025-03-31 22:32:42,158 - emod.start - INFO - Starting Job Manager.
-2025-03-31 22:32:42,160 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 22:35:44,928 - diamond.<module> - INFO - Starting logger.
-2025-03-31 22:35:45,687 - emod.start - INFO - Starting Job Manager.
-2025-03-31 22:35:45,689 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 22:38:30,329 - diamond.<module> - INFO - Starting logger.
-2025-03-31 22:38:31,089 - emod.start - INFO - Starting Job Manager.
-2025-03-31 22:38:31,099 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 22:40:17,172 - diamond.<module> - INFO - Starting logger.
-2025-03-31 22:40:17,931 - emod.start - INFO - Starting Job Manager.
-2025-03-31 22:40:17,931 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 22:41:33,931 - diamond.<module> - INFO - Starting logger.
-2025-03-31 22:41:34,703 - emod.start - INFO - Starting Job Manager.
-2025-03-31 22:41:34,703 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 22:54:18,002 - diamond.<module> - INFO - Starting logger.
-2025-03-31 22:54:18,858 - emod.start - INFO - Starting Job Manager.
-2025-03-31 22:54:18,859 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 23:15:14,195 - diamond.<module> - INFO - Starting logger.
-2025-03-31 23:15:14,961 - emod.start - INFO - Starting Job Manager.
-2025-03-31 23:15:14,963 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 23:35:16,198 - diamond.<module> - INFO - Starting logger.
-2025-03-31 23:35:17,001 - emod.start - INFO - Starting Job Manager.
-2025-03-31 23:35:17,002 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 23:36:06,026 - diamond.<module> - INFO - Starting logger.
-2025-03-31 23:36:06,788 - emod.start - INFO - Starting Job Manager.
-2025-03-31 23:36:06,790 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 23:36:29,850 - diamond.<module> - INFO - Starting logger.
-2025-03-31 23:36:30,637 - emod.start - INFO - Starting Job Manager.
-2025-03-31 23:36:30,638 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 23:42:56,905 - diamond.<module> - INFO - Starting logger.
-2025-03-31 23:42:57,667 - emod.start - INFO - Starting Job Manager.
-2025-03-31 23:42:57,668 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 23:43:40,605 - diamond.<module> - INFO - Starting logger.
-2025-03-31 23:43:41,368 - emod.start - INFO - Starting Job Manager.
-2025-03-31 23:43:41,369 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 23:44:13,258 - diamond.<module> - INFO - Starting logger.
-2025-03-31 23:44:14,025 - emod.start - INFO - Starting Job Manager.
-2025-03-31 23:44:14,027 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 23:44:41,127 - diamond.<module> - INFO - Starting logger.
-2025-03-31 23:44:41,918 - emod.start - INFO - Starting Job Manager.
-2025-03-31 23:44:41,920 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 23:45:07,460 - diamond.<module> - INFO - Starting logger.
-2025-03-31 23:45:08,242 - emod.start - INFO - Starting Job Manager.
-2025-03-31 23:45:08,244 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 23:45:47,166 - diamond.<module> - INFO - Starting logger.
-2025-03-31 23:45:47,927 - emod.start - INFO - Starting Job Manager.
-2025-03-31 23:45:47,928 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 23:46:05,979 - diamond.<module> - INFO - Starting logger.
-2025-03-31 23:46:06,772 - emod.start - INFO - Starting Job Manager.
-2025-03-31 23:46:06,773 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 23:49:09,977 - diamond.<module> - INFO - Starting logger.
-2025-03-31 23:49:10,770 - emod.start - INFO - Starting Job Manager.
-2025-03-31 23:49:10,771 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 23:49:31,356 - diamond.<module> - INFO - Starting logger.
-2025-03-31 23:49:32,136 - emod.start - INFO - Starting Job Manager.
-2025-03-31 23:49:32,137 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 23:51:00,564 - diamond.<module> - INFO - Starting logger.
-2025-03-31 23:51:01,323 - emod.start - INFO - Starting Job Manager.
-2025-03-31 23:51:01,324 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 23:51:14,436 - diamond.<module> - INFO - Starting logger.
-2025-03-31 23:51:15,197 - emod.start - INFO - Starting Job Manager.
-2025-03-31 23:51:15,198 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 23:52:38,188 - diamond.<module> - INFO - Starting logger.
-2025-03-31 23:52:38,945 - emod.start - INFO - Starting Job Manager.
-2025-03-31 23:52:38,946 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 23:53:52,851 - diamond.<module> - INFO - Starting logger.
-2025-03-31 23:53:53,618 - emod.start - INFO - Starting Job Manager.
-2025-03-31 23:53:53,620 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 23:54:46,900 - diamond.<module> - INFO - Starting logger.
-2025-03-31 23:54:47,660 - emod.start - INFO - Starting Job Manager.
-2025-03-31 23:54:47,662 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 23:55:21,089 - diamond.<module> - INFO - Starting logger.
-2025-03-31 23:55:21,843 - emod.start - INFO - Starting Job Manager.
-2025-03-31 23:55:21,845 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 23:55:55,243 - diamond.<module> - INFO - Starting logger.
-2025-03-31 23:55:56,005 - emod.start - INFO - Starting Job Manager.
-2025-03-31 23:55:56,006 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 23:57:25,119 - diamond.<module> - INFO - Starting logger.
-2025-03-31 23:57:25,879 - emod.start - INFO - Starting Job Manager.
-2025-03-31 23:57:25,880 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 23:57:45,490 - diamond.<module> - INFO - Starting logger.
-2025-03-31 23:57:46,253 - emod.start - INFO - Starting Job Manager.
-2025-03-31 23:57:46,254 - cron.run - INFO - Starting Cron Daemon.
-2025-03-31 23:58:43,246 - diamond.<module> - INFO - Starting logger.
-2025-03-31 23:58:44,010 - emod.start - INFO - Starting Job Manager.
-2025-03-31 23:58:44,011 - cron.run - INFO - Starting Cron Daemon.
-2025-04-01 00:01:13,023 - diamond.<module> - INFO - Starting logger.
-2025-04-01 00:01:13,796 - emod.start - INFO - Starting Job Manager.
-2025-04-01 00:01:13,797 - cron.run - INFO - Starting Cron Daemon.
-2025-04-01 00:02:25,023 - diamond.<module> - INFO - Starting logger.
-2025-04-01 00:02:25,849 - emod.start - INFO - Starting Job Manager.
-2025-04-01 00:02:25,850 - cron.run - INFO - Starting Cron Daemon.
-2025-04-01 00:07:40,685 - diamond.<module> - INFO - Starting logger.
-2025-04-01 00:07:41,454 - emod.start - INFO - Starting Job Manager.
-2025-04-01 00:07:41,456 - cron.run - INFO - Starting Cron Daemon.
-2025-04-01 00:08:04,375 - diamond.<module> - INFO - Starting logger.
-2025-04-01 00:08:05,140 - emod.start - INFO - Starting Job Manager.
-2025-04-01 00:08:05,141 - cron.run - INFO - Starting Cron Daemon.
-2025-04-01 00:08:25,430 - diamond.<module> - INFO - Starting logger.
-2025-04-01 00:08:26,201 - emod.start - INFO - Starting Job Manager.
-2025-04-01 00:08:26,202 - cron.run - INFO - Starting Cron Daemon.
-2025-04-01 00:09:13,120 - diamond.<module> - INFO - Starting logger.
-2025-04-01 00:09:13,895 - emod.start - INFO - Starting Job Manager.
-2025-04-01 00:09:13,896 - cron.run - INFO - Starting Cron Daemon.
-2025-04-01 00:09:29,619 - diamond.<module> - INFO - Starting logger.
-2025-04-01 00:09:30,416 - emod.start - INFO - Starting Job Manager.
-2025-04-01 00:09:30,418 - cron.run - INFO - Starting Cron Daemon.
-2025-04-01 00:10:10,844 - diamond.<module> - INFO - Starting logger.
-2025-04-01 00:10:11,635 - emod.start - INFO - Starting Job Manager.
-2025-04-01 00:10:11,636 - cron.run - INFO - Starting Cron Daemon.
-2025-04-01 00:11:25,714 - diamond.<module> - INFO - Starting logger.
-2025-04-01 00:11:26,510 - emod.start - INFO - Starting Job Manager.
-2025-04-01 00:11:26,511 - cron.run - INFO - Starting Cron Daemon.
-2025-04-01 00:11:42,521 - diamond.<module> - INFO - Starting logger.
-2025-04-01 00:11:43,297 - emod.start - INFO - Starting Job Manager.
-2025-04-01 00:11:43,298 - cron.run - INFO - Starting Cron Daemon.
-2025-04-01 00:14:02,435 - diamond.<module> - INFO - Starting logger.
-2025-04-01 00:14:03,200 - emod.start - INFO - Starting Job Manager.
-2025-04-01 00:14:03,201 - cron.run - INFO - Starting Cron Daemon.
-2025-04-01 00:18:12,310 - diamond.<module> - INFO - Starting logger.
-2025-04-01 00:18:13,079 - emod.start - INFO - Starting Job Manager.
-2025-04-01 00:18:13,081 - cron.run - INFO - Starting Cron Daemon.
-2025-04-01 00:19:18,955 - diamond.<module> - INFO - Starting logger.
-2025-04-01 00:19:19,725 - emod.start - INFO - Starting Job Manager.
-2025-04-01 00:19:19,726 - cron.run - INFO - Starting Cron Daemon.
-2025-04-01 00:20:06,189 - diamond.<module> - INFO - Starting logger.
-2025-04-01 00:20:06,952 - emod.start - INFO - Starting Job Manager.
-2025-04-01 00:20:06,953 - cron.run - INFO - Starting Cron Daemon.
-2025-04-01 00:21:01,213 - diamond.<module> - INFO - Starting logger.
-2025-04-01 00:21:01,989 - emod.start - INFO - Starting Job Manager.
-2025-04-01 00:21:01,990 - cron.run - INFO - Starting Cron Daemon.
-2025-04-01 00:23:18,163 - diamond.<module> - INFO - Starting logger.
-2025-04-01 00:23:18,927 - emod.start - INFO - Starting Job Manager.
-2025-04-01 00:23:18,928 - cron.run - INFO - Starting Cron Daemon.
-2025-04-01 00:43:05,903 - diamond.<module> - INFO - Starting logger.
-2025-04-01 00:43:06,727 - emod.start - INFO - Starting Job Manager.
-2025-04-01 00:43:06,729 - cron.run - INFO - Starting Cron Daemon.
-2025-04-01 00:46:44,345 - diamond.<module> - INFO - Starting logger.
-2025-04-01 00:46:45,118 - emod.start - INFO - Starting Job Manager.
-2025-04-01 00:46:45,119 - cron.run - INFO - Starting Cron Daemon.
-2025-04-01 00:47:51,231 - diamond.<module> - INFO - Starting logger.
-2025-04-01 00:47:52,055 - emod.start - INFO - Starting Job Manager.
-2025-04-01 00:47:52,057 - cron.run - INFO - Starting Cron Daemon.
-2025-04-01 00:52:38,635 - diamond.<module> - INFO - Starting logger.
-2025-04-01 00:52:39,415 - emod.start - INFO - Starting Job Manager.
-2025-04-01 00:52:39,416 - cron.run - INFO - Starting Cron Daemon.
-2025-04-01 00:53:30,093 - diamond.<module> - INFO - Starting logger.
-2025-04-01 00:53:30,860 - emod.start - INFO - Starting Job Manager.
-2025-04-01 00:53:30,861 - cron.run - INFO - Starting Cron Daemon.
-2025-04-01 00:55:28,351 - diamond.<module> - INFO - Starting logger.
-2025-04-01 00:55:29,115 - emod.start - INFO - Starting Job Manager.
-2025-04-01 00:55:29,116 - cron.run - INFO - Starting Cron Daemon.
+  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 405, in update_axis_li
+    self.x1 = self.figure.index_range.low
+    ^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\base_trait_handler.py", line 74, in error
+    raise TraitError(
+traits.trait_errors.TraitError: The 'x1' trait of a Confocal instance must be -100.0 <= a floating point number <= 100.0, but a value of -105.70652173913044 <class 'float'> was specified.
+2025-10-29 14:45:47,786 - auto_focus.focus - INFO - Focus: -94.03, 13.37, 45.69
+2025-10-29 14:46:26,375 - auto_focus.focus - INFO - Focus: -79.08, 33.98, 46.69
+2025-10-29 14:47:13,790 - auto_focus.focus - INFO - Focus: -69.65, 39.14, 46.69
+2025-10-29 14:47:50,205 - auto_focus.focus - INFO - Focus: -73.66, 39.83, 46.69
+2025-10-29 14:48:24,855 - auto_focus.focus - INFO - Focus: -80.25, 41.17, 46.59
+2025-10-29 14:49:25,574 - auto_focus.focus - INFO - Focus: -59.75, 18.30, 46.59
+2025-10-29 15:06:25,356 - auto_focus.focus - INFO - Focus: -33.32, -48.46, 47.15
+2025-10-29 15:07:13,028 - auto_focus.focus - INFO - Focus: -26.12, 10.44, 47.15
+2025-10-29 15:07:48,954 - auto_focus.focus - INFO - Focus: 8.45, 5.23, 47.15
+2025-10-29 15:08:45,417 - auto_focus.focus - INFO - Focus: 8.50, 5.28, 47.15
+2025-10-29 15:09:18,038 - auto_focus.focus - INFO - Focus: -35.91, -18.17, 47.15
+2025-10-29 15:09:57,758 - auto_focus.focus - INFO - Focus: -17.69, 55.31, 46.15
+2025-10-29 15:10:42,609 - auto_focus.focus - INFO - Focus: -14.64, 52.17, 46.25
+2025-10-29 15:11:09,136 - auto_focus.focus - INFO - Focus: -14.69, 52.22, 45.95
+2025-10-29 15:11:57,148 - auto_focus.focus - INFO - Focus: -23.27, 81.65, 45.35
+2025-10-29 15:12:35,486 - auto_focus.focus - INFO - Focus: -26.82, 79.82, 44.45
+2025-10-29 15:13:34,411 - auto_focus.focus - INFO - Focus: -49.81, 22.90, 44.45
+2025-10-29 15:13:58,419 - auto_focus.focus - INFO - Focus: -49.96, 22.95, 44.45
+2025-10-29 18:46:00,581 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <chaco.data_range_1d.DataRange1D object at 0x000001BF527029D0>, trait: _low_value, old value: -77.17391304347827, new value: -100.0
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 401, in update_axis_li
+    self.z1 = self.figure.index_range.low
+    ^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\base_trait_handler.py", line 74, in error
+    raise TraitError(
+traits.trait_errors.TraitError: The 'z1' trait of a Confocal instance must be 0.0 <= a floating point number <= 100.0, but a value of -100.0 <class 'float'> was specified.
+2025-10-29 19:11:09,824 - auto_focus.focus - INFO - Focus: -38.67, -19.87, 43.86
+2025-10-29 19:12:03,179 - auto_focus.focus - INFO - Focus: -41.09, -22.17, 43.86
+2025-10-29 19:13:03,328 - auto_focus.focus - INFO - Focus: -39.65, -23.79, 43.86
+2025-10-29 19:13:41,453 - auto_focus.focus - INFO - Focus: -31.32, -26.08, 43.86
+2025-10-29 19:14:21,976 - auto_focus.focus - INFO - Focus: -24.64, -28.15, 43.86
+2025-10-29 19:14:53,866 - auto_focus.focus - INFO - Focus: -31.32, -26.08, 44.86
+2025-10-29 19:15:51,622 - auto_focus.focus - INFO - Focus: -22.77, -30.43, 44.86
+2025-10-29 19:16:28,955 - auto_focus.focus - INFO - Focus: -18.84, -32.29, 44.86
+2025-10-29 19:17:10,372 - auto_focus.focus - INFO - Focus: -28.71, -31.52, 44.86
+2025-10-29 19:18:07,251 - auto_focus.focus - INFO - Focus: -35.60, -33.77, 44.86
+2025-10-29 19:18:51,444 - auto_focus.focus - INFO - Focus: -20.61, -39.43, 44.86
+2025-10-29 19:19:42,443 - auto_focus.focus - INFO - Focus: -24.68, -42.05, 44.86
+2025-10-29 19:20:40,168 - auto_focus.focus - INFO - Focus: -23.86, -44.54, 44.86
+2025-10-29 19:21:16,767 - auto_focus.focus - INFO - Focus: -32.10, -50.40, 44.86
+2025-10-29 19:21:50,543 - auto_focus.focus - INFO - Focus: -26.39, -47.27, 43.96
+2025-10-29 19:28:15,287 - auto_focus.focus - INFO - Focus: 54.23, -35.25, 43.86
+2025-10-29 19:29:04,660 - auto_focus.focus - INFO - Focus: 53.83, -37.26, 43.86
+2025-10-29 19:29:49,296 - auto_focus.focus - INFO - Focus: 39.65, -66.92, 44.76
+2025-10-29 19:34:25,032 - auto_focus.focus - INFO - Focus: -67.14, -46.02, 44.76
+2025-10-29 19:35:03,404 - auto_focus.focus - INFO - Focus: -42.48, -77.87, 45.76
+2025-10-29 19:35:53,272 - auto_focus.focus - INFO - Focus: -47.54, -82.12, 45.76
+2025-10-29 19:36:36,335 - auto_focus.focus - INFO - Focus: -46.64, -80.01, 45.76
+2025-10-29 19:37:15,742 - auto_focus.focus - INFO - Focus: -32.63, -78.98, 45.76
+2025-10-29 19:46:40,700 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <chaco.data_range_1d.DataRange1D object at 0x000001BF538EBE70>, trait: _low_value, old value: -92.93478260869566, new value: -100.0
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 417, in update_axis_lv
+    self.z1 = self.figure.value_range.low
+    ^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\base_trait_handler.py", line 74, in error
+    raise TraitError(
+traits.trait_errors.TraitError: The 'z1' trait of a Confocal instance must be 0.0 <= a floating point number <= 100.0, but a value of -100.0 <class 'float'> was specified.
+2025-10-29 20:08:03,624 - auto_focus.focus - INFO - Focus: 0.35, -27.80, 48.62
+2025-10-29 20:08:37,470 - auto_focus.focus - INFO - Focus: 0.30, -29.27, 48.62
+2025-10-29 20:09:13,627 - auto_focus.focus - INFO - Focus: 2.10, -27.07, 48.62
+2025-10-29 20:09:58,185 - auto_focus.focus - INFO - Focus: 8.29, -24.09, 48.62
+2025-10-29 20:10:35,764 - auto_focus.focus - INFO - Focus: 14.03, -22.04, 48.62
+2025-10-29 20:11:13,543 - auto_focus.focus - INFO - Focus: 11.98, -43.21, 48.62
+2025-10-29 20:11:47,808 - auto_focus.focus - INFO - Focus: 9.73, -44.41, 48.62
+2025-10-29 20:12:23,475 - auto_focus.focus - INFO - Focus: 8.49, -44.41, 48.62
+2025-10-29 20:12:56,079 - auto_focus.focus - INFO - Focus: 0.15, -42.89, 48.62
+2025-10-29 20:13:31,651 - auto_focus.focus - INFO - Focus: 16.71, -31.00, 48.62
+2025-10-29 20:14:05,152 - auto_focus.focus - INFO - Focus: 21.07, -46.45, 48.62
+2025-10-29 20:14:43,371 - auto_focus.focus - INFO - Focus: 4.78, -31.95, 48.32
+2025-10-29 20:15:37,824 - auto_focus.focus - INFO - Focus: 5.25, -36.92, 48.12
+2025-10-29 20:30:21,545 - auto_focus.focus - INFO - Focus: -39.97, 11.78, 45.50
+2025-10-29 20:31:24,505 - auto_focus.focus - INFO - Focus: -36.91, 5.95, 44.60
+2025-10-29 20:32:45,882 - auto_focus.focus - INFO - Focus: -43.69, 6.64, 45.60
+2025-10-30 07:46:20,497 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <chaco.data_range_1d.DataRange1D object at 0x000001BF538EBE70>, trait: _low_value, old value: -93.47826086956522, new value: -100.0
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 417, in update_axis_lv
+    self.z1 = self.figure.value_range.low
+    ^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\base_trait_handler.py", line 74, in error
+    raise TraitError(
+traits.trait_errors.TraitError: The 'z1' trait of a Confocal instance must be 0.0 <= a floating point number <= 100.0, but a value of -100.0 <class 'float'> was specified.
+2025-10-30 08:03:46,141 - auto_focus.focus - INFO - Focus: 39.41, -77.96, 45.00
+2025-10-30 08:04:59,114 - auto_focus.focus - INFO - Focus: 46.12, -86.26, 46.00
+2025-10-30 08:37:50,856 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <chaco.data_range_1d.DataRange1D object at 0x000001BF527029D0>, trait: _low_value, old value: -100.0, new value: -102.44565217391305
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 405, in update_axis_li
+    self.x1 = self.figure.index_range.low
+    ^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\base_trait_handler.py", line 74, in error
+    raise TraitError(
+traits.trait_errors.TraitError: The 'x1' trait of a Confocal instance must be -100.0 <= a floating point number <= 100.0, but a value of -102.44565217391305 <class 'float'> was specified.
+2025-10-30 09:08:50,588 - auto_focus.focus - INFO - Focus: -15.30, -35.88, 58.37
+2025-10-30 09:09:59,344 - auto_focus.focus - INFO - Focus: -14.55, -36.23, 57.77
+2025-10-30 09:10:52,698 - auto_focus.focus - INFO - Focus: -15.30, -35.88, 57.67
+2025-10-30 09:11:24,546 - auto_focus.focus - INFO - Focus: -15.30, -44.55, 58.67
+2025-10-30 09:12:04,026 - auto_focus.focus - INFO - Focus: -16.67, -37.03, 58.67
+2025-10-30 09:29:02,882 - emod.submit - INFO - The job <measurements.confocal.Confocal object at 0x000001BF526E9DF0> is already running or in the queue.
+2025-10-30 10:30:50,793 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <chaco.data_range_1d.DataRange1D object at 0x000001BF538EBE70>, trait: _low_value, old value: -100.0, new value: -101.3550135501355
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 419, in update_axis_lv
+    self.y1 = self.figure.value_range.low
+    ^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\base_trait_handler.py", line 74, in error
+    raise TraitError(
+traits.trait_errors.TraitError: The 'y1' trait of a Confocal instance must be -100.0 <= a floating point number <= 100.0, but a value of -101.3550135501355 <class 'float'> was specified.
+2025-10-30 10:38:57,841 - auto_focus.focus - INFO - Focus: 13.77, -92.62, 54.00
+2025-10-30 10:39:21,973 - auto_focus.focus - INFO - Focus: 13.82, -92.67, 54.00
+2025-10-30 10:39:57,619 - auto_focus.focus - INFO - Focus: 3.68, -87.04, 53.80
+2025-10-30 10:40:39,112 - auto_focus.focus - INFO - Focus: 2.26, -82.69, 54.80
+2025-10-30 10:41:24,593 - auto_focus.focus - INFO - Focus: 29.25, -89.84, 54.60
+2025-10-30 10:42:17,742 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <chaco.data_range_1d.DataRange1D object at 0x000001BF538EBE70>, trait: _high_value, old value: 100.0, new value: 101.08401084010839
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 426, in update_axis_hv
+    self.y2 = self.figure.value_range.high
+    ^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\base_trait_handler.py", line 74, in error
+    raise TraitError(
+traits.trait_errors.TraitError: The 'y2' trait of a Confocal instance must be -100.0 <= a floating point number <= 100.0, but a value of 101.08401084010839 <class 'float'> was specified.
+2025-10-30 10:47:52,972 - emod.submit - INFO - The job <measurements.auto_focus.AutoFocus object at 0x000001BF53B61E40> is already running or in the queue.
+2025-10-30 10:48:00,394 - auto_focus.focus - INFO - Focus: 68.10, 83.56, 45.69
+2025-10-30 10:48:35,064 - auto_focus.focus - INFO - Focus: 61.14, 94.34, 46.69
+2025-10-30 10:48:59,166 - auto_focus.focus - INFO - Focus: 61.39, 94.79, 47.69
+2025-10-30 10:49:24,212 - auto_focus.focus - INFO - Focus: 61.24, 94.84, 48.69
+2025-10-30 10:49:55,185 - auto_focus.focus - INFO - Focus: 60.70, 90.14, 49.69
+2025-10-30 11:12:31,499 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <chaco.data_range_1d.DataRange1D object at 0x000001BF527029D0>, trait: _low_value, old value: -100.0, new value: -104.47154471544715
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 405, in update_axis_li
+    self.x1 = self.figure.index_range.low
+    ^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\base_trait_handler.py", line 74, in error
+    raise TraitError(
+traits.trait_errors.TraitError: The 'x1' trait of a Confocal instance must be -100.0 <= a floating point number <= 100.0, but a value of -104.47154471544715 <class 'float'> was specified.
+2025-10-30 11:26:11,649 - auto_focus.focus - INFO - Focus: -43.70, -18.23, 64.55
+2025-10-30 11:28:22,920 - auto_focus.focus - INFO - Focus: -42.13, -23.07, 65.45
+2025-10-30 11:29:28,947 - auto_focus.focus - INFO - Focus: -38.98, -21.88, 65.25
+2025-10-30 11:30:07,224 - auto_focus.focus - INFO - Focus: -30.33, -12.11, 65.25
+2025-10-30 11:30:40,958 - auto_focus.focus - INFO - Focus: -19.31, -3.81, 66.25
+2025-10-30 11:31:26,625 - auto_focus.focus - INFO - Focus: -18.82, -19.02, 66.25
+2025-10-30 11:32:33,225 - auto_focus.focus - INFO - Focus: -52.17, -5.98, 66.25
+2025-10-30 11:33:12,456 - auto_focus.focus - INFO - Focus: -52.07, -8.06, 66.25
+2025-10-30 11:33:47,324 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <chaco.data_range_1d.DataRange1D object at 0x000001BF527029D0>, trait: _high_value, old value: 100.0, new value: 109.07859078590786
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 412, in update_axis_hi
+    self.x2 = self.figure.index_range.high
+    ^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\base_trait_handler.py", line 74, in error
+    raise TraitError(
+traits.trait_errors.TraitError: The 'x2' trait of a Confocal instance must be -100.0 <= a floating point number <= 100.0, but a value of 109.07859078590786 <class 'float'> was specified.
+2025-10-30 11:33:47,325 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <chaco.data_range_1d.DataRange1D object at 0x000001BF538EBE70>, trait: _low_value, old value: -100.0, new value: -105.96205962059621
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 419, in update_axis_lv
+    self.y1 = self.figure.value_range.low
+    ^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\base_trait_handler.py", line 74, in error
+    raise TraitError(
+traits.trait_errors.TraitError: The 'y1' trait of a Confocal instance must be -100.0 <= a floating point number <= 100.0, but a value of -105.96205962059621 <class 'float'> was specified.
+2025-10-30 11:34:17,874 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <chaco.data_range_1d.DataRange1D object at 0x000001BF538EBE70>, trait: _low_value, old value: -99.82447249946755, new value: -100.0
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 417, in update_axis_lv
+    self.z1 = self.figure.value_range.low
+    ^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\base_trait_handler.py", line 74, in error
+    raise TraitError(
+traits.trait_errors.TraitError: The 'z1' trait of a Confocal instance must be 0.0 <= a floating point number <= 100.0, but a value of -100.0 <class 'float'> was specified.
+2025-10-30 11:42:10,920 - auto_focus.focus - INFO - Focus: 89.23, -68.37, 62.70
+2025-10-30 12:54:39,524 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <chaco.data_range_1d.DataRange1D object at 0x000001BF527029D0>, trait: _high_value, old value: 100.0, new value: 101.21951219512195
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 412, in update_axis_hi
+    self.x2 = self.figure.index_range.high
+    ^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\base_trait_handler.py", line 74, in error
+    raise TraitError(
+traits.trait_errors.TraitError: The 'x2' trait of a Confocal instance must be -100.0 <= a floating point number <= 100.0, but a value of 101.21951219512195 <class 'float'> was specified.
+2025-10-30 14:25:28,974 - auto_focus.focus - INFO - Focus: 37.87, 65.72, 39.78
+2025-10-30 14:26:26,302 - auto_focus.focus - INFO - Focus: 30.30, 63.43, 39.78
+2025-10-30 14:27:12,994 - auto_focus.focus - INFO - Focus: 59.70, 85.05, 39.78
+2025-10-30 14:33:32,641 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <chaco.data_range_1d.DataRange1D object at 0x000001BF527029D0>, trait: _low_value, old value: -99.1869918699187, new value: -100.0
+Traceback (most recent call last):
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
+    self.dispatch(handler, *args)
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
+    handler(*args)
+  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 401, in update_axis_li
+    self.z1 = self.figure.index_range.low
+    ^^^^^^^
+  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\base_trait_handler.py", line 74, in error
+    raise TraitError(
+traits.trait_errors.TraitError: The 'z1' trait of a Confocal instance must be 0.0 <= a floating point number <= 100.0, but a value of -100.0 <class 'float'> was specified.
+2025-10-30 15:00:03,031 - auto_focus.focus - INFO - Focus: 30.75, -68.44, 37.74
+2025-10-30 15:00:36,305 - auto_focus.focus - INFO - Focus: 27.66, -63.21, 38.64
+2025-10-30 15:01:21,439 - auto_focus.focus - INFO - Focus: 55.64, -58.58, 38.64
+2025-10-30 15:01:54,565 - auto_focus.focus - INFO - Focus: 29.99, -81.43, 39.64
+2025-10-30 15:02:28,122 - auto_focus.focus - INFO - Focus: 30.97, -85.22, 39.64
+2025-10-30 15:03:19,862 - auto_focus.focus - INFO - Focus: 75.63, -60.72, 39.64
+2025-10-31 12:19:21,741 - auto_focus.focus - INFO - Focus: 3.01, 2.85, 21.31
+2025-10-31 12:20:04,121 - auto_focus.focus - INFO - Focus: 2.96, 2.80, 22.31
