@@ -1,555 +1,75 @@
-2026-02-23 12:58:10,750 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <chaco.data_range_1d.DataRange1D object at 0x000001EC2E7D05E0>, trait: _low_value, old value: -53.14803875236295, new value: -82.17391304347827
-Traceback (most recent call last):
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
-    self.dispatch(handler, *args)
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
-    handler(*args)
-  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 417, in update_axis_lv
-    self.z1 = self.figure.value_range.low
-    ^^^^^^^
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\base_trait_handler.py", line 74, in error
-    raise TraitError(
-traits.trait_errors.TraitError: The 'z1' trait of a Confocal instance must be 0.0 <= a floating point number <= 100.0, but a value of -82.17391304347827 <class 'float'> was specified.
-2026-02-23 13:00:39,772 - exception_handling._log_exception - ERROR - Exception occurred in traits notification handler for event object: TraitChangeEvent(object=<chaco.tools.cursor_tool.CursorTool2D object at 0x000001EC2E9C7F10>, name='current_index', old=(49, 35), new=(50, 35))
-Traceback (most recent call last):
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\observation\_trait_event_notifier.py", line 122, in __call__
-    self.dispatcher(handler, event)
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\observation\observe.py", line 43, in dispatch_same
-    handler(event)
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\has_traits.py", line 327, in handler
-    instance.trait_property_changed(property_name, old)
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\has_traits.py", line 905, in decorator
-    self.__dict__[name] = result = function(self)
-                                   ^^^^^^^^^^^^^^
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\chaco\tools\cursor_tool.py", line 256, in _get_current_position
-    y = ydata.get_data()[ndy]
-        ~~~~~~~~~~~~~~~~^^^^^
-IndexError: index 35 is out of bounds for axis 0 with size 29
-2026-02-23 13:00:39,826 - exception_handling._log_exception - ERROR - Exception occurred in traits notification handler for event object: TraitChangeEvent(object=<chaco.tools.cursor_tool.CursorTool2D object at 0x000001EC2E9C7F10>, name='current_index', old=(50, 35), new=(58, 35))
-Traceback (most recent call last):
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\observation\_trait_event_notifier.py", line 122, in __call__
-    self.dispatcher(handler, event)
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\observation\observe.py", line 43, in dispatch_same
-    handler(event)
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\has_traits.py", line 327, in handler
-    instance.trait_property_changed(property_name, old)
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\has_traits.py", line 905, in decorator
-    self.__dict__[name] = result = function(self)
-                                   ^^^^^^^^^^^^^^
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\chaco\tools\cursor_tool.py", line 256, in _get_current_position
-    y = ydata.get_data()[ndy]
-        ~~~~~~~~~~~~~~~~^^^^^
-IndexError: index 35 is out of bounds for axis 0 with size 29
-2026-02-23 13:00:39,836 - exception_handling._log_exception - ERROR - Exception occurred in traits notification handler for event object: TraitChangeEvent(object=<chaco.tools.cursor_tool.CursorTool2D object at 0x000001EC2E9C7F10>, name='current_index', old=(58, 35), new=(60, 35))
-Traceback (most recent call last):
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\observation\_trait_event_notifier.py", line 122, in __call__
-    self.dispatcher(handler, event)
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\observation\observe.py", line 43, in dispatch_same
-    handler(event)
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\has_traits.py", line 327, in handler
-    instance.trait_property_changed(property_name, old)
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\has_traits.py", line 905, in decorator
-    self.__dict__[name] = result = function(self)
-                                   ^^^^^^^^^^^^^^
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\chaco\tools\cursor_tool.py", line 256, in _get_current_position
-    y = ydata.get_data()[ndy]
-        ~~~~~~~~~~~~~~~~^^^^^
-IndexError: index 35 is out of bounds for axis 0 with size 29
-2026-02-23 13:00:39,840 - exception_handling._log_exception - ERROR - Exception occurred in traits notification handler for event object: TraitChangeEvent(object=<chaco.tools.cursor_tool.CursorTool2D object at 0x000001EC2E9C7F10>, name='current_index', old=(60, 35), new=(61, 35))
-Traceback (most recent call last):
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\observation\_trait_event_notifier.py", line 122, in __call__
-    self.dispatcher(handler, event)
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\observation\observe.py", line 43, in dispatch_same
-    handler(event)
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\has_traits.py", line 327, in handler
-    instance.trait_property_changed(property_name, old)
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\has_traits.py", line 905, in decorator
-    self.__dict__[name] = result = function(self)
-                                   ^^^^^^^^^^^^^^
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\chaco\tools\cursor_tool.py", line 256, in _get_current_position
-    y = ydata.get_data()[ndy]
-        ~~~~~~~~~~~~~~~~^^^^^
-IndexError: index 35 is out of bounds for axis 0 with size 29
-2026-02-23 13:00:39,845 - exception_handling._log_exception - ERROR - Exception occurred in traits notification handler for event object: TraitChangeEvent(object=<chaco.tools.cursor_tool.CursorTool2D object at 0x000001EC2E9C7F10>, name='current_index', old=(61, 35), new=(63, 35))
-Traceback (most recent call last):
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\observation\_trait_event_notifier.py", line 122, in __call__
-    self.dispatcher(handler, event)
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\observation\observe.py", line 43, in dispatch_same
-    handler(event)
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\has_traits.py", line 327, in handler
-    instance.trait_property_changed(property_name, old)
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\has_traits.py", line 905, in decorator
-    self.__dict__[name] = result = function(self)
-                                   ^^^^^^^^^^^^^^
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\chaco\tools\cursor_tool.py", line 256, in _get_current_position
-    y = ydata.get_data()[ndy]
-        ~~~~~~~~~~~~~~~~^^^^^
-IndexError: index 35 is out of bounds for axis 0 with size 29
-2026-02-23 13:00:39,853 - exception_handling._log_exception - ERROR - Exception occurred in traits notification handler for event object: TraitChangeEvent(object=<chaco.tools.cursor_tool.CursorTool2D object at 0x000001EC2E9C7F10>, name='current_index', old=(63, 35), new=(64, 35))
-Traceback (most recent call last):
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\observation\_trait_event_notifier.py", line 122, in __call__
-    self.dispatcher(handler, event)
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\observation\observe.py", line 43, in dispatch_same
-    handler(event)
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\has_traits.py", line 327, in handler
-    instance.trait_property_changed(property_name, old)
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\has_traits.py", line 905, in decorator
-    self.__dict__[name] = result = function(self)
-                                   ^^^^^^^^^^^^^^
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\chaco\tools\cursor_tool.py", line 256, in _get_current_position
-    y = ydata.get_data()[ndy]
-        ~~~~~~~~~~~~~~~~^^^^^
-IndexError: index 35 is out of bounds for axis 0 with size 29
-2026-02-23 13:00:39,861 - exception_handling._log_exception - ERROR - Exception occurred in traits notification handler for event object: TraitChangeEvent(object=<chaco.tools.cursor_tool.CursorTool2D object at 0x000001EC2E9C7F10>, name='current_index', old=(64, 35), new=(65, 35))
-Traceback (most recent call last):
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\observation\_trait_event_notifier.py", line 122, in __call__
-    self.dispatcher(handler, event)
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\observation\observe.py", line 43, in dispatch_same
-    handler(event)
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\has_traits.py", line 327, in handler
-    instance.trait_property_changed(property_name, old)
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\has_traits.py", line 905, in decorator
-    self.__dict__[name] = result = function(self)
-                                   ^^^^^^^^^^^^^^
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\chaco\tools\cursor_tool.py", line 256, in _get_current_position
-    y = ydata.get_data()[ndy]
-        ~~~~~~~~~~~~~~~~^^^^^
-IndexError: index 35 is out of bounds for axis 0 with size 29
-2026-02-23 13:00:39,869 - exception_handling._log_exception - ERROR - Exception occurred in traits notification handler for event object: TraitChangeEvent(object=<chaco.tools.cursor_tool.CursorTool2D object at 0x000001EC2E9C7F10>, name='current_index', old=(65, 35), new=(66, 35))
-Traceback (most recent call last):
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\observation\_trait_event_notifier.py", line 122, in __call__
-    self.dispatcher(handler, event)
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\observation\observe.py", line 43, in dispatch_same
-    handler(event)
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\has_traits.py", line 327, in handler
-    instance.trait_property_changed(property_name, old)
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\has_traits.py", line 905, in decorator
-    self.__dict__[name] = result = function(self)
-                                   ^^^^^^^^^^^^^^
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\chaco\tools\cursor_tool.py", line 256, in _get_current_position
-    y = ydata.get_data()[ndy]
-        ~~~~~~~~~~~~~~~~^^^^^
-IndexError: index 35 is out of bounds for axis 0 with size 29
-2026-02-23 13:00:39,878 - exception_handling._log_exception - ERROR - Exception occurred in traits notification handler for event object: TraitChangeEvent(object=<chaco.tools.cursor_tool.CursorTool2D object at 0x000001EC2E9C7F10>, name='current_index', old=(66, 35), new=(67, 35))
-Traceback (most recent call last):
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\observation\_trait_event_notifier.py", line 122, in __call__
-    self.dispatcher(handler, event)
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\observation\observe.py", line 43, in dispatch_same
-    handler(event)
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\has_traits.py", line 327, in handler
-    instance.trait_property_changed(property_name, old)
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\has_traits.py", line 905, in decorator
-    self.__dict__[name] = result = function(self)
-                                   ^^^^^^^^^^^^^^
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\chaco\tools\cursor_tool.py", line 256, in _get_current_position
-    y = ydata.get_data()[ndy]
-        ~~~~~~~~~~~~~~~~^^^^^
-IndexError: index 35 is out of bounds for axis 0 with size 29
-2026-02-23 13:00:39,885 - exception_handling._log_exception - ERROR - Exception occurred in traits notification handler for event object: TraitChangeEvent(object=<chaco.tools.cursor_tool.CursorTool2D object at 0x000001EC2E9C7F10>, name='current_index', old=(67, 35), new=(68, 35))
-Traceback (most recent call last):
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\observation\_trait_event_notifier.py", line 122, in __call__
-    self.dispatcher(handler, event)
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\observation\observe.py", line 43, in dispatch_same
-    handler(event)
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\has_traits.py", line 327, in handler
-    instance.trait_property_changed(property_name, old)
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\has_traits.py", line 905, in decorator
-    self.__dict__[name] = result = function(self)
-                                   ^^^^^^^^^^^^^^
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\chaco\tools\cursor_tool.py", line 256, in _get_current_position
-    y = ydata.get_data()[ndy]
-        ~~~~~~~~~~~~~~~~^^^^^
-IndexError: index 35 is out of bounds for axis 0 with size 29
-2026-02-23 13:00:39,893 - exception_handling._log_exception - ERROR - Exception occurred in traits notification handler for event object: TraitChangeEvent(object=<chaco.tools.cursor_tool.CursorTool2D object at 0x000001EC2E9C7F10>, name='current_index', old=(68, 35), new=(69, 35))
-Traceback (most recent call last):
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\observation\_trait_event_notifier.py", line 122, in __call__
-    self.dispatcher(handler, event)
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\observation\observe.py", line 43, in dispatch_same
-    handler(event)
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\has_traits.py", line 327, in handler
-    instance.trait_property_changed(property_name, old)
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\has_traits.py", line 905, in decorator
-    self.__dict__[name] = result = function(self)
-                                   ^^^^^^^^^^^^^^
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\chaco\tools\cursor_tool.py", line 256, in _get_current_position
-    y = ydata.get_data()[ndy]
-        ~~~~~~~~~~~~~~~~^^^^^
-IndexError: index 35 is out of bounds for axis 0 with size 29
-2026-02-23 13:00:39,925 - exception_handling._log_exception - ERROR - Exception occurred in traits notification handler for event object: TraitChangeEvent(object=<chaco.tools.cursor_tool.CursorTool2D object at 0x000001EC2E9C7F10>, name='current_index', old=(69, 35), new=(70, 35))
-Traceback (most recent call last):
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\observation\_trait_event_notifier.py", line 122, in __call__
-    self.dispatcher(handler, event)
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\observation\observe.py", line 43, in dispatch_same
-    handler(event)
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\has_traits.py", line 327, in handler
-    instance.trait_property_changed(property_name, old)
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\has_traits.py", line 905, in decorator
-    self.__dict__[name] = result = function(self)
-                                   ^^^^^^^^^^^^^^
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\chaco\tools\cursor_tool.py", line 256, in _get_current_position
-    y = ydata.get_data()[ndy]
-        ~~~~~~~~~~~~~~~~^^^^^
-IndexError: index 35 is out of bounds for axis 0 with size 29
-2026-02-23 13:06:25,710 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <chaco.data_range_1d.DataRange1D object at 0x000001EC2E7D05E0>, trait: _low_value, old value: 22.932024456521745, new value: -82.17
-Traceback (most recent call last):
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
-    self.dispatch(handler, *args)
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
-    handler(*args)
-  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 417, in update_axis_lv
-    self.z1 = self.figure.value_range.low
-    ^^^^^^^
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\base_trait_handler.py", line 74, in error
-    raise TraitError(
-traits.trait_errors.TraitError: The 'z1' trait of a Confocal instance must be 0.0 <= a floating point number <= 100.0, but a value of -82.17 <class 'float'> was specified.
-2026-02-23 13:19:37,235 - axis._compute_tick_positions - WARNING - {self.mapper} has an invalid data range with low={datalow} > high={datahigh}; unable to compute axis ticks.
-2026-02-23 13:19:50,299 - axis._compute_tick_positions - WARNING - {self.mapper} has an invalid data range with low={datalow} > high={datahigh}; unable to compute axis ticks.
-2026-02-23 13:44:11,758 - axis._compute_tick_positions - WARNING - {self.mapper} has an invalid data range with low={datalow} > high={datahigh}; unable to compute axis ticks.
-2026-02-23 13:44:12,134 - axis._compute_tick_positions - WARNING - {self.mapper} has an invalid data range with low={datalow} > high={datahigh}; unable to compute axis ticks.
-2026-02-23 13:44:13,901 - axis._compute_tick_positions - WARNING - {self.mapper} has an invalid data range with low={datalow} > high={datahigh}; unable to compute axis ticks.
-2026-02-23 13:44:15,678 - axis._compute_tick_positions - WARNING - {self.mapper} has an invalid data range with low={datalow} > high={datahigh}; unable to compute axis ticks.
-2026-02-23 13:44:17,443 - axis._compute_tick_positions - WARNING - {self.mapper} has an invalid data range with low={datalow} > high={datahigh}; unable to compute axis ticks.
-2026-02-23 14:42:33,983 - axis._compute_tick_positions - WARNING - {self.mapper} has an invalid data range with low={datalow} > high={datahigh}; unable to compute axis ticks.
-2026-02-23 14:42:36,141 - axis._compute_tick_positions - WARNING - {self.mapper} has an invalid data range with low={datalow} > high={datahigh}; unable to compute axis ticks.
-2026-02-23 15:02:34,321 - axis._compute_tick_positions - WARNING - {self.mapper} has an invalid data range with low={datalow} > high={datahigh}; unable to compute axis ticks.
-2026-02-23 15:02:36,468 - axis._compute_tick_positions - WARNING - {self.mapper} has an invalid data range with low={datalow} > high={datahigh}; unable to compute axis ticks.
-2026-02-23 15:23:39,056 - axis._compute_tick_positions - WARNING - {self.mapper} has an invalid data range with low={datalow} > high={datahigh}; unable to compute axis ticks.
-2026-02-23 15:32:00,114 - axis._compute_tick_positions - WARNING - {self.mapper} has an invalid data range with low={datalow} > high={datahigh}; unable to compute axis ticks.
-2026-02-23 15:32:03,373 - axis._compute_tick_positions - WARNING - {self.mapper} has an invalid data range with low={datalow} > high={datahigh}; unable to compute axis ticks.
-2026-02-23 15:32:04,944 - axis._compute_tick_positions - WARNING - {self.mapper} has an invalid data range with low={datalow} > high={datahigh}; unable to compute axis ticks.
-2026-02-23 15:41:37,083 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <chaco.data_range_1d.DataRange1D object at 0x000001EC2E7D05E0>, trait: _low_value, old value: -19.56521739130436, new value: -100.0
-Traceback (most recent call last):
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
-    self.dispatch(handler, *args)
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
-    handler(*args)
-  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 417, in update_axis_lv
-    self.z1 = self.figure.value_range.low
-    ^^^^^^^
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\base_trait_handler.py", line 74, in error
-    raise TraitError(
-traits.trait_errors.TraitError: The 'z1' trait of a Confocal instance must be 0.0 <= a floating point number <= 100.0, but a value of -100.0 <class 'float'> was specified.
-2026-02-23 15:56:56,219 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <chaco.data_range_1d.DataRange1D object at 0x000001EC2E7D05E0>, trait: _low_value, old value: -22.82608695652175, new value: -100.0
-Traceback (most recent call last):
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
-    self.dispatch(handler, *args)
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
-    handler(*args)
-  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 417, in update_axis_lv
-    self.z1 = self.figure.value_range.low
-    ^^^^^^^
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\base_trait_handler.py", line 74, in error
-    raise TraitError(
-traits.trait_errors.TraitError: The 'z1' trait of a Confocal instance must be 0.0 <= a floating point number <= 100.0, but a value of -100.0 <class 'float'> was specified.
-2026-02-24 15:31:23,940 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <chaco.data_range_1d.DataRange1D object at 0x000001EC2E7D05E0>, trait: _low_value, old value: -33.423913043478265, new value: -100.0
-Traceback (most recent call last):
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
-    self.dispatch(handler, *args)
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
-    handler(*args)
-  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 417, in update_axis_lv
-    self.z1 = self.figure.value_range.low
-    ^^^^^^^
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\base_trait_handler.py", line 74, in error
-    raise TraitError(
-traits.trait_errors.TraitError: The 'z1' trait of a Confocal instance must be 0.0 <= a floating point number <= 100.0, but a value of -100.0 <class 'float'> was specified.
-2026-02-24 15:47:59,876 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <chaco.data_range_1d.DataRange1D object at 0x000001EC2E7D05E0>, trait: _low_value, old value: -57.608695652173914, new value: -100.0
-Traceback (most recent call last):
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
-    self.dispatch(handler, *args)
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
-    handler(*args)
-  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 417, in update_axis_lv
-    self.z1 = self.figure.value_range.low
-    ^^^^^^^
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\base_trait_handler.py", line 74, in error
-    raise TraitError(
-traits.trait_errors.TraitError: The 'z1' trait of a Confocal instance must be 0.0 <= a floating point number <= 100.0, but a value of -100.0 <class 'float'> was specified.
-2026-02-24 15:55:06,131 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <chaco.data_range_1d.DataRange1D object at 0x000001EC2E7D05E0>, trait: _low_value, old value: -54.512863303402646, new value: -57.608695652173914
-Traceback (most recent call last):
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
-    self.dispatch(handler, *args)
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
-    handler(*args)
-  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 417, in update_axis_lv
-    self.z1 = self.figure.value_range.low
-    ^^^^^^^
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\base_trait_handler.py", line 74, in error
-    raise TraitError(
-traits.trait_errors.TraitError: The 'z1' trait of a Confocal instance must be 0.0 <= a floating point number <= 100.0, but a value of -57.608695652173914 <class 'float'> was specified.
-2026-02-24 15:55:06,132 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <chaco.data_range_1d.DataRange1D object at 0x000001EC2E7D05E0>, trait: _high_value, old value: -13.187101252362957, new value: -4.619565217391312
-Traceback (most recent call last):
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
-    self.dispatch(handler, *args)
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
-    handler(*args)
-  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 424, in update_axis_hv
-    self.z2 = self.figure.value_range.high
-    ^^^^^^^
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\base_trait_handler.py", line 74, in error
-    raise TraitError(
-traits.trait_errors.TraitError: The 'z2' trait of a Confocal instance must be 0.0 <= a floating point number <= 100.0, but a value of -4.619565217391312 <class 'float'> was specified.
-2026-02-25 13:59:18,448 - auto_focus.focus - INFO - Focus: 24.56, 40.33, 32.65
-2026-02-25 14:26:24,553 - auto_focus.focus - INFO - Focus: -1.63, -2.35, 47.84
-2026-02-25 14:29:33,002 - auto_focus.focus - INFO - Focus: -9.04, -21.54, 47.84
-2026-02-25 14:29:57,188 - auto_focus.focus - INFO - Focus: -8.99, -21.49, 47.84
-2026-02-25 14:40:32,441 - auto_focus.focus - INFO - Focus: 9.80, -10.79, 47.84
-2026-02-25 14:41:48,374 - auto_focus.focus - INFO - Focus: 9.75, -10.74, 48.64
-2026-02-25 14:54:45,732 - auto_focus.focus - INFO - Focus: -3.06, 23.20, 47.47
-2026-02-25 15:12:22,077 - emod.submit - INFO - The job <measurements.odmr_ps.ODMR object at 0x000001EC333A9BC0> is already running or in the queue.
-2026-02-25 15:12:24,707 - auto_focus.focus - INFO - Focus: -10.94, -41.38, 38.78
-2026-02-25 15:14:02,510 - auto_focus.next_target - INFO - No target available. Add a target and try again!
-2026-02-25 15:14:06,708 - auto_focus.next_target - INFO - No target available. Add a target and try again!
-2026-02-25 15:15:34,126 - auto_focus.focus - INFO - Focus: -14.57, -15.74, 38.78
-2026-02-25 15:34:14,232 - auto_focus.focus - INFO - Focus: 49.37, -68.24, 46.94
-2026-02-25 15:34:38,324 - emod.submit - INFO - The job <measurements.auto_focus.AutoFocus object at 0x000001EC2E886890> is already running or in the queue.
-2026-02-25 15:34:41,370 - auto_focus.focus - INFO - Focus: 49.12, -68.99, 46.94
-2026-02-25 15:35:06,733 - auto_focus.focus - INFO - Focus: 49.77, -68.34, 46.94
-2026-02-25 15:36:39,140 - auto_focus.focus - INFO - Focus: 49.10, -44.43, 46.94
-2026-02-25 15:38:52,328 - auto_focus.focus - INFO - Focus: 41.33, -57.33, 46.84
-2026-02-25 15:41:15,398 - auto_focus.focus - INFO - Focus: 48.90, -67.24, 46.84
-2026-02-25 16:06:02,204 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <chaco.data_range_1d.DataRange1D object at 0x000001EC2E7D05E0>, trait: _low_value, old value: -100.0, new value: -100.54347826086956
-Traceback (most recent call last):
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
-    self.dispatch(handler, *args)
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
-    handler(*args)
-  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 419, in update_axis_lv
-    self.y1 = self.figure.value_range.low
-    ^^^^^^^
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\base_trait_handler.py", line 74, in error
-    raise TraitError(
-traits.trait_errors.TraitError: The 'y1' trait of a Confocal instance must be -100.0 <= a floating point number <= 100.0, but a value of -100.54347826086956 <class 'float'> was specified.
-2026-02-25 16:16:31,675 - emod.submit - INFO - The job <measurements.confocal.Confocal object at 0x000001EC2D5D2250> is already running or in the queue.
-2026-02-25 16:43:37,891 - auto_focus.focus - INFO - Focus: -9.74, -38.12, 45.90
-2026-02-25 16:45:28,794 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <measurements.auto_focus.AutoFocus object at 0x000001EC2E886890>, trait: next_target_button, old value: <undefined>, new value: 0
-Traceback (most recent call last):
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
-    self.dispatch(handler, *args)
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 487, in dispatch
-    handler(*args)
-  File "C:\Users\yy3\pi3-mini\measurements\auto_focus.py", line 109, in next_target
-    self.current_target = keys[0]
-                          ~~~~^^^
-TypeError: 'dict_keys' object is not subscriptable
-2026-02-25 16:45:31,394 - auto_focus.remove_target - INFO - Target cannot be removed. Target does not exist.
-2026-02-25 16:45:36,682 - auto_focus.remove_target - INFO - Target cannot be removed. Target does not exist.
-2026-02-25 16:45:38,274 - auto_focus.next_target - INFO - No target available. Add a target and try again!
-2026-02-25 16:50:55,691 - auto_focus.remove_target - INFO - Target cannot be removed. Target does not exist.
-2026-02-25 16:51:20,852 - auto_focus.focus - INFO - Focus: 40.66, -5.40, 45.90
-2026-02-25 16:52:31,899 - emod.submit - INFO - The job <measurements.auto_focus.AutoFocus object at 0x000001EC2E886890> is already running or in the queue.
-2026-02-25 16:52:34,518 - auto_focus.focus - INFO - Focus: 39.91, -6.15, 46.90
-2026-02-25 16:53:15,403 - auto_focus.focus - INFO - Focus: 39.16, -6.00, 47.90
-2026-02-25 16:55:37,164 - auto_focus.focus - INFO - Focus: 55.31, -4.90, 48.90
-2026-02-26 15:33:43,279 - auto_focus.focus - INFO - Focus: 52.81, 8.59, 44.65
-2026-02-26 15:36:56,678 - auto_focus.focus - INFO - Focus: 24.15, 10.94, 44.65
-2026-02-26 15:38:42,887 - auto_focus.focus - INFO - Focus: 24.20, 10.89, 45.65
-2026-02-26 15:41:52,405 - auto_focus.remove_target - INFO - Target cannot be removed. Target does not exist.
-2026-02-26 15:41:52,613 - auto_focus.remove_target - INFO - Target cannot be removed. Target does not exist.
-2026-02-26 15:41:52,765 - auto_focus.remove_target - INFO - Target cannot be removed. Target does not exist.
-2026-02-26 15:41:59,183 - auto_focus.remove_target - INFO - Target cannot be removed. Target does not exist.
-2026-02-26 15:42:01,063 - auto_focus.remove_target - INFO - Target cannot be removed. Target does not exist.
-2026-02-26 15:42:01,296 - auto_focus.remove_target - INFO - Target cannot be removed. Target does not exist.
-2026-02-26 18:07:17,520 - auto_focus.focus - INFO - Focus: 34.65, -3.38, 42.27
-2026-02-26 18:09:35,638 - auto_focus.focus - INFO - Focus: 20.64, 8.28, 42.27
-2026-02-26 18:10:00,428 - auto_focus.focus - INFO - Focus: 20.69, 8.23, 42.87
-2026-02-26 18:11:23,828 - auto_focus.focus - INFO - Focus: 30.50, -0.69, 43.67
-2026-02-26 18:11:50,898 - auto_focus.focus - INFO - Focus: 30.45, -0.74, 43.77
-2026-02-26 18:20:05,130 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <chaco.data_range_1d.DataRange1D object at 0x000001EC2D5EA9D0>, trait: _low_value, old value: -27.192317685778626, new value: -27.445652173913047
-Traceback (most recent call last):
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
-    self.dispatch(handler, *args)
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
-    handler(*args)
-  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 401, in update_axis_li
-    self.z1 = self.figure.index_range.low
-    ^^^^^^^
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\base_trait_handler.py", line 74, in error
-    raise TraitError(
-traits.trait_errors.TraitError: The 'z1' trait of a Confocal instance must be 0.0 <= a floating point number <= 100.0, but a value of -27.445652173913047 <class 'float'> was specified.
-2026-02-26 18:21:30,586 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <chaco.data_range_1d.DataRange1D object at 0x000001EC2E7D05E0>, trait: _low_value, old value: -53.82423824447562, new value: -54.34782608695652
-Traceback (most recent call last):
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
-    self.dispatch(handler, *args)
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
-    handler(*args)
-  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 417, in update_axis_lv
-    self.z1 = self.figure.value_range.low
-    ^^^^^^^
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\base_trait_handler.py", line 74, in error
-    raise TraitError(
-traits.trait_errors.TraitError: The 'z1' trait of a Confocal instance must be 0.0 <= a floating point number <= 100.0, but a value of -54.34782608695652 <class 'float'> was specified.
-2026-02-26 18:26:52,096 - auto_focus.focus - INFO - Focus: -8.81, -46.86, 41.56
-2026-02-26 18:27:39,988 - auto_focus.focus - INFO - Focus: 20.60, -49.29, 41.56
-2026-02-26 18:30:13,858 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <chaco.data_range_1d.DataRange1D object at 0x000001EC2D5EA9D0>, trait: _low_value, old value: -26.637629854250047, new value: -26.68564870950979
-Traceback (most recent call last):
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
-    self.dispatch(handler, *args)
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
-    handler(*args)
-  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 401, in update_axis_li
-    self.z1 = self.figure.index_range.low
-    ^^^^^^^
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\base_trait_handler.py", line 74, in error
-    raise TraitError(
-traits.trait_errors.TraitError: The 'z1' trait of a Confocal instance must be 0.0 <= a floating point number <= 100.0, but a value of -26.68564870950979 <class 'float'> was specified.
-2026-02-26 18:41:54,706 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <chaco.data_range_1d.DataRange1D object at 0x000001EC2E7D05E0>, trait: _low_value, old value: -9.974467281326866, new value: -54.34782608695652
-Traceback (most recent call last):
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
-    self.dispatch(handler, *args)
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
-    handler(*args)
-  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 417, in update_axis_lv
-    self.z1 = self.figure.value_range.low
-    ^^^^^^^
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\base_trait_handler.py", line 74, in error
-    raise TraitError(
-traits.trait_errors.TraitError: The 'z1' trait of a Confocal instance must be 0.0 <= a floating point number <= 100.0, but a value of -54.34782608695652 <class 'float'> was specified.
-2026-02-26 18:42:49,010 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <chaco.data_range_1d.DataRange1D object at 0x000001EC2D5EA9D0>, trait: _low_value, old value: 58.30807205958773, new value: -27.445652173913047
-Traceback (most recent call last):
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
-    self.dispatch(handler, *args)
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
-    handler(*args)
-  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 401, in update_axis_li
-    self.z1 = self.figure.index_range.low
-    ^^^^^^^
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\base_trait_handler.py", line 74, in error
-    raise TraitError(
-traits.trait_errors.TraitError: The 'z1' trait of a Confocal instance must be 0.0 <= a floating point number <= 100.0, but a value of -27.445652173913047 <class 'float'> was specified.
-2026-02-27 10:31:13,029 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <chaco.data_range_1d.DataRange1D object at 0x000001EC2D5EA9D0>, trait: _high_value, old value: 100.0, new value: 101.3586956521739
-Traceback (most recent call last):
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
-    self.dispatch(handler, *args)
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
-    handler(*args)
-  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 412, in update_axis_hi
-    self.x2 = self.figure.index_range.high
-    ^^^^^^^
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\base_trait_handler.py", line 74, in error
-    raise TraitError(
-traits.trait_errors.TraitError: The 'x2' trait of a Confocal instance must be -100.0 <= a floating point number <= 100.0, but a value of 101.3586956521739 <class 'float'> was specified.
-2026-02-27 10:31:16,997 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <chaco.data_range_1d.DataRange1D object at 0x000001EC2E7D05E0>, trait: _low_value, old value: -14.673913043478265, new value: -100.0
-Traceback (most recent call last):
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
-    self.dispatch(handler, *args)
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
-    handler(*args)
-  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 417, in update_axis_lv
-    self.z1 = self.figure.value_range.low
-    ^^^^^^^
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\base_trait_handler.py", line 74, in error
-    raise TraitError(
-traits.trait_errors.TraitError: The 'z1' trait of a Confocal instance must be 0.0 <= a floating point number <= 100.0, but a value of -100.0 <class 'float'> was specified.
-2026-02-27 10:31:36,972 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <chaco.data_range_1d.DataRange1D object at 0x000001EC2D5EA9D0>, trait: _high_value, old value: 100.0, new value: 102.44565217391303
-Traceback (most recent call last):
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
-    self.dispatch(handler, *args)
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
-    handler(*args)
-  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 412, in update_axis_hi
-    self.x2 = self.figure.index_range.high
-    ^^^^^^^
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\base_trait_handler.py", line 74, in error
-    raise TraitError(
-traits.trait_errors.TraitError: The 'x2' trait of a Confocal instance must be -100.0 <= a floating point number <= 100.0, but a value of 102.44565217391303 <class 'float'> was specified.
-2026-02-27 10:31:39,245 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <chaco.data_range_1d.DataRange1D object at 0x000001EC2E7D05E0>, trait: _low_value, old value: -12.228260869565219, new value: -100.0
-Traceback (most recent call last):
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
-    self.dispatch(handler, *args)
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
-    handler(*args)
-  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 417, in update_axis_lv
-    self.z1 = self.figure.value_range.low
-    ^^^^^^^
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\base_trait_handler.py", line 74, in error
-    raise TraitError(
-traits.trait_errors.TraitError: The 'z1' trait of a Confocal instance must be 0.0 <= a floating point number <= 100.0, but a value of -100.0 <class 'float'> was specified.
-2026-02-27 12:09:24,228 - auto_focus.focus - INFO - Focus: 6.22, 42.77, 45.35
-2026-02-27 12:09:55,385 - auto_focus.focus - INFO - Focus: 6.27, 42.82, 46.15
-2026-02-27 12:10:22,316 - auto_focus.focus - INFO - Focus: 6.32, 42.77, 47.05
-2026-02-27 12:12:10,038 - auto_focus.focus - INFO - Focus: -20.81, 40.15, 48.05
-2026-02-27 12:12:42,345 - auto_focus.focus - INFO - Focus: -20.76, 40.10, 48.85
-2026-02-27 12:17:50,283 - emod.submit - INFO - The job <measurements.auto_focus.AutoFocus object at 0x000001EC2E886890> is already running or in the queue.
-2026-02-27 12:17:54,064 - auto_focus.focus - INFO - Focus: 0.97, 44.33, 48.95
-2026-02-27 12:18:20,466 - auto_focus.focus - INFO - Focus: 0.92, 44.28, 49.05
-2026-02-27 12:19:50,025 - auto_focus.focus - INFO - Focus: 2.76, 28.85, 49.15
-2026-02-27 12:20:19,490 - auto_focus.focus - INFO - Focus: 2.06, 29.55, 49.95
-2026-02-27 12:21:01,554 - auto_focus.focus - INFO - Focus: 2.71, 28.80, 50.05
-2026-02-27 12:49:04,255 - auto_focus.focus - INFO - Focus: -3.79, -1.96, 52.22
-2026-02-27 12:59:52,541 - auto_focus.focus - INFO - Focus: -4.86, 1.13, 29.37
-2026-02-27 13:00:40,809 - auto_focus.focus - INFO - Focus: -10.62, 4.55, 30.17
-2026-02-27 13:02:16,841 - auto_focus.focus - INFO - Focus: -25.58, 0.75, 31.17
-2026-02-27 13:02:46,383 - auto_focus.focus - INFO - Focus: -25.53, 0.80, 32.17
-2026-02-27 13:47:20,364 - auto_focus.focus - INFO - Focus: -12.05, -13.41, 34.79
-2026-02-27 14:47:28,936 - diamond.<module> - INFO - Starting logger.
-2026-02-27 14:48:00,807 - diamond.<module> - INFO - Starting logger.
-2026-02-27 14:48:02,780 - emod.start - INFO - Starting Job Manager.
-2026-02-27 14:48:02,782 - cron.run - INFO - Starting Cron Daemon.
-2026-02-27 14:57:33,291 - auto_focus.focus - INFO - Focus: -5.84, -2.13, 39.38
-2026-02-27 15:01:42,371 - emod.submit - INFO - The job <measurements.auto_focus.AutoFocus object at 0x000001F96BC70860> is already running or in the queue.
-2026-02-27 15:01:49,447 - auto_focus.focus - INFO - Focus: -22.93, -2.98, 38.70
-2026-02-27 15:02:15,850 - auto_focus.focus - INFO - Focus: -22.98, -2.93, 38.70
-2026-02-27 15:33:09,909 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <chaco.data_range_1d.DataRange1D object at 0x000001F96CD746D0>, trait: _low_value, old value: 17.19749640945293, new value: -3.125
-Traceback (most recent call last):
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
-    self.dispatch(handler, *args)
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
-    handler(*args)
-  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 401, in update_axis_li
-    self.z1 = self.figure.index_range.low
-    ^^^^^^^
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\base_trait_handler.py", line 74, in error
-    raise TraitError(
-traits.trait_errors.TraitError: The 'z1' trait of a Confocal instance must be 0.0 <= a floating point number <= 100.0, but a value of -3.125 <class 'float'> was specified.
-2026-02-27 15:38:10,882 - auto_focus.focus - INFO - Focus: 30.25, 9.56, 55.79
-2026-02-27 15:39:19,789 - auto_focus.focus - INFO - Focus: 30.20, 9.71, 56.79
-2026-02-27 15:40:40,780 - auto_focus.focus - INFO - Focus: 61.03, 6.47, 56.79
-2026-02-27 15:41:35,933 - auto_focus.focus - INFO - Focus: 55.36, 1.41, 57.09
-2026-02-27 15:43:14,424 - auto_focus.focus - INFO - Focus: 42.21, 4.40, 58.09
-2026-02-27 15:44:22,786 - auto_focus.focus - INFO - Focus: 30.21, 9.56, 58.09
-2026-02-27 15:45:55,846 - auto_focus.focus - INFO - Focus: 64.44, 10.15, 58.09
-2026-02-27 15:46:54,694 - auto_focus.focus - INFO - Focus: 26.37, -3.36, 58.19
-2026-03-01 16:53:46,642 - auto_focus.focus - INFO - Focus: -13.31, -0.75, 41.98
-2026-03-01 16:57:03,140 - auto_focus.focus - INFO - Focus: -28.23, 1.13, 41.98
-2026-03-01 16:57:51,977 - auto_focus.focus - INFO - Focus: -28.24, 1.12, 42.98
-2026-03-01 17:00:11,832 - auto_focus.focus - INFO - Focus: -26.71, -11.97, 43.98
-2026-03-01 17:02:28,545 - auto_focus.focus - INFO - Focus: -24.28, -10.40, 44.98
-2026-03-01 17:04:27,008 - auto_focus.focus - INFO - Focus: -22.18, 7.04, 44.98
-2026-03-01 17:26:01,671 - auto_focus.focus - INFO - Focus: -17.43, -47.19, 46.00
-2026-03-01 17:28:23,485 - auto_focus.focus - INFO - Focus: -23.87, -48.72, 47.00
-2026-03-01 17:31:49,750 - auto_focus.focus - INFO - Focus: 2.49, -64.14, 48.00
-2026-03-01 17:33:49,192 - auto_focus.focus - INFO - Focus: -18.23, -66.58, 48.00
-2026-03-01 17:41:19,222 - auto_focus.focus - INFO - Focus: 35.35, -22.04, 51.28
-2026-03-01 17:44:59,790 - auto_focus.focus - INFO - Focus: 27.59, -43.13, 52.28
-2026-03-01 17:46:58,810 - auto_focus.focus - INFO - Focus: 28.25, -48.63, 53.28
-2026-03-01 17:48:08,572 - auto_focus.focus - INFO - Focus: 24.09, -38.27, 53.98
-2026-03-01 17:50:08,070 - auto_focus.focus - INFO - Focus: 21.39, -29.83, 53.88
-2026-03-01 18:01:52,816 - auto_focus.focus - INFO - Focus: 56.01, 32.73, 54.00
-2026-03-01 18:06:23,926 - auto_focus.focus - INFO - Focus: 59.21, 39.91, 55.00
-2026-03-01 18:08:19,382 - auto_focus.focus - INFO - Focus: 60.01, 42.00, 56.00
-2026-03-01 18:10:54,688 - auto_focus.focus - INFO - Focus: 46.90, 46.98, 56.00
-2026-03-01 18:12:39,528 - auto_focus.focus - INFO - Focus: 63.81, 54.36, 57.00
-2026-03-01 18:13:43,299 - auto_focus.focus - INFO - Focus: 61.61, 60.33, 57.00
-2026-03-01 18:38:04,405 - auto_focus.focus - INFO - Focus: -29.86, 32.98, 47.00
-2026-03-01 18:40:29,345 - auto_focus.focus - INFO - Focus: -29.64, 28.17, 48.00
-2026-03-01 18:42:16,455 - auto_focus.focus - INFO - Focus: -29.66, 25.24, 49.00
-2026-03-01 18:49:20,621 - auto_focus.focus - INFO - Focus: -24.46, 30.74, 50.00
-2026-03-01 18:50:46,359 - auto_focus.focus - INFO - Focus: -35.30, 17.06, 50.00
-2026-03-01 18:56:11,742 - trait_notifiers._log_exception - ERROR - Exception occurred in traits notification handler for object: <chaco.data_range_1d.DataRange1D object at 0x000001F96CEE1030>, trait: _low_value, old value: -66.7663043478261, new value: -90.0
-Traceback (most recent call last):
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 525, in _dispatch_change_event
-    self.dispatch(handler, *args)
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\trait_notifiers.py", line 620, in dispatch
-    handler(*args)
-  File "C:\Users\yy3\pi3-mini\measurements\confocal.py", line 417, in update_axis_lv
-    self.z1 = self.figure.value_range.low
-    ^^^^^^^
-  File "C:\Users\yy3\anaconda3\envs\pi3\Lib\site-packages\traits\base_trait_handler.py", line 74, in error
-    raise TraitError(
-traits.trait_errors.TraitError: The 'z1' trait of a Confocal instance must be 0.0 <= a floating point number <= 100.0, but a value of -90.0 <class 'float'> was specified.
-2026-03-01 19:02:29,547 - auto_focus.focus - INFO - Focus: -28.88, -58.89, 53.50
-2026-03-01 19:04:24,581 - auto_focus.focus - INFO - Focus: -13.19, -34.20, 54.50
-2026-03-01 19:07:16,166 - auto_focus.focus - INFO - Focus: -15.57, -58.54, 55.50
-2026-03-01 19:12:12,457 - auto_focus.focus - INFO - Focus: 5.32, -18.89, 56.50
-2026-03-01 19:26:50,340 - auto_focus.focus - INFO - Focus: 26.05, 35.97, 57.91
+2026-04-27 14:20:10,928 - diamond.<module> - INFO - Starting logger.
+2026-04-27 14:20:11,767 - emod.start - INFO - Starting Job Manager.
+2026-04-27 14:20:11,767 - cron.run - INFO - Starting Cron Daemon.
+2026-04-27 14:21:12,747 - diamond.<module> - INFO - Starting logger.
+2026-04-27 14:21:13,517 - emod.start - INFO - Starting Job Manager.
+2026-04-27 14:21:13,517 - cron.run - INFO - Starting Cron Daemon.
+2026-04-27 14:21:40,003 - diamond.<module> - INFO - Starting logger.
+2026-04-27 14:21:40,834 - emod.start - INFO - Starting Job Manager.
+2026-04-27 14:21:40,835 - cron.run - INFO - Starting Cron Daemon.
+2026-04-27 14:25:14,927 - diamond.<module> - INFO - Starting logger.
+2026-04-27 14:25:15,696 - emod.start - INFO - Starting Job Manager.
+2026-04-27 14:25:15,696 - cron.run - INFO - Starting Cron Daemon.
+2026-04-27 14:27:56,432 - diamond.<module> - INFO - Starting logger.
+2026-04-27 14:27:57,210 - emod.start - INFO - Starting Job Manager.
+2026-04-27 14:27:57,210 - cron.run - INFO - Starting Cron Daemon.
+2026-04-27 14:29:33,724 - diamond.<module> - INFO - Starting logger.
+2026-04-27 14:29:34,497 - emod.start - INFO - Starting Job Manager.
+2026-04-27 14:29:34,497 - cron.run - INFO - Starting Cron Daemon.
+2026-04-27 14:30:29,843 - diamond.<module> - INFO - Starting logger.
+2026-04-27 14:30:30,613 - emod.start - INFO - Starting Job Manager.
+2026-04-27 14:30:30,613 - cron.run - INFO - Starting Cron Daemon.
+2026-04-27 14:33:41,663 - diamond.<module> - INFO - Starting logger.
+2026-04-27 14:33:42,470 - emod.start - INFO - Starting Job Manager.
+2026-04-27 14:33:42,470 - cron.run - INFO - Starting Cron Daemon.
+2026-04-27 14:42:40,381 - diamond.<module> - INFO - Starting logger.
+2026-04-27 14:42:41,201 - emod.start - INFO - Starting Job Manager.
+2026-04-27 14:42:41,202 - cron.run - INFO - Starting Cron Daemon.
+2026-04-27 14:51:59,867 - diamond.<module> - INFO - Starting logger.
+2026-04-27 14:52:00,653 - emod.start - INFO - Starting Job Manager.
+2026-04-27 14:52:00,653 - cron.run - INFO - Starting Cron Daemon.
+2026-04-27 14:59:34,765 - diamond.<module> - INFO - Starting logger.
+2026-04-27 14:59:35,580 - emod.start - INFO - Starting Job Manager.
+2026-04-27 14:59:35,581 - cron.run - INFO - Starting Cron Daemon.
+2026-04-27 15:00:20,630 - diamond.<module> - INFO - Starting logger.
+2026-04-27 15:00:21,416 - emod.start - INFO - Starting Job Manager.
+2026-04-27 15:00:21,417 - cron.run - INFO - Starting Cron Daemon.
+2026-04-27 15:02:03,863 - diamond.<module> - INFO - Starting logger.
+2026-04-27 15:02:04,686 - emod.start - INFO - Starting Job Manager.
+2026-04-27 15:02:04,690 - cron.run - INFO - Starting Cron Daemon.
+2026-04-27 15:06:24,366 - diamond.<module> - INFO - Starting logger.
+2026-04-27 15:06:25,143 - emod.start - INFO - Starting Job Manager.
+2026-04-27 15:06:25,143 - cron.run - INFO - Starting Cron Daemon.
+2026-04-27 15:09:37,596 - diamond.<module> - INFO - Starting logger.
+2026-04-27 15:09:38,413 - emod.start - INFO - Starting Job Manager.
+2026-04-27 15:09:38,414 - cron.run - INFO - Starting Cron Daemon.
+2026-04-27 15:10:23,436 - diamond.<module> - INFO - Starting logger.
+2026-04-27 15:10:24,258 - emod.start - INFO - Starting Job Manager.
+2026-04-27 15:10:24,259 - cron.run - INFO - Starting Cron Daemon.
+2026-04-27 15:10:58,869 - diamond.<module> - INFO - Starting logger.
+2026-04-27 15:10:59,718 - emod.start - INFO - Starting Job Manager.
+2026-04-27 15:10:59,718 - cron.run - INFO - Starting Cron Daemon.
+2026-04-27 15:12:49,662 - diamond.<module> - INFO - Starting logger.
+2026-04-27 15:12:50,414 - emod.start - INFO - Starting Job Manager.
+2026-04-27 15:12:50,414 - cron.run - INFO - Starting Cron Daemon.
+2026-04-27 15:19:33,162 - diamond.<module> - INFO - Starting logger.
+2026-04-27 15:19:33,957 - emod.start - INFO - Starting Job Manager.
+2026-04-27 15:19:33,958 - cron.run - INFO - Starting Cron Daemon.
+2026-04-27 15:23:00,849 - diamond.<module> - INFO - Starting logger.
+2026-04-27 15:23:01,642 - emod.start - INFO - Starting Job Manager.
+2026-04-27 15:23:01,643 - cron.run - INFO - Starting Cron Daemon.
+2026-04-27 15:28:08,473 - diamond.<module> - INFO - Starting logger.
+2026-04-27 15:28:09,279 - emod.start - INFO - Starting Job Manager.
+2026-04-27 15:28:09,281 - cron.run - INFO - Starting Cron Daemon.
+2026-04-27 15:40:08,627 - diamond.<module> - INFO - Starting logger.
+2026-04-27 15:40:09,405 - emod.start - INFO - Starting Job Manager.
+2026-04-27 15:40:09,407 - cron.run - INFO - Starting Cron Daemon.
+2026-04-27 15:41:29,469 - diamond.<module> - INFO - Starting logger.
+2026-04-27 15:41:30,284 - emod.start - INFO - Starting Job Manager.
+2026-04-27 15:41:30,285 - cron.run - INFO - Starting Cron Daemon.
+2026-04-27 15:41:58,778 - diamond.<module> - INFO - Starting logger.
+2026-04-27 15:41:59,554 - emod.start - INFO - Starting Job Manager.
+2026-04-27 15:41:59,555 - cron.run - INFO - Starting Cron Daemon.
+2026-04-27 15:53:30,456 - diamond.<module> - INFO - Starting logger.
+2026-04-27 15:53:31,224 - emod.start - INFO - Starting Job Manager.
+2026-04-27 15:53:31,224 - cron.run - INFO - Starting Cron Daemon.

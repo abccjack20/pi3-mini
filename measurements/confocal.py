@@ -70,7 +70,7 @@ class Confocal( ManagedJob, GetSetItemsMixin ):
     colormaps = Enum('jet')
     
     show_labels = Bool(False)
-    
+    scan_mode = Enum('sum', 'diff', 'on', 'off', label='mode', desc='confocal: normal confocal scan; scanz: scan a z stack at each xy point')
 
     # scan data
     X = Array()
@@ -87,7 +87,7 @@ class Confocal( ManagedJob, GetSetItemsMixin ):
     z_label_text    = Str('z:0.0')
     cursor_position = Property(depends_on=['x','y','z','constant_axis'])
     
-    get_set_items=['constant_axis', 'X', 'Y', 'thresh_high', 'thresh_low', 'seconds_per_point',
+    get_set_items=['constant_axis', 'X', 'Y', 'thresh_high', 'scan_mode', 'thresh_low', 'seconds_per_point',
                    'return_speed', 'bidirectional', 'history', 'image', 'z_label_text',
                    'resolution', 'x', 'x1', 'x2', 'y', 'y1', 'y2', 'z', 'z1', 'z2', 'aom']
 
@@ -181,10 +181,10 @@ class Confocal( ManagedJob, GetSetItemsMixin ):
                       Line = numpy.vstack( (XL, YL, const) )
                 
                 if self.bidirectional:
-                    c = scanner.scanLine(Line, self.seconds_per_point)
+                    c = scanner.scanLine(Line, self.seconds_per_point, mode=self.scan_mode)
                 else:
                     #start_time = time.time()
-                    c = scanner.scanLine(Line, self.seconds_per_point)
+                    c = scanner.scanLine(Line, self.seconds_per_point, mode=self.scan_mode)
                     #print 'nominal time: '+str(self.seconds_per_point*Line.shape[1])
                     #print 'actual time: '+str(time.time() - start_time)
                     scanner.scanLine(Line[:,::-1], self.seconds_per_point/self.return_speed)
@@ -500,6 +500,7 @@ class Confocal( ManagedJob, GetSetItemsMixin ):
                 Item('thresh_high', width=-80),
                 #Item('colormap', width=-100),
                 Item('show_labels'),
+                Item('scan_mode', width=-100),
             ),
             HGroup(
                 Item('resolution', enabled_when='state != "run"', width=-60),

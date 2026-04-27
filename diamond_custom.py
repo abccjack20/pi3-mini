@@ -25,14 +25,14 @@ if __name__ == '__main__':
     confocal.edit_traits()
 
     # # Start autofocus tool
-    from measurements.auto_focus import AutoFocus
-    auto_focus = AutoFocus(confocal)
-    auto_focus.edit_traits()
+    # from measurements.auto_focus import AutoFocus
+    # auto_focus = AutoFocus(confocal)
+    # auto_focus.edit_traits()
 
     # # Start ODMR
-    from measurements.odmr_ps import ODMR
-    odmr = ODMR()
-    odmr.edit_traits()
+    # from measurements.odmr_ps import ODMR
+    # odmr = ODMR()
+    # odmr.edit_traits()
 
     # # Start Rabi / PulsedAnalyser
     # from measurements.rabi import Rabi

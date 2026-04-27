@@ -96,9 +96,10 @@ def PulseGenerator():
 
 @singleton
 def Scanner():
-    from .finite_scanner import Stage_control
-    return Stage_control(time_tagger, ch_marker_scanner, **scanner_params)
-    
+    from .finite_scanner import Stage_control, Stage_control_PS
+    # return Stage_control(time_tagger, ch_marker_scanner, **scanner_params)
+    return Stage_control_PS(time_tagger, PulseGenerator(), ch_marker_counter, **scanner_params)
+
 
 # Counter Initialization Used In ODMR
 @singleton

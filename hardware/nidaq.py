@@ -399,7 +399,7 @@ class analog_output_sweeper(analog_output_constant):
             return
 
         src = self.samp_clk.source
-        if self.use_internal_output:
+        if self.samp_clk.use_internal_output:
             src += 'InternalOutput'
         rate = self.samp_clk.sample_rate
         self.task.timing.cfg_samp_clk_timing(

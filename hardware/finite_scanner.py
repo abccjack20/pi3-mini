@@ -77,7 +77,7 @@ def Stage_control(
     invert_z=False,
     swap_xy=False,
 ):
-    from .nidaq import sample_clock, analog_output_sweeper
+    from .nidaq import analog_output_sweeper
     frame_size = 10     # Just an initial value, it can be changed later.
     clk = sample_clock(
         device_name, counter_name,
@@ -91,7 +91,8 @@ def Stage_control(
     )
     ao_sweep.prepare_task()
     
-    stage = piezostage_controller_aom(
+    #stage = piezostage_controller_aom(
+    stage = piezostage_controller_aom_PS(
         ao_sweep, clk, time_tagger, ch_marker,
         x_range=x_range,
         y_range=y_range,
@@ -105,6 +106,66 @@ def Stage_control(
     )
     return stage
 
+
+# Factory function of class piezostage_controller_aom
+def Stage_control_PS(
+    time_tagger,
+    pstreamer,
+    ch_marker,
+    device_name = 'dev1',
+    counter_name = 'ctr0',
+    ao_channels = ['ao0', 'ao1', 'ao2', 'ao3'],
+    voltage_range = [
+        [0., 1.],       # ao0
+        [0., 1.],       # ao1
+        [0., 1.],       # ao2
+        [0., 1.],       # ao3
+    ],
+    sec_per_point = .01,
+    duty_cycle = 0.9,
+    x_range=(-100.0,100.0),
+    y_range=(-100.0,100.0),
+    z_range=(0,100.0),
+    aom_range=(-10,10),
+    home_pos=None,
+    invert_x=False,
+    invert_y=False,
+    invert_z=False,
+    swap_xy=False,
+):
+    from .pulse_streamer import PulseStreamer_clock
+    frame_size = 10     # Just an initial value, it can be changed later.
+    clk = PulseStreamer_clock(
+        pstreamer,
+        samps_per_chan=frame_size,
+        period=sec_per_point,
+        duty_cycle=duty_cycle,
+        next_ch='pixel_next',
+    )
+    clk.source = f'/dev1/pfi0'
+    clk.use_internal_output = False
+    clk.prepare_task()
+    
+    ao_sweep = analog_output_sweeper(
+        device_name, ao_channels, voltage_range,
+        clk, use_falling=True
+    )
+    ao_sweep.prepare_task()
+    
+    #stage = piezostage_controller_aom(
+    stage = piezostage_controller_aom_PS(
+        ao_sweep, clk, time_tagger, ch_marker,
+        x_range=x_range,
+        y_range=y_range,
+        z_range=z_range,
+        aom_range=aom_range,
+        home_pos=home_pos,
+        invert_x=invert_x,
+        invert_y=invert_y,
+        invert_z=invert_z,
+        swap_xy=swap_xy,
+    )
+    return stage
 
 class piezostage_controller_aom:
     
@@ -250,6 +311,72 @@ class piezostage_controller_aom:
             print(f'Fail to get data from Timetagger!')
             return np.zeros(frame_size)
     
+
+class piezostage_controller_aom_PS(piezostage_controller_aom):
+    
+    def __init__(self,
+        *args, **kwargs 
+    ):
+        super().__init__(*args, **kwargs)
+
+    def scanLine(self, Line, SecondsPerPoint, timeout=None, add_aom=True, mode='sum'):
+        
+        Line = np.array(Line)
+        # print(Line)
+        frame_size = Line.shape[1]
+        if not timeout:
+            timeout = max(SecondsPerPoint*frame_size*1.5, 10)
+
+        if add_aom:
+            Line_aom = np.vstack((Line, self.aom*np.ones(frame_size)))
+        else:
+            Line_aom = Line
+
+        self.sample_clk.period = SecondsPerPoint
+        self.sample_clk.samps_per_chan = frame_size + 1
+        self.sample_clk.update_task()
+
+        self.ao_task.samps_per_chan = frame_size
+        self.ao_task.sample_rate = self.sample_clk.sample_rate
+        self.ao_task.on_demand = False
+        self.ao_task.update_task()
+        self.ao_task.write(self.PosToVolt(Line_aom))
+
+        cbm_task = self.tagger.Count_Between_Markers(2*(frame_size + 1), self.ch_marker)
+
+        cbm_task.start()
+        self.ao_task.start()
+        time.sleep(.1)
+        self.sample_clk.start()
+
+        t = 0
+        while not cbm_task.ready():
+            time.sleep(0.1)
+            t += 0.1
+            if t > timeout:
+                print(f'Scanning timeout! after {t:.1f} sec')
+                break
+        # sccuess = self.cbm_task.waitUntilFinished(timeout=timeout*1.e3)
+
+        self.ao_task.stop()
+        self.sample_clk.stop()
+        cbm_task.stop()
+        
+        if cbm_task.ready():
+            scale = self.sample_clk.sample_rate*self.sample_clk.duty_cycle
+            data = cbm_task.getData()
+            if mode == 'on':
+                return data[2::2]*scale
+            if mode == 'off':
+                return data[3::2]*scale
+            if mode == 'diff':
+                return (data[2::2] - data[3::2])*scale
+            if mode == 'sum':
+                return (data[2::2] + data[3::2])*scale
+        else:
+            print(f'Fail to get data from Timetagger!')
+            return np.zeros(frame_size)
+
 
 class pulsetrain_counter:
 
