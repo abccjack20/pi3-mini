@@ -350,4 +350,5 @@ class pulsetrain_counter_diff(pulsetrain_counter):
         sig = sig.mean(axis=1) + 1.e-9
         ref = ref.mean(axis=1) + 1.e-9
         
-        return 100. + 100.*(sig - ref)/ref
+        return ref.mean() + (sig - ref)
+        #return 100. + 100.*(sig - ref)/ref

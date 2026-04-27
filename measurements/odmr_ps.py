@@ -1,3 +1,4 @@
+import os
 import numpy as np
 
 from traits.api import Trait, Instance, Property, String, Range, Float, Int, Bool, Array, Enum, Button, on_trait_change, cached_property, Code, List, NO_COMPARE
@@ -18,8 +19,10 @@ from tools.emod import ManagedJob
 import hardware.api as ha
 
 from analysis import fitting
-
 from tools.utility import GetSetItemsHandler, GetSetItemsMixin
+from tools.cron import CronDaemon, CronEvent
+from tools.interval_iterator import IntervalCronEvent
+
 
 class ODMRHandler(GetSetItemsHandler):
 
@@ -70,7 +73,7 @@ class ODMR(ManagedJob, GetSetItemsMixin):
     T_readout = Range(low=1., high=1.e6, value=20.e3, desc='laser readout time [ns]', label='laser readout time [ns]', mode='text', auto_set=False, enter_set=True)
     wait = Range(low=1., high=100.e3, value=1000., desc='wait [ns]', label='wait [ns]', mode='text', auto_set=False, enter_set=True)
     
-    pulsed = Bool(True, label='pulsed')
+    pulsed = Bool(False, label='pulsed')
     power_p = Range(low= -100., high=20., value= -28.0, desc='Power Pmode [dBm]', label='Power Pmode[dBm]', mode='text', auto_set=False, enter_set=True)
     frequency_begin_p = Range(low=1, high=6.4e9, value=1.55e9, desc='Start Frequency Pmode[Hz]', label='Begin Pmode[Hz]', editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_str='%e'))
     frequency_end_p = Range(low=1, high=6.4e9, value=1.555e9, desc='Stop Frequency Pmode[Hz]', label='End Pmode[Hz]', editor=TextEditor(auto_set=False, enter_set=True, evaluate=float, format_str='%e'))
@@ -78,6 +81,7 @@ class ODMR(ManagedJob, GetSetItemsMixin):
     
     seconds_per_point = Range(low=3e-3, high=1, value=20e-3, desc='Seconds per point', label='Seconds per point', mode='text', auto_set=False, enter_set=True)
     stop_time = Range(low=1., value=np.inf, desc='Time after which the experiment stops by itself [s]', label='Stop time [s]', mode='text', auto_set=False, enter_set=True)
+    stop_sweep = Range(low=1., value=np.inf, desc='# Sweeps after which the experiment stops by itself', label='Stop sweep', mode='text', auto_set=False, enter_set=True)
     n_lines = Range (low=1, high=10000, value=50, desc='Number of lines in Matrix', label='Matrix lines', mode='text', auto_set=False, enter_set=True)
     n_sweep = Int(0, label='# Sweeped lines')
 
@@ -104,6 +108,27 @@ class ODMR(ManagedJob, GetSetItemsMixin):
     matrix_data = Instance(ArrayPlotData)
     line_plot = Instance(Plot, editor=ComponentEditor())
     matrix_plot = Instance(Plot, editor=ComponentEditor())
+
+    # Periodic tasks
+    enable_periodic_tasks = Bool(False, label='Enable periodic tasks')
+    enable_auto_save = Bool(False, label='Enable auto save')
+    auto_save_path = String(
+        value='C:/Users/yy3/Documents/Data/odmr_auto_save_default/ODMR', label='Auto save path',
+        desc='Path where data is automatically saved'
+    )
+    force_trigger_button = Button(label='Force Trigger', desc='Force trigger of periodic task now.')
+    auto_save_path_button = Button(label='Browse', desc='Set the path for automatic saving of data.')
+    periodic_tasks_interval = Range(low=1, high=10000, value=1, desc='Time interval between automatic tasks', label='Interval', mode='text', auto_set=False, enter_set=True)
+    periodic_tasks_interval_unit = Enum('mins', 'hours', 'days', label='Interval Unit', desc='Unit of time interval for periodic tasks.')
+    last_execution = String(
+        '',
+        desc='Timestamp of last periodic task execution',
+        label='Last Exec Time',
+        editor=TextEditor(
+            auto_set=False, enter_set=True, evaluate=float,
+            format_func=lambda t:'%s' % t
+        )
+    )
 
     def __init__(self):
         super(ODMR, self).__init__()
@@ -145,8 +170,6 @@ class ODMR(ManagedJob, GetSetItemsMixin):
             self.frequency = frequency
             self.counts = np.zeros(frequency.shape)
             self.run_time = 0.0
-
-        if not self.keep_data:
             self.n_sweep = 0
 
         self.keep_data = True # when job manager stops and starts the job, data should be kept. Only new submission should clear data.
@@ -157,7 +180,7 @@ class ODMR(ManagedJob, GetSetItemsMixin):
             self.state = 'run'
             self.apply_parameters()
 
-            if self.run_time >= self.stop_time:
+            if self.run_time >= self.stop_time or self.n_sweep >= self.stop_sweep:
                 self.state = 'done'
                 return
 
@@ -172,8 +195,10 @@ class ODMR(ManagedJob, GetSetItemsMixin):
             ha.Microwave().initSweep(self.frequency, self.power * np.ones(self.frequency.shape))
             time.sleep(0.5)
 
+            if self.enable_periodic_tasks and self.cron_event.last_execution is not None:
+                self.last_execution = str(self.cron_event.last_execution.replace(microsecond=0))
             
-            while self.run_time < self.stop_time:
+            while self.run_time < self.stop_time and self.n_sweep < self.stop_sweep:
                 start_time = time.time()
                 
                 if threading.currentThread().stop_request.isSet():
@@ -189,10 +214,11 @@ class ODMR(ManagedJob, GetSetItemsMixin):
                 self.counts_matrix = np.vstack((counts, self.counts_matrix[:-1, :]))
                 self.trait_property_changed('counts', self.counts)
     
-            if self.run_time < self.stop_time:
-                self.state = 'idle'            
+            if self.run_time < self.stop_time and self.n_sweep < self.stop_sweep:
+                self.state = 'idle'
             else:
                 self.state = 'done'
+                self._auto_save()
             if self.pulsed:
                 ha.Microwave().setOutput(None, self.frequency_begin_p)
             else:
@@ -205,6 +231,7 @@ class ODMR(ManagedJob, GetSetItemsMixin):
             self.state = 'error'
         
         finally:
+            
             if self.pulsed:
                 ha.Microwave().setOutput(None, self.frequency_begin_p)
             else:
@@ -349,81 +376,171 @@ class ODMR(ManagedJob, GetSetItemsMixin):
         """React to start button. Submit the Job."""
         self.resubmit() 
 
-    traits_view = View(VGroup(HGroup(Item('submit_button', show_label=False),
-                                     Item('remove_button', show_label=False),
-                                     Item('resubmit_button', show_label=False),
-                                     Item('priority', enabled_when='state != "run"'),
-                                     Item('state', style='readonly'),
-                                     Item('run_time', style='readonly', format_str='%.f'),
-                                     Item('stop_time'),
-                                     spring
-                                     ),
-                              VGroup(HGroup(Item('power', width= -40, enabled_when='state != "run"'),
-                                            Item('frequency_begin', width= -80, enabled_when='state != "run"'),
-                                            Item('frequency_end', width= -80, enabled_when='state != "run"'),
-                                            Item('frequency_delta', width= -80, enabled_when='state != "run"'),
-                                            spring
-                                            ),
-                                     HGroup(Item('pulsed', enabled_when='state != "run"'),
-                                            Item('power_p', width= -40, enabled_when='state != "run"'),
-                                            Item('frequency_begin_p', width= -80, enabled_when='state != "run"'),
-                                            Item('frequency_end_p', width= -80, enabled_when='state != "run"'),
-                                            Item('frequency_delta_p', width= -80, enabled_when='state != "run"'),
-                                            spring
-                                            ),
-                                     HGroup(Item('seconds_per_point', width= -40, enabled_when='state != "run"'),
-                                            Item('T_init', width= -50, enabled_when='state != "run"'),
-                                            Item('T_readout', width= -50, enabled_when='state != "run"'),
-                                            Item('T_pi', width= -50, enabled_when='state != "run"'),
-                                            Item('wait', width= -50, enabled_when='state != "run"'),
-                                            spring
-                                            ),
-                                     # HGroup(                                                   
-                                           # Item('rf1Frequency', width= -80, enabled_when='state != "run"'),
-                                           # Item('rf1Power', width= -80, enabled_when='state != "run"'),
-                                           # Item('rf2Frequency', width= -80, enabled_when='state != "run"'),
-                                           # Item('rf2Power', width= -80, enabled_when='state != "run"'),
-                                           # Item('randomTime', width= -80, enabled_when='state != "run"'),
-                                           # ),
-                                     HGroup(Item('perform_fit'),
-                                            Item('number_of_resonances', width= -60),
-                                            Item('threshold', width= -60),
-                                            Item('n_lines', width= -60),
-                                            Item('n_sweep', style='readonly'),
-                                            spring
-                                            ),
-                                     HGroup(Item('fit_contrast', style='readonly'),
-                                            Item('fit_line_width', style='readonly'),
-                                            Item('fit_frequencies', style='readonly'),
-                                            spring
-                                            ),
-                                     ),
-                              VSplit(Item('matrix_plot', show_label=False, resizable=True),
-                                     Item('line_plot', show_label=False, resizable=True),
-                                     ),
-                              ),
-                       menubar=MenuBar(Menu(Action(action='saveLinePlot', name='SaveLinePlot (.png)'),
-                                              Action(action='saveMatrixPlot', name='SaveMatrixPlot (.png)'),
-                                              Action(action='save', name='Save (.pyd or .pys)'),
-                                              Action(action='saveAll', name='Save All (.png+.pys)'),
-                                              Action(action='export', name='Export as Ascii (.asc)'),
-                                              Action(action='load', name='Load'),
-                                              Action(action='_on_close', name='Quit'),
-                                              name='File')),
-                       title='ODMR',
-                       width=1000, height=800,
-                       buttons=[], resizable=True, handler=ODMRHandler
-                       )
+    # Periodic tasks
+    def _auto_save_path_button_fired(self):
+        dlg = FileDialog(action='save as', title='Save Matrix Plot (.png)')
+        result = dlg.open()
+        if result != OK:
+            return
+        self.auto_save_path = dlg.path
 
-    get_set_items = ['frequency', 'counts', 'counts_matrix',
-                     'fit_parameters', 'fit_contrast', 'fit_line_width', 'fit_frequencies',
-                     'perform_fit', 'run_time',
-                     'power', 'frequency_begin', 'frequency_end', 'frequency_delta',
-                     'power_p', 'frequency_begin_p', 'frequency_end_p', 'frequency_delta_p',
-                     'T_init', 'T_readout', 'wait', 'pulsed', 'T_pi',
-                     'seconds_per_point', 'stop_time', 'n_lines', 'n_sweep',
-                     'number_of_resonances', 'threshold',
-                     '__doc__']
+    def _auto_save(self):
+        if self.enable_auto_save:
+            timestamp = time.strftime('%Y%m%d_%H%M%S')
+            base_path = self.auto_save_path
+            line_plot_filename = '{0}_autosave_Line_Plot_{1}.png'.format(base_path, timestamp)
+            matrix_plot_filename = '{0}_autosave_Matrix_Plot_{1}.png'.format(base_path, timestamp)
+            data_filename = '{0}_autosave_{1}.pys'.format(base_path, timestamp)
+            self.save_line_plot(line_plot_filename)
+            self.save_matrix_plot(matrix_plot_filename)
+            self.save(data_filename)
+            logging.getLogger().info('Auto-saved data to {0}, {1}, {2}.\n'.format(data_filename, line_plot_filename, matrix_plot_filename))
+
+    def _enable_periodic_tasks_changed(self, new):
+        if not new and hasattr(self, 'cron_event'):
+            CronDaemon().remove(self.cron_event)
+            self.last_execution = ''
+        if new:
+            # Use IntervalCronEvent for true n-hour intervals
+            # This ensures tasks run every N hours, not at specific hours each day
+            if self.periodic_tasks_interval_unit == 'mins':
+                self.cron_event = IntervalCronEvent(
+                    self._periodic_task, 
+                    interval_minutes=self.periodic_tasks_interval
+                )
+            elif self.periodic_tasks_interval_unit == 'hours':
+                self.cron_event = IntervalCronEvent(
+                    self._periodic_task, 
+                    interval_hours=self.periodic_tasks_interval
+                )
+            elif self.periodic_tasks_interval_unit == 'days':
+                self.cron_event = IntervalCronEvent(
+                    self._periodic_task, 
+                    interval_days=self.periodic_tasks_interval
+                )
+            CronDaemon().register(self.cron_event)
+            
+    def _force_trigger_button_fired(self):
+        """React to force trigger button. Manually trigger the periodic task immediately."""
+        if hasattr(self, 'cron_event'):
+            logging.getLogger().info('Force triggering periodic task.')
+            self.cron_event.force_trigger()
+        else:
+            logging.getLogger().warning('No cron event registered. Enable periodic tasks first.')
+
+    def _periodic_task(self):
+        self.submit()
+
+    traits_view = View(
+        VGroup(
+            HGroup(
+                Item('submit_button', show_label=False),
+                Item('remove_button', show_label=False),
+                Item('resubmit_button', show_label=False),
+                Item('priority', width= -40, enabled_when='state != "run"'),
+                Item('state', style='readonly'),
+                Item('run_time', style='readonly', format_str='%.f'),
+                Item('stop_time', width= -40),
+                Item('stop_sweep', width= -40),
+                spring
+            ),
+            VGroup(
+                HGroup(
+                    Item('power', width= -40, enabled_when='state != "run"'),
+                    Item('frequency_begin', width= -80, enabled_when='state != "run"'),
+                    Item('frequency_end', width= -80, enabled_when='state != "run"'),
+                    Item('frequency_delta', width= -80, enabled_when='state != "run"'),
+                    spring
+                ),
+                HGroup(
+                    Item('pulsed', enabled_when='state != "run"'),
+                    Item('power_p', width= -40, enabled_when='state != "run"'),
+                    Item('frequency_begin_p', width= -80, enabled_when='state != "run"'),
+                    Item('frequency_end_p', width= -80, enabled_when='state != "run"'),
+                    Item('frequency_delta_p', width= -80, enabled_when='state != "run"'),
+                    spring
+                ),
+                HGroup(
+                    Item('seconds_per_point', width= -40, enabled_when='state != "run"'),
+                    Item('T_init', width= -50, enabled_when='state != "run"'),
+                    Item('T_readout', width= -50, enabled_when='state != "run"'),
+                    Item('T_pi', width= -50, enabled_when='state != "run"'),
+                    Item('wait', width= -50, enabled_when='state != "run"'),
+                    spring
+                ),
+                HGroup(
+                    Item('perform_fit'),
+                    Item('number_of_resonances', width= -60),
+                    Item('threshold', width= -60),
+                    Item('n_lines', width= -60),
+                    Item('n_sweep', style='readonly'),
+                    spring
+                ),
+                HGroup(
+                    Item('fit_contrast', style='readonly'),
+                    Item('fit_line_width', style='readonly'),
+                    Item('fit_frequencies', style='readonly'),
+                    spring
+                ),
+                label='Measurement Parameters',
+                show_border=True,
+            ),
+            VGroup(
+                HGroup(
+                    Item('enable_periodic_tasks'),
+                    Item('enable_auto_save'),
+                    Item('force_trigger_button', width= -100, show_label=False),
+                    spring
+                ),
+                HGroup(
+                    Item('periodic_tasks_interval', width= -40, enabled_when='enable_periodic_tasks != True'),
+                    Item('periodic_tasks_interval_unit', width= -60, show_label=False, enabled_when='enable_periodic_tasks != True'),
+                    Item('last_execution', style='readonly'),
+                    spring
+                ),
+                HGroup(
+                    Item('auto_save_path', width= -400),
+                    Item('auto_save_path_button', width= -100, show_label=False),
+                    spring
+                ),
+                label='Periodic task',
+                show_border=True,
+            ),
+            VSplit(
+                Item('matrix_plot', show_label=False, resizable=True),
+                Item('line_plot', show_label=False, resizable=True),
+            ),
+        ),
+    menubar=MenuBar(
+        Menu(
+            Action(action='saveLinePlot', name='SaveLinePlot (.png)'),
+            Action(action='saveMatrixPlot', name='SaveMatrixPlot (.png)'),
+            Action(action='save', name='Save (.pyd or .pys)'),
+            Action(action='saveAll', name='Save All (.png+.pys)'),
+            Action(action='export', name='Export as Ascii (.asc)'),
+            Action(action='load', name='Load'),
+            Action(action='_on_close', name='Quit'),
+            name='File'
+        )
+    ),
+    title='ODMR',
+    width=1000, height=800,
+    buttons=[], resizable=True, handler=ODMRHandler
+    )
+
+    get_set_items = [
+        'frequency', 'counts', 'counts_matrix',
+        'fit_parameters', 'fit_contrast', 'fit_line_width', 'fit_frequencies',
+        'perform_fit', 'run_time',
+        'power', 'frequency_begin', 'frequency_end', 'frequency_delta',
+        'power_p', 'frequency_begin_p', 'frequency_end_p', 'frequency_delta_p',
+        'T_init', 'T_readout', 'wait', 'pulsed', 'T_pi',
+        'seconds_per_point', 'stop_time', 'stop_sweep', 'n_lines', 'n_sweep',
+        'enable_periodic_tasks', 'enable_auto_save', 'auto_save_path',
+        'periodic_tasks_interval', 'periodic_tasks_interval_unit',
+        'number_of_resonances', 'threshold',
+        '__doc__'
+    ]
 
 if __name__ == '__main__':
 

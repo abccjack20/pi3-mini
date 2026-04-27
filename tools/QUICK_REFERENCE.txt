@@ -1,0 +1,90 @@
+IntervalCronEvent - Quick Reference
+====================================
+
+BASIC USAGE:
+-----------
+from tools.interval_iterator import IntervalCronEvent
+from tools.cron import CronDaemon
+
+event = IntervalCronEvent(my_function, interval_hours=7)
+CronDaemon().register(event)
+
+
+TIME UNIT OPTIONS:
+-----------------
+Choose one or combine multiple:
+
+interval_hours=N      Execute every N hours
+interval_minutes=N    Execute every N minutes  
+interval_days=N       Execute every N days
+interval_seconds=N    Execute every N seconds
+
+
+EXAMPLES:
+--------
+
+Every 7 hours:
+    IntervalCronEvent(task, interval_hours=7)
+
+Every 30 minutes:
+    IntervalCronEvent(task, interval_minutes=30)
+
+Every 2 days:
+    IntervalCronEvent(task, interval_days=2)
+
+Every 90 minutes (1.5 hours):
+    IntervalCronEvent(task, interval_minutes=90)
+    OR
+    IntervalCronEvent(task, interval_hours=1, interval_minutes=30)
+
+Every 36 hours (1.5 days):
+    IntervalCronEvent(task, interval_hours=36)
+    OR
+    IntervalCronEvent(task, interval_days=1, interval_hours=12)
+
+Every 2 days, 3 hours, and 45 minutes:
+    IntervalCronEvent(task, 
+                      interval_days=2,
+                      interval_hours=3,
+                      interval_minutes=45)
+
+
+ADVANCED OPTIONS:
+----------------
+
+Custom start time:
+    start = datetime(2025, 11, 17, 10, 0, 0)
+    IntervalCronEvent(task, interval_hours=7, start_time=start)
+
+With arguments:
+    IntervalCronEvent(task, 
+                      interval_hours=12,
+                      args=(arg1, arg2),
+                      kwargs={'key': 'value'})
+
+Force trigger (for testing):
+    event = IntervalCronEvent(task, interval_hours=7)
+    event.force_trigger()  # Execute immediately without waiting
+
+
+ODMR INTEGRATION:
+----------------
+
+In odmr_ps.py, the periodic tasks use IntervalCronEvent:
+
+1. Set "Interval [h]" to desired hours (e.g., 7)
+2. Check "Enable periodic tasks"
+3. Click "Force Trigger" to test immediately
+
+
+WHY USE THIS INSTEAD OF range(0, 24, 7)?
+----------------------------------------
+
+range(0, 24, 7) = [0, 7, 14, 21]
+- Triggers at 00:00, 07:00, 14:00, 21:00 EVERY DAY
+- 21:00 -> 00:00 (next day) is only 3 hours! ❌
+
+IntervalCronEvent(interval_hours=7):
+- Triggers every 7 hours continuously
+- 21:00 -> 04:00 (next day) is 7 hours ✓
+- True time intervals across day boundaries

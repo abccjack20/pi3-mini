@@ -35,13 +35,13 @@ if __name__ == '__main__':
     odmr.edit_traits()
 
     # # Start Rabi / PulsedAnalyser
-    from measurements.rabi import Rabi
-    rabi = Rabi()
-    rabi.edit_traits()
+    # from measurements.rabi import Rabi
+    # rabi = Rabi()
+    # rabi.edit_traits()
 
-    from analysis.pulsed import PulsedAnalyzer
-    pa = PulsedAnalyzer()
-    pa.edit_traits()
+    # from analysis.pulsed import PulsedAnalyzer
+    # pa = PulsedAnalyzer()
+    # pa.edit_traits()
 
     from measurements.control_panel import ControlPanel
     cp = ControlPanel()
