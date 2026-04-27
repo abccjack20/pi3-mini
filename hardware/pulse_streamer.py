@@ -67,7 +67,7 @@ class PulseStreamer_clock:
 
     def __init__(self,
         pstreamer,
-        samps_per_chan=None, period=0.01, duty_cycle=0.9,
+        samps_per_chan=None, next_ch='next', period=0.01, duty_cycle=0.9,
         laser_init=.2, T_pi=100., T_readout=2.e3, T_init=30.e3, wait=20.e3
     ):
         self.pstreamer = pstreamer
@@ -80,6 +80,7 @@ class PulseStreamer_clock:
         self.T_init = T_init
         self.wait = wait
         self.mode = 'cw'
+        self.next_ch = next_ch
         self.N_per_samp = 1
         self.sec = 1.e9
 
@@ -111,7 +112,8 @@ class PulseStreamer_clock:
         T = self.period*self.sec/2.
         T_readout = T*self.duty_cycle
         T_init = T - T_readout
-        
+        next = self.next_ch
+
         N_samps = self.samps_per_chan
         self.N_per_samp = 1
 
@@ -125,7 +127,7 @@ class PulseStreamer_clock:
             (['aom', 'mw'], T_init),
             (['aom', 'mw', 'detect'], T_readout),
             (['aom',], T_init),
-            (['aom', 'detect', 'next'], T_readout),
+            (['aom', 'detect', next], T_readout),
         ]*N_samps
 
     def prepare_pulsed(self):
@@ -134,6 +136,7 @@ class PulseStreamer_clock:
         T_pi = self.T_pi*self.sec
         wait = self.wait*self.sec
         T = T_pi + wait + T_readout + T_init
+        next = self.next_ch
 
         T_up = self.period*self.duty_cycle*self.sec
         T_down = self.period*(1 - self.duty_cycle)*self.sec
@@ -148,18 +151,18 @@ class PulseStreamer_clock:
                 (['aom'], self.laser_init*self.sec),
             ]
         sig_unit = [
-            ([       'mw',            ], T_pi),
-            ([                        ], wait),
-            (['aom', 'detect',        ], T_readout),
-            (['aom',                  ], T_init),
+            ([       'mw',          ], T_pi),
+            ([                      ], wait),
+            (['aom', 'detect',      ], T_readout),
+            (['aom',                ], T_init),
         ]
         ref_unit = [
-            ([                        ], T_pi + wait),
-            (['aom', 'detect',        ], T_readout),
-            (['aom',                  ], T_init),
+            ([                      ], T_pi + wait),
+            (['aom', 'detect',      ], T_readout),
+            (['aom',                ], T_init),
         ]
         idle = [
-            (['aom',            'next'], T_down),
+            (['aom',            next], T_down),
         ]
         point = sig_unit*N_per_samp + ref_unit*N_per_samp + idle
         self.sequence += point*N_samps

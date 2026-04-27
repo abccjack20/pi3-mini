@@ -35,7 +35,7 @@ ps_channels = {
     'aom':0,
     'detect':1,
     'mw':4,
-    'awg':5,
+    'pixel_next':5,#'awg':5,
     'next':6,
     'sync':7,
 }

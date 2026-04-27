@@ -173,6 +173,7 @@ class sample_clock(task_constructor):
         self.duty_cycle = duty_cycle
         self.samps_per_chan = samps_per_chan
         self.des_term = des_term
+        self.use_internal_output = True
         
     @property
     def sample_rate(self):
@@ -397,7 +398,9 @@ class analog_output_sweeper(analog_output_constant):
             print('Specify frame size of the sampling clock to use FINITE mode')
             return
 
-        src = self.samp_clk.source + 'InternalOutput'
+        src = self.samp_clk.source
+        if self.use_internal_output:
+            src += 'InternalOutput'
         rate = self.samp_clk.sample_rate
         self.task.timing.cfg_samp_clk_timing(
             rate,
