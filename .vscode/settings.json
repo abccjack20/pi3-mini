@@ -1,2 +1,4 @@
 {
+    "python.defaultInterpreterPath": "C:\\Users\\yy3\\anaconda3\\envs\\pi3\\python.exe",
+    "python.terminal.activateEnvironment": true
 }

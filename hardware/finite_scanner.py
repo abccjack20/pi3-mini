@@ -370,7 +370,7 @@ class piezostage_controller_aom_PS(piezostage_controller_aom):
             if mode == 'off':
                 return data[3::2]*scale
             if mode == 'diff':
-                return (data[2::2] - data[3::2])*scale
+                return (data[2::2] - data[3::2])/(data[2::2] + data[3::2])
             if mode == 'sum':
                 return (data[2::2] + data[3::2])*scale
         else:

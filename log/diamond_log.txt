@@ -1,75 +1,29 @@
-2026-04-27 14:20:10,928 - diamond.<module> - INFO - Starting logger.
-2026-04-27 14:20:11,767 - emod.start - INFO - Starting Job Manager.
-2026-04-27 14:20:11,767 - cron.run - INFO - Starting Cron Daemon.
-2026-04-27 14:21:12,747 - diamond.<module> - INFO - Starting logger.
-2026-04-27 14:21:13,517 - emod.start - INFO - Starting Job Manager.
-2026-04-27 14:21:13,517 - cron.run - INFO - Starting Cron Daemon.
-2026-04-27 14:21:40,003 - diamond.<module> - INFO - Starting logger.
-2026-04-27 14:21:40,834 - emod.start - INFO - Starting Job Manager.
-2026-04-27 14:21:40,835 - cron.run - INFO - Starting Cron Daemon.
-2026-04-27 14:25:14,927 - diamond.<module> - INFO - Starting logger.
-2026-04-27 14:25:15,696 - emod.start - INFO - Starting Job Manager.
-2026-04-27 14:25:15,696 - cron.run - INFO - Starting Cron Daemon.
-2026-04-27 14:27:56,432 - diamond.<module> - INFO - Starting logger.
-2026-04-27 14:27:57,210 - emod.start - INFO - Starting Job Manager.
-2026-04-27 14:27:57,210 - cron.run - INFO - Starting Cron Daemon.
-2026-04-27 14:29:33,724 - diamond.<module> - INFO - Starting logger.
-2026-04-27 14:29:34,497 - emod.start - INFO - Starting Job Manager.
-2026-04-27 14:29:34,497 - cron.run - INFO - Starting Cron Daemon.
-2026-04-27 14:30:29,843 - diamond.<module> - INFO - Starting logger.
-2026-04-27 14:30:30,613 - emod.start - INFO - Starting Job Manager.
-2026-04-27 14:30:30,613 - cron.run - INFO - Starting Cron Daemon.
-2026-04-27 14:33:41,663 - diamond.<module> - INFO - Starting logger.
-2026-04-27 14:33:42,470 - emod.start - INFO - Starting Job Manager.
-2026-04-27 14:33:42,470 - cron.run - INFO - Starting Cron Daemon.
-2026-04-27 14:42:40,381 - diamond.<module> - INFO - Starting logger.
-2026-04-27 14:42:41,201 - emod.start - INFO - Starting Job Manager.
-2026-04-27 14:42:41,202 - cron.run - INFO - Starting Cron Daemon.
-2026-04-27 14:51:59,867 - diamond.<module> - INFO - Starting logger.
-2026-04-27 14:52:00,653 - emod.start - INFO - Starting Job Manager.
-2026-04-27 14:52:00,653 - cron.run - INFO - Starting Cron Daemon.
-2026-04-27 14:59:34,765 - diamond.<module> - INFO - Starting logger.
-2026-04-27 14:59:35,580 - emod.start - INFO - Starting Job Manager.
-2026-04-27 14:59:35,581 - cron.run - INFO - Starting Cron Daemon.
-2026-04-27 15:00:20,630 - diamond.<module> - INFO - Starting logger.
-2026-04-27 15:00:21,416 - emod.start - INFO - Starting Job Manager.
-2026-04-27 15:00:21,417 - cron.run - INFO - Starting Cron Daemon.
-2026-04-27 15:02:03,863 - diamond.<module> - INFO - Starting logger.
-2026-04-27 15:02:04,686 - emod.start - INFO - Starting Job Manager.
-2026-04-27 15:02:04,690 - cron.run - INFO - Starting Cron Daemon.
-2026-04-27 15:06:24,366 - diamond.<module> - INFO - Starting logger.
-2026-04-27 15:06:25,143 - emod.start - INFO - Starting Job Manager.
-2026-04-27 15:06:25,143 - cron.run - INFO - Starting Cron Daemon.
-2026-04-27 15:09:37,596 - diamond.<module> - INFO - Starting logger.
-2026-04-27 15:09:38,413 - emod.start - INFO - Starting Job Manager.
-2026-04-27 15:09:38,414 - cron.run - INFO - Starting Cron Daemon.
-2026-04-27 15:10:23,436 - diamond.<module> - INFO - Starting logger.
-2026-04-27 15:10:24,258 - emod.start - INFO - Starting Job Manager.
-2026-04-27 15:10:24,259 - cron.run - INFO - Starting Cron Daemon.
-2026-04-27 15:10:58,869 - diamond.<module> - INFO - Starting logger.
-2026-04-27 15:10:59,718 - emod.start - INFO - Starting Job Manager.
-2026-04-27 15:10:59,718 - cron.run - INFO - Starting Cron Daemon.
-2026-04-27 15:12:49,662 - diamond.<module> - INFO - Starting logger.
-2026-04-27 15:12:50,414 - emod.start - INFO - Starting Job Manager.
-2026-04-27 15:12:50,414 - cron.run - INFO - Starting Cron Daemon.
-2026-04-27 15:19:33,162 - diamond.<module> - INFO - Starting logger.
-2026-04-27 15:19:33,957 - emod.start - INFO - Starting Job Manager.
-2026-04-27 15:19:33,958 - cron.run - INFO - Starting Cron Daemon.
-2026-04-27 15:23:00,849 - diamond.<module> - INFO - Starting logger.
-2026-04-27 15:23:01,642 - emod.start - INFO - Starting Job Manager.
-2026-04-27 15:23:01,643 - cron.run - INFO - Starting Cron Daemon.
-2026-04-27 15:28:08,473 - diamond.<module> - INFO - Starting logger.
-2026-04-27 15:28:09,279 - emod.start - INFO - Starting Job Manager.
-2026-04-27 15:28:09,281 - cron.run - INFO - Starting Cron Daemon.
-2026-04-27 15:40:08,627 - diamond.<module> - INFO - Starting logger.
-2026-04-27 15:40:09,405 - emod.start - INFO - Starting Job Manager.
-2026-04-27 15:40:09,407 - cron.run - INFO - Starting Cron Daemon.
-2026-04-27 15:41:29,469 - diamond.<module> - INFO - Starting logger.
-2026-04-27 15:41:30,284 - emod.start - INFO - Starting Job Manager.
-2026-04-27 15:41:30,285 - cron.run - INFO - Starting Cron Daemon.
-2026-04-27 15:41:58,778 - diamond.<module> - INFO - Starting logger.
-2026-04-27 15:41:59,554 - emod.start - INFO - Starting Job Manager.
-2026-04-27 15:41:59,555 - cron.run - INFO - Starting Cron Daemon.
-2026-04-27 15:53:30,456 - diamond.<module> - INFO - Starting logger.
-2026-04-27 15:53:31,224 - emod.start - INFO - Starting Job Manager.
-2026-04-27 15:53:31,224 - cron.run - INFO - Starting Cron Daemon.
+2026-06-01 10:04:28,549 - auto_focus.focus - INFO - Focus: -48.84, 47.42, 62.22
+2026-06-02 08:48:08,441 - auto_focus.focus - INFO - Focus: -7.22, 1.66, 46.94
+2026-06-02 08:52:06,375 - auto_focus.focus - INFO - Focus: -41.36, -15.80, 46.14
+2026-06-02 08:54:52,857 - auto_focus.focus - INFO - Focus: -44.18, -15.00, 46.14
+2026-06-02 08:55:27,299 - emod.submit - INFO - The job <measurements.odmr_ps.ODMR object at 0x000001DD71FB6660> is already running or in the queue.
+2026-06-02 11:55:48,873 - axis._compute_tick_positions - WARNING - {self.mapper} has an invalid data range with low={datalow} > high={datahigh}; unable to compute axis ticks.
+2026-06-02 12:33:22,361 - auto_focus.focus - INFO - Focus: -83.89, -68.33, 46.14
+2026-06-02 13:47:58,046 - auto_focus.focus - INFO - Focus: -70.45, 82.47, 57.51
+2026-06-02 13:50:24,834 - auto_focus.focus - INFO - Focus: -70.50, 81.72, 56.51
+2026-06-02 13:52:32,782 - auto_focus.focus - INFO - Focus: -70.65, 81.87, 55.51
+2026-06-02 13:59:13,628 - auto_focus.focus - INFO - Focus: -47.02, -66.41, 54.61
+2026-06-02 15:28:08,341 - auto_focus.focus - INFO - Focus: 82.47, -79.65, 48.64
+2026-06-02 15:31:00,176 - auto_focus.focus - INFO - Focus: 82.47, -79.55, 45.96
+2026-06-03 14:58:02,706 - diamond.<module> - INFO - Starting logger.
+2026-06-03 14:58:04,962 - emod.start - INFO - Starting Job Manager.
+2026-06-03 14:58:04,966 - cron.run - INFO - Starting Cron Daemon.
+2026-06-03 16:11:34,223 - auto_focus.focus - INFO - Focus: 56.06, 54.69, 46.14
+2026-06-03 16:14:35,940 - auto_focus.focus - INFO - Focus: 81.23, 6.43, 46.14
+2026-06-03 16:14:52,880 - auto_focus.focus - INFO - Focus: 80.63, 6.63, 46.14
+2026-06-03 16:20:21,194 - auto_focus.focus - INFO - Focus: 80.83, 6.43, 46.94
+2026-06-03 16:25:34,095 - auto_focus.focus - INFO - Focus: 80.83, 6.43, 46.94
+2026-06-05 09:19:24,794 - auto_focus.next_target - INFO - No target available. Add a target and try again!
+2026-06-05 09:19:29,912 - auto_focus.next_target - INFO - No target available. Add a target and try again!
+2026-06-05 09:27:17,302 - auto_focus.focus - INFO - Focus: 18.59, -19.19, 64.27
+2026-06-05 09:27:50,980 - auto_focus.focus - INFO - Focus: 18.59, -19.19, 65.27
+2026-06-05 09:30:38,972 - auto_focus.focus - INFO - Focus: -62.62, 29.29, 66.27
+2026-06-05 09:35:19,262 - auto_focus.focus - INFO - Focus: -63.62, 30.09, 67.27
+2026-06-06 19:21:36,391 - auto_focus.focus - INFO - Focus: -22.43, -9.71, 49.89
+2026-06-06 19:21:54,279 - auto_focus.focus - INFO - Focus: -22.43, -9.71, 50.69

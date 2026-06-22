@@ -109,8 +109,9 @@ class PulseStreamer_clock:
         self.pstreamer.Light()
 
     def prepare_cw(self):
-        T = self.period*self.sec/2.
-        T_readout = T*self.duty_cycle
+        T = self.period*self.duty_cycle*self.sec/2.
+        T_settle = self.period*(1 - self.duty_cycle)*self.sec
+        T_readout = T*0.9
         T_init = T - T_readout
         next = self.next_ch
 
@@ -128,6 +129,7 @@ class PulseStreamer_clock:
             (['aom', 'mw', 'detect'], T_readout),
             (['aom',], T_init),
             (['aom', 'detect', next], T_readout),
+            (['aom',], T_settle),
         ]*N_samps
 
     def prepare_pulsed(self):
